@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIMetaInformation" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="simplegt" icon="icons/editor_icon.gif" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor" name="EMFText simplegt Editor">
+			<contentTypeBinding contentTypeId="be.ac.vub.simplegt.resource.simplegt"/>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Simplegt Text Editor" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPreferencePage" class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtSyntaxColoringPreferencePage" class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtSyntaxColoringPreferencePage" category="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPreferencePage">
+		</page>
+		<page name="Brackets" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtBracketPreferencePage" class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtBracketPreferencePage" category="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewFileWizard" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewFileWizard" name="EMFText .simplegt file">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtMarkerResolutionGenerator" markerType="be.ac.vub.simplegt.resource.simplegt.problem" />
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtAnnotationModelFactory" extensions="simplegt" />
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="be.ac.vub.simplegt.resource.simplegt" name=".simplegt File" base-type="org.eclipse.core.runtime.text" file-extensions="simplegt"/>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="simplegt" id="be.ac.vub.simplegt.resource.simplegt.ui.provider" />
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="be.ac.vub.simplegt.resource.simplegt.ui.occurences" />
+		<type name="be.ac.vub.simplegt.resource.simplegt.ui.occurences.declaration" super="be.ac.vub.simplegt.resource.simplegt.ui.occurences" />
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="be.ac.vub.simplegt.resource.simplegt.ui.occurences" label="Occurrences (in .simplegt files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="simplegt.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="simplegt.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="simplegt.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="simplegt.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="simplegt.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="simplegt.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="simplegt.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="simplegt.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="simplegt.occurrenceTextStyle" textStylePreferenceValue="NONE" />
+		<specification annotationType="be.ac.vub.simplegt.resource.simplegt.ui.occurences.declaration" label="Declarations (in .simplegt files)" textPreferenceKey="simplegt.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="simplegt.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="simplegt.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="simplegt.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="simplegt.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="simplegt.declarationTextStyle" textStylePreferenceValue="NONE" />
+	</extension>
+	
+</plugin>
