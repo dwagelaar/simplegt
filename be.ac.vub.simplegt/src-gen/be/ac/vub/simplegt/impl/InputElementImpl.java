@@ -5,22 +5,27 @@
  */
 package be.ac.vub.simplegt.impl;
 
+import be.ac.vub.simplegt.InputBinding;
 import be.ac.vub.simplegt.Binding;
 import be.ac.vub.simplegt.InPattern;
-import be.ac.vub.simplegt.InputBinding;
 import be.ac.vub.simplegt.InputElement;
+import be.ac.vub.simplegt.InputElementPattern;
 import be.ac.vub.simplegt.NacPattern;
 import be.ac.vub.simplegt.SimplegtPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,9 +34,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link be.ac.vub.simplegt.impl.InputElementImpl#getInPattern <em>In Pattern</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.impl.InputElementImpl#getBinding <em>Binding</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.impl.InputElementImpl#getNacPattern <em>Nac Pattern</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.impl.InputElementImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.impl.InputElementImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,15 +43,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class InputElementImpl extends RuleElementImpl implements InputElement {
 	/**
-	 * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference.
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBinding()
+	 * @see #getBindings()
 	 * @generated
 	 * @ordered
 	 */
-	protected InputBinding binding;
-
+	protected EList<InputBinding> bindings;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,9 +75,11 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InPattern getInPattern() {
-		if (eContainerFeatureID() != SimplegtPackage.INPUT_ELEMENT__IN_PATTERN) return null;
-		return (InPattern)eContainer();
+	public EList<InputBinding> getBindings() {
+		if (bindings == null) {
+			bindings = new EObjectContainmentWithInverseEList<InputBinding>(InputBinding.class, this, SimplegtPackage.INPUT_ELEMENT__BINDINGS, SimplegtPackage.INPUT_BINDING__ELEMENT);
+		}
+		return bindings;
 	}
 
 	/**
@@ -82,8 +87,18 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInPattern(InPattern newInPattern, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newInPattern, SimplegtPackage.INPUT_ELEMENT__IN_PATTERN, msgs);
+	public InputElementPattern getPattern() {
+		if (eContainerFeatureID() != SimplegtPackage.INPUT_ELEMENT__PATTERN) return null;
+		return (InputElementPattern)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPattern(InputElementPattern newPattern, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPattern, SimplegtPackage.INPUT_ELEMENT__PATTERN, msgs);
 		return msgs;
 	}
 
@@ -92,20 +107,20 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInPattern(InPattern newInPattern) {
-		if (newInPattern != eInternalContainer() || (eContainerFeatureID() != SimplegtPackage.INPUT_ELEMENT__IN_PATTERN && newInPattern != null)) {
-			if (EcoreUtil.isAncestor(this, newInPattern))
+	public void setPattern(InputElementPattern newPattern) {
+		if (newPattern != eInternalContainer() || (eContainerFeatureID() != SimplegtPackage.INPUT_ELEMENT__PATTERN && newPattern != null)) {
+			if (EcoreUtil.isAncestor(this, newPattern))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newInPattern != null)
-				msgs = ((InternalEObject)newInPattern).eInverseAdd(this, SimplegtPackage.IN_PATTERN__ELEMENTS, InPattern.class, msgs);
-			msgs = basicSetInPattern(newInPattern, msgs);
+			if (newPattern != null)
+				msgs = ((InternalEObject)newPattern).eInverseAdd(this, SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS, InputElementPattern.class, msgs);
+			msgs = basicSetPattern(newPattern, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.INPUT_ELEMENT__IN_PATTERN, newInPattern, newInPattern));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.INPUT_ELEMENT__PATTERN, newPattern, newPattern));
 	}
 
 	/**
@@ -113,105 +128,16 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputBinding getBinding() {
-		return binding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBinding(InputBinding newBinding, NotificationChain msgs) {
-		InputBinding oldBinding = binding;
-		binding = newBinding;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplegtPackage.INPUT_ELEMENT__BINDING, oldBinding, newBinding);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBinding(InputBinding newBinding) {
-		if (newBinding != binding) {
-			NotificationChain msgs = null;
-			if (binding != null)
-				msgs = ((InternalEObject)binding).eInverseRemove(this, SimplegtPackage.INPUT_BINDING__BINDING_FOR, InputBinding.class, msgs);
-			if (newBinding != null)
-				msgs = ((InternalEObject)newBinding).eInverseAdd(this, SimplegtPackage.INPUT_BINDING__BINDING_FOR, InputBinding.class, msgs);
-			msgs = basicSetBinding(newBinding, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.INPUT_ELEMENT__BINDING, newBinding, newBinding));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NacPattern getNacPattern() {
-		if (eContainerFeatureID() != SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN) return null;
-		return (NacPattern)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNacPattern(NacPattern newNacPattern, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newNacPattern, SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNacPattern(NacPattern newNacPattern) {
-		if (newNacPattern != eInternalContainer() || (eContainerFeatureID() != SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN && newNacPattern != null)) {
-			if (EcoreUtil.isAncestor(this, newNacPattern))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newNacPattern != null)
-				msgs = ((InternalEObject)newNacPattern).eInverseAdd(this, SimplegtPackage.NAC_PATTERN__ELEMENTS, NacPattern.class, msgs);
-			msgs = basicSetNacPattern(newNacPattern, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN, newNacPattern, newNacPattern));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SimplegtPackage.INPUT_ELEMENT__IN_PATTERN:
+			case SimplegtPackage.INPUT_ELEMENT__BINDINGS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBindings()).basicAdd(otherEnd, msgs);
+			case SimplegtPackage.INPUT_ELEMENT__PATTERN:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetInPattern((InPattern)otherEnd, msgs);
-			case SimplegtPackage.INPUT_ELEMENT__BINDING:
-				if (binding != null)
-					msgs = ((InternalEObject)binding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimplegtPackage.INPUT_ELEMENT__BINDING, null, msgs);
-				return basicSetBinding((InputBinding)otherEnd, msgs);
-			case SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetNacPattern((NacPattern)otherEnd, msgs);
+				return basicSetPattern((InputElementPattern)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -224,12 +150,10 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SimplegtPackage.INPUT_ELEMENT__IN_PATTERN:
-				return basicSetInPattern(null, msgs);
-			case SimplegtPackage.INPUT_ELEMENT__BINDING:
-				return basicSetBinding(null, msgs);
-			case SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN:
-				return basicSetNacPattern(null, msgs);
+			case SimplegtPackage.INPUT_ELEMENT__BINDINGS:
+				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
+			case SimplegtPackage.INPUT_ELEMENT__PATTERN:
+				return basicSetPattern(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -242,10 +166,8 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case SimplegtPackage.INPUT_ELEMENT__IN_PATTERN:
-				return eInternalContainer().eInverseRemove(this, SimplegtPackage.IN_PATTERN__ELEMENTS, InPattern.class, msgs);
-			case SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN:
-				return eInternalContainer().eInverseRemove(this, SimplegtPackage.NAC_PATTERN__ELEMENTS, NacPattern.class, msgs);
+			case SimplegtPackage.INPUT_ELEMENT__PATTERN:
+				return eInternalContainer().eInverseRemove(this, SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS, InputElementPattern.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -258,12 +180,10 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SimplegtPackage.INPUT_ELEMENT__IN_PATTERN:
-				return getInPattern();
-			case SimplegtPackage.INPUT_ELEMENT__BINDING:
-				return getBinding();
-			case SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN:
-				return getNacPattern();
+			case SimplegtPackage.INPUT_ELEMENT__BINDINGS:
+				return getBindings();
+			case SimplegtPackage.INPUT_ELEMENT__PATTERN:
+				return getPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,17 +193,16 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SimplegtPackage.INPUT_ELEMENT__IN_PATTERN:
-				setInPattern((InPattern)newValue);
+			case SimplegtPackage.INPUT_ELEMENT__BINDINGS:
+				getBindings().clear();
+				getBindings().addAll((Collection<? extends InputBinding>)newValue);
 				return;
-			case SimplegtPackage.INPUT_ELEMENT__BINDING:
-				setBinding((InputBinding)newValue);
-				return;
-			case SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN:
-				setNacPattern((NacPattern)newValue);
+			case SimplegtPackage.INPUT_ELEMENT__PATTERN:
+				setPattern((InputElementPattern)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -297,14 +216,11 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SimplegtPackage.INPUT_ELEMENT__IN_PATTERN:
-				setInPattern((InPattern)null);
+			case SimplegtPackage.INPUT_ELEMENT__BINDINGS:
+				getBindings().clear();
 				return;
-			case SimplegtPackage.INPUT_ELEMENT__BINDING:
-				setBinding((InputBinding)null);
-				return;
-			case SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN:
-				setNacPattern((NacPattern)null);
+			case SimplegtPackage.INPUT_ELEMENT__PATTERN:
+				setPattern((InputElementPattern)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -318,12 +234,10 @@ public class InputElementImpl extends RuleElementImpl implements InputElement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SimplegtPackage.INPUT_ELEMENT__IN_PATTERN:
-				return getInPattern() != null;
-			case SimplegtPackage.INPUT_ELEMENT__BINDING:
-				return binding != null;
-			case SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN:
-				return getNacPattern() != null;
+			case SimplegtPackage.INPUT_ELEMENT__BINDINGS:
+				return bindings != null && !bindings.isEmpty();
+			case SimplegtPackage.INPUT_ELEMENT__PATTERN:
+				return getPattern() != null;
 		}
 		return super.eIsSet(featureID);
 	}

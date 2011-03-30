@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public abstract class NamedElementImpl extends EObjectImpl implements NamedElement {
+public abstract class NamedElementImpl extends LocatedElementImpl implements NamedElement {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

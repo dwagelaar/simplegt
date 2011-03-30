@@ -71,6 +71,10 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 	protected SimplegtSwitch<Adapter> modelSwitch =
 		new SimplegtSwitch<Adapter>() {
 			@Override
+			public Adapter caseLocatedElement(LocatedElement object) {
+				return createLocatedElementAdapter();
+			}
+			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
 			}
@@ -89,6 +93,10 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRule(Rule object) {
 				return createRuleAdapter();
+			}
+			@Override
+			public Adapter caseInputElementPattern(InputElementPattern object) {
+				return createInputElementPatternAdapter();
 			}
 			@Override
 			public Adapter caseInPattern(InPattern object) {
@@ -127,6 +135,54 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 				return createOutputBindingAdapter();
 			}
 			@Override
+			public Adapter caseSetBinding(SetBinding object) {
+				return createSetBindingAdapter();
+			}
+			@Override
+			public Adapter caseAddBinding(AddBinding object) {
+				return createAddBindingAdapter();
+			}
+			@Override
+			public Adapter caseDelBinding(DelBinding object) {
+				return createDelBindingAdapter();
+			}
+			@Override
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
+			}
+			@Override
+			public Adapter caseElementExp(ElementExp object) {
+				return createElementExpAdapter();
+			}
+			@Override
+			public Adapter caseLiteralExp(LiteralExp object) {
+				return createLiteralExpAdapter();
+			}
+			@Override
+			public Adapter caseStringLiteralExp(StringLiteralExp object) {
+				return createStringLiteralExpAdapter();
+			}
+			@Override
+			public Adapter caseIntegerLiteralExp(IntegerLiteralExp object) {
+				return createIntegerLiteralExpAdapter();
+			}
+			@Override
+			public Adapter caseDoubleLiteralExp(DoubleLiteralExp object) {
+				return createDoubleLiteralExpAdapter();
+			}
+			@Override
+			public Adapter caseCharLiteralExp(CharLiteralExp object) {
+				return createCharLiteralExpAdapter();
+			}
+			@Override
+			public Adapter caseBooleanLiteralExp(BooleanLiteralExp object) {
+				return createBooleanLiteralExpAdapter();
+			}
+			@Override
+			public Adapter caseEnumLiteralExp(EnumLiteralExp object) {
+				return createEnumLiteralExpAdapter();
+			}
+			@Override
 			public Adapter caseModel(Model object) {
 				return createModelAdapter();
 			}
@@ -157,6 +213,20 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.LocatedElement <em>Located Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.LocatedElement
+	 * @generated
+	 */
+	public Adapter createLocatedElementAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.NamedElement <em>Named Element</em>}'.
@@ -225,6 +295,20 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.InputElementPattern <em>Input Element Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.InputElementPattern
+	 * @generated
+	 */
+	public Adapter createInputElementPatternAdapter() {
 		return null;
 	}
 
@@ -351,6 +435,174 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOutputBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.SetBinding <em>Set Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.SetBinding
+	 * @generated
+	 */
+	public Adapter createSetBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.AddBinding <em>Add Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.AddBinding
+	 * @generated
+	 */
+	public Adapter createAddBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.DelBinding <em>Del Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.DelBinding
+	 * @generated
+	 */
+	public Adapter createDelBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.Expression
+	 * @generated
+	 */
+	public Adapter createExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.ElementExp <em>Element Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.ElementExp
+	 * @generated
+	 */
+	public Adapter createElementExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.LiteralExp <em>Literal Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.LiteralExp
+	 * @generated
+	 */
+	public Adapter createLiteralExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.StringLiteralExp <em>String Literal Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.StringLiteralExp
+	 * @generated
+	 */
+	public Adapter createStringLiteralExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.IntegerLiteralExp <em>Integer Literal Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.IntegerLiteralExp
+	 * @generated
+	 */
+	public Adapter createIntegerLiteralExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.DoubleLiteralExp <em>Double Literal Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.DoubleLiteralExp
+	 * @generated
+	 */
+	public Adapter createDoubleLiteralExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.CharLiteralExp <em>Char Literal Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.CharLiteralExp
+	 * @generated
+	 */
+	public Adapter createCharLiteralExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.BooleanLiteralExp <em>Boolean Literal Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.BooleanLiteralExp
+	 * @generated
+	 */
+	public Adapter createBooleanLiteralExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.EnumLiteralExp <em>Enum Literal Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.ac.vub.simplegt.EnumLiteralExp
+	 * @generated
+	 */
+	public Adapter createEnumLiteralExpAdapter() {
 		return null;
 	}
 

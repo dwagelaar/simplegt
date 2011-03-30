@@ -106,13 +106,94 @@ public interface SimplegtFactory extends EFactory {
 	InputBinding createInputBinding();
 
 	/**
-	 * Returns a new object of class '<em>Output Binding</em>'.
+	 * Returns a new object of class '<em>Set Binding</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Output Binding</em>'.
+	 * @return a new object of class '<em>Set Binding</em>'.
 	 * @generated
 	 */
-	OutputBinding createOutputBinding();
+	SetBinding createSetBinding();
+
+	/**
+	 * Returns a new object of class '<em>Add Binding</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Add Binding</em>'.
+	 * @generated
+	 */
+	AddBinding createAddBinding();
+
+	/**
+	 * Returns a new object of class '<em>Del Binding</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Del Binding</em>'.
+	 * @generated
+	 */
+	DelBinding createDelBinding();
+
+	/**
+	 * Returns a new object of class '<em>Element Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element Exp</em>'.
+	 * @generated
+	 */
+	ElementExp createElementExp();
+
+	/**
+	 * Returns a new object of class '<em>String Literal Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Literal Exp</em>'.
+	 * @generated
+	 */
+	StringLiteralExp createStringLiteralExp();
+
+	/**
+	 * Returns a new object of class '<em>Integer Literal Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integer Literal Exp</em>'.
+	 * @generated
+	 */
+	IntegerLiteralExp createIntegerLiteralExp();
+
+	/**
+	 * Returns a new object of class '<em>Double Literal Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Literal Exp</em>'.
+	 * @generated
+	 */
+	DoubleLiteralExp createDoubleLiteralExp();
+
+	/**
+	 * Returns a new object of class '<em>Char Literal Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Char Literal Exp</em>'.
+	 * @generated
+	 */
+	CharLiteralExp createCharLiteralExp();
+
+	/**
+	 * Returns a new object of class '<em>Boolean Literal Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Literal Exp</em>'.
+	 * @generated
+	 */
+	BooleanLiteralExp createBooleanLiteralExp();
+
+	/**
+	 * Returns a new object of class '<em>Enum Literal Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enum Literal Exp</em>'.
+	 * @generated
+	 */
+	EnumLiteralExp createEnumLiteralExp();
 
 	/**
 	 * Returns a new object of class '<em>Metamodel</em>'.

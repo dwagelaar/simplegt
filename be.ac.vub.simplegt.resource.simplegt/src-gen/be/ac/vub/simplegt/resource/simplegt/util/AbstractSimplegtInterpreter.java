@@ -62,6 +62,78 @@ public class AbstractSimplegtInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof be.ac.vub.simplegt.EnumLiteralExp) {
+			result = interprete_be_ac_vub_simplegt_EnumLiteralExp((be.ac.vub.simplegt.EnumLiteralExp) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.BooleanLiteralExp) {
+			result = interprete_be_ac_vub_simplegt_BooleanLiteralExp((be.ac.vub.simplegt.BooleanLiteralExp) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.CharLiteralExp) {
+			result = interprete_be_ac_vub_simplegt_CharLiteralExp((be.ac.vub.simplegt.CharLiteralExp) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.DoubleLiteralExp) {
+			result = interprete_be_ac_vub_simplegt_DoubleLiteralExp((be.ac.vub.simplegt.DoubleLiteralExp) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.IntegerLiteralExp) {
+			result = interprete_be_ac_vub_simplegt_IntegerLiteralExp((be.ac.vub.simplegt.IntegerLiteralExp) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.StringLiteralExp) {
+			result = interprete_be_ac_vub_simplegt_StringLiteralExp((be.ac.vub.simplegt.StringLiteralExp) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.LiteralExp) {
+			result = interprete_be_ac_vub_simplegt_LiteralExp((be.ac.vub.simplegt.LiteralExp) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.ElementExp) {
+			result = interprete_be_ac_vub_simplegt_ElementExp((be.ac.vub.simplegt.ElementExp) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.Expression) {
+			result = interprete_be_ac_vub_simplegt_Expression((be.ac.vub.simplegt.Expression) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.DelBinding) {
+			result = interprete_be_ac_vub_simplegt_DelBinding((be.ac.vub.simplegt.DelBinding) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.AddBinding) {
+			result = interprete_be_ac_vub_simplegt_AddBinding((be.ac.vub.simplegt.AddBinding) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof be.ac.vub.simplegt.SetBinding) {
+			result = interprete_be_ac_vub_simplegt_SetBinding((be.ac.vub.simplegt.SetBinding) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof be.ac.vub.simplegt.OutputBinding) {
 			result = interprete_be_ac_vub_simplegt_OutputBinding((be.ac.vub.simplegt.OutputBinding) object, context);
 		}
@@ -116,6 +188,12 @@ public class AbstractSimplegtInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof be.ac.vub.simplegt.InputElementPattern) {
+			result = interprete_be_ac_vub_simplegt_InputElementPattern((be.ac.vub.simplegt.InputElementPattern) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof be.ac.vub.simplegt.Rule) {
 			result = interprete_be_ac_vub_simplegt_Rule((be.ac.vub.simplegt.Rule) object, context);
 		}
@@ -146,7 +224,17 @@ public class AbstractSimplegtInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof be.ac.vub.simplegt.LocatedElement) {
+			result = interprete_be_ac_vub_simplegt_LocatedElement((be.ac.vub.simplegt.LocatedElement) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		return result;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_LocatedElement(be.ac.vub.simplegt.LocatedElement object, ContextType context) {
+		return null;
 	}
 	
 	public ResultType interprete_be_ac_vub_simplegt_NamedElement(be.ac.vub.simplegt.NamedElement object, ContextType context) {
@@ -166,6 +254,10 @@ public class AbstractSimplegtInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_be_ac_vub_simplegt_Rule(be.ac.vub.simplegt.Rule object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_InputElementPattern(be.ac.vub.simplegt.InputElementPattern object, ContextType context) {
 		return null;
 	}
 	
@@ -202,6 +294,54 @@ public class AbstractSimplegtInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_be_ac_vub_simplegt_OutputBinding(be.ac.vub.simplegt.OutputBinding object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_SetBinding(be.ac.vub.simplegt.SetBinding object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_AddBinding(be.ac.vub.simplegt.AddBinding object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_DelBinding(be.ac.vub.simplegt.DelBinding object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_Expression(be.ac.vub.simplegt.Expression object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_ElementExp(be.ac.vub.simplegt.ElementExp object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_LiteralExp(be.ac.vub.simplegt.LiteralExp object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_StringLiteralExp(be.ac.vub.simplegt.StringLiteralExp object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_IntegerLiteralExp(be.ac.vub.simplegt.IntegerLiteralExp object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_DoubleLiteralExp(be.ac.vub.simplegt.DoubleLiteralExp object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_CharLiteralExp(be.ac.vub.simplegt.CharLiteralExp object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_BooleanLiteralExp(be.ac.vub.simplegt.BooleanLiteralExp object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_be_ac_vub_simplegt_EnumLiteralExp(be.ac.vub.simplegt.EnumLiteralExp object, ContextType context) {
 		return null;
 	}
 	

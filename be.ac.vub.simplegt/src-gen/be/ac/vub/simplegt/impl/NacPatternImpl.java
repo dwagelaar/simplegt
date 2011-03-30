@@ -34,24 +34,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link be.ac.vub.simplegt.impl.NacPatternImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.impl.NacPatternImpl#getNacFor <em>Nac For</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class NacPatternImpl extends EObjectImpl implements NacPattern {
-	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<InputElement> elements;
-
+public class NacPatternImpl extends InputElementPatternImpl implements NacPattern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,18 +58,6 @@ public class NacPatternImpl extends EObjectImpl implements NacPattern {
 	@Override
 	protected EClass eStaticClass() {
 		return SimplegtPackage.Literals.NAC_PATTERN;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<InputElement> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<InputElement>(InputElement.class, this, SimplegtPackage.NAC_PATTERN__ELEMENTS, SimplegtPackage.INPUT_ELEMENT__NAC_PATTERN);
-		}
-		return elements;
 	}
 
 	/**
@@ -133,8 +110,6 @@ public class NacPatternImpl extends EObjectImpl implements NacPattern {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SimplegtPackage.NAC_PATTERN__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 			case SimplegtPackage.NAC_PATTERN__NAC_FOR:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -151,8 +126,6 @@ public class NacPatternImpl extends EObjectImpl implements NacPattern {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SimplegtPackage.NAC_PATTERN__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case SimplegtPackage.NAC_PATTERN__NAC_FOR:
 				return basicSetNacFor(null, msgs);
 		}
@@ -181,8 +154,6 @@ public class NacPatternImpl extends EObjectImpl implements NacPattern {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SimplegtPackage.NAC_PATTERN__ELEMENTS:
-				return getElements();
 			case SimplegtPackage.NAC_PATTERN__NAC_FOR:
 				return getNacFor();
 		}
@@ -198,10 +169,6 @@ public class NacPatternImpl extends EObjectImpl implements NacPattern {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SimplegtPackage.NAC_PATTERN__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends InputElement>)newValue);
-				return;
 			case SimplegtPackage.NAC_PATTERN__NAC_FOR:
 				setNacFor((Rule)newValue);
 				return;
@@ -217,9 +184,6 @@ public class NacPatternImpl extends EObjectImpl implements NacPattern {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SimplegtPackage.NAC_PATTERN__ELEMENTS:
-				getElements().clear();
-				return;
 			case SimplegtPackage.NAC_PATTERN__NAC_FOR:
 				setNacFor((Rule)null);
 				return;
@@ -235,8 +199,6 @@ public class NacPatternImpl extends EObjectImpl implements NacPattern {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SimplegtPackage.NAC_PATTERN__ELEMENTS:
-				return elements != null && !elements.isEmpty();
 			case SimplegtPackage.NAC_PATTERN__NAC_FOR:
 				return getNacFor() != null;
 		}

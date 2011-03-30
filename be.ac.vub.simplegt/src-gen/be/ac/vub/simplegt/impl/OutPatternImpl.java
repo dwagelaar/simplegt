@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class OutPatternImpl extends EObjectImpl implements OutPattern {
+public class OutPatternImpl extends LocatedElementImpl implements OutPattern {
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

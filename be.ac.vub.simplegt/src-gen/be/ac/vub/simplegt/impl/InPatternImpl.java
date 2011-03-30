@@ -35,23 +35,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link be.ac.vub.simplegt.impl.InPatternImpl#getInputFor <em>Input For</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.impl.InPatternImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class InPatternImpl extends EObjectImpl implements InPattern {
-	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<InputElement> elements;
-
+public class InPatternImpl extends InputElementPatternImpl implements InPattern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,18 +106,6 @@ public class InPatternImpl extends EObjectImpl implements InPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InputElement> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<InputElement>(InputElement.class, this, SimplegtPackage.IN_PATTERN__ELEMENTS, SimplegtPackage.INPUT_ELEMENT__IN_PATTERN);
-		}
-		return elements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -137,8 +114,6 @@ public class InPatternImpl extends EObjectImpl implements InPattern {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetInputFor((Rule)otherEnd, msgs);
-			case SimplegtPackage.IN_PATTERN__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -153,8 +128,6 @@ public class InPatternImpl extends EObjectImpl implements InPattern {
 		switch (featureID) {
 			case SimplegtPackage.IN_PATTERN__INPUT_FOR:
 				return basicSetInputFor(null, msgs);
-			case SimplegtPackage.IN_PATTERN__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -183,8 +156,6 @@ public class InPatternImpl extends EObjectImpl implements InPattern {
 		switch (featureID) {
 			case SimplegtPackage.IN_PATTERN__INPUT_FOR:
 				return getInputFor();
-			case SimplegtPackage.IN_PATTERN__ELEMENTS:
-				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,10 +172,6 @@ public class InPatternImpl extends EObjectImpl implements InPattern {
 			case SimplegtPackage.IN_PATTERN__INPUT_FOR:
 				setInputFor((Rule)newValue);
 				return;
-			case SimplegtPackage.IN_PATTERN__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends InputElement>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -220,9 +187,6 @@ public class InPatternImpl extends EObjectImpl implements InPattern {
 			case SimplegtPackage.IN_PATTERN__INPUT_FOR:
 				setInputFor((Rule)null);
 				return;
-			case SimplegtPackage.IN_PATTERN__ELEMENTS:
-				getElements().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -237,8 +201,6 @@ public class InPatternImpl extends EObjectImpl implements InPattern {
 		switch (featureID) {
 			case SimplegtPackage.IN_PATTERN__INPUT_FOR:
 				return getInputFor() != null;
-			case SimplegtPackage.IN_PATTERN__ELEMENTS:
-				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

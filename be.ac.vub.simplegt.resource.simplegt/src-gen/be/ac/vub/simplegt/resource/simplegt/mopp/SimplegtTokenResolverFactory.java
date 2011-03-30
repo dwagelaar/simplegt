@@ -23,6 +23,8 @@ public class SimplegtTokenResolverFactory implements be.ac.vub.simplegt.resource
 	public SimplegtTokenResolverFactory() {
 		tokenName2TokenResolver = new java.util.LinkedHashMap<String, be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver>();
 		featureName2CollectInTokenResolver = new java.util.LinkedHashMap<String, be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver>();
+		registerTokenResolver("FLOAT", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtFLOATTokenResolver());
+		registerTokenResolver("INTEGER", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtINTEGERTokenResolver());
 		registerTokenResolver("TEXT", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtTEXTTokenResolver());
 	}
 	

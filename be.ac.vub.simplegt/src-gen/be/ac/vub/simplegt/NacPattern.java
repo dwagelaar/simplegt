@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link be.ac.vub.simplegt.NacPattern#getElements <em>Elements</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.NacPattern#getNacFor <em>Nac For</em>}</li>
  * </ul>
  * </p>
@@ -26,25 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface NacPattern extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link be.ac.vub.simplegt.InputElement}.
-	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.InputElement#getNacPattern <em>Nac Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see be.ac.vub.simplegt.SimplegtPackage#getNacPattern_Elements()
-	 * @see be.ac.vub.simplegt.InputElement#getNacPattern
-	 * @model opposite="nacPattern" containment="true" required="true"
-	 * @generated
-	 */
-	EList<InputElement> getElements();
-
+public interface NacPattern extends InputElementPattern {
 	/**
 	 * Returns the value of the '<em><b>Nac For</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.Rule#getNac <em>Nac</em>}'.

@@ -288,6 +288,27 @@ options {
 			if (type.getInstanceClass() == be.ac.vub.simplegt.InputBinding.class) {
 				return parse_be_ac_vub_simplegt_InputBinding();
 			}
+			if (type.getInstanceClass() == be.ac.vub.simplegt.ElementExp.class) {
+				return parse_be_ac_vub_simplegt_ElementExp();
+			}
+			if (type.getInstanceClass() == be.ac.vub.simplegt.StringLiteralExp.class) {
+				return parse_be_ac_vub_simplegt_StringLiteralExp();
+			}
+			if (type.getInstanceClass() == be.ac.vub.simplegt.IntegerLiteralExp.class) {
+				return parse_be_ac_vub_simplegt_IntegerLiteralExp();
+			}
+			if (type.getInstanceClass() == be.ac.vub.simplegt.DoubleLiteralExp.class) {
+				return parse_be_ac_vub_simplegt_DoubleLiteralExp();
+			}
+			if (type.getInstanceClass() == be.ac.vub.simplegt.CharLiteralExp.class) {
+				return parse_be_ac_vub_simplegt_CharLiteralExp();
+			}
+			if (type.getInstanceClass() == be.ac.vub.simplegt.BooleanLiteralExp.class) {
+				return parse_be_ac_vub_simplegt_BooleanLiteralExp();
+			}
+			if (type.getInstanceClass() == be.ac.vub.simplegt.EnumLiteralExp.class) {
+				return parse_be_ac_vub_simplegt_EnumLiteralExp();
+			}
 			if (type.getInstanceClass() == be.ac.vub.simplegt.NacPattern.class) {
 				return parse_be_ac_vub_simplegt_NacPattern();
 			}
@@ -297,8 +318,14 @@ options {
 			if (type.getInstanceClass() == be.ac.vub.simplegt.OutputElement.class) {
 				return parse_be_ac_vub_simplegt_OutputElement();
 			}
-			if (type.getInstanceClass() == be.ac.vub.simplegt.OutputBinding.class) {
-				return parse_be_ac_vub_simplegt_OutputBinding();
+			if (type.getInstanceClass() == be.ac.vub.simplegt.SetBinding.class) {
+				return parse_be_ac_vub_simplegt_SetBinding();
+			}
+			if (type.getInstanceClass() == be.ac.vub.simplegt.AddBinding.class) {
+				return parse_be_ac_vub_simplegt_AddBinding();
+			}
+			if (type.getInstanceClass() == be.ac.vub.simplegt.DelBinding.class) {
+				return parse_be_ac_vub_simplegt_DelBinding();
 			}
 		}
 		throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtUnexpectedContentTypeException(typeObject);
@@ -411,7 +438,7 @@ options {
 				break;
 			}
 		}
-		int followSetID = 78;
+		int followSetID = 107;
 		int i;
 		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
 			org.antlr.runtime3_2_0.CommonToken nextToken = (org.antlr.runtime3_2_0.CommonToken) tokenStream.get(i);
@@ -713,7 +740,7 @@ parse_be_ac_vub_simplegt_Module returns [be.ac.vub.simplegt.Module element = nul
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_3_0_0_0, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_3_0_0_1, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a3, element);
 			}
 			{
@@ -747,7 +774,7 @@ parse_be_ac_vub_simplegt_Module returns [be.ac.vub.simplegt.Module element = nul
 							completedElement(value, false);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_3_0_0_1, resolved, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_3_0_0_2, resolved, true);
 						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, element);
 					}
 				}
@@ -763,7 +790,7 @@ parse_be_ac_vub_simplegt_Module returns [be.ac.vub.simplegt.Module element = nul
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_3_0_0_2, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_3_0_0_3, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a5, element);
 			}
 			{
@@ -786,7 +813,7 @@ parse_be_ac_vub_simplegt_Module returns [be.ac.vub.simplegt.Module element = nul
 			incompleteObjects.push(element);
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_4, null, true);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_5, null, true);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a6, element);
 	}
 	{
@@ -810,7 +837,7 @@ parse_be_ac_vub_simplegt_Module returns [be.ac.vub.simplegt.Module element = nul
 					completedElement(value, true);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_5, a7_0, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_6, a7_0, true);
 				copyLocalizationInfos(a7_0, element);
 			}
 		}
@@ -829,7 +856,7 @@ parse_be_ac_vub_simplegt_Module returns [be.ac.vub.simplegt.Module element = nul
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_6_0_0_0, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_7_0_0_0, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a8, element);
 			}
 			{
@@ -853,7 +880,7 @@ parse_be_ac_vub_simplegt_Module returns [be.ac.vub.simplegt.Module element = nul
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_6_0_0_1, a9_0, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_7_0_0_1, a9_0, true);
 						copyLocalizationInfos(a9_0, element);
 					}
 				}
@@ -878,7 +905,7 @@ parse_be_ac_vub_simplegt_Module returns [be.ac.vub.simplegt.Module element = nul
 			incompleteObjects.push(element);
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_7, null, true);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_8, null, true);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a10, element);
 	}
 	{
@@ -904,7 +931,7 @@ parse_be_ac_vub_simplegt_Module returns [be.ac.vub.simplegt.Module element = nul
 						completedElement(value, true);
 					}
 					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_8, a11_0, true);
+					retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0_0_0_9, a11_0, true);
 					copyLocalizationInfos(a11_0, element);
 				}
 			}
@@ -1061,7 +1088,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 					}
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_0, true, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_2, true, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 				// set value of boolean attribute
 				Object value = true;
@@ -1085,7 +1112,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 			}
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_1, null, true);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_3, null, true);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a3, element);
 	}
 	{
@@ -1124,7 +1151,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 					completedElement(value, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_2, resolved, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_4, resolved, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, element);
 			}
 		}
@@ -1148,7 +1175,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 					}
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_3_0_0_0, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_5_0_0_0, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a5, element);
 			}
 			{
@@ -1187,7 +1214,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 							completedElement(value, false);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_3_0_0_1, resolved, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_5_0_0_1, resolved, true);
 						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a6, element);
 					}
 				}
@@ -1211,7 +1238,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 							}
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_3_0_0_2_0_0_0, null, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_5_0_0_2_0_0_0, null, true);
 						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a7, element);
 					}
 					{
@@ -1250,7 +1277,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 									completedElement(value, false);
 								}
 								collectHiddenTokens(element);
-								retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_3_0_0_2_0_0_1, resolved, true);
+								retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_5_0_0_2_0_0_1, resolved, true);
 								copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a8, element);
 							}
 						}
@@ -1287,7 +1314,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 			}
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_4, null, true);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_6, null, true);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a9, element);
 	}
 	{
@@ -1320,7 +1347,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 						completedElement(value, true);
 					}
 					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_5, a10_0, true);
+					retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_8, a10_0, true);
 					copyLocalizationInfos(a10_0, element);
 				}
 			}
@@ -1355,7 +1382,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 						completedElement(value, true);
 					}
 					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_6, a11_0, true);
+					retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_9, a11_0, true);
 					copyLocalizationInfos(a11_0, element);
 				}
 			}
@@ -1390,7 +1417,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 						completedElement(value, true);
 					}
 					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_7, a12_0, true);
+					retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_10, a12_0, true);
 					copyLocalizationInfos(a12_0, element);
 				}
 			}
@@ -1412,7 +1439,7 @@ parse_be_ac_vub_simplegt_Rule returns [be.ac.vub.simplegt.Rule element = null]
 			}
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_8, null, true);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3_0_0_11, null, true);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a13, element);
 	}
 	{
@@ -1502,7 +1529,7 @@ parse_be_ac_vub_simplegt_InPattern returns [be.ac.vub.simplegt.InPattern element
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_4_0_0_2_0_0_1, a3_0, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_4_0_0_2_0_0_2, a3_0, true);
 						copyLocalizationInfos(a3_0, element);
 					}
 				}
@@ -1532,66 +1559,57 @@ parse_be_ac_vub_simplegt_Type returns [be.ac.vub.simplegt.Type element = null]
 }
 :
 	(
-		(
-			(
-				a0 = TEXT				
-				{
-					if (terminateParsing) {
-						throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
-					}
-					if (element == null) {
-						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createType();
-						incompleteObjects.push(element);
-					}
-					if (a0 != null) {
-						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
-						tokenResolver.setOptions(getOptions());
-						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-						tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.TYPE__MODEL), result);
-						Object resolvedObject = result.getResolvedToken();
-						if (resolvedObject == null) {
-							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
-						}
-						String resolved = (String) resolvedObject;
-						be.ac.vub.simplegt.Metamodel proxy = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createMetamodel();
-						collectHiddenTokens(element);
-						registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.Type, be.ac.vub.simplegt.Metamodel>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getTypeModelReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.TYPE__MODEL), resolved, proxy);
-						if (proxy != null) {
-							Object value = proxy;
-							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.TYPE__MODEL), value);
-							completedElement(value, false);
-						}
-						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_5_0_0_0_0_0_0, proxy, true);
-						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
-						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, proxy);
-					}
-				}
-			)
-			{
-				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_27, 38);
+		a0 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 			}
-			
-			a1 = '!' {
-				if (element == null) {
-					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createType();
-					incompleteObjects.push(element);
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createType();
+				incompleteObjects.push(element);
+			}
+			if (a0 != null) {
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.TYPE__MODEL), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
+				}
+				String resolved = (String) resolvedObject;
+				be.ac.vub.simplegt.Metamodel proxy = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createMetamodel();
+				collectHiddenTokens(element);
+				registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.Type, be.ac.vub.simplegt.Metamodel>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getTypeModelReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.TYPE__MODEL), resolved, proxy);
+				if (proxy != null) {
+					Object value = proxy;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.TYPE__MODEL), value);
+					completedElement(value, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_5_0_0_0_0_0_1, null, true);
-				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_5_0_0_0, proxy, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, proxy);
 			}
-			{
-				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_28, 39);
-			}
-			
-		)
-		
-	)?	{
+		}
+	)
+	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_28, 40);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_27, 38);
+	}
+	
+	a1 = '!' {
+		if (element == null) {
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createType();
+			incompleteObjects.push(element);
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_5_0_0_1, null, true);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_28, 39);
 	}
 	
 	(
@@ -1620,21 +1638,23 @@ parse_be_ac_vub_simplegt_Type returns [be.ac.vub.simplegt.Type element = null]
 					completedElement(value, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_5_0_0_1, resolved, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_5_0_0_2, resolved, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a2, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_29, 41);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 41);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 41, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 41, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 41);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 41);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 41);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_32, 41);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_29, 40);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 40);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 40);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 40, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 40, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 40);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 40);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_32, 40);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_33, 40);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 40);
 	}
 	
 ;
@@ -1676,7 +1696,7 @@ parse_be_ac_vub_simplegt_InputElement returns [be.ac.vub.simplegt.InputElement e
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_33, 42);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_35, 41);
 	}
 	
 	a1 = ':' {
@@ -1690,8 +1710,7 @@ parse_be_ac_vub_simplegt_InputElement returns [be.ac.vub.simplegt.InputElement e
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_26, 43, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_7);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_28, 43, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_7);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_26, 42, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_7);
 	}
 	
 	(
@@ -1717,17 +1736,18 @@ parse_be_ac_vub_simplegt_InputElement returns [be.ac.vub.simplegt.InputElement e
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_29, 44);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 44);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 44, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 44, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 44);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 44);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_29, 43);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 43);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 43);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 43, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 43, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 43);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 43);
 	}
 	
 	(
 		(
-			a3 = '=' {
+			a3 = 'in' {
 				if (element == null) {
 					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
 					incompleteObjects.push(element);
@@ -1738,11 +1758,12 @@ parse_be_ac_vub_simplegt_InputElement returns [be.ac.vub.simplegt.InputElement e
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 45, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_8);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_36, 44);
 			}
 			
 			(
-				a4_0 = parse_be_ac_vub_simplegt_InputBinding				{
+				a4 = TEXT				
+				{
 					if (terminateParsing) {
 						throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 					}
@@ -1750,36 +1771,174 @@ parse_be_ac_vub_simplegt_InputElement returns [be.ac.vub.simplegt.InputElement e
 						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
 						incompleteObjects.push(element);
 					}
-					if (a4_0 != null) {
-						if (a4_0 != null) {
-							Object value = a4_0;
-							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_ELEMENT__BINDING), value);
-							completedElement(value, true);
+					if (a4 != null) {
+						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+						tokenResolver.setOptions(getOptions());
+						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+						tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_ELEMENT__IN_MODEL), result);
+						Object resolvedObject = result.getResolvedToken();
+						if (resolvedObject == null) {
+							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a4).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a4).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a4).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a4).getStopIndex());
+						}
+						String resolved = (String) resolvedObject;
+						be.ac.vub.simplegt.InstanceModel proxy = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInstanceModel();
+						collectHiddenTokens(element);
+						registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.RuleElement, be.ac.vub.simplegt.InstanceModel>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getRuleElementInModelReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_ELEMENT__IN_MODEL), resolved, proxy);
+						if (proxy != null) {
+							Object value = proxy;
+							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_ELEMENT__IN_MODEL), value);
+							completedElement(value, false);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_6_0_0_3_0_0_1, a4_0, true);
-						copyLocalizationInfos(a4_0, element);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_6_0_0_3_0_0_1, proxy, true);
+						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, element);
+						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, proxy);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 46);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 46, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 46, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 46);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 46);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 45);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 45);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 45, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 45, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 45);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 45);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 47);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 47, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 47, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 47);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 47);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 46);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 46);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 46, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 46, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 46);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 46);
+	}
+	
+	(
+		(
+			a5 = '(' {
+				if (element == null) {
+					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
+					incompleteObjects.push(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_6_0_0_4_0_0_0, null, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a5, element);
+			}
+			{
+				// expected elements (follow set)
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_37, 47, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_8);
+			}
+			
+			(
+				a6_0 = parse_be_ac_vub_simplegt_InputBinding				{
+					if (terminateParsing) {
+						throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+					}
+					if (element == null) {
+						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
+						incompleteObjects.push(element);
+					}
+					if (a6_0 != null) {
+						if (a6_0 != null) {
+							Object value = a6_0;
+							addObjectToList(element, be.ac.vub.simplegt.SimplegtPackage.INPUT_ELEMENT__BINDINGS, value);
+							completedElement(value, true);
+						}
+						collectHiddenTokens(element);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_6_0_0_4_0_0_2, a6_0, true);
+						copyLocalizationInfos(a6_0, element);
+					}
+				}
+			)
+			{
+				// expected elements (follow set)
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 48);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 48);
+			}
+			
+			(
+				(
+					a7 = ',' {
+						if (element == null) {
+							element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
+							incompleteObjects.push(element);
+						}
+						collectHiddenTokens(element);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_6_0_0_4_0_0_3_0_0_0, null, true);
+						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a7, element);
+					}
+					{
+						// expected elements (follow set)
+						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_37, 49, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_8);
+					}
+					
+					(
+						a8_0 = parse_be_ac_vub_simplegt_InputBinding						{
+							if (terminateParsing) {
+								throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+							}
+							if (element == null) {
+								element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
+								incompleteObjects.push(element);
+							}
+							if (a8_0 != null) {
+								if (a8_0 != null) {
+									Object value = a8_0;
+									addObjectToList(element, be.ac.vub.simplegt.SimplegtPackage.INPUT_ELEMENT__BINDINGS, value);
+									completedElement(value, true);
+								}
+								collectHiddenTokens(element);
+								retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_6_0_0_4_0_0_3_0_0_1, a8_0, true);
+								copyLocalizationInfos(a8_0, element);
+							}
+						}
+					)
+					{
+						// expected elements (follow set)
+						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 50);
+						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 50);
+					}
+					
+				)
+				
+			)*			{
+				// expected elements (follow set)
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 51);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 51);
+			}
+			
+			a9 = ')' {
+				if (element == null) {
+					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
+					incompleteObjects.push(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_6_0_0_4_0_0_4, null, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a9, element);
+			}
+			{
+				// expected elements (follow set)
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 52);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 52, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 52, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 52);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 52);
+			}
+			
+		)
+		
+	)?	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 53);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 53, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 53, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 53);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 53);
 	}
 	
 ;
@@ -1802,22 +1961,111 @@ parse_be_ac_vub_simplegt_InputBinding returns [be.ac.vub.simplegt.InputBinding e
 				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 				tokenResolver.setOptions(getOptions());
 				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__ELEMENT), result);
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__PROPERTY), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					Object value = resolved;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__PROPERTY), value);
+					completedElement(value, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_0, resolved, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_40, 54);
+	}
+	
+	a1 = '=' {
+		if (element == null) {
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputBinding();
+			incompleteObjects.push(element);
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_1, null, true);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_42, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_43, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_44, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_45, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_46, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_47, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+	}
+	
+	(
+		a2_0 = parse_be_ac_vub_simplegt_Expression		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputBinding();
+				incompleteObjects.push(element);
+			}
+			if (a2_0 != null) {
+				if (a2_0 != null) {
+					Object value = a2_0;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__EXPR), value);
+					completedElement(value, true);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_2, a2_0, true);
+				copyLocalizationInfos(a2_0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 56);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 56);
+	}
+	
+;
+
+parse_be_ac_vub_simplegt_ElementExp returns [be.ac.vub.simplegt.ElementExp element = null]
+@init{
+}
+:
+	(
+		a0 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createElementExp();
+				incompleteObjects.push(element);
+			}
+			if (a0 != null) {
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ELEMENT_EXP__ELEMENT), result);
 				Object resolvedObject = result.getResolvedToken();
 				if (resolvedObject == null) {
 					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
 				}
 				String resolved = (String) resolvedObject;
-				be.ac.vub.simplegt.InputElement proxy = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
+				be.ac.vub.simplegt.RuleElement proxy = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
 				collectHiddenTokens(element);
-				registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.Binding, be.ac.vub.simplegt.InputElement>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getBindingElementReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__ELEMENT), resolved, proxy);
+				registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.ElementExp, be.ac.vub.simplegt.RuleElement>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getElementExpElementReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ELEMENT_EXP__ELEMENT), resolved, proxy);
 				if (proxy != null) {
 					Object value = proxy;
-					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__ELEMENT), value);
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ELEMENT_EXP__ELEMENT), value);
 					completedElement(value, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_0, proxy, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_8_0_0_0, proxy, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, proxy);
 			}
@@ -1825,28 +2073,28 @@ parse_be_ac_vub_simplegt_InputBinding returns [be.ac.vub.simplegt.InputBinding e
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_35, 48);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 48);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 48, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 48, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 48);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 48);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_48, 57);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 57);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 57);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 57);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 57);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 57);
 	}
 	
 	(
 		(
 			a1 = '.' {
 				if (element == null) {
-					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputBinding();
+					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createElementExp();
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_1_0_0_0, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_8_0_0_1_0_0_0, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_36, 49);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_52, 58);
 			}
 			
 			(
@@ -1856,14 +2104,14 @@ parse_be_ac_vub_simplegt_InputBinding returns [be.ac.vub.simplegt.InputBinding e
 						throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 					}
 					if (element == null) {
-						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputBinding();
+						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createElementExp();
 						incompleteObjects.push(element);
 					}
 					if (a2 != null) {
 						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 						tokenResolver.setOptions(getOptions());
 						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-						tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__FEATURE), result);
+						tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ELEMENT_EXP__PROPERTY), result);
 						Object resolvedObject = result.getResolvedToken();
 						if (resolvedObject == null) {
 							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a2).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStopIndex());
@@ -1871,33 +2119,378 @@ parse_be_ac_vub_simplegt_InputBinding returns [be.ac.vub.simplegt.InputBinding e
 						java.lang.String resolved = (java.lang.String)resolvedObject;
 						if (resolved != null) {
 							Object value = resolved;
-							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__FEATURE), value);
+							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ELEMENT_EXP__PROPERTY), value);
 							completedElement(value, false);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_1_0_0_1, resolved, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_8_0_0_1_0_0_1, resolved, true);
 						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a2, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 50);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 50, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 50, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 50);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 50);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 59);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 59);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 59);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 59);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 59);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_25, 51);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 51, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 51, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 51);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 51);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 60);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 60);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 60);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 60);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 60);
+	}
+	
+;
+
+parse_be_ac_vub_simplegt_StringLiteralExp returns [be.ac.vub.simplegt.StringLiteralExp element = null]
+@init{
+}
+:
+	a0 = '\"' {
+		if (element == null) {
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createStringLiteralExp();
+			incompleteObjects.push(element);
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_9_0_0_0, null, true);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_53, 61);
+	}
+	
+	(
+		a1 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createStringLiteralExp();
+				incompleteObjects.push(element);
+			}
+			if (a1 != null) {
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.STRING_LITERAL_EXP__LITERAL), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a1).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					Object value = resolved;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.STRING_LITERAL_EXP__LITERAL), value);
+					completedElement(value, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_9_0_0_1, resolved, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_54, 62);
+	}
+	
+	a2 = '\"' {
+		if (element == null) {
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createStringLiteralExp();
+			incompleteObjects.push(element);
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_9_0_0_2, null, true);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 63);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 63);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 63);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 63);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 63);
+	}
+	
+;
+
+parse_be_ac_vub_simplegt_IntegerLiteralExp returns [be.ac.vub.simplegt.IntegerLiteralExp element = null]
+@init{
+}
+:
+	(
+		a0 = INTEGER		
+		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createIntegerLiteralExp();
+				incompleteObjects.push(element);
+			}
+			if (a0 != null) {
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("INTEGER");
+				tokenResolver.setOptions(getOptions());
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INTEGER_LITERAL_EXP__LITERAL), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
+				}
+				java.lang.Integer resolved = (java.lang.Integer)resolvedObject;
+				if (resolved != null) {
+					Object value = resolved;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INTEGER_LITERAL_EXP__LITERAL), value);
+					completedElement(value, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10_0_0_0, resolved, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 64);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 64);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 64);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 64);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 64);
+	}
+	
+;
+
+parse_be_ac_vub_simplegt_DoubleLiteralExp returns [be.ac.vub.simplegt.DoubleLiteralExp element = null]
+@init{
+}
+:
+	(
+		a0 = FLOAT		
+		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createDoubleLiteralExp();
+				incompleteObjects.push(element);
+			}
+			if (a0 != null) {
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("FLOAT");
+				tokenResolver.setOptions(getOptions());
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.DOUBLE_LITERAL_EXP__LITERAL), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
+				}
+				java.lang.Double resolved = (java.lang.Double)resolvedObject;
+				if (resolved != null) {
+					Object value = resolved;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.DOUBLE_LITERAL_EXP__LITERAL), value);
+					completedElement(value, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_11_0_0_0, resolved, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 65);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 65);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 65);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 65);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 65);
+	}
+	
+;
+
+parse_be_ac_vub_simplegt_CharLiteralExp returns [be.ac.vub.simplegt.CharLiteralExp element = null]
+@init{
+}
+:
+	a0 = '\'' {
+		if (element == null) {
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createCharLiteralExp();
+			incompleteObjects.push(element);
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_12_0_0_0, null, true);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_55, 66);
+	}
+	
+	(
+		a1 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createCharLiteralExp();
+				incompleteObjects.push(element);
+			}
+			if (a1 != null) {
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.CHAR_LITERAL_EXP__LITERAL), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a1).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStopIndex());
+				}
+				java.lang.Character resolved = (java.lang.Character)resolvedObject;
+				if (resolved != null) {
+					Object value = resolved;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.CHAR_LITERAL_EXP__LITERAL), value);
+					completedElement(value, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_12_0_0_1, resolved, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_56, 67);
+	}
+	
+	a2 = '\'' {
+		if (element == null) {
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createCharLiteralExp();
+			incompleteObjects.push(element);
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_12_0_0_2, null, true);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 68);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 68);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 68);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 68);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 68);
+	}
+	
+;
+
+parse_be_ac_vub_simplegt_BooleanLiteralExp returns [be.ac.vub.simplegt.BooleanLiteralExp element = null]
+@init{
+}
+:
+	(
+		(
+			a0 = 'true' {
+				if (element == null) {
+					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createBooleanLiteralExp();
+					incompleteObjects.push(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_13_0_0_0, true, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
+				// set value of boolean attribute
+				Object value = true;
+				element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.BOOLEAN_LITERAL_EXP__LITERAL), value);
+				completedElement(value, false);
+			}
+			|			a1 = 'false' {
+				if (element == null) {
+					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createBooleanLiteralExp();
+					incompleteObjects.push(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_13_0_0_0, false, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+				// set value of boolean attribute
+				Object value = false;
+				element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.BOOLEAN_LITERAL_EXP__LITERAL), value);
+				completedElement(value, false);
+			}
+		)
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 69);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 69);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 69);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 69);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 69);
+	}
+	
+;
+
+parse_be_ac_vub_simplegt_EnumLiteralExp returns [be.ac.vub.simplegt.EnumLiteralExp element = null]
+@init{
+}
+:
+	a0 = '#' {
+		if (element == null) {
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createEnumLiteralExp();
+			incompleteObjects.push(element);
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_14_0_0_0, null, true);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_57, 70);
+	}
+	
+	(
+		a1 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createEnumLiteralExp();
+				incompleteObjects.push(element);
+			}
+			if (a1 != null) {
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ENUM_LITERAL_EXP__LITERAL), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a1).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					Object value = resolved;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ENUM_LITERAL_EXP__LITERAL), value);
+					completedElement(value, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_14_0_0_1, resolved, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 71);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 71);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 71);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 71);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 71);
 	}
 	
 ;
@@ -1912,12 +2505,12 @@ parse_be_ac_vub_simplegt_NacPattern returns [be.ac.vub.simplegt.NacPattern eleme
 			incompleteObjects.push(element);
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_8_0_0_0, null, true);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_15_0_0_0, null, true);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_24, 52, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_24, 72, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_6);
 	}
 	
 	(
@@ -1936,17 +2529,17 @@ parse_be_ac_vub_simplegt_NacPattern returns [be.ac.vub.simplegt.NacPattern eleme
 					completedElement(value, true);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_8_0_0_1, a1_0, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_15_0_0_1, a1_0, true);
 				copyLocalizationInfos(a1_0, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 53);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 53, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 53, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 53);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 73);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 73, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 73, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 73);
 	}
 	
 	(
@@ -1957,12 +2550,12 @@ parse_be_ac_vub_simplegt_NacPattern returns [be.ac.vub.simplegt.NacPattern eleme
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_8_0_0_2_0_0_0, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_15_0_0_2_0_0_0, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_24, 54, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_24, 74, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_6);
 			}
 			
 			(
@@ -1981,27 +2574,27 @@ parse_be_ac_vub_simplegt_NacPattern returns [be.ac.vub.simplegt.NacPattern eleme
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_8_0_0_2_0_0_1, a3_0, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_15_0_0_2_0_0_2, a3_0, true);
 						copyLocalizationInfos(a3_0, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 55);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 55);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 75);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 75, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 75, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 75);
 			}
 			
 		)
 		
 	)*	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_30, 56);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 56, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 56, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 56);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 76);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_21, 76, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_4);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_22, 76, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_5);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 76);
 	}
 	
 ;
@@ -2016,12 +2609,12 @@ parse_be_ac_vub_simplegt_OutPattern returns [be.ac.vub.simplegt.OutPattern eleme
 			incompleteObjects.push(element);
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_9_0_0_0, null, true);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_16_0_0_0, null, true);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_37, 57, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_10);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_58, 77, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_10);
 	}
 	
 	(
@@ -2040,15 +2633,15 @@ parse_be_ac_vub_simplegt_OutPattern returns [be.ac.vub.simplegt.OutPattern eleme
 					completedElement(value, true);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_9_0_0_1, a1_0, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_16_0_0_1, a1_0, true);
 				copyLocalizationInfos(a1_0, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_32, 58);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 58);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 78);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 78);
 	}
 	
 	(
@@ -2059,12 +2652,12 @@ parse_be_ac_vub_simplegt_OutPattern returns [be.ac.vub.simplegt.OutPattern eleme
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_9_0_0_2_0_0_0, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_16_0_0_2_0_0_0, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_37, 59, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_10);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_58, 79, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_10);
 			}
 			
 			(
@@ -2083,23 +2676,23 @@ parse_be_ac_vub_simplegt_OutPattern returns [be.ac.vub.simplegt.OutPattern eleme
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_9_0_0_2_0_0_1, a3_0, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_16_0_0_2_0_0_2, a3_0, true);
 						copyLocalizationInfos(a3_0, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_32, 60);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 60);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 80);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 80);
 			}
 			
 		)
 		
 	)*	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_32, 61);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 61);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 81);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 81);
 	}
 	
 ;
@@ -2134,14 +2727,14 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 					completedElement(value, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10_0_0_0, resolved, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_0, resolved, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_38, 62);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_59, 82);
 	}
 	
 	a1 = ':' {
@@ -2150,13 +2743,12 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 			incompleteObjects.push(element);
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10_0_0_1, null, true);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_1, null, true);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_26, 63, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_7);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_28, 63, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_7);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_26, 83, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_7);
 	}
 	
 	(
@@ -2175,36 +2767,38 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 					completedElement(value, true);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10_0_0_2, a2_0, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_2, a2_0, true);
 				copyLocalizationInfos(a2_0, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_31, 64);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_32, 64);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 64);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_32, 84);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_33, 84);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 84);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 84);
 	}
 	
 	(
 		(
-			a3 = '(' {
+			a3 = 'in' {
 				if (element == null) {
 					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputElement();
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10_0_0_3_0_0_0, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_3_0_0_0, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a3, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 65, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_60, 85);
 			}
 			
 			(
-				a4_0 = parse_be_ac_vub_simplegt_OutputBinding				{
+				a4 = TEXT				
+				{
 					if (terminateParsing) {
 						throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 					}
@@ -2212,42 +2806,112 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputElement();
 						incompleteObjects.push(element);
 					}
-					if (a4_0 != null) {
-						if (a4_0 != null) {
-							Object value = a4_0;
-							addObjectToList(element, be.ac.vub.simplegt.SimplegtPackage.OUTPUT_ELEMENT__BINDINGS, value);
-							completedElement(value, true);
+					if (a4 != null) {
+						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+						tokenResolver.setOptions(getOptions());
+						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+						tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_ELEMENT__IN_MODEL), result);
+						Object resolvedObject = result.getResolvedToken();
+						if (resolvedObject == null) {
+							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a4).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a4).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a4).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a4).getStopIndex());
+						}
+						String resolved = (String) resolvedObject;
+						be.ac.vub.simplegt.InstanceModel proxy = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInstanceModel();
+						collectHiddenTokens(element);
+						registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.RuleElement, be.ac.vub.simplegt.InstanceModel>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getRuleElementInModelReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_ELEMENT__IN_MODEL), resolved, proxy);
+						if (proxy != null) {
+							Object value = proxy;
+							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_ELEMENT__IN_MODEL), value);
+							completedElement(value, false);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10_0_0_3_0_0_1, a4_0, true);
-						copyLocalizationInfos(a4_0, element);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_3_0_0_1, proxy, true);
+						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, element);
+						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, proxy);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_40, 66);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 66);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_33, 86);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 86);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 86);
+			}
+			
+		)
+		
+	)?	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_33, 87);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 87);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 87);
+	}
+	
+	(
+		(
+			a5 = '(' {
+				if (element == null) {
+					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputElement();
+					incompleteObjects.push(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_4_0_0_0, null, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a5, element);
+			}
+			{
+				// expected elements (follow set)
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_61, 88, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_62, 88, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_63, 88, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
+			}
+			
+			(
+				a6_0 = parse_be_ac_vub_simplegt_OutputBinding				{
+					if (terminateParsing) {
+						throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+					}
+					if (element == null) {
+						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputElement();
+						incompleteObjects.push(element);
+					}
+					if (a6_0 != null) {
+						if (a6_0 != null) {
+							Object value = a6_0;
+							addObjectToList(element, be.ac.vub.simplegt.SimplegtPackage.OUTPUT_ELEMENT__BINDINGS, value);
+							completedElement(value, true);
+						}
+						collectHiddenTokens(element);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_4_0_0_2, a6_0, true);
+						copyLocalizationInfos(a6_0, element);
+					}
+				}
+			)
+			{
+				// expected elements (follow set)
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 89);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 89);
 			}
 			
 			(
 				(
-					a5 = ',' {
+					a7 = ',' {
 						if (element == null) {
 							element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputElement();
 							incompleteObjects.push(element);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10_0_0_3_0_0_2_0_0_0, null, true);
-						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a5, element);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_4_0_0_3_0_0_0, null, true);
+						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a7, element);
 					}
 					{
 						// expected elements (follow set)
-						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_39, 67, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
+						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_61, 90, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
+						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_62, 90, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
+						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_63, 90, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
 					}
 					
 					(
-						a6_0 = parse_be_ac_vub_simplegt_OutputBinding						{
+						a8_0 = parse_be_ac_vub_simplegt_OutputBinding						{
 							if (terminateParsing) {
 								throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 							}
@@ -2255,58 +2919,58 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 								element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputElement();
 								incompleteObjects.push(element);
 							}
-							if (a6_0 != null) {
-								if (a6_0 != null) {
-									Object value = a6_0;
+							if (a8_0 != null) {
+								if (a8_0 != null) {
+									Object value = a8_0;
 									addObjectToList(element, be.ac.vub.simplegt.SimplegtPackage.OUTPUT_ELEMENT__BINDINGS, value);
 									completedElement(value, true);
 								}
 								collectHiddenTokens(element);
-								retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10_0_0_3_0_0_2_0_0_1, a6_0, true);
-								copyLocalizationInfos(a6_0, element);
+								retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_4_0_0_3_0_0_1, a8_0, true);
+								copyLocalizationInfos(a8_0, element);
 							}
 						}
 					)
 					{
 						// expected elements (follow set)
-						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_40, 68);
-						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 68);
+						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 91);
+						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 91);
 					}
 					
 				)
 				
 			)*			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_40, 69);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 69);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 92);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 92);
 			}
 			
-			a7 = ')' {
+			a9 = ')' {
 				if (element == null) {
 					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputElement();
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10_0_0_3_0_0_3, null, true);
-				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a7, element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17_0_0_4_0_0_4, null, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a9, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_32, 70);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 70);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 93);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 93);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_32, 71);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 71);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_34, 94);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 94);
 	}
 	
 ;
 
-parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding element = null]
+parse_be_ac_vub_simplegt_SetBinding returns [be.ac.vub.simplegt.SetBinding element = null]
 @init{
 }
 :
@@ -2317,14 +2981,14 @@ parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding
 				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 			}
 			if (element == null) {
-				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createSetBinding();
 				incompleteObjects.push(element);
 			}
 			if (a0 != null) {
 				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 				tokenResolver.setOptions(getOptions());
 				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__TARGET_FEATURE), result);
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.SET_BINDING__PROPERTY), result);
 				Object resolvedObject = result.getResolvedToken();
 				if (resolvedObject == null) {
 					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
@@ -2332,90 +2996,171 @@ parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding
 				java.lang.String resolved = (java.lang.String)resolvedObject;
 				if (resolved != null) {
 					Object value = resolved;
-					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__TARGET_FEATURE), value);
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.SET_BINDING__PROPERTY), value);
 					completedElement(value, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_11_0_0_0, resolved, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_18_0_0_0, resolved, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_42, 72);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_64, 95);
 	}
 	
-	a1 = ':=' {
+	a1 = '=' {
 		if (element == null) {
-			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createSetBinding();
 			incompleteObjects.push(element);
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_11_0_0_1, null, true);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_18_0_0_1, null, true);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_43, 73);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 96, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_42, 96, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_43, 96, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_44, 96, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_45, 96, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_46, 96, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_47, 96, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
 	}
 	
 	(
-		a2 = TEXT		
-		{
+		a2_0 = parse_be_ac_vub_simplegt_Expression		{
 			if (terminateParsing) {
 				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 			}
 			if (element == null) {
-				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createSetBinding();
 				incompleteObjects.push(element);
 			}
-			if (a2 != null) {
-				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
-				tokenResolver.setOptions(getOptions());
-				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__ELEMENT), result);
-				Object resolvedObject = result.getResolvedToken();
-				if (resolvedObject == null) {
-					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a2).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStopIndex());
-				}
-				String resolved = (String) resolvedObject;
-				be.ac.vub.simplegt.InputElement proxy = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
-				collectHiddenTokens(element);
-				registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.Binding, be.ac.vub.simplegt.InputElement>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getBindingElementReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__ELEMENT), resolved, proxy);
-				if (proxy != null) {
-					Object value = proxy;
-					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__ELEMENT), value);
-					completedElement(value, false);
+			if (a2_0 != null) {
+				if (a2_0 != null) {
+					Object value = a2_0;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.SET_BINDING__EXPR), value);
+					completedElement(value, true);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_11_0_0_2, proxy, true);
-				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a2, element);
-				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a2, proxy);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_18_0_0_2, a2_0, true);
+				copyLocalizationInfos(a2_0, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_44, 74);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_40, 74);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 74);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 97);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 97);
+	}
+	
+;
+
+parse_be_ac_vub_simplegt_AddBinding returns [be.ac.vub.simplegt.AddBinding element = null]
+@init{
+}
+:
+	(
+		a0 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
+				incompleteObjects.push(element);
+			}
+			if (a0 != null) {
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__PROPERTY), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					Object value = resolved;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__PROPERTY), value);
+					completedElement(value, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_0, resolved, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_65, 98);
+	}
+	
+	a1 = '+=' {
+		if (element == null) {
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
+			incompleteObjects.push(element);
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_1, null, true);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_42, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_43, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_44, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_45, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_46, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_47, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+	}
+	
+	(
+		a2_0 = parse_be_ac_vub_simplegt_Expression		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
+				incompleteObjects.push(element);
+			}
+			if (a2_0 != null) {
+				if (a2_0 != null) {
+					Object value = a2_0;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__EXPR), value);
+					completedElement(value, true);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_2, a2_0, true);
+				copyLocalizationInfos(a2_0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 100);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 100);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 100);
 	}
 	
 	(
 		(
-			a3 = '.' {
+			a3 = 'before' {
 				if (element == null) {
-					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
+					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_11_0_0_3_0_0_0, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_3_0_0_0, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a3, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_45, 75);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_66, 101);
 			}
 			
 			(
@@ -2425,55 +3170,178 @@ parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding
 						throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 					}
 					if (element == null) {
-						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
+						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
 						incompleteObjects.push(element);
 					}
 					if (a4 != null) {
 						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 						tokenResolver.setOptions(getOptions());
 						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-						tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__FEATURE), result);
+						tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__BEFORE_ELEMENT), result);
 						Object resolvedObject = result.getResolvedToken();
 						if (resolvedObject == null) {
 							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a4).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a4).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a4).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a4).getStopIndex());
 						}
-						java.lang.String resolved = (java.lang.String)resolvedObject;
-						if (resolved != null) {
-							Object value = resolved;
-							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__FEATURE), value);
+						String resolved = (String) resolvedObject;
+						be.ac.vub.simplegt.RuleElement proxy = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
+						collectHiddenTokens(element);
+						registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.AddBinding, be.ac.vub.simplegt.RuleElement>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getAddBindingBeforeElementReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__BEFORE_ELEMENT), resolved, proxy);
+						if (proxy != null) {
+							Object value = proxy;
+							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__BEFORE_ELEMENT), value);
 							completedElement(value, false);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_11_0_0_3_0_0_1, resolved, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_3_0_0_1, proxy, true);
 						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, element);
+						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, proxy);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_40, 76);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 76);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 102);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 102);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_40, 77);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 77);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 103);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 103);
 	}
 	
 ;
 
-TEXT:
-	(('A'..'Z' | 'a'..'z' | '0'..'9' | '_' | '-' )+)
+parse_be_ac_vub_simplegt_DelBinding returns [be.ac.vub.simplegt.DelBinding element = null]
+@init{
+}
+:
+	(
+		a0 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createDelBinding();
+				incompleteObjects.push(element);
+			}
+			if (a0 != null) {
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.DEL_BINDING__PROPERTY), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					Object value = resolved;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.DEL_BINDING__PROPERTY), value);
+					completedElement(value, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_20_0_0_0, resolved, true);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_67, 104);
+	}
+	
+	a1 = '-=' {
+		if (element == null) {
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createDelBinding();
+			incompleteObjects.push(element);
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_20_0_0_1, null, true);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_42, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_43, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_44, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_45, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_46, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_47, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
+	}
+	
+	(
+		a2_0 = parse_be_ac_vub_simplegt_Expression		{
+			if (terminateParsing) {
+				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
+			}
+			if (element == null) {
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createDelBinding();
+				incompleteObjects.push(element);
+			}
+			if (a2_0 != null) {
+				if (a2_0 != null) {
+					Object value = a2_0;
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.DEL_BINDING__EXPR), value);
+					completedElement(value, true);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_20_0_0_2, a2_0, true);
+				copyLocalizationInfos(a2_0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 106);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 106);
+	}
+	
 ;
-WHITESPACE:
-	((' ' | '\t' | '\f'))
+
+parse_be_ac_vub_simplegt_Expression returns [be.ac.vub.simplegt.Expression element = null]
+:
+	c0 = parse_be_ac_vub_simplegt_ElementExp{ element = c0; /* this is a subclass or primitive expression choice */ }
+	|	c1 = parse_be_ac_vub_simplegt_StringLiteralExp{ element = c1; /* this is a subclass or primitive expression choice */ }
+	|	c2 = parse_be_ac_vub_simplegt_IntegerLiteralExp{ element = c2; /* this is a subclass or primitive expression choice */ }
+	|	c3 = parse_be_ac_vub_simplegt_DoubleLiteralExp{ element = c3; /* this is a subclass or primitive expression choice */ }
+	|	c4 = parse_be_ac_vub_simplegt_CharLiteralExp{ element = c4; /* this is a subclass or primitive expression choice */ }
+	|	c5 = parse_be_ac_vub_simplegt_BooleanLiteralExp{ element = c5; /* this is a subclass or primitive expression choice */ }
+	|	c6 = parse_be_ac_vub_simplegt_EnumLiteralExp{ element = c6; /* this is a subclass or primitive expression choice */ }
+	
+;
+
+parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding element = null]
+:
+	c0 = parse_be_ac_vub_simplegt_SetBinding{ element = c0; /* this is a subclass or primitive expression choice */ }
+	|	c1 = parse_be_ac_vub_simplegt_AddBinding{ element = c1; /* this is a subclass or primitive expression choice */ }
+	|	c2 = parse_be_ac_vub_simplegt_DelBinding{ element = c2; /* this is a subclass or primitive expression choice */ }
+	
+;
+
+COMMENT:
+	('--'(~('\n'|'\r'|'\uffff'))*)
 	{ _channel = 99; }
 ;
+FLOAT:
+	((('0'..'9'))+'.'(('0'..'9'))+)
+;
+INTEGER:
+	((('0'..'9'))+)
+;
+TEXT:
+	(('A'..'Z'|'a'..'z')(('A'..'Z'|'a'..'z')|('0'..'9')|'-'|'_')*)
+;
 LINEBREAK:
-	(('\r\n' | '\r' | '\n'))
+	(('\r\n'|'\'r'|'\n'))
+	{ _channel = 99; }
+;
+WHITESPACE:
+	((' '|'\t'|'\f'))
 	{ _channel = 99; }
 ;
 

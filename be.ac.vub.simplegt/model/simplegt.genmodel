@@ -9,6 +9,12 @@
   <foreignModel>simplegt.ecore</foreignModel>
   <genPackages prefix="Simplegt" basePackage="be.ac.vub" disposableProviderFactory="true"
       ecorePackage="simplegt.ecore#/">
+    <genClasses image="false" ecoreClass="simplegt.ecore#//LocatedElement">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//LocatedElement/line"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//LocatedElement/column"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//LocatedElement/charStart"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//LocatedElement/charEnd"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="simplegt.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//NamedElement/name"/>
     </genClasses>
@@ -32,38 +38,70 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Rule/output"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Rule/extends"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="simplegt.ecore#//InputElementPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//InputElementPattern/elements"/>
+    </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//InPattern">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//InPattern/inputFor"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplegt.ecore#//InPattern/elements"/>
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//NacPattern">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//NacPattern/elements"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//NacPattern/nacFor"/>
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//OutPattern">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//OutPattern/outputFor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//OutPattern/elements"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="simplegt.ecore#//RuleElement"/>
+    <genClasses image="false" ecoreClass="simplegt.ecore#//RuleElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplegt.ecore#//RuleElement/inModel"/>
+    </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//InputElement">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//InputElement/inPattern"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//InputElement/binding"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplegt.ecore#//InputElement/nacPattern"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//InputElement/bindings"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//InputElement/pattern"/>
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//OutputElement">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//OutputElement/pattern"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//OutputElement/bindings"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//OutputElement/pattern"/>
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//Binding">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Binding/feature"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplegt.ecore#//Binding/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Binding/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Binding/expr"/>
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//InputBinding">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//InputBinding/bindingFor"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//InputBinding/element"/>
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//OutputBinding">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//OutputBinding/targetFeature"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//OutputBinding/bindingFor"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//OutputBinding/element"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//SetBinding"/>
+    <genClasses ecoreClass="simplegt.ecore#//AddBinding">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplegt.ecore#//AddBinding/beforeElement"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//DelBinding"/>
+    <genClasses image="false" ecoreClass="simplegt.ecore#//Expression">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//Expression/binding"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//ElementExp">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplegt.ecore#//ElementExp/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//ElementExp/property"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="simplegt.ecore#//LiteralExp"/>
+    <genClasses ecoreClass="simplegt.ecore#//StringLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//StringLiteralExp/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//IntegerLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//IntegerLiteralExp/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//DoubleLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//DoubleLiteralExp/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//CharLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//CharLiteralExp/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//BooleanLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//BooleanLiteralExp/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//EnumLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//EnumLiteralExp/literal"/>
     </genClasses>
     <genClasses image="false" ecoreClass="simplegt.ecore#//Model"/>
     <genClasses ecoreClass="simplegt.ecore#//Metamodel"/>

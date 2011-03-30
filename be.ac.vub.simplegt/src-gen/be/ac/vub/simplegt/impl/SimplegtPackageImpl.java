@@ -5,11 +5,23 @@
  */
 package be.ac.vub.simplegt.impl;
 
+import be.ac.vub.simplegt.AddBinding;
 import be.ac.vub.simplegt.Binding;
+import be.ac.vub.simplegt.BooleanLiteralExp;
+import be.ac.vub.simplegt.CharLiteralExp;
+import be.ac.vub.simplegt.DelBinding;
+import be.ac.vub.simplegt.DoubleLiteralExp;
+import be.ac.vub.simplegt.ElementExp;
+import be.ac.vub.simplegt.EnumLiteralExp;
+import be.ac.vub.simplegt.Expression;
 import be.ac.vub.simplegt.InPattern;
 import be.ac.vub.simplegt.InputBinding;
 import be.ac.vub.simplegt.InputElement;
+import be.ac.vub.simplegt.InputElementPattern;
 import be.ac.vub.simplegt.InstanceModel;
+import be.ac.vub.simplegt.IntegerLiteralExp;
+import be.ac.vub.simplegt.LiteralExp;
+import be.ac.vub.simplegt.LocatedElement;
 import be.ac.vub.simplegt.Metamodel;
 import be.ac.vub.simplegt.Model;
 import be.ac.vub.simplegt.Module;
@@ -20,8 +32,10 @@ import be.ac.vub.simplegt.OutputBinding;
 import be.ac.vub.simplegt.OutputElement;
 import be.ac.vub.simplegt.Rule;
 import be.ac.vub.simplegt.RuleElement;
+import be.ac.vub.simplegt.SetBinding;
 import be.ac.vub.simplegt.SimplegtFactory;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simplegt.StringLiteralExp;
 import be.ac.vub.simplegt.Type;
 import be.ac.vub.simplegt.TypedElement;
 
@@ -39,6 +53,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass locatedElementEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,6 +94,13 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * @generated
 	 */
 	private EClass ruleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inputElementPatternEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,6 +164,90 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * @generated
 	 */
 	private EClass outputBindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setBindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass addBindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass delBindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass expressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringLiteralExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integerLiteralExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass doubleLiteralExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass charLiteralExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanLiteralExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumLiteralExpEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -217,6 +329,51 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SimplegtPackage.eNS_URI, theSimplegtPackage);
 		return theSimplegtPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLocatedElement() {
+		return locatedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLocatedElement_Line() {
+		return (EAttribute)locatedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLocatedElement_Column() {
+		return (EAttribute)locatedElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLocatedElement_CharStart() {
+		return (EAttribute)locatedElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLocatedElement_CharEnd() {
+		return (EAttribute)locatedElementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -386,6 +543,24 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getInputElementPattern() {
+		return inputElementPatternEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInputElementPattern_Elements() {
+		return (EReference)inputElementPatternEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInPattern() {
 		return inPatternEClass;
 	}
@@ -404,15 +579,6 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInPattern_Elements() {
-		return (EReference)inPatternEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNacPattern() {
 		return nacPatternEClass;
 	}
@@ -422,17 +588,8 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNacPattern_Elements() {
-		return (EReference)nacPatternEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getNacPattern_NacFor() {
-		return (EReference)nacPatternEClass.getEStructuralFeatures().get(1);
+		return (EReference)nacPatternEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -476,6 +633,15 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRuleElement_InModel() {
+		return (EReference)ruleElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInputElement() {
 		return inputElementEClass;
 	}
@@ -485,7 +651,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInputElement_InPattern() {
+	public EReference getInputElement_Bindings() {
 		return (EReference)inputElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -494,17 +660,8 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInputElement_Binding() {
+	public EReference getInputElement_Pattern() {
 		return (EReference)inputElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInputElement_NacPattern() {
-		return (EReference)inputElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -522,7 +679,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * @generated
 	 */
 	public EReference getOutputElement_Pattern() {
-		return (EReference)outputElementEClass.getEStructuralFeatures().get(0);
+		return (EReference)outputElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -531,7 +688,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * @generated
 	 */
 	public EReference getOutputElement_Bindings() {
-		return (EReference)outputElementEClass.getEStructuralFeatures().get(1);
+		return (EReference)outputElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -548,7 +705,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBinding_Feature() {
+	public EAttribute getBinding_Property() {
 		return (EAttribute)bindingEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -557,7 +714,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBinding_Element() {
+	public EReference getBinding_Expr() {
 		return (EReference)bindingEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -575,7 +732,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInputBinding_BindingFor() {
+	public EReference getInputBinding_Element() {
 		return (EReference)inputBindingEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -593,8 +750,8 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOutputBinding_TargetFeature() {
-		return (EAttribute)outputBindingEClass.getEStructuralFeatures().get(0);
+	public EReference getOutputBinding_Element() {
+		return (EReference)outputBindingEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -602,8 +759,197 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOutputBinding_BindingFor() {
-		return (EReference)outputBindingEClass.getEStructuralFeatures().get(1);
+	public EClass getSetBinding() {
+		return setBindingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAddBinding() {
+		return addBindingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAddBinding_BeforeElement() {
+		return (EReference)addBindingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDelBinding() {
+		return delBindingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExpression() {
+		return expressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExpression_Binding() {
+		return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getElementExp() {
+		return elementExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementExp_Element() {
+		return (EReference)elementExpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementExp_Property() {
+		return (EAttribute)elementExpEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLiteralExp() {
+		return literalExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringLiteralExp() {
+		return stringLiteralExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringLiteralExp_Literal() {
+		return (EAttribute)stringLiteralExpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntegerLiteralExp() {
+		return integerLiteralExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntegerLiteralExp_Literal() {
+		return (EAttribute)integerLiteralExpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDoubleLiteralExp() {
+		return doubleLiteralExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoubleLiteralExp_Literal() {
+		return (EAttribute)doubleLiteralExpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCharLiteralExp() {
+		return charLiteralExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCharLiteralExp_Literal() {
+		return (EAttribute)charLiteralExpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBooleanLiteralExp() {
+		return booleanLiteralExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBooleanLiteralExp_Literal() {
+		return (EAttribute)booleanLiteralExpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEnumLiteralExp() {
+		return enumLiteralExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEnumLiteralExp_Literal() {
+		return (EAttribute)enumLiteralExpEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -679,6 +1025,12 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		isCreated = true;
 
 		// Create classes and their features
+		locatedElementEClass = createEClass(LOCATED_ELEMENT);
+		createEAttribute(locatedElementEClass, LOCATED_ELEMENT__LINE);
+		createEAttribute(locatedElementEClass, LOCATED_ELEMENT__COLUMN);
+		createEAttribute(locatedElementEClass, LOCATED_ELEMENT__CHAR_START);
+		createEAttribute(locatedElementEClass, LOCATED_ELEMENT__CHAR_END);
+
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
@@ -702,12 +1054,13 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		createEReference(ruleEClass, RULE__OUTPUT);
 		createEAttribute(ruleEClass, RULE__EXTENDS);
 
+		inputElementPatternEClass = createEClass(INPUT_ELEMENT_PATTERN);
+		createEReference(inputElementPatternEClass, INPUT_ELEMENT_PATTERN__ELEMENTS);
+
 		inPatternEClass = createEClass(IN_PATTERN);
 		createEReference(inPatternEClass, IN_PATTERN__INPUT_FOR);
-		createEReference(inPatternEClass, IN_PATTERN__ELEMENTS);
 
 		nacPatternEClass = createEClass(NAC_PATTERN);
-		createEReference(nacPatternEClass, NAC_PATTERN__ELEMENTS);
 		createEReference(nacPatternEClass, NAC_PATTERN__NAC_FOR);
 
 		outPatternEClass = createEClass(OUT_PATTERN);
@@ -715,26 +1068,59 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		createEReference(outPatternEClass, OUT_PATTERN__ELEMENTS);
 
 		ruleElementEClass = createEClass(RULE_ELEMENT);
+		createEReference(ruleElementEClass, RULE_ELEMENT__IN_MODEL);
 
 		inputElementEClass = createEClass(INPUT_ELEMENT);
-		createEReference(inputElementEClass, INPUT_ELEMENT__IN_PATTERN);
-		createEReference(inputElementEClass, INPUT_ELEMENT__BINDING);
-		createEReference(inputElementEClass, INPUT_ELEMENT__NAC_PATTERN);
+		createEReference(inputElementEClass, INPUT_ELEMENT__BINDINGS);
+		createEReference(inputElementEClass, INPUT_ELEMENT__PATTERN);
 
 		outputElementEClass = createEClass(OUTPUT_ELEMENT);
-		createEReference(outputElementEClass, OUTPUT_ELEMENT__PATTERN);
 		createEReference(outputElementEClass, OUTPUT_ELEMENT__BINDINGS);
+		createEReference(outputElementEClass, OUTPUT_ELEMENT__PATTERN);
 
 		bindingEClass = createEClass(BINDING);
-		createEAttribute(bindingEClass, BINDING__FEATURE);
-		createEReference(bindingEClass, BINDING__ELEMENT);
+		createEAttribute(bindingEClass, BINDING__PROPERTY);
+		createEReference(bindingEClass, BINDING__EXPR);
 
 		inputBindingEClass = createEClass(INPUT_BINDING);
-		createEReference(inputBindingEClass, INPUT_BINDING__BINDING_FOR);
+		createEReference(inputBindingEClass, INPUT_BINDING__ELEMENT);
 
 		outputBindingEClass = createEClass(OUTPUT_BINDING);
-		createEAttribute(outputBindingEClass, OUTPUT_BINDING__TARGET_FEATURE);
-		createEReference(outputBindingEClass, OUTPUT_BINDING__BINDING_FOR);
+		createEReference(outputBindingEClass, OUTPUT_BINDING__ELEMENT);
+
+		setBindingEClass = createEClass(SET_BINDING);
+
+		addBindingEClass = createEClass(ADD_BINDING);
+		createEReference(addBindingEClass, ADD_BINDING__BEFORE_ELEMENT);
+
+		delBindingEClass = createEClass(DEL_BINDING);
+
+		expressionEClass = createEClass(EXPRESSION);
+		createEReference(expressionEClass, EXPRESSION__BINDING);
+
+		elementExpEClass = createEClass(ELEMENT_EXP);
+		createEReference(elementExpEClass, ELEMENT_EXP__ELEMENT);
+		createEAttribute(elementExpEClass, ELEMENT_EXP__PROPERTY);
+
+		literalExpEClass = createEClass(LITERAL_EXP);
+
+		stringLiteralExpEClass = createEClass(STRING_LITERAL_EXP);
+		createEAttribute(stringLiteralExpEClass, STRING_LITERAL_EXP__LITERAL);
+
+		integerLiteralExpEClass = createEClass(INTEGER_LITERAL_EXP);
+		createEAttribute(integerLiteralExpEClass, INTEGER_LITERAL_EXP__LITERAL);
+
+		doubleLiteralExpEClass = createEClass(DOUBLE_LITERAL_EXP);
+		createEAttribute(doubleLiteralExpEClass, DOUBLE_LITERAL_EXP__LITERAL);
+
+		charLiteralExpEClass = createEClass(CHAR_LITERAL_EXP);
+		createEAttribute(charLiteralExpEClass, CHAR_LITERAL_EXP__LITERAL);
+
+		booleanLiteralExpEClass = createEClass(BOOLEAN_LITERAL_EXP);
+		createEAttribute(booleanLiteralExpEClass, BOOLEAN_LITERAL_EXP__LITERAL);
+
+		enumLiteralExpEClass = createEClass(ENUM_LITERAL_EXP);
+		createEAttribute(enumLiteralExpEClass, ENUM_LITERAL_EXP__LITERAL);
 
 		modelEClass = createEClass(MODEL);
 
@@ -773,26 +1159,50 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		namedElementEClass.getESuperTypes().add(this.getLocatedElement());
 		typeEClass.getESuperTypes().add(this.getNamedElement());
 		typedElementEClass.getESuperTypes().add(this.getNamedElement());
 		moduleEClass.getESuperTypes().add(this.getNamedElement());
 		ruleEClass.getESuperTypes().add(this.getNamedElement());
+		inputElementPatternEClass.getESuperTypes().add(this.getLocatedElement());
+		inPatternEClass.getESuperTypes().add(this.getInputElementPattern());
+		nacPatternEClass.getESuperTypes().add(this.getInputElementPattern());
+		outPatternEClass.getESuperTypes().add(this.getLocatedElement());
 		ruleElementEClass.getESuperTypes().add(this.getTypedElement());
 		inputElementEClass.getESuperTypes().add(this.getRuleElement());
 		outputElementEClass.getESuperTypes().add(this.getRuleElement());
+		bindingEClass.getESuperTypes().add(this.getLocatedElement());
 		inputBindingEClass.getESuperTypes().add(this.getBinding());
 		outputBindingEClass.getESuperTypes().add(this.getBinding());
+		setBindingEClass.getESuperTypes().add(this.getOutputBinding());
+		addBindingEClass.getESuperTypes().add(this.getOutputBinding());
+		delBindingEClass.getESuperTypes().add(this.getOutputBinding());
+		expressionEClass.getESuperTypes().add(this.getLocatedElement());
+		elementExpEClass.getESuperTypes().add(this.getExpression());
+		literalExpEClass.getESuperTypes().add(this.getExpression());
+		stringLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
+		integerLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
+		doubleLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
+		charLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
+		booleanLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
+		enumLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
 		modelEClass.getESuperTypes().add(this.getNamedElement());
 		metamodelEClass.getESuperTypes().add(this.getModel());
 		instanceModelEClass.getESuperTypes().add(this.getModel());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(locatedElementEClass, LocatedElement.class, "LocatedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLocatedElement_Line(), ecorePackage.getEInt(), "line", "-1", 1, 1, LocatedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocatedElement_Column(), ecorePackage.getEInt(), "column", "-1", 1, 1, LocatedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocatedElement_CharStart(), ecorePackage.getEInt(), "charStart", "-1", 1, 1, LocatedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocatedElement_CharEnd(), ecorePackage.getEInt(), "charEnd", "-1", 1, 1, LocatedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getType_TypeOf(), this.getTypedElement(), this.getTypedElement_Type(), "typeOf", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_Model(), this.getMetamodel(), null, "model", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_Model(), this.getMetamodel(), null, "model", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typedElementEClass, TypedElement.class, "TypedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypedElement_Type(), this.getType(), this.getType_TypeOf(), "type", null, 1, 1, TypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -810,12 +1220,13 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		initEReference(getRule_Output(), this.getOutPattern(), this.getOutPattern_OutputFor(), "output", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRule_Extends(), ecorePackage.getEString(), "extends", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(inputElementPatternEClass, InputElementPattern.class, "InputElementPattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInputElementPattern_Elements(), this.getInputElement(), this.getInputElement_Pattern(), "elements", null, 1, -1, InputElementPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(inPatternEClass, InPattern.class, "InPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInPattern_InputFor(), this.getRule(), this.getRule_Input(), "inputFor", null, 0, 1, InPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInPattern_Elements(), this.getInputElement(), this.getInputElement_InPattern(), "elements", null, 1, -1, InPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nacPatternEClass, NacPattern.class, "NacPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNacPattern_Elements(), this.getInputElement(), this.getInputElement_NacPattern(), "elements", null, 1, -1, NacPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNacPattern_NacFor(), this.getRule(), this.getRule_Nac(), "nacFor", null, 0, 1, NacPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outPatternEClass, OutPattern.class, "OutPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -823,26 +1234,59 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		initEReference(getOutPattern_Elements(), this.getOutputElement(), this.getOutputElement_Pattern(), "elements", null, 1, -1, OutPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleElementEClass, RuleElement.class, "RuleElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRuleElement_InModel(), this.getInstanceModel(), null, "inModel", null, 0, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputElementEClass, InputElement.class, "InputElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInputElement_InPattern(), this.getInPattern(), this.getInPattern_Elements(), "inPattern", null, 0, 1, InputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInputElement_Binding(), this.getInputBinding(), this.getInputBinding_BindingFor(), "binding", null, 0, 1, InputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInputElement_NacPattern(), this.getNacPattern(), this.getNacPattern_Elements(), "nacPattern", null, 0, 1, InputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInputElement_Bindings(), this.getInputBinding(), this.getInputBinding_Element(), "bindings", null, 0, -1, InputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInputElement_Pattern(), this.getInputElementPattern(), this.getInputElementPattern_Elements(), "pattern", null, 0, 1, InputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outputElementEClass, OutputElement.class, "OutputElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutputElement_Bindings(), this.getOutputBinding(), this.getOutputBinding_Element(), "bindings", null, 0, -1, OutputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOutputElement_Pattern(), this.getOutPattern(), this.getOutPattern_Elements(), "pattern", null, 0, 1, OutputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOutputElement_Bindings(), this.getOutputBinding(), this.getOutputBinding_BindingFor(), "bindings", null, 0, -1, OutputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bindingEClass, Binding.class, "Binding", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBinding_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinding_Element(), this.getInputElement(), null, "element", null, 1, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBinding_Property(), ecorePackage.getEString(), "property", null, 1, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinding_Expr(), this.getExpression(), this.getExpression_Binding(), "expr", null, 1, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputBindingEClass, InputBinding.class, "InputBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInputBinding_BindingFor(), this.getInputElement(), this.getInputElement_Binding(), "bindingFor", null, 0, 1, InputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInputBinding_Element(), this.getInputElement(), this.getInputElement_Bindings(), "element", null, 0, 1, InputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(outputBindingEClass, OutputBinding.class, "OutputBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOutputBinding_TargetFeature(), ecorePackage.getEString(), "targetFeature", null, 1, 1, OutputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOutputBinding_BindingFor(), this.getOutputElement(), this.getOutputElement_Bindings(), "bindingFor", null, 0, 1, OutputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(outputBindingEClass, OutputBinding.class, "OutputBinding", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutputBinding_Element(), this.getOutputElement(), this.getOutputElement_Bindings(), "element", null, 0, 1, OutputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(setBindingEClass, SetBinding.class, "SetBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(addBindingEClass, AddBinding.class, "AddBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAddBinding_BeforeElement(), this.getRuleElement(), null, "beforeElement", null, 0, 1, AddBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(delBindingEClass, DelBinding.class, "DelBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExpression_Binding(), this.getBinding(), this.getBinding_Expr(), "binding", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(elementExpEClass, ElementExp.class, "ElementExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementExp_Element(), this.getRuleElement(), null, "element", null, 1, 1, ElementExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElementExp_Property(), ecorePackage.getEString(), "property", null, 0, 1, ElementExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(literalExpEClass, LiteralExp.class, "LiteralExp", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(stringLiteralExpEClass, StringLiteralExp.class, "StringLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringLiteralExp_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, StringLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(integerLiteralExpEClass, IntegerLiteralExp.class, "IntegerLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntegerLiteralExp_Literal(), ecorePackage.getEInt(), "literal", null, 1, 1, IntegerLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(doubleLiteralExpEClass, DoubleLiteralExp.class, "DoubleLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDoubleLiteralExp_Literal(), ecorePackage.getEDouble(), "literal", null, 1, 1, DoubleLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(charLiteralExpEClass, CharLiteralExp.class, "CharLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCharLiteralExp_Literal(), ecorePackage.getEChar(), "literal", null, 1, 1, CharLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(booleanLiteralExpEClass, BooleanLiteralExp.class, "BooleanLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBooleanLiteralExp_Literal(), ecorePackage.getEBoolean(), "literal", null, 1, 1, BooleanLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(enumLiteralExpEClass, EnumLiteralExp.class, "EnumLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEnumLiteralExp_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, EnumLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

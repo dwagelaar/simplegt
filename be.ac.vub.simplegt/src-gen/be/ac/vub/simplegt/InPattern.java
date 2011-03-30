@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link be.ac.vub.simplegt.InPattern#getInputFor <em>Input For</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.InPattern#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface InPattern extends EObject {
+public interface InPattern extends InputElementPattern {
 	/**
 	 * Returns the value of the '<em><b>Input For</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.Rule#getInput <em>Input</em>}'.
@@ -54,23 +53,5 @@ public interface InPattern extends EObject {
 	 * @generated
 	 */
 	void setInputFor(Rule value);
-
-	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link be.ac.vub.simplegt.InputElement}.
-	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.InputElement#getInPattern <em>In Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see be.ac.vub.simplegt.SimplegtPackage#getInPattern_Elements()
-	 * @see be.ac.vub.simplegt.InputElement#getInPattern
-	 * @model opposite="inPattern" containment="true" required="true"
-	 * @generated
-	 */
-	EList<InputElement> getElements();
 
 } // InPattern

@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface OutPattern extends EObject {
+public interface OutPattern extends LocatedElement {
 	/**
 	 * Returns the value of the '<em><b>Output For</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.Rule#getOutput <em>Output</em>}'.

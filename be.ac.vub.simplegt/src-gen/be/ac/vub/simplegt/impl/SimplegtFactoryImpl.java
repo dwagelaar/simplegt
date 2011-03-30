@@ -68,7 +68,16 @@ public class SimplegtFactoryImpl extends EFactoryImpl implements SimplegtFactory
 			case SimplegtPackage.INPUT_ELEMENT: return createInputElement();
 			case SimplegtPackage.OUTPUT_ELEMENT: return createOutputElement();
 			case SimplegtPackage.INPUT_BINDING: return createInputBinding();
-			case SimplegtPackage.OUTPUT_BINDING: return createOutputBinding();
+			case SimplegtPackage.SET_BINDING: return createSetBinding();
+			case SimplegtPackage.ADD_BINDING: return createAddBinding();
+			case SimplegtPackage.DEL_BINDING: return createDelBinding();
+			case SimplegtPackage.ELEMENT_EXP: return createElementExp();
+			case SimplegtPackage.STRING_LITERAL_EXP: return createStringLiteralExp();
+			case SimplegtPackage.INTEGER_LITERAL_EXP: return createIntegerLiteralExp();
+			case SimplegtPackage.DOUBLE_LITERAL_EXP: return createDoubleLiteralExp();
+			case SimplegtPackage.CHAR_LITERAL_EXP: return createCharLiteralExp();
+			case SimplegtPackage.BOOLEAN_LITERAL_EXP: return createBooleanLiteralExp();
+			case SimplegtPackage.ENUM_LITERAL_EXP: return createEnumLiteralExp();
 			case SimplegtPackage.METAMODEL: return createMetamodel();
 			case SimplegtPackage.INSTANCE_MODEL: return createInstanceModel();
 			default:
@@ -171,9 +180,99 @@ public class SimplegtFactoryImpl extends EFactoryImpl implements SimplegtFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OutputBinding createOutputBinding() {
-		OutputBindingImpl outputBinding = new OutputBindingImpl();
-		return outputBinding;
+	public SetBinding createSetBinding() {
+		SetBindingImpl setBinding = new SetBindingImpl();
+		return setBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AddBinding createAddBinding() {
+		AddBindingImpl addBinding = new AddBindingImpl();
+		return addBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DelBinding createDelBinding() {
+		DelBindingImpl delBinding = new DelBindingImpl();
+		return delBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementExp createElementExp() {
+		ElementExpImpl elementExp = new ElementExpImpl();
+		return elementExp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringLiteralExp createStringLiteralExp() {
+		StringLiteralExpImpl stringLiteralExp = new StringLiteralExpImpl();
+		return stringLiteralExp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegerLiteralExp createIntegerLiteralExp() {
+		IntegerLiteralExpImpl integerLiteralExp = new IntegerLiteralExpImpl();
+		return integerLiteralExp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleLiteralExp createDoubleLiteralExp() {
+		DoubleLiteralExpImpl doubleLiteralExp = new DoubleLiteralExpImpl();
+		return doubleLiteralExp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CharLiteralExp createCharLiteralExp() {
+		CharLiteralExpImpl charLiteralExp = new CharLiteralExpImpl();
+		return charLiteralExp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanLiteralExp createBooleanLiteralExp() {
+		BooleanLiteralExpImpl booleanLiteralExp = new BooleanLiteralExpImpl();
+		return booleanLiteralExp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnumLiteralExp createEnumLiteralExp() {
+		EnumLiteralExpImpl enumLiteralExp = new EnumLiteralExpImpl();
+		return enumLiteralExp;
 	}
 
 	/**

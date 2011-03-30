@@ -11,10 +11,42 @@ package be.ac.vub.simplegt;
  * A representation of the model object '<em><b>Rule Element</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link be.ac.vub.simplegt.RuleElement#getInModel <em>In Model</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see be.ac.vub.simplegt.SimplegtPackage#getRuleElement()
  * @model abstract="true"
  * @generated
  */
 public interface RuleElement extends TypedElement {
+
+	/**
+	 * Returns the value of the '<em><b>In Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Model</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Model</em>' reference.
+	 * @see #setInModel(InstanceModel)
+	 * @see be.ac.vub.simplegt.SimplegtPackage#getRuleElement_InModel()
+	 * @model
+	 * @generated
+	 */
+	InstanceModel getInModel();
+
+	/**
+	 * Sets the value of the '{@link be.ac.vub.simplegt.RuleElement#getInModel <em>In Model</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In Model</em>' reference.
+	 * @see #getInModel()
+	 * @generated
+	 */
+	void setInModel(InstanceModel value);
 } // RuleElement

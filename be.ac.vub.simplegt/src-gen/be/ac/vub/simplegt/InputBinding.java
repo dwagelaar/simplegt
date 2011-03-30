@@ -14,7 +14,7 @@ package be.ac.vub.simplegt;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link be.ac.vub.simplegt.InputBinding#getBindingFor <em>Binding For</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.InputBinding#getElement <em>Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,31 +24,31 @@ package be.ac.vub.simplegt;
  */
 public interface InputBinding extends Binding {
 	/**
-	 * Returns the value of the '<em><b>Binding For</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.InputElement#getBinding <em>Binding</em>}'.
+	 * Returns the value of the '<em><b>Element</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.InputElement#getBindings <em>Bindings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Binding For</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Element</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Binding For</em>' container reference.
-	 * @see #setBindingFor(InputElement)
-	 * @see be.ac.vub.simplegt.SimplegtPackage#getInputBinding_BindingFor()
-	 * @see be.ac.vub.simplegt.InputElement#getBinding
-	 * @model opposite="binding" transient="false"
+	 * @return the value of the '<em>Element</em>' container reference.
+	 * @see #setElement(InputElement)
+	 * @see be.ac.vub.simplegt.SimplegtPackage#getInputBinding_Element()
+	 * @see be.ac.vub.simplegt.InputElement#getBindings
+	 * @model opposite="bindings" transient="false"
 	 * @generated
 	 */
-	InputElement getBindingFor();
+	InputElement getElement();
 
 	/**
-	 * Sets the value of the '{@link be.ac.vub.simplegt.InputBinding#getBindingFor <em>Binding For</em>}' container reference.
+	 * Sets the value of the '{@link be.ac.vub.simplegt.InputBinding#getElement <em>Element</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Binding For</em>' container reference.
-	 * @see #getBindingFor()
+	 * @param value the new value of the '<em>Element</em>' container reference.
+	 * @see #getElement()
 	 * @generated
 	 */
-	void setBindingFor(InputElement value);
+	void setElement(InputElement value);
 
 } // InputBinding

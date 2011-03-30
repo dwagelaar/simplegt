@@ -16,8 +16,8 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link be.ac.vub.simplegt.OutputElement#getPattern <em>Pattern</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.OutputElement#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.OutputElement#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,7 +57,7 @@ public interface OutputElement extends RuleElement {
 	/**
 	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
 	 * The list contents are of type {@link be.ac.vub.simplegt.OutputBinding}.
-	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.OutputBinding#getBindingFor <em>Binding For</em>}'.
+	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.OutputBinding#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
@@ -66,8 +66,8 @@ public interface OutputElement extends RuleElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bindings</em>' containment reference list.
 	 * @see be.ac.vub.simplegt.SimplegtPackage#getOutputElement_Bindings()
-	 * @see be.ac.vub.simplegt.OutputBinding#getBindingFor
-	 * @model opposite="bindingFor" containment="true"
+	 * @see be.ac.vub.simplegt.OutputBinding#getElement
+	 * @model opposite="element" containment="true"
 	 * @generated
 	 */
 	EList<OutputBinding> getBindings();

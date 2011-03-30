@@ -18,10 +18,19 @@ public class SimplegtSyntaxCoverageInformationProvider {
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getType(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputElement(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputBinding(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getElementExp(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getStringLiteralExp(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getIntegerLiteralExp(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getDoubleLiteralExp(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getCharLiteralExp(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getBooleanLiteralExp(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getEnumLiteralExp(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getNacPattern(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutPattern(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputElement(),
-			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getSetBinding(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getAddBinding(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getDelBinding(),
 		};
 	}
 	

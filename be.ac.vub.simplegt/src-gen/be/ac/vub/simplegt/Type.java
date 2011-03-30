@@ -63,7 +63,7 @@ public interface Type extends NamedElement {
 	 * @return the value of the '<em>Model</em>' reference.
 	 * @see #setModel(Metamodel)
 	 * @see be.ac.vub.simplegt.SimplegtPackage#getType_Model()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Metamodel getModel();

@@ -6,7 +6,9 @@
 package be.ac.vub.simplegt.impl;
 
 import be.ac.vub.simplegt.Binding;
+import be.ac.vub.simplegt.Expression;
 import be.ac.vub.simplegt.InputElement;
+import be.ac.vub.simplegt.OutputBinding;
 import be.ac.vub.simplegt.SimplegtPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,43 +29,41 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link be.ac.vub.simplegt.impl.BindingImpl#getFeature <em>Feature</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.impl.BindingImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.impl.BindingImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.impl.BindingImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class BindingImpl extends EObjectImpl implements Binding {
+public abstract class BindingImpl extends LocatedElementImpl implements Binding {
 	/**
-	 * The default value of the '{@link #getFeature() <em>Feature</em>}' attribute.
+	 * The default value of the '{@link #getProperty() <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeature()
+	 * @see #getProperty()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FEATURE_EDEFAULT = null;
-
+	protected static final String PROPERTY_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' attribute.
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeature()
+	 * @see #getProperty()
 	 * @generated
 	 * @ordered
 	 */
-	protected String feature = FEATURE_EDEFAULT;
-
+	protected String property = PROPERTY_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference.
+	 * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElement()
+	 * @see #getExpr()
 	 * @generated
 	 * @ordered
 	 */
-	protected InputElement element;
+	protected Expression expr;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,8 +89,8 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFeature() {
-		return feature;
+	public String getProperty() {
+		return property;
 	}
 
 	/**
@@ -98,11 +98,11 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeature(String newFeature) {
-		String oldFeature = feature;
-		feature = newFeature;
+	public void setProperty(String newProperty) {
+		String oldProperty = property;
+		property = newProperty;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.BINDING__FEATURE, oldFeature, feature));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.BINDING__PROPERTY, oldProperty, property));
 	}
 
 	/**
@@ -110,16 +110,23 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputElement getElement() {
-		if (element != null && element.eIsProxy()) {
-			InternalEObject oldElement = (InternalEObject)element;
-			element = (InputElement)eResolveProxy(oldElement);
-			if (element != oldElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimplegtPackage.BINDING__ELEMENT, oldElement, element));
-			}
+	public Expression getExpr() {
+		return expr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs) {
+		Expression oldExpr = expr;
+		expr = newExpr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplegtPackage.BINDING__EXPR, oldExpr, newExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return element;
+		return msgs;
 	}
 
 	/**
@@ -127,8 +134,18 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputElement basicGetElement() {
-		return element;
+	public void setExpr(Expression newExpr) {
+		if (newExpr != expr) {
+			NotificationChain msgs = null;
+			if (expr != null)
+				msgs = ((InternalEObject)expr).eInverseRemove(this, SimplegtPackage.EXPRESSION__BINDING, Expression.class, msgs);
+			if (newExpr != null)
+				msgs = ((InternalEObject)newExpr).eInverseAdd(this, SimplegtPackage.EXPRESSION__BINDING, Expression.class, msgs);
+			msgs = basicSetExpr(newExpr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.BINDING__EXPR, newExpr, newExpr));
 	}
 
 	/**
@@ -136,11 +153,29 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElement(InputElement newElement) {
-		InputElement oldElement = element;
-		element = newElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.BINDING__ELEMENT, oldElement, element));
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimplegtPackage.BINDING__EXPR:
+				if (expr != null)
+					msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimplegtPackage.BINDING__EXPR, null, msgs);
+				return basicSetExpr((Expression)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimplegtPackage.BINDING__EXPR:
+				return basicSetExpr(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -151,11 +186,10 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SimplegtPackage.BINDING__FEATURE:
-				return getFeature();
-			case SimplegtPackage.BINDING__ELEMENT:
-				if (resolve) return getElement();
-				return basicGetElement();
+			case SimplegtPackage.BINDING__PROPERTY:
+				return getProperty();
+			case SimplegtPackage.BINDING__EXPR:
+				return getExpr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,11 +202,11 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SimplegtPackage.BINDING__FEATURE:
-				setFeature((String)newValue);
+			case SimplegtPackage.BINDING__PROPERTY:
+				setProperty((String)newValue);
 				return;
-			case SimplegtPackage.BINDING__ELEMENT:
-				setElement((InputElement)newValue);
+			case SimplegtPackage.BINDING__EXPR:
+				setExpr((Expression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -186,11 +220,11 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SimplegtPackage.BINDING__FEATURE:
-				setFeature(FEATURE_EDEFAULT);
+			case SimplegtPackage.BINDING__PROPERTY:
+				setProperty(PROPERTY_EDEFAULT);
 				return;
-			case SimplegtPackage.BINDING__ELEMENT:
-				setElement((InputElement)null);
+			case SimplegtPackage.BINDING__EXPR:
+				setExpr((Expression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -204,10 +238,10 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SimplegtPackage.BINDING__FEATURE:
-				return FEATURE_EDEFAULT == null ? feature != null : !FEATURE_EDEFAULT.equals(feature);
-			case SimplegtPackage.BINDING__ELEMENT:
-				return element != null;
+			case SimplegtPackage.BINDING__PROPERTY:
+				return PROPERTY_EDEFAULT == null ? property != null : !PROPERTY_EDEFAULT.equals(property);
+			case SimplegtPackage.BINDING__EXPR:
+				return expr != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,8 +256,8 @@ public abstract class BindingImpl extends EObjectImpl implements Binding {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (feature: ");
-		result.append(feature);
+		result.append(" (property: ");
+		result.append(property);
 		result.append(')');
 		return result.toString();
 	}

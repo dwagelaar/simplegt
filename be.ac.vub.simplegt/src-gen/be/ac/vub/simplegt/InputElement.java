@@ -5,6 +5,8 @@
  */
 package be.ac.vub.simplegt;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -14,9 +16,8 @@ package be.ac.vub.simplegt;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link be.ac.vub.simplegt.InputElement#getInPattern <em>In Pattern</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.InputElement#getBinding <em>Binding</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.InputElement#getNacPattern <em>Nac Pattern</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.InputElement#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.InputElement#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,87 +27,49 @@ package be.ac.vub.simplegt;
  */
 public interface InputElement extends RuleElement {
 	/**
-	 * Returns the value of the '<em><b>In Pattern</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.InPattern#getElements <em>Elements</em>}'.
+	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
+	 * The list contents are of type {@link be.ac.vub.simplegt.InputBinding}.
+	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.InputBinding#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>In Pattern</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>In Pattern</em>' container reference.
-	 * @see #setInPattern(InPattern)
-	 * @see be.ac.vub.simplegt.SimplegtPackage#getInputElement_InPattern()
-	 * @see be.ac.vub.simplegt.InPattern#getElements
+	 * @return the value of the '<em>Bindings</em>' containment reference list.
+	 * @see be.ac.vub.simplegt.SimplegtPackage#getInputElement_Bindings()
+	 * @see be.ac.vub.simplegt.InputBinding#getElement
+	 * @model opposite="element" containment="true"
+	 * @generated
+	 */
+	EList<InputBinding> getBindings();
+
+	/**
+	 * Returns the value of the '<em><b>Pattern</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.InputElementPattern#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern</em>' container reference.
+	 * @see #setPattern(InputElementPattern)
+	 * @see be.ac.vub.simplegt.SimplegtPackage#getInputElement_Pattern()
+	 * @see be.ac.vub.simplegt.InputElementPattern#getElements
 	 * @model opposite="elements" transient="false"
 	 * @generated
 	 */
-	InPattern getInPattern();
+	InputElementPattern getPattern();
 
 	/**
-	 * Sets the value of the '{@link be.ac.vub.simplegt.InputElement#getInPattern <em>In Pattern</em>}' container reference.
+	 * Sets the value of the '{@link be.ac.vub.simplegt.InputElement#getPattern <em>Pattern</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>In Pattern</em>' container reference.
-	 * @see #getInPattern()
+	 * @param value the new value of the '<em>Pattern</em>' container reference.
+	 * @see #getPattern()
 	 * @generated
 	 */
-	void setInPattern(InPattern value);
-
-	/**
-	 * Returns the value of the '<em><b>Binding</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.InputBinding#getBindingFor <em>Binding For</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Binding</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Binding</em>' containment reference.
-	 * @see #setBinding(InputBinding)
-	 * @see be.ac.vub.simplegt.SimplegtPackage#getInputElement_Binding()
-	 * @see be.ac.vub.simplegt.InputBinding#getBindingFor
-	 * @model opposite="bindingFor" containment="true"
-	 * @generated
-	 */
-	InputBinding getBinding();
-
-	/**
-	 * Sets the value of the '{@link be.ac.vub.simplegt.InputElement#getBinding <em>Binding</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Binding</em>' containment reference.
-	 * @see #getBinding()
-	 * @generated
-	 */
-	void setBinding(InputBinding value);
-
-	/**
-	 * Returns the value of the '<em><b>Nac Pattern</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.NacPattern#getElements <em>Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nac Pattern</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nac Pattern</em>' container reference.
-	 * @see #setNacPattern(NacPattern)
-	 * @see be.ac.vub.simplegt.SimplegtPackage#getInputElement_NacPattern()
-	 * @see be.ac.vub.simplegt.NacPattern#getElements
-	 * @model opposite="elements" transient="false"
-	 * @generated
-	 */
-	NacPattern getNacPattern();
-
-	/**
-	 * Sets the value of the '{@link be.ac.vub.simplegt.InputElement#getNacPattern <em>Nac Pattern</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nac Pattern</em>' container reference.
-	 * @see #getNacPattern()
-	 * @generated
-	 */
-	void setNacPattern(NacPattern value);
+	void setPattern(InputElementPattern value);
 
 } // InputElement
