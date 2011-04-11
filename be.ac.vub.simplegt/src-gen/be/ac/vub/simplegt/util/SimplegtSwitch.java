@@ -213,33 +213,6 @@ public class SimplegtSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimplegtPackage.SET_BINDING: {
-				SetBinding setBinding = (SetBinding)theEObject;
-				T result = caseSetBinding(setBinding);
-				if (result == null) result = caseOutputBinding(setBinding);
-				if (result == null) result = caseBinding(setBinding);
-				if (result == null) result = caseLocatedElement(setBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimplegtPackage.ADD_BINDING: {
-				AddBinding addBinding = (AddBinding)theEObject;
-				T result = caseAddBinding(addBinding);
-				if (result == null) result = caseOutputBinding(addBinding);
-				if (result == null) result = caseBinding(addBinding);
-				if (result == null) result = caseLocatedElement(addBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimplegtPackage.DEL_BINDING: {
-				DelBinding delBinding = (DelBinding)theEObject;
-				T result = caseDelBinding(delBinding);
-				if (result == null) result = caseOutputBinding(delBinding);
-				if (result == null) result = caseBinding(delBinding);
-				if (result == null) result = caseLocatedElement(delBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SimplegtPackage.EXPRESSION: {
 				Expression expression = (Expression)theEObject;
 				T result = caseExpression(expression);
@@ -584,51 +557,6 @@ public class SimplegtSwitch<T> {
 	 * @generated
 	 */
 	public T caseOutputBinding(OutputBinding object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Set Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Set Binding</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSetBinding(SetBinding object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Add Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Add Binding</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAddBinding(AddBinding object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Del Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Del Binding</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDelBinding(DelBinding object) {
 		return null;
 	}
 

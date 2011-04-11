@@ -116,24 +116,6 @@ public class AbstractSimplegtInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof be.ac.vub.simplegt.DelBinding) {
-			result = interprete_be_ac_vub_simplegt_DelBinding((be.ac.vub.simplegt.DelBinding) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof be.ac.vub.simplegt.AddBinding) {
-			result = interprete_be_ac_vub_simplegt_AddBinding((be.ac.vub.simplegt.AddBinding) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof be.ac.vub.simplegt.SetBinding) {
-			result = interprete_be_ac_vub_simplegt_SetBinding((be.ac.vub.simplegt.SetBinding) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof be.ac.vub.simplegt.OutputBinding) {
 			result = interprete_be_ac_vub_simplegt_OutputBinding((be.ac.vub.simplegt.OutputBinding) object, context);
 		}
@@ -294,18 +276,6 @@ public class AbstractSimplegtInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_be_ac_vub_simplegt_OutputBinding(be.ac.vub.simplegt.OutputBinding object, ContextType context) {
-		return null;
-	}
-	
-	public ResultType interprete_be_ac_vub_simplegt_SetBinding(be.ac.vub.simplegt.SetBinding object, ContextType context) {
-		return null;
-	}
-	
-	public ResultType interprete_be_ac_vub_simplegt_AddBinding(be.ac.vub.simplegt.AddBinding object, ContextType context) {
-		return null;
-	}
-	
-	public ResultType interprete_be_ac_vub_simplegt_DelBinding(be.ac.vub.simplegt.DelBinding object, ContextType context) {
 		return null;
 	}
 	

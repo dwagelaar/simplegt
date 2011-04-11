@@ -95,15 +95,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//InputElement"
         eOpposite="#//InputElement/bindings"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputBinding" abstract="true" eSuperTypes="#//Binding">
+  <eClassifiers xsi:type="ecore:EClass" name="OutputBinding" eSuperTypes="#//Binding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//OutputElement"
         eOpposite="#//OutputElement/bindings"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SetBinding" eSuperTypes="#//OutputBinding"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AddBinding" eSuperTypes="#//OutputBinding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="beforeElement" eType="#//RuleElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DelBinding" eSuperTypes="#//OutputBinding"/>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="#//LocatedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//Binding"
         eOpposite="#//Binding/expr"/>

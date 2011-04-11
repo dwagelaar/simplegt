@@ -318,14 +318,8 @@ options {
 			if (type.getInstanceClass() == be.ac.vub.simplegt.OutputElement.class) {
 				return parse_be_ac_vub_simplegt_OutputElement();
 			}
-			if (type.getInstanceClass() == be.ac.vub.simplegt.SetBinding.class) {
-				return parse_be_ac_vub_simplegt_SetBinding();
-			}
-			if (type.getInstanceClass() == be.ac.vub.simplegt.AddBinding.class) {
-				return parse_be_ac_vub_simplegt_AddBinding();
-			}
-			if (type.getInstanceClass() == be.ac.vub.simplegt.DelBinding.class) {
-				return parse_be_ac_vub_simplegt_DelBinding();
+			if (type.getInstanceClass() == be.ac.vub.simplegt.OutputBinding.class) {
+				return parse_be_ac_vub_simplegt_OutputBinding();
 			}
 		}
 		throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtUnexpectedContentTypeException(typeObject);
@@ -438,7 +432,7 @@ options {
 				break;
 			}
 		}
-		int followSetID = 107;
+		int followSetID = 101;
 		int i;
 		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
 			org.antlr.runtime3_2_0.CommonToken nextToken = (org.antlr.runtime3_2_0.CommonToken) tokenStream.get(i);
@@ -2861,8 +2855,6 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 			{
 				// expected elements (follow set)
 				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_61, 88, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_62, 88, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_63, 88, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
 			}
 			
 			(
@@ -2888,8 +2880,8 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 89);
 				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 89);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 89);
 			}
 			
 			(
@@ -2906,8 +2898,6 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 					{
 						// expected elements (follow set)
 						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_61, 90, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
-						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_62, 90, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
-						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_63, 90, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
 					}
 					
 					(
@@ -2933,16 +2923,16 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 					)
 					{
 						// expected elements (follow set)
-						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 91);
 						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 91);
+						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 91);
 					}
 					
 				)
 				
 			)*			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 92);
 				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 92);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 92);
 			}
 			
 			a9 = ')' {
@@ -2970,7 +2960,7 @@ parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement
 	
 ;
 
-parse_be_ac_vub_simplegt_SetBinding returns [be.ac.vub.simplegt.SetBinding element = null]
+parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding element = null]
 @init{
 }
 :
@@ -2981,14 +2971,14 @@ parse_be_ac_vub_simplegt_SetBinding returns [be.ac.vub.simplegt.SetBinding eleme
 				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 			}
 			if (element == null) {
-				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createSetBinding();
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
 				incompleteObjects.push(element);
 			}
 			if (a0 != null) {
 				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 				tokenResolver.setOptions(getOptions());
 				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.SET_BINDING__PROPERTY), result);
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__PROPERTY), result);
 				Object resolvedObject = result.getResolvedToken();
 				if (resolvedObject == null) {
 					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
@@ -2996,7 +2986,7 @@ parse_be_ac_vub_simplegt_SetBinding returns [be.ac.vub.simplegt.SetBinding eleme
 				java.lang.String resolved = (java.lang.String)resolvedObject;
 				if (resolved != null) {
 					Object value = resolved;
-					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.SET_BINDING__PROPERTY), value);
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__PROPERTY), value);
 					completedElement(value, false);
 				}
 				collectHiddenTokens(element);
@@ -3007,12 +2997,12 @@ parse_be_ac_vub_simplegt_SetBinding returns [be.ac.vub.simplegt.SetBinding eleme
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_64, 95);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_62, 95);
 	}
 	
 	a1 = '=' {
 		if (element == null) {
-			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createSetBinding();
+			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
 			incompleteObjects.push(element);
 		}
 		collectHiddenTokens(element);
@@ -3036,13 +3026,13 @@ parse_be_ac_vub_simplegt_SetBinding returns [be.ac.vub.simplegt.SetBinding eleme
 				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 			}
 			if (element == null) {
-				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createSetBinding();
+				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
 				incompleteObjects.push(element);
 			}
 			if (a2_0 != null) {
 				if (a2_0 != null) {
 					Object value = a2_0;
-					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.SET_BINDING__EXPR), value);
+					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__EXPR), value);
 					completedElement(value, true);
 				}
 				collectHiddenTokens(element);
@@ -3055,112 +3045,23 @@ parse_be_ac_vub_simplegt_SetBinding returns [be.ac.vub.simplegt.SetBinding eleme
 		// expected elements (follow set)
 		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 97);
 		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 97);
-	}
-	
-;
-
-parse_be_ac_vub_simplegt_AddBinding returns [be.ac.vub.simplegt.AddBinding element = null]
-@init{
-}
-:
-	(
-		a0 = TEXT		
-		{
-			if (terminateParsing) {
-				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
-			}
-			if (element == null) {
-				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
-				incompleteObjects.push(element);
-			}
-			if (a0 != null) {
-				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
-				tokenResolver.setOptions(getOptions());
-				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__PROPERTY), result);
-				Object resolvedObject = result.getResolvedToken();
-				if (resolvedObject == null) {
-					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
-				}
-				java.lang.String resolved = (java.lang.String)resolvedObject;
-				if (resolved != null) {
-					Object value = resolved;
-					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__PROPERTY), value);
-					completedElement(value, false);
-				}
-				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_0, resolved, true);
-				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
-			}
-		}
-	)
-	{
-		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_65, 98);
-	}
-	
-	a1 = '+=' {
-		if (element == null) {
-			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
-			incompleteObjects.push(element);
-		}
-		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_1, null, true);
-		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
-	}
-	{
-		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_42, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_43, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_44, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_45, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_46, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_47, 99, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-	}
-	
-	(
-		a2_0 = parse_be_ac_vub_simplegt_Expression		{
-			if (terminateParsing) {
-				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
-			}
-			if (element == null) {
-				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
-				incompleteObjects.push(element);
-			}
-			if (a2_0 != null) {
-				if (a2_0 != null) {
-					Object value = a2_0;
-					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__EXPR), value);
-					completedElement(value, true);
-				}
-				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_2, a2_0, true);
-				copyLocalizationInfos(a2_0, element);
-			}
-		}
-	)
-	{
-		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 100);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 100);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 100);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 97);
 	}
 	
 	(
 		(
 			a3 = 'before' {
 				if (element == null) {
-					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
+					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
 					incompleteObjects.push(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_3_0_0_0, null, true);
+				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_18_0_0_3_0_0_0, null, true);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a3, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_66, 101);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_63, 98);
 			}
 			
 			(
@@ -3170,14 +3071,14 @@ parse_be_ac_vub_simplegt_AddBinding returns [be.ac.vub.simplegt.AddBinding eleme
 						throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
 					}
 					if (element == null) {
-						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createAddBinding();
+						element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
 						incompleteObjects.push(element);
 					}
 					if (a4 != null) {
 						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 						tokenResolver.setOptions(getOptions());
 						be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-						tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__BEFORE_ELEMENT), result);
+						tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__BEFORE_ELEMENT), result);
 						Object resolvedObject = result.getResolvedToken();
 						if (resolvedObject == null) {
 							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a4).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a4).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a4).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a4).getStopIndex());
@@ -3185,14 +3086,14 @@ parse_be_ac_vub_simplegt_AddBinding returns [be.ac.vub.simplegt.AddBinding eleme
 						String resolved = (String) resolvedObject;
 						be.ac.vub.simplegt.RuleElement proxy = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputElement();
 						collectHiddenTokens(element);
-						registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.AddBinding, be.ac.vub.simplegt.RuleElement>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getAddBindingBeforeElementReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__BEFORE_ELEMENT), resolved, proxy);
+						registerContextDependentProxy(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtContextDependentURIFragmentFactory<be.ac.vub.simplegt.OutputBinding, be.ac.vub.simplegt.RuleElement>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getOutputBindingBeforeElementReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__BEFORE_ELEMENT), resolved, proxy);
 						if (proxy != null) {
 							Object value = proxy;
-							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ADD_BINDING__BEFORE_ELEMENT), value);
+							element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__BEFORE_ELEMENT), value);
 							completedElement(value, false);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19_0_0_3_0_0_1, proxy, true);
+						retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_18_0_0_3_0_0_1, proxy, true);
 						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, element);
 						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a4, proxy);
 					}
@@ -3200,105 +3101,16 @@ parse_be_ac_vub_simplegt_AddBinding returns [be.ac.vub.simplegt.AddBinding eleme
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 102);
-				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 102);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 99);
+				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 99);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 103);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 103);
-	}
-	
-;
-
-parse_be_ac_vub_simplegt_DelBinding returns [be.ac.vub.simplegt.DelBinding element = null]
-@init{
-}
-:
-	(
-		a0 = TEXT		
-		{
-			if (terminateParsing) {
-				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
-			}
-			if (element == null) {
-				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createDelBinding();
-				incompleteObjects.push(element);
-			}
-			if (a0 != null) {
-				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
-				tokenResolver.setOptions(getOptions());
-				be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.DEL_BINDING__PROPERTY), result);
-				Object resolvedObject = result.getResolvedToken();
-				if (resolvedObject == null) {
-					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
-				}
-				java.lang.String resolved = (java.lang.String)resolvedObject;
-				if (resolved != null) {
-					Object value = resolved;
-					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.DEL_BINDING__PROPERTY), value);
-					completedElement(value, false);
-				}
-				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_20_0_0_0, resolved, true);
-				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
-			}
-		}
-	)
-	{
-		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_67, 104);
-	}
-	
-	a1 = '-=' {
-		if (element == null) {
-			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createDelBinding();
-			incompleteObjects.push(element);
-		}
-		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_20_0_0_1, null, true);
-		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
-	}
-	{
-		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_41, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_42, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_43, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_44, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_45, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_46, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_47, 105, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
-	}
-	
-	(
-		a2_0 = parse_be_ac_vub_simplegt_Expression		{
-			if (terminateParsing) {
-				throw new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException();
-			}
-			if (element == null) {
-				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createDelBinding();
-				incompleteObjects.push(element);
-			}
-			if (a2_0 != null) {
-				if (a2_0 != null) {
-					Object value = a2_0;
-					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.DEL_BINDING__EXPR), value);
-					completedElement(value, true);
-				}
-				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_20_0_0_2, a2_0, true);
-				copyLocalizationInfos(a2_0, element);
-			}
-		}
-	)
-	{
-		// expected elements (follow set)
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_49, 106);
-		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 106);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_50, 100);
+		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 100);
 	}
 	
 ;
@@ -3312,14 +3124,6 @@ parse_be_ac_vub_simplegt_Expression returns [be.ac.vub.simplegt.Expression eleme
 	|	c4 = parse_be_ac_vub_simplegt_CharLiteralExp{ element = c4; /* this is a subclass or primitive expression choice */ }
 	|	c5 = parse_be_ac_vub_simplegt_BooleanLiteralExp{ element = c5; /* this is a subclass or primitive expression choice */ }
 	|	c6 = parse_be_ac_vub_simplegt_EnumLiteralExp{ element = c6; /* this is a subclass or primitive expression choice */ }
-	
-;
-
-parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding element = null]
-:
-	c0 = parse_be_ac_vub_simplegt_SetBinding{ element = c0; /* this is a subclass or primitive expression choice */ }
-	|	c1 = parse_be_ac_vub_simplegt_AddBinding{ element = c1; /* this is a subclass or primitive expression choice */ }
-	|	c2 = parse_be_ac_vub_simplegt_DelBinding{ element = c2; /* this is a subclass or primitive expression choice */ }
 	
 ;
 

@@ -106,31 +106,13 @@ public interface SimplegtFactory extends EFactory {
 	InputBinding createInputBinding();
 
 	/**
-	 * Returns a new object of class '<em>Set Binding</em>'.
+	 * Returns a new object of class '<em>Output Binding</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Set Binding</em>'.
+	 * @return a new object of class '<em>Output Binding</em>'.
 	 * @generated
 	 */
-	SetBinding createSetBinding();
-
-	/**
-	 * Returns a new object of class '<em>Add Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Add Binding</em>'.
-	 * @generated
-	 */
-	AddBinding createAddBinding();
-
-	/**
-	 * Returns a new object of class '<em>Del Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Del Binding</em>'.
-	 * @generated
-	 */
-	DelBinding createDelBinding();
+	OutputBinding createOutputBinding();
 
 	/**
 	 * Returns a new object of class '<em>Element Exp</em>'.

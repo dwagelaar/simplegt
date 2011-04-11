@@ -42,7 +42,5 @@ RULES {
 	NacPattern ::= "not" elements ("," !1 elements)*;
 	OutPattern ::= "to" elements ("," !1 elements)*;
 	OutputElement ::= name[] ":" type ("in" inModel[])? ("(" !1 bindings ("," bindings)* ")")?;
-	SetBinding ::= property[] "=" expr;
-	AddBinding ::= property[] "+=" expr ("before" beforeElement[])?;
-	DelBinding ::= property[] "-=" expr;
+	OutputBinding ::= property[] "=" expr ("before" beforeElement[])?;
 }

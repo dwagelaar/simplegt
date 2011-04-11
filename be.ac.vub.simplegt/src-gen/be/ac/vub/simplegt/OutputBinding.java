@@ -17,11 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link be.ac.vub.simplegt.OutputBinding#getElement <em>Element</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.OutputBinding#getBeforeElement <em>Before Element</em>}</li>
  * </ul>
  * </p>
  *
  * @see be.ac.vub.simplegt.SimplegtPackage#getOutputBinding()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface OutputBinding extends Binding {
@@ -52,5 +53,31 @@ public interface OutputBinding extends Binding {
 	 * @generated
 	 */
 	void setElement(OutputElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Before Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Before Element</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Before Element</em>' reference.
+	 * @see #setBeforeElement(RuleElement)
+	 * @see be.ac.vub.simplegt.SimplegtPackage#getOutputBinding_BeforeElement()
+	 * @model
+	 * @generated
+	 */
+	RuleElement getBeforeElement();
+
+	/**
+	 * Sets the value of the '{@link be.ac.vub.simplegt.OutputBinding#getBeforeElement <em>Before Element</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Before Element</em>' reference.
+	 * @see #getBeforeElement()
+	 * @generated
+	 */
+	void setBeforeElement(RuleElement value);
 
 } // OutputBinding

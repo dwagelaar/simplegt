@@ -1,0 +1,24 @@
+-- Inlines nested code blocks
+-- $Id$
+module InlineCodeblocks;
+
+transform M : EMFTVM;
+
+-- TODO merge nested code blocks of nestedCb (AND, IFTE, etc.)
+rule Invoke_cb {
+	from cb : EMFTVM!CodeBlock (code = invoke_cb),
+		invoke_cb : EMFTVM!Invoke_cb (codeBlock = nestedCb),
+		nestedCb : EMFTVM!CodeBlock
+	to cb : EMFTVM!CodeBlock (
+		code = nestedCb.code before invoke_cb,
+		localVariables = nestedCb.localVariables,
+		lineNumbers = nestedCb.lineNumbers)
+}
+
+rule Invoke_cb_ln extends Invoke_cb {
+	from cb : EMFTVM!CodeBlock (code = invoke_cb),
+		invoke_cb : EMFTVM!Invoke_cb (lineNumber = ln),
+		ln : EMFTVM!LineNumber
+	to cb : EMFTVM!CodeBlock
+}
+

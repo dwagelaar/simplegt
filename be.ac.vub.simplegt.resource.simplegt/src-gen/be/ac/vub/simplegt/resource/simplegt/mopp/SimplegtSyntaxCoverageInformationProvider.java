@@ -28,9 +28,7 @@ public class SimplegtSyntaxCoverageInformationProvider {
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getNacPattern(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutPattern(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputElement(),
-			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getSetBinding(),
-			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getAddBinding(),
-			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getDelBinding(),
+			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding(),
 		};
 	}
 	

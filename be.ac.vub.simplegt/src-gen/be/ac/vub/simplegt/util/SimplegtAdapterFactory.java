@@ -135,18 +135,6 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 				return createOutputBindingAdapter();
 			}
 			@Override
-			public Adapter caseSetBinding(SetBinding object) {
-				return createSetBindingAdapter();
-			}
-			@Override
-			public Adapter caseAddBinding(AddBinding object) {
-				return createAddBindingAdapter();
-			}
-			@Override
-			public Adapter caseDelBinding(DelBinding object) {
-				return createDelBindingAdapter();
-			}
-			@Override
 			public Adapter caseExpression(Expression object) {
 				return createExpressionAdapter();
 			}
@@ -435,48 +423,6 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOutputBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.SetBinding <em>Set Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.ac.vub.simplegt.SetBinding
-	 * @generated
-	 */
-	public Adapter createSetBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.AddBinding <em>Add Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.ac.vub.simplegt.AddBinding
-	 * @generated
-	 */
-	public Adapter createAddBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.DelBinding <em>Del Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.ac.vub.simplegt.DelBinding
-	 * @generated
-	 */
-	public Adapter createDelBindingAdapter() {
 		return null;
 	}
 

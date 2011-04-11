@@ -5,11 +5,9 @@
  */
 package be.ac.vub.simplegt.impl;
 
-import be.ac.vub.simplegt.AddBinding;
 import be.ac.vub.simplegt.Binding;
 import be.ac.vub.simplegt.BooleanLiteralExp;
 import be.ac.vub.simplegt.CharLiteralExp;
-import be.ac.vub.simplegt.DelBinding;
 import be.ac.vub.simplegt.DoubleLiteralExp;
 import be.ac.vub.simplegt.ElementExp;
 import be.ac.vub.simplegt.EnumLiteralExp;
@@ -32,7 +30,6 @@ import be.ac.vub.simplegt.OutputBinding;
 import be.ac.vub.simplegt.OutputElement;
 import be.ac.vub.simplegt.Rule;
 import be.ac.vub.simplegt.RuleElement;
-import be.ac.vub.simplegt.SetBinding;
 import be.ac.vub.simplegt.SimplegtFactory;
 import be.ac.vub.simplegt.SimplegtPackage;
 import be.ac.vub.simplegt.StringLiteralExp;
@@ -164,27 +161,6 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * @generated
 	 */
 	private EClass outputBindingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass setBindingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass addBindingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass delBindingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -759,35 +735,8 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSetBinding() {
-		return setBindingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAddBinding() {
-		return addBindingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAddBinding_BeforeElement() {
-		return (EReference)addBindingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDelBinding() {
-		return delBindingEClass;
+	public EReference getOutputBinding_BeforeElement() {
+		return (EReference)outputBindingEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1087,13 +1036,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 
 		outputBindingEClass = createEClass(OUTPUT_BINDING);
 		createEReference(outputBindingEClass, OUTPUT_BINDING__ELEMENT);
-
-		setBindingEClass = createEClass(SET_BINDING);
-
-		addBindingEClass = createEClass(ADD_BINDING);
-		createEReference(addBindingEClass, ADD_BINDING__BEFORE_ELEMENT);
-
-		delBindingEClass = createEClass(DEL_BINDING);
+		createEReference(outputBindingEClass, OUTPUT_BINDING__BEFORE_ELEMENT);
 
 		expressionEClass = createEClass(EXPRESSION);
 		createEReference(expressionEClass, EXPRESSION__BINDING);
@@ -1174,9 +1117,6 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		bindingEClass.getESuperTypes().add(this.getLocatedElement());
 		inputBindingEClass.getESuperTypes().add(this.getBinding());
 		outputBindingEClass.getESuperTypes().add(this.getBinding());
-		setBindingEClass.getESuperTypes().add(this.getOutputBinding());
-		addBindingEClass.getESuperTypes().add(this.getOutputBinding());
-		delBindingEClass.getESuperTypes().add(this.getOutputBinding());
 		expressionEClass.getESuperTypes().add(this.getLocatedElement());
 		elementExpEClass.getESuperTypes().add(this.getExpression());
 		literalExpEClass.getESuperTypes().add(this.getExpression());
@@ -1251,15 +1191,9 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		initEClass(inputBindingEClass, InputBinding.class, "InputBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInputBinding_Element(), this.getInputElement(), this.getInputElement_Bindings(), "element", null, 0, 1, InputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(outputBindingEClass, OutputBinding.class, "OutputBinding", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(outputBindingEClass, OutputBinding.class, "OutputBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOutputBinding_Element(), this.getOutputElement(), this.getOutputElement_Bindings(), "element", null, 0, 1, OutputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(setBindingEClass, SetBinding.class, "SetBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(addBindingEClass, AddBinding.class, "AddBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAddBinding_BeforeElement(), this.getRuleElement(), null, "beforeElement", null, 0, 1, AddBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(delBindingEClass, DelBinding.class, "DelBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutputBinding_BeforeElement(), this.getRuleElement(), null, "beforeElement", null, 0, 1, OutputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExpression_Binding(), this.getBinding(), this.getBinding_Expr(), "binding", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="be.ac.vub.simplegt.tests/inline-codeblocks" default="all">
+
+	<target name="all" depends="saveModels, saveModels-xmi"/>
+	
+	<target name="loadModels">
+		<emftvm.loadModel name="InlineCodeblocks" wspath="be.ac.vub.simplegt.tests/test-data/InlineCodeblocks.emftvm"/>
+		<emftvm.run modulepath="platform:/resource/emftvm.compiler/transformations/inlined/" module="EMFTVMCopy">
+			<inputmodel name="InlineCodeblocks" as="IN"/>
+			<outputmodel name="InlineCodeblocks-Copy" as="OUT" wspath="${ant.project.name}/InlineCodeblocks.emftvm"/>
+		</emftvm.run>
+	</target>
+
+	<target name="run" depends="loadModels">
+		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.tests/test-data/" module="InlineCodeblocks">
+			<inoutmodel name="InlineCodeblocks-Copy" as="M"/>
+			<outputmodel name="InlineCodeblocks-match" as="match" wspath="${ant.project.name}/InlineCodeblocks-match.trace"/>
+			<outputmodel name="InlineCodeblocks-trace" as="trace" wspath="${ant.project.name}/InlineCodeblocks.trace"/>
+		</emftvm.run>
+	</target>
+
+	<target name="saveModels" depends="run">
+		<emftvm.saveModel name="InlineCodeblocks-match" derived="true"/>
+		<emftvm.saveModel name="InlineCodeblocks-trace" derived="true"/>
+		<emftvm.saveModel name="InlineCodeblocks-Copy" derived="true"/>
+	</target>
+
+	<target name="copy-xmi" depends="saveModels">
+		<emftvm.run modulepath="platform:/resource/emftvm.compiler/transformations/inlined/" module="EMFTVMCopy">
+			<inputmodel name="InlineCodeblocks-Copy" as="IN"/>
+			<outputmodel name="InlineCodeblocks-XMI" as="OUT" wspath="${ant.project.name}/InlineCodeblocks.emftvm.xmi"/>
+		</emftvm.run>
+	</target>
+
+	<target name="saveModels-xmi" depends="copy-xmi">
+		<emftvm.saveModel name="InlineCodeblocks-XMI" derived="true"/>
+	</target>
+
+</project>

@@ -43,9 +43,7 @@ public class SimplegtTests extends TestSuite {
 		suite.addTestSuite(InputElementTest.class);
 		suite.addTestSuite(OutputElementTest.class);
 		suite.addTestSuite(InputBindingTest.class);
-		suite.addTestSuite(SetBindingTest.class);
-		suite.addTestSuite(AddBindingTest.class);
-		suite.addTestSuite(DelBindingTest.class);
+		suite.addTestSuite(OutputBindingTest.class);
 		suite.addTestSuite(ElementExpTest.class);
 		suite.addTestSuite(StringLiteralExpTest.class);
 		suite.addTestSuite(IntegerLiteralExpTest.class);

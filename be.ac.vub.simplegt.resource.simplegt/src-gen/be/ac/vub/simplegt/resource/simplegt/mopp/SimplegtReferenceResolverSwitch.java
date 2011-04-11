@@ -11,7 +11,7 @@ public class SimplegtReferenceResolverSwitch implements be.ac.vub.simplegt.resou
 	protected be.ac.vub.simplegt.resource.simplegt.analysis.TypeModelReferenceResolver typeModelReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.TypeModelReferenceResolver();
 	protected be.ac.vub.simplegt.resource.simplegt.analysis.RuleElementInModelReferenceResolver ruleElementInModelReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.RuleElementInModelReferenceResolver();
 	protected be.ac.vub.simplegt.resource.simplegt.analysis.ElementExpElementReferenceResolver elementExpElementReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.ElementExpElementReferenceResolver();
-	protected be.ac.vub.simplegt.resource.simplegt.analysis.AddBindingBeforeElementReferenceResolver addBindingBeforeElementReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.AddBindingBeforeElementReferenceResolver();
+	protected be.ac.vub.simplegt.resource.simplegt.analysis.OutputBindingBeforeElementReferenceResolver outputBindingBeforeElementReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.OutputBindingBeforeElementReferenceResolver();
 	
 	public be.ac.vub.simplegt.resource.simplegt.analysis.TypeModelReferenceResolver getTypeModelReferenceResolver() {
 		return typeModelReferenceResolver;
@@ -25,15 +25,15 @@ public class SimplegtReferenceResolverSwitch implements be.ac.vub.simplegt.resou
 		return elementExpElementReferenceResolver;
 	}
 	
-	public be.ac.vub.simplegt.resource.simplegt.analysis.AddBindingBeforeElementReferenceResolver getAddBindingBeforeElementReferenceResolver() {
-		return addBindingBeforeElementReferenceResolver;
+	public be.ac.vub.simplegt.resource.simplegt.analysis.OutputBindingBeforeElementReferenceResolver getOutputBindingBeforeElementReferenceResolver() {
+		return outputBindingBeforeElementReferenceResolver;
 	}
 	
 	public void setOptions(java.util.Map<?, ?> options) {
 		typeModelReferenceResolver.setOptions(options);
 		ruleElementInModelReferenceResolver.setOptions(options);
 		elementExpElementReferenceResolver.setOptions(options);
-		addBindingBeforeElementReferenceResolver.setOptions(options);
+		outputBindingBeforeElementReferenceResolver.setOptions(options);
 	}
 	
 	public void resolveFuzzy(String identifier, org.eclipse.emf.ecore.EObject container, org.eclipse.emf.ecore.EReference reference, int position, be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolveResult<org.eclipse.emf.ecore.EObject> result) {
@@ -64,12 +64,12 @@ public class SimplegtReferenceResolverSwitch implements be.ac.vub.simplegt.resou
 				elementExpElementReferenceResolver.resolve(identifier, (be.ac.vub.simplegt.ElementExp) container, (org.eclipse.emf.ecore.EReference) feature, position, true, frr);
 			}
 		}
-		if (be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getAddBinding().isInstance(container)) {
+		if (be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding().isInstance(container)) {
 			SimplegtFuzzyResolveResult<be.ac.vub.simplegt.RuleElement> frr = new SimplegtFuzzyResolveResult<be.ac.vub.simplegt.RuleElement>(result);
 			String referenceName = reference.getName();
 			org.eclipse.emf.ecore.EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
 			if (feature != null && feature instanceof org.eclipse.emf.ecore.EReference && referenceName != null && referenceName.equals("beforeElement")) {
-				addBindingBeforeElementReferenceResolver.resolve(identifier, (be.ac.vub.simplegt.AddBinding) container, (org.eclipse.emf.ecore.EReference) feature, position, true, frr);
+				outputBindingBeforeElementReferenceResolver.resolve(identifier, (be.ac.vub.simplegt.OutputBinding) container, (org.eclipse.emf.ecore.EReference) feature, position, true, frr);
 			}
 		}
 	}
@@ -84,8 +84,8 @@ public class SimplegtReferenceResolverSwitch implements be.ac.vub.simplegt.resou
 		if (reference == be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getElementExp_Element()) {
 			return elementExpElementReferenceResolver;
 		}
-		if (reference == be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getAddBinding_BeforeElement()) {
-			return addBindingBeforeElementReferenceResolver;
+		if (reference == be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding_BeforeElement()) {
+			return outputBindingBeforeElementReferenceResolver;
 		}
 		return null;
 	}

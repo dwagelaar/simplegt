@@ -181,16 +181,8 @@ public class SimplegtPrinter2 implements be.ac.vub.simplegt.resource.simplegt.IS
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.SetBinding) {
+		if (element instanceof be.ac.vub.simplegt.OutputBinding) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_18, foundFormattingElements);
-			return;
-		}
-		if (element instanceof be.ac.vub.simplegt.AddBinding) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_19, foundFormattingElements);
-			return;
-		}
-		if (element instanceof be.ac.vub.simplegt.DelBinding) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_20, foundFormattingElements);
 			return;
 		}
 		

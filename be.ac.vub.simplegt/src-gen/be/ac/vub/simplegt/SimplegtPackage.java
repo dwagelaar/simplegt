@@ -1335,268 +1335,22 @@ public interface SimplegtPackage extends EPackage {
 	int OUTPUT_BINDING__ELEMENT = BINDING_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Output Binding</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link be.ac.vub.simplegt.impl.SetBindingImpl <em>Set Binding</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.ac.vub.simplegt.impl.SetBindingImpl
-	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getSetBinding()
-	 * @generated
-	 */
-	int SET_BINDING = 16;
-
-	/**
-	 * The feature id for the '<em><b>Line</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_BINDING__LINE = OUTPUT_BINDING__LINE;
-
-	/**
-	 * The feature id for the '<em><b>Column</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_BINDING__COLUMN = OUTPUT_BINDING__COLUMN;
-
-	/**
-	 * The feature id for the '<em><b>Char Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_BINDING__CHAR_START = OUTPUT_BINDING__CHAR_START;
-
-	/**
-	 * The feature id for the '<em><b>Char End</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_BINDING__CHAR_END = OUTPUT_BINDING__CHAR_END;
-
-	/**
-	 * The feature id for the '<em><b>Property</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_BINDING__PROPERTY = OUTPUT_BINDING__PROPERTY;
-
-	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_BINDING__EXPR = OUTPUT_BINDING__EXPR;
-
-	/**
-	 * The feature id for the '<em><b>Element</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_BINDING__ELEMENT = OUTPUT_BINDING__ELEMENT;
-
-	/**
-	 * The number of structural features of the '<em>Set Binding</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_BINDING_FEATURE_COUNT = OUTPUT_BINDING_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link be.ac.vub.simplegt.impl.AddBindingImpl <em>Add Binding</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.ac.vub.simplegt.impl.AddBindingImpl
-	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getAddBinding()
-	 * @generated
-	 */
-	int ADD_BINDING = 17;
-
-	/**
-	 * The feature id for the '<em><b>Line</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_BINDING__LINE = OUTPUT_BINDING__LINE;
-
-	/**
-	 * The feature id for the '<em><b>Column</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_BINDING__COLUMN = OUTPUT_BINDING__COLUMN;
-
-	/**
-	 * The feature id for the '<em><b>Char Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_BINDING__CHAR_START = OUTPUT_BINDING__CHAR_START;
-
-	/**
-	 * The feature id for the '<em><b>Char End</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_BINDING__CHAR_END = OUTPUT_BINDING__CHAR_END;
-
-	/**
-	 * The feature id for the '<em><b>Property</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_BINDING__PROPERTY = OUTPUT_BINDING__PROPERTY;
-
-	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_BINDING__EXPR = OUTPUT_BINDING__EXPR;
-
-	/**
-	 * The feature id for the '<em><b>Element</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_BINDING__ELEMENT = OUTPUT_BINDING__ELEMENT;
-
-	/**
 	 * The feature id for the '<em><b>Before Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADD_BINDING__BEFORE_ELEMENT = OUTPUT_BINDING_FEATURE_COUNT + 0;
+	int OUTPUT_BINDING__BEFORE_ELEMENT = BINDING_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Add Binding</em>' class.
+	 * The number of structural features of the '<em>Output Binding</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADD_BINDING_FEATURE_COUNT = OUTPUT_BINDING_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link be.ac.vub.simplegt.impl.DelBindingImpl <em>Del Binding</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.ac.vub.simplegt.impl.DelBindingImpl
-	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getDelBinding()
-	 * @generated
-	 */
-	int DEL_BINDING = 18;
-
-	/**
-	 * The feature id for the '<em><b>Line</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEL_BINDING__LINE = OUTPUT_BINDING__LINE;
-
-	/**
-	 * The feature id for the '<em><b>Column</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEL_BINDING__COLUMN = OUTPUT_BINDING__COLUMN;
-
-	/**
-	 * The feature id for the '<em><b>Char Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEL_BINDING__CHAR_START = OUTPUT_BINDING__CHAR_START;
-
-	/**
-	 * The feature id for the '<em><b>Char End</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEL_BINDING__CHAR_END = OUTPUT_BINDING__CHAR_END;
-
-	/**
-	 * The feature id for the '<em><b>Property</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEL_BINDING__PROPERTY = OUTPUT_BINDING__PROPERTY;
-
-	/**
-	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEL_BINDING__EXPR = OUTPUT_BINDING__EXPR;
-
-	/**
-	 * The feature id for the '<em><b>Element</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEL_BINDING__ELEMENT = OUTPUT_BINDING__ELEMENT;
-
-	/**
-	 * The number of structural features of the '<em>Del Binding</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEL_BINDING_FEATURE_COUNT = OUTPUT_BINDING_FEATURE_COUNT + 0;
+	int OUTPUT_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link be.ac.vub.simplegt.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -1606,7 +1360,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 19;
+	int EXPRESSION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -1670,7 +1424,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getElementExp()
 	 * @generated
 	 */
-	int ELEMENT_EXP = 20;
+	int ELEMENT_EXP = 17;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -1752,7 +1506,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getLiteralExp()
 	 * @generated
 	 */
-	int LITERAL_EXP = 21;
+	int LITERAL_EXP = 18;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -1816,7 +1570,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getStringLiteralExp()
 	 * @generated
 	 */
-	int STRING_LITERAL_EXP = 22;
+	int STRING_LITERAL_EXP = 19;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -1889,7 +1643,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getIntegerLiteralExp()
 	 * @generated
 	 */
-	int INTEGER_LITERAL_EXP = 23;
+	int INTEGER_LITERAL_EXP = 20;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -1962,7 +1716,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getDoubleLiteralExp()
 	 * @generated
 	 */
-	int DOUBLE_LITERAL_EXP = 24;
+	int DOUBLE_LITERAL_EXP = 21;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2035,7 +1789,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getCharLiteralExp()
 	 * @generated
 	 */
-	int CHAR_LITERAL_EXP = 25;
+	int CHAR_LITERAL_EXP = 22;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2108,7 +1862,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getBooleanLiteralExp()
 	 * @generated
 	 */
-	int BOOLEAN_LITERAL_EXP = 26;
+	int BOOLEAN_LITERAL_EXP = 23;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2181,7 +1935,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getEnumLiteralExp()
 	 * @generated
 	 */
-	int ENUM_LITERAL_EXP = 27;
+	int ENUM_LITERAL_EXP = 24;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2254,7 +2008,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getModel()
 	 * @generated
 	 */
-	int MODEL = 28;
+	int MODEL = 25;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2318,7 +2072,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getMetamodel()
 	 * @generated
 	 */
-	int METAMODEL = 29;
+	int METAMODEL = 26;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2382,7 +2136,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getInstanceModel()
 	 * @generated
 	 */
-	int INSTANCE_MODEL = 30;
+	int INSTANCE_MODEL = 27;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2959,45 +2713,15 @@ public interface SimplegtPackage extends EPackage {
 	EReference getOutputBinding_Element();
 
 	/**
-	 * Returns the meta object for class '{@link be.ac.vub.simplegt.SetBinding <em>Set Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Set Binding</em>'.
-	 * @see be.ac.vub.simplegt.SetBinding
-	 * @generated
-	 */
-	EClass getSetBinding();
-
-	/**
-	 * Returns the meta object for class '{@link be.ac.vub.simplegt.AddBinding <em>Add Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Add Binding</em>'.
-	 * @see be.ac.vub.simplegt.AddBinding
-	 * @generated
-	 */
-	EClass getAddBinding();
-
-	/**
-	 * Returns the meta object for the reference '{@link be.ac.vub.simplegt.AddBinding#getBeforeElement <em>Before Element</em>}'.
+	 * Returns the meta object for the reference '{@link be.ac.vub.simplegt.OutputBinding#getBeforeElement <em>Before Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Before Element</em>'.
-	 * @see be.ac.vub.simplegt.AddBinding#getBeforeElement()
-	 * @see #getAddBinding()
+	 * @see be.ac.vub.simplegt.OutputBinding#getBeforeElement()
+	 * @see #getOutputBinding()
 	 * @generated
 	 */
-	EReference getAddBinding_BeforeElement();
-
-	/**
-	 * Returns the meta object for class '{@link be.ac.vub.simplegt.DelBinding <em>Del Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Del Binding</em>'.
-	 * @see be.ac.vub.simplegt.DelBinding
-	 * @generated
-	 */
-	EClass getDelBinding();
+	EReference getOutputBinding_BeforeElement();
 
 	/**
 	 * Returns the meta object for class '{@link be.ac.vub.simplegt.Expression <em>Expression</em>}'.
@@ -3671,42 +3395,12 @@ public interface SimplegtPackage extends EPackage {
 		EReference OUTPUT_BINDING__ELEMENT = eINSTANCE.getOutputBinding_Element();
 
 		/**
-		 * The meta object literal for the '{@link be.ac.vub.simplegt.impl.SetBindingImpl <em>Set Binding</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.ac.vub.simplegt.impl.SetBindingImpl
-		 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getSetBinding()
-		 * @generated
-		 */
-		EClass SET_BINDING = eINSTANCE.getSetBinding();
-
-		/**
-		 * The meta object literal for the '{@link be.ac.vub.simplegt.impl.AddBindingImpl <em>Add Binding</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.ac.vub.simplegt.impl.AddBindingImpl
-		 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getAddBinding()
-		 * @generated
-		 */
-		EClass ADD_BINDING = eINSTANCE.getAddBinding();
-
-		/**
 		 * The meta object literal for the '<em><b>Before Element</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ADD_BINDING__BEFORE_ELEMENT = eINSTANCE.getAddBinding_BeforeElement();
-
-		/**
-		 * The meta object literal for the '{@link be.ac.vub.simplegt.impl.DelBindingImpl <em>Del Binding</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.ac.vub.simplegt.impl.DelBindingImpl
-		 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getDelBinding()
-		 * @generated
-		 */
-		EClass DEL_BINDING = eINSTANCE.getDelBinding();
+		EReference OUTPUT_BINDING__BEFORE_ELEMENT = eINSTANCE.getOutputBinding_BeforeElement();
 
 		/**
 		 * The meta object literal for the '{@link be.ac.vub.simplegt.impl.ExpressionImpl <em>Expression</em>}' class.

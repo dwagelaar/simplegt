@@ -68,9 +68,7 @@ public class SimplegtFactoryImpl extends EFactoryImpl implements SimplegtFactory
 			case SimplegtPackage.INPUT_ELEMENT: return createInputElement();
 			case SimplegtPackage.OUTPUT_ELEMENT: return createOutputElement();
 			case SimplegtPackage.INPUT_BINDING: return createInputBinding();
-			case SimplegtPackage.SET_BINDING: return createSetBinding();
-			case SimplegtPackage.ADD_BINDING: return createAddBinding();
-			case SimplegtPackage.DEL_BINDING: return createDelBinding();
+			case SimplegtPackage.OUTPUT_BINDING: return createOutputBinding();
 			case SimplegtPackage.ELEMENT_EXP: return createElementExp();
 			case SimplegtPackage.STRING_LITERAL_EXP: return createStringLiteralExp();
 			case SimplegtPackage.INTEGER_LITERAL_EXP: return createIntegerLiteralExp();
@@ -180,29 +178,9 @@ public class SimplegtFactoryImpl extends EFactoryImpl implements SimplegtFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SetBinding createSetBinding() {
-		SetBindingImpl setBinding = new SetBindingImpl();
-		return setBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AddBinding createAddBinding() {
-		AddBindingImpl addBinding = new AddBindingImpl();
-		return addBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DelBinding createDelBinding() {
-		DelBindingImpl delBinding = new DelBindingImpl();
-		return delBinding;
+	public OutputBinding createOutputBinding() {
+		OutputBindingImpl outputBinding = new OutputBindingImpl();
+		return outputBinding;
 	}
 
 	/**

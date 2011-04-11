@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ASCII"?>
+<trace:TraceLinkSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http://soft.vub.ac.be/emftvm/2011/Trace">
+  <rules rule="Invoke_cb">
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.1"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.2"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.3"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.4"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.1/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.1/@applier/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.1/@applier/@nested.1"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+  </rules>
+</trace:TraceLinkSet>

@@ -6,6 +6,8 @@
 package be.ac.vub.simplegt.tests;
 
 import be.ac.vub.simplegt.OutputBinding;
+import be.ac.vub.simplegt.SimplegtFactory;
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +15,16 @@ import be.ac.vub.simplegt.OutputBinding;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class OutputBindingTest extends BindingTest {
+public class OutputBindingTest extends BindingTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(OutputBindingTest.class);
+	}
 
 	/**
 	 * Constructs a new Output Binding test case with the given name.
@@ -34,6 +45,28 @@ public abstract class OutputBindingTest extends BindingTest {
 	@Override
 	protected OutputBinding getFixture() {
 		return (OutputBinding)fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(SimplegtFactory.eINSTANCE.createOutputBinding());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
 	}
 
 } //OutputBindingTest

@@ -8,6 +8,7 @@ package be.ac.vub.simplegt.impl;
 import be.ac.vub.simplegt.Binding;
 import be.ac.vub.simplegt.OutputBinding;
 import be.ac.vub.simplegt.OutputElement;
+import be.ac.vub.simplegt.RuleElement;
 import be.ac.vub.simplegt.SimplegtPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -29,12 +30,23 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link be.ac.vub.simplegt.impl.OutputBindingImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.impl.OutputBindingImpl#getBeforeElement <em>Before Element</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class OutputBindingImpl extends BindingImpl implements OutputBinding {
+public class OutputBindingImpl extends BindingImpl implements OutputBinding {
+	/**
+	 * The cached value of the '{@link #getBeforeElement() <em>Before Element</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBeforeElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected RuleElement beforeElement;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,6 +112,44 @@ public abstract class OutputBindingImpl extends BindingImpl implements OutputBin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RuleElement getBeforeElement() {
+		if (beforeElement != null && beforeElement.eIsProxy()) {
+			InternalEObject oldBeforeElement = (InternalEObject)beforeElement;
+			beforeElement = (RuleElement)eResolveProxy(oldBeforeElement);
+			if (beforeElement != oldBeforeElement) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimplegtPackage.OUTPUT_BINDING__BEFORE_ELEMENT, oldBeforeElement, beforeElement));
+			}
+		}
+		return beforeElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleElement basicGetBeforeElement() {
+		return beforeElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBeforeElement(RuleElement newBeforeElement) {
+		RuleElement oldBeforeElement = beforeElement;
+		beforeElement = newBeforeElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.OUTPUT_BINDING__BEFORE_ELEMENT, oldBeforeElement, beforeElement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -149,6 +199,9 @@ public abstract class OutputBindingImpl extends BindingImpl implements OutputBin
 		switch (featureID) {
 			case SimplegtPackage.OUTPUT_BINDING__ELEMENT:
 				return getElement();
+			case SimplegtPackage.OUTPUT_BINDING__BEFORE_ELEMENT:
+				if (resolve) return getBeforeElement();
+				return basicGetBeforeElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +216,9 @@ public abstract class OutputBindingImpl extends BindingImpl implements OutputBin
 		switch (featureID) {
 			case SimplegtPackage.OUTPUT_BINDING__ELEMENT:
 				setElement((OutputElement)newValue);
+				return;
+			case SimplegtPackage.OUTPUT_BINDING__BEFORE_ELEMENT:
+				setBeforeElement((RuleElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,6 +235,9 @@ public abstract class OutputBindingImpl extends BindingImpl implements OutputBin
 			case SimplegtPackage.OUTPUT_BINDING__ELEMENT:
 				setElement((OutputElement)null);
 				return;
+			case SimplegtPackage.OUTPUT_BINDING__BEFORE_ELEMENT:
+				setBeforeElement((RuleElement)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,6 +252,8 @@ public abstract class OutputBindingImpl extends BindingImpl implements OutputBin
 		switch (featureID) {
 			case SimplegtPackage.OUTPUT_BINDING__ELEMENT:
 				return getElement() != null;
+			case SimplegtPackage.OUTPUT_BINDING__BEFORE_ELEMENT:
+				return beforeElement != null;
 		}
 		return super.eIsSet(featureID);
 	}
