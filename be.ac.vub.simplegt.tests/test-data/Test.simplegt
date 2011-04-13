@@ -7,11 +7,11 @@ transform M : EMFTVM;
 rule Test {
 	from s : EMFTVM!CodeBlock,
 		n : EMFTVM!CodeBlock (
-			nestedFor = s)
+			nestedFor =~ s)
 	not nn : EMFTVM!CodeBlock (
-			nestedFor = n),
+			nestedFor =~ n),
 		n : EMFTVM!CodeBlock
 	to s : EMFTVM!CodeBlock (
-		code = s.code,
-		nested = s.nested)
+		code =~ s.code,
+		nested =~ s.nested)
 }
