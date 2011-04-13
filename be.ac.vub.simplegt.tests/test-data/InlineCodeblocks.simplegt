@@ -15,7 +15,14 @@ rule Invoke_cb {
 		nested =~ nestedCb.nested)
 }
 
-rule Invoke_all_cbs {
+abstract rule Invoke_all_cbs {
+	from cb : EMFTVM!CodeBlock (code =~ invoke_all_cbs),
+		invoke_all_cbs : EMFTVM!Invoke_all_cbs
+	to cb : EMFTVM!CodeBlock (code =~ invoke_all_cbs),
+     invoke_all_cbs : EMFTVM!Invoke_all_cbs
+}
+
+rule Invoke_all_cbs_nested extends Invoke_all_cbs {
 	from cb : EMFTVM!CodeBlock (
 			code =~ invoke_all_cbs,
 			nested =~ nestedCb),
@@ -30,7 +37,7 @@ rule Invoke_all_cbs {
      invoke_all_cbs : EMFTVM!Invoke_all_cbs
 }
 
-rule Invoke_all_cbs_no_nested {
+rule Invoke_all_cbs_no_nested extends Invoke_all_cbs {
 	from cb : EMFTVM!CodeBlock (code =~ invoke_all_cbs),
 		invoke_all_cbs : EMFTVM!Invoke_all_cbs
 	not cb : EMFTVM!CodeBlock (nested =~ nestedCb),

@@ -1001,7 +1001,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 			printCountingMap.put("property", count - 1);
 		}
 		// DEFINITION PART BEGINS (CsString)
-		out.print("=");
+		out.print("=~");
 		out.print(" ");
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("expr");
@@ -1734,7 +1734,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 			printCountingMap.put("property", count - 1);
 		}
 		// DEFINITION PART BEGINS (CsString)
-		out.print("=");
+		out.print("=~");
 		out.print(" ");
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("expr");

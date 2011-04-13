@@ -31,7 +31,7 @@ RULES {
 	InPattern ::= "from" elements ("," !1 elements)*;
 	Type ::= model[] "!" name[];
 	InputElement ::= name[] ":" type ("in" inModel[])? ("(" !1 bindings ("," bindings)* ")")?;
-	InputBinding ::= property[] "=" expr;
+	InputBinding ::= property[] "=~" expr;
 	ElementExp ::= element[] ("." property[])?;
 	StringLiteralExp ::= "\"" literal[] "\"";
 	IntegerLiteralExp ::= literal[INTEGER];
@@ -42,5 +42,5 @@ RULES {
 	NacPattern ::= "not" elements ("," !1 elements)*;
 	OutPattern ::= "to" elements ("," !1 elements)*;
 	OutputElement ::= name[] ":" type ("in" inModel[])? ("(" !1 bindings ("," bindings)* ")")?;
-	OutputBinding ::= property[] "=" expr ("before" beforeElement[])?;
+	OutputBinding ::= property[] "=~" expr ("before" beforeElement[])?;
 }

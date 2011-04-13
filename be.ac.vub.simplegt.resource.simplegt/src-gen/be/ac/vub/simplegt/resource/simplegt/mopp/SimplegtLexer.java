@@ -395,10 +395,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:32:7: ( '=' )
-            // Simplegt.g:32:9: '='
+            // Simplegt.g:32:7: ( '=~' )
+            // Simplegt.g:32:9: '=~'
             {
-            match('='); 
+            match("=~"); 
+
 
             }
 
@@ -1337,7 +1338,7 @@ public class SimplegtLexer extends Lexer {
     protected DFA7 dfa7 = new DFA7(this);
     static final String DFA7_eotS =
         "\1\uffff\1\31\1\uffff\2\31\2\uffff\3\31\2\uffff\1\31\6\uffff\1\46"+
-        "\1\uffff\2\31\1\uffff\1\51\3\uffff\2\31\1\55\1\31\1\60\5\31\1\uffff"+
+        "\1\uffff\2\31\1\uffff\1\52\3\uffff\2\31\1\55\1\31\1\60\5\31\1\uffff"+
         "\2\31\2\uffff\2\31\1\uffff\2\31\1\uffff\5\31\1\101\4\31\1\106\1"+
         "\31\1\110\1\31\1\112\1\31\1\uffff\4\31\1\uffff\1\31\1\uffff\1\31"+
         "\1\uffff\1\122\1\31\1\124\1\125\3\31\1\uffff\1\131\2\uffff\2\31"+
@@ -1367,7 +1368,7 @@ public class SimplegtLexer extends Lexer {
     static final String DFA7_acceptS =
         "\2\uffff\1\2\2\uffff\1\5\1\6\3\uffff\1\12\1\13\1\uffff\1\15\1\17"+
         "\1\20\1\21\1\22\1\23\1\uffff\1\27\2\uffff\1\33\1\uffff\1\36\1\37"+
-        "\1\40\12\uffff\1\24\2\uffff\1\35\1\34\2\uffff\1\16\2\uffff\1\31"+
+        "\1\40\12\uffff\1\24\2\uffff\1\34\1\35\2\uffff\1\16\2\uffff\1\31"+
         "\20\uffff\1\30\4\uffff\1\25\1\uffff\1\10\1\uffff\1\14\7\uffff\1"+
         "\26\1\uffff\1\1\1\3\3\uffff\1\32\2\uffff\1\11\1\uffff\1\7\1\4";
     static final String DFA7_specialS =
@@ -1401,7 +1402,7 @@ public class SimplegtLexer extends Lexer {
             "\1\47",
             "\1\50",
             "",
-            "\1\52\1\uffff\12\30",
+            "\1\51\1\uffff\12\30",
             "",
             "",
             "",

@@ -1977,7 +1977,7 @@ parse_be_ac_vub_simplegt_InputBinding returns [be.ac.vub.simplegt.InputBinding e
 		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_40, 54);
 	}
 	
-	a1 = '=' {
+	a1 = '=~' {
 		if (element == null) {
 			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputBinding();
 			incompleteObjects.push(element);
@@ -3000,7 +3000,7 @@ parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding
 		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_62, 95);
 	}
 	
-	a1 = '=' {
+	a1 = '=~' {
 		if (element == null) {
 			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createOutputBinding();
 			incompleteObjects.push(element);

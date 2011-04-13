@@ -8,193 +8,246 @@
     <inputElements name="invoke_cb" type="Invoke_cb" typeModel="EMFTVM"/>
     <inputElements name="nestedCb" type="CodeBlock" typeModel="EMFTVM"/>
     <matcher maxLocals="3" maxStack="1">
-      <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.0/@matcher/@lineNumbers.0" cbIndex="0"/>
-      <lineNumbers startLine="8" startColumn="1" startChar="105" endChar="235" instructions="//@rules.0/@matcher/@code.0"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@matcher/@lineNumbers.2" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@matcher/@lineNumbers.1" cbOffset="0" localVariableIndex="0"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@matcher/@lineNumbers.1" fieldname="code"/>
+      <code xsi:type="emftvm:Invoke" lineNumber="//@rules.0/@matcher/@lineNumbers.1" argcount="1" opname="=~"/>
+      <code xsi:type="emftvm:And" lineNumber="//@rules.0/@matcher/@lineNumbers.0" cbIndex="0"/>
+      <lineNumbers startLine="8" startColumn="1" startChar="168" endChar="300" instructions="//@rules.0/@matcher/@code.4"/>
+      <lineNumbers startLine="8" startColumn="29" startChar="196" endChar="212" instructions="//@rules.0/@matcher/@code.1 //@rules.0/@matcher/@code.2 //@rules.0/@matcher/@code.3"/>
+      <lineNumbers startLine="8" startColumn="37" startChar="204" endChar="212" instructions="//@rules.0/@matcher/@code.0"/>
       <localVariables name="cb" type="CodeBlock" typeModel="EMFTVM" slot="0"/>
       <localVariables name="invoke_cb" type="Invoke_cb" typeModel="EMFTVM" slot="1"/>
       <localVariables name="nestedCb" type="CodeBlock" typeModel="EMFTVM" slot="2"/>
-      <nested maxLocals="0" maxStack="1">
-        <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.0/@matcher/@nested.0/@lineNumbers.0" cbIndex="0"/>
-        <code xsi:type="emftvm:And" lineNumber="//@rules.0/@matcher/@nested.0/@lineNumbers.0" cbIndex="1"/>
-        <lineNumbers startLine="8" startColumn="1" startChar="105" endChar="235" instructions="//@rules.0/@matcher/@nested.0/@code.0 //@rules.0/@matcher/@nested.0/@code.1"/>
-        <nested maxLocals="0" maxStack="2">
-          <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.0/@matcher/@nested.0/@nested.0/@lineNumbers.0" cbIndex="0"/>
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@matcher/@nested.0/@nested.0/@lineNumbers.0" cbOffset="2" localVariableIndex="0"/>
-          <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@matcher/@nested.0/@nested.0/@lineNumbers.0" fieldname="code"/>
-          <code xsi:type="emftvm:Invoke" lineNumber="//@rules.0/@matcher/@nested.0/@nested.0/@lineNumbers.0" argcount="1" opname="="/>
-          <lineNumbers startLine="8" startColumn="29" startChar="133" endChar="148" instructions="//@rules.0/@matcher/@nested.0/@nested.0/@code.0 //@rules.0/@matcher/@nested.0/@nested.0/@code.1 //@rules.0/@matcher/@nested.0/@nested.0/@code.2 //@rules.0/@matcher/@nested.0/@nested.0/@code.3"/>
-          <nested maxLocals="0" maxStack="1">
-            <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@matcher/@nested.0/@nested.0/@nested.0/@lineNumbers.0" cbOffset="3" localVariableIndex="1"/>
-            <lineNumbers startLine="8" startColumn="36" startChar="140" endChar="148" instructions="//@rules.0/@matcher/@nested.0/@nested.0/@nested.0/@code.0"/>
-          </nested>
-        </nested>
-        <nested maxLocals="0" maxStack="2">
-          <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.0/@matcher/@nested.0/@nested.1/@lineNumbers.0" cbIndex="0"/>
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@matcher/@nested.0/@nested.1/@lineNumbers.0" cbOffset="2" localVariableIndex="1"/>
-          <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@matcher/@nested.0/@nested.1/@lineNumbers.0" fieldname="codeBlock"/>
-          <code xsi:type="emftvm:Invoke" lineNumber="//@rules.0/@matcher/@nested.0/@nested.1/@lineNumbers.0" argcount="1" opname="="/>
-          <lineNumbers startLine="9" startColumn="32" startChar="184" endChar="203" instructions="//@rules.0/@matcher/@nested.0/@nested.1/@code.0 //@rules.0/@matcher/@nested.0/@nested.1/@code.1 //@rules.0/@matcher/@nested.0/@nested.1/@code.2 //@rules.0/@matcher/@nested.0/@nested.1/@code.3"/>
-          <nested maxLocals="0" maxStack="1">
-            <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@matcher/@nested.0/@nested.1/@nested.0/@lineNumbers.0" cbOffset="3" localVariableIndex="2"/>
-            <lineNumbers startLine="9" startColumn="44" startChar="196" endChar="203" instructions="//@rules.0/@matcher/@nested.0/@nested.1/@nested.0/@code.0"/>
-          </nested>
-        </nested>
+      <nested maxLocals="0" maxStack="2">
+        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@matcher/@nested.0/@lineNumbers.1" cbOffset="1" localVariableIndex="2"/>
+        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@matcher/@nested.0/@lineNumbers.0" cbOffset="1" localVariableIndex="1"/>
+        <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@matcher/@nested.0/@lineNumbers.0" fieldname="codeBlock"/>
+        <code xsi:type="emftvm:Invoke" lineNumber="//@rules.0/@matcher/@nested.0/@lineNumbers.0" argcount="1" opname="=~"/>
+        <lineNumbers startLine="9" startColumn="32" startChar="248" endChar="268" instructions="//@rules.0/@matcher/@nested.0/@code.1 //@rules.0/@matcher/@nested.0/@code.2 //@rules.0/@matcher/@nested.0/@code.3"/>
+        <lineNumbers startLine="9" startColumn="45" startChar="261" endChar="268" instructions="//@rules.0/@matcher/@nested.0/@code.0"/>
       </nested>
     </matcher>
-    <applier maxLocals="4" maxStack="7">
-      <code xsi:type="emftvm:Invoke_all_cbs" lineNumber="//@rules.0/@applier/@lineNumbers.0"/>
-      <lineNumbers startLine="11" startColumn="1" startChar="238" endChar="386" instructions="//@rules.0/@applier/@code.0"/>
+    <applier maxLocals="4" maxStack="8">
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.0" cbOffset="0" localVariableIndex="2"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.0" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Dup_x1" lineNumber="//@rules.0/@applier/@lineNumbers.0"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@lineNumbers.0" fieldname="code"/>
+      <code xsi:type="emftvm:Invoke" lineNumber="//@rules.0/@applier/@lineNumbers.0" argcount="1" opname="indexOf"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.1" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@lineNumbers.1" fieldname="code"/>
+      <code xsi:type="emftvm:Swap_x1" lineNumber="//@rules.0/@applier/@lineNumbers.0"/>
+      <code xsi:type="emftvm:Insert" lineNumber="//@rules.0/@applier/@lineNumbers.0" fieldname="code"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.3" cbOffset="0" localVariableIndex="2"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.2" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Remove" lineNumber="//@rules.0/@applier/@lineNumbers.2" fieldname="code"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.5" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.4" cbOffset="0" localVariableIndex="2"/>
+      <code xsi:type="emftvm:Remove" lineNumber="//@rules.0/@applier/@lineNumbers.4" fieldname="codeBlock"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.7" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@lineNumbers.7" fieldname="localVariables"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.6" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Add" lineNumber="//@rules.0/@applier/@lineNumbers.6" fieldname="localVariables"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.9" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@lineNumbers.9" fieldname="lineNumbers"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.8" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Add" lineNumber="//@rules.0/@applier/@lineNumbers.8" fieldname="lineNumbers"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.11" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@lineNumbers.11" fieldname="nested"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.10" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Add" lineNumber="//@rules.0/@applier/@lineNumbers.10" fieldname="nested"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.12" cbOffset="0" localVariableIndex="2"/>
+      <code xsi:type="emftvm:Delete" lineNumber="//@rules.0/@applier/@lineNumbers.12"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.13" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Delete" lineNumber="//@rules.0/@applier/@lineNumbers.13"/>
+      <lineNumbers startLine="12" startColumn="2" startChar="332" endChar="369" instructions="//@rules.0/@applier/@code.0 //@rules.0/@applier/@code.1 //@rules.0/@applier/@code.2 //@rules.0/@applier/@code.3 //@rules.0/@applier/@code.4 //@rules.0/@applier/@code.7 //@rules.0/@applier/@code.8"/>
+      <lineNumbers startLine="12" startColumn="10" startChar="340" endChar="352" instructions="//@rules.0/@applier/@code.5 //@rules.0/@applier/@code.6"/>
+      <lineNumbers startLine="8" startColumn="29" startChar="196" endChar="212" instructions="//@rules.0/@applier/@code.10 //@rules.0/@applier/@code.11"/>
+      <lineNumbers startLine="8" startColumn="37" startChar="204" endChar="212" instructions="//@rules.0/@applier/@code.9"/>
+      <lineNumbers startLine="9" startColumn="32" startChar="248" endChar="268" instructions="//@rules.0/@applier/@code.13 //@rules.0/@applier/@code.14"/>
+      <lineNumbers startLine="9" startColumn="45" startChar="261" endChar="268" instructions="//@rules.0/@applier/@code.12"/>
+      <lineNumbers startLine="13" startColumn="2" startChar="374" endChar="414" instructions="//@rules.0/@applier/@code.17 //@rules.0/@applier/@code.18"/>
+      <lineNumbers startLine="13" startColumn="20" startChar="392" endChar="414" instructions="//@rules.0/@applier/@code.15 //@rules.0/@applier/@code.16"/>
+      <lineNumbers startLine="14" startColumn="2" startChar="419" endChar="453" instructions="//@rules.0/@applier/@code.21 //@rules.0/@applier/@code.22"/>
+      <lineNumbers startLine="14" startColumn="17" startChar="434" endChar="453" instructions="//@rules.0/@applier/@code.19 //@rules.0/@applier/@code.20"/>
+      <lineNumbers startLine="15" startColumn="2" startChar="458" endChar="482" instructions="//@rules.0/@applier/@code.25 //@rules.0/@applier/@code.26"/>
+      <lineNumbers startLine="15" startColumn="12" startChar="468" endChar="482" instructions="//@rules.0/@applier/@code.23 //@rules.0/@applier/@code.24"/>
+      <lineNumbers startLine="9" startColumn="2" startChar="218" endChar="269" instructions="//@rules.0/@applier/@code.27 //@rules.0/@applier/@code.28"/>
+      <lineNumbers startLine="10" startColumn="2" startChar="274" endChar="300" instructions="//@rules.0/@applier/@code.29 //@rules.0/@applier/@code.30"/>
       <localVariables name="__trace__" type="TraceLink" typeModel="TRACE" slot="0"/>
       <localVariables name="cb" type="CodeBlock" typeModel="EMFTVM" slot="1"/>
       <localVariables name="invoke_cb" type="Invoke_cb" typeModel="EMFTVM" slot="2"/>
       <localVariables name="nestedCb" type="CodeBlock" typeModel="EMFTVM" slot="3"/>
-      <nested maxLocals="0" maxStack="4">
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.0/@lineNumbers.0" cbOffset="1" localVariableIndex="2"/>
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.0/@lineNumbers.0" cbOffset="1" localVariableIndex="1"/>
-        <code xsi:type="emftvm:Dup_x1" lineNumber="//@rules.0/@applier/@nested.0/@lineNumbers.0"/>
-        <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@nested.0/@lineNumbers.0" fieldname="code"/>
-        <code xsi:type="emftvm:Invoke" lineNumber="//@rules.0/@applier/@nested.0/@lineNumbers.0" argcount="1" opname="indexOf"/>
-        <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.0/@applier/@nested.0/@lineNumbers.0" cbIndex="0"/>
-        <code xsi:type="emftvm:Swap_x1" lineNumber="//@rules.0/@applier/@nested.0/@lineNumbers.0"/>
-        <code xsi:type="emftvm:Insert" lineNumber="//@rules.0/@applier/@nested.0/@lineNumbers.0" fieldname="code"/>
-        <lineNumbers startLine="12" startColumn="2" startChar="267" endChar="303" instructions="//@rules.0/@applier/@nested.0/@code.0 //@rules.0/@applier/@nested.0/@code.1 //@rules.0/@applier/@nested.0/@code.2 //@rules.0/@applier/@nested.0/@code.3 //@rules.0/@applier/@nested.0/@code.4 //@rules.0/@applier/@nested.0/@code.5 //@rules.0/@applier/@nested.0/@code.6 //@rules.0/@applier/@nested.0/@code.7"/>
-        <nested maxLocals="0" maxStack="1">
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.0/@nested.0/@lineNumbers.0" cbOffset="2" localVariableIndex="3"/>
-          <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@nested.0/@nested.0/@lineNumbers.0" fieldname="code"/>
-          <lineNumbers startLine="12" startColumn="9" startChar="274" endChar="286" instructions="//@rules.0/@applier/@nested.0/@nested.0/@code.0 //@rules.0/@applier/@nested.0/@nested.0/@code.1"/>
-        </nested>
-      </nested>
-      <nested maxLocals="0" maxStack="2">
-        <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.0/@applier/@nested.1/@lineNumbers.0" cbIndex="0"/>
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.1/@lineNumbers.0" cbOffset="1" localVariableIndex="1"/>
-        <code xsi:type="emftvm:Remove" lineNumber="//@rules.0/@applier/@nested.1/@lineNumbers.0" fieldname="code"/>
-        <lineNumbers startLine="8" startColumn="29" startChar="133" endChar="148" instructions="//@rules.0/@applier/@nested.1/@code.0 //@rules.0/@applier/@nested.1/@code.1 //@rules.0/@applier/@nested.1/@code.2"/>
-        <nested maxLocals="0" maxStack="1">
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.1/@nested.0/@lineNumbers.0" cbOffset="2" localVariableIndex="2"/>
-          <lineNumbers startLine="8" startColumn="36" startChar="140" endChar="148" instructions="//@rules.0/@applier/@nested.1/@nested.0/@code.0"/>
-        </nested>
-      </nested>
-      <nested maxLocals="0" maxStack="2">
-        <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.0/@applier/@nested.2/@lineNumbers.0" cbIndex="0"/>
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.2/@lineNumbers.0" cbOffset="1" localVariableIndex="2"/>
-        <code xsi:type="emftvm:Remove" lineNumber="//@rules.0/@applier/@nested.2/@lineNumbers.0" fieldname="codeBlock"/>
-        <lineNumbers startLine="9" startColumn="32" startChar="184" endChar="203" instructions="//@rules.0/@applier/@nested.2/@code.0 //@rules.0/@applier/@nested.2/@code.1 //@rules.0/@applier/@nested.2/@code.2"/>
-        <nested maxLocals="0" maxStack="1">
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.2/@nested.0/@lineNumbers.0" cbOffset="2" localVariableIndex="3"/>
-          <lineNumbers startLine="9" startColumn="44" startChar="196" endChar="203" instructions="//@rules.0/@applier/@nested.2/@nested.0/@code.0"/>
-        </nested>
-      </nested>
-      <nested maxLocals="0" maxStack="2">
-        <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.0/@applier/@nested.3/@lineNumbers.0" cbIndex="0"/>
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.3/@lineNumbers.0" cbOffset="1" localVariableIndex="1"/>
-        <code xsi:type="emftvm:Add" lineNumber="//@rules.0/@applier/@nested.3/@lineNumbers.0" fieldname="localVariables"/>
-        <lineNumbers startLine="13" startColumn="2" startChar="308" endChar="347" instructions="//@rules.0/@applier/@nested.3/@code.0 //@rules.0/@applier/@nested.3/@code.1 //@rules.0/@applier/@nested.3/@code.2"/>
-        <nested maxLocals="0" maxStack="1">
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.3/@nested.0/@lineNumbers.0" cbOffset="2" localVariableIndex="3"/>
-          <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@nested.3/@nested.0/@lineNumbers.0" fieldname="localVariables"/>
-          <lineNumbers startLine="13" startColumn="19" startChar="325" endChar="347" instructions="//@rules.0/@applier/@nested.3/@nested.0/@code.0 //@rules.0/@applier/@nested.3/@nested.0/@code.1"/>
-        </nested>
-      </nested>
-      <nested maxLocals="0" maxStack="2">
-        <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.0/@applier/@nested.4/@lineNumbers.0" cbIndex="0"/>
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.4/@lineNumbers.0" cbOffset="1" localVariableIndex="1"/>
-        <code xsi:type="emftvm:Add" lineNumber="//@rules.0/@applier/@nested.4/@lineNumbers.0" fieldname="lineNumbers"/>
-        <lineNumbers startLine="14" startColumn="2" startChar="352" endChar="385" instructions="//@rules.0/@applier/@nested.4/@code.0 //@rules.0/@applier/@nested.4/@code.1 //@rules.0/@applier/@nested.4/@code.2"/>
-        <nested maxLocals="0" maxStack="1">
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.4/@nested.0/@lineNumbers.0" cbOffset="2" localVariableIndex="3"/>
-          <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@nested.4/@nested.0/@lineNumbers.0" fieldname="lineNumbers"/>
-          <lineNumbers startLine="14" startColumn="16" startChar="366" endChar="385" instructions="//@rules.0/@applier/@nested.4/@nested.0/@code.0 //@rules.0/@applier/@nested.4/@nested.0/@code.1"/>
-        </nested>
-      </nested>
-      <nested maxLocals="0" maxStack="1">
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.5/@lineNumbers.0" cbOffset="1" localVariableIndex="2"/>
-        <code xsi:type="emftvm:Delete" lineNumber="//@rules.0/@applier/@nested.5/@lineNumbers.0"/>
-        <lineNumbers startLine="9" startColumn="2" startChar="154" endChar="204" instructions="//@rules.0/@applier/@nested.5/@code.0 //@rules.0/@applier/@nested.5/@code.1"/>
-      </nested>
-      <nested maxLocals="0" maxStack="1">
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@nested.6/@lineNumbers.0" cbOffset="1" localVariableIndex="3"/>
-        <code xsi:type="emftvm:Delete" lineNumber="//@rules.0/@applier/@nested.6/@lineNumbers.0"/>
-        <lineNumbers startLine="10" startColumn="2" startChar="209" endChar="235" instructions="//@rules.0/@applier/@nested.6/@code.0 //@rules.0/@applier/@nested.6/@code.1"/>
-      </nested>
     </applier>
   </rules>
-  <rules name="Invoke_cb_ln" mode="automaticRecursive">
+  <rules name="Invoke_all_cbs" mode="automaticRecursive" abstract="true">
     <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
-    <inputElements name="invoke_cb" type="Invoke_cb" typeModel="EMFTVM"/>
-    <inputElements name="ln" type="LineNumber" typeModel="EMFTVM"/>
-    <matcher maxLocals="3" maxStack="1">
-      <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.1/@matcher/@lineNumbers.0" cbIndex="0"/>
-      <lineNumbers startLine="18" startColumn="1" startChar="430" endChar="550" instructions="//@rules.1/@matcher/@code.0"/>
+    <inputElements name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM"/>
+    <matcher maxLocals="2" maxStack="1">
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@matcher/@lineNumbers.1" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@matcher/@lineNumbers.0" cbOffset="0" localVariableIndex="0"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.1/@matcher/@lineNumbers.0" fieldname="code"/>
+      <code xsi:type="emftvm:Invoke" lineNumber="//@rules.1/@matcher/@lineNumbers.0" argcount="1" opname="=~"/>
+      <lineNumbers startLine="19" startColumn="29" startChar="548" endChar="569" instructions="//@rules.1/@matcher/@code.1 //@rules.1/@matcher/@code.2 //@rules.1/@matcher/@code.3"/>
+      <lineNumbers startLine="19" startColumn="37" startChar="556" endChar="569" instructions="//@rules.1/@matcher/@code.0"/>
       <localVariables name="cb" type="CodeBlock" typeModel="EMFTVM" slot="0"/>
-      <localVariables name="invoke_cb" type="Invoke_cb" typeModel="EMFTVM" slot="1"/>
-      <localVariables name="ln" type="LineNumber" typeModel="EMFTVM" slot="2"/>
-      <nested maxLocals="0" maxStack="1">
-        <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.1/@matcher/@nested.0/@lineNumbers.0" cbIndex="0"/>
-        <code xsi:type="emftvm:And" lineNumber="//@rules.1/@matcher/@nested.0/@lineNumbers.0" cbIndex="1"/>
-        <lineNumbers startLine="18" startColumn="1" startChar="430" endChar="550" instructions="//@rules.1/@matcher/@nested.0/@code.0 //@rules.1/@matcher/@nested.0/@code.1"/>
-        <nested maxLocals="0" maxStack="2">
-          <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.1/@matcher/@nested.0/@nested.0/@lineNumbers.0" cbIndex="0"/>
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@matcher/@nested.0/@nested.0/@lineNumbers.0" cbOffset="2" localVariableIndex="0"/>
-          <code xsi:type="emftvm:Get" lineNumber="//@rules.1/@matcher/@nested.0/@nested.0/@lineNumbers.0" fieldname="code"/>
-          <code xsi:type="emftvm:Invoke" lineNumber="//@rules.1/@matcher/@nested.0/@nested.0/@lineNumbers.0" argcount="1" opname="="/>
-          <lineNumbers startLine="18" startColumn="29" startChar="458" endChar="473" instructions="//@rules.1/@matcher/@nested.0/@nested.0/@code.0 //@rules.1/@matcher/@nested.0/@nested.0/@code.1 //@rules.1/@matcher/@nested.0/@nested.0/@code.2 //@rules.1/@matcher/@nested.0/@nested.0/@code.3"/>
-          <nested maxLocals="0" maxStack="1">
-            <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@matcher/@nested.0/@nested.0/@nested.0/@lineNumbers.0" cbOffset="3" localVariableIndex="1"/>
-            <lineNumbers startLine="18" startColumn="36" startChar="465" endChar="473" instructions="//@rules.1/@matcher/@nested.0/@nested.0/@nested.0/@code.0"/>
-          </nested>
-        </nested>
-        <nested maxLocals="0" maxStack="2">
-          <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.1/@matcher/@nested.0/@nested.1/@lineNumbers.0" cbIndex="0"/>
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@matcher/@nested.0/@nested.1/@lineNumbers.0" cbOffset="2" localVariableIndex="1"/>
-          <code xsi:type="emftvm:Get" lineNumber="//@rules.1/@matcher/@nested.0/@nested.1/@lineNumbers.0" fieldname="lineNumber"/>
-          <code xsi:type="emftvm:Invoke" lineNumber="//@rules.1/@matcher/@nested.0/@nested.1/@lineNumbers.0" argcount="1" opname="="/>
-          <lineNumbers startLine="19" startColumn="32" startChar="509" endChar="523" instructions="//@rules.1/@matcher/@nested.0/@nested.1/@code.0 //@rules.1/@matcher/@nested.0/@nested.1/@code.1 //@rules.1/@matcher/@nested.0/@nested.1/@code.2 //@rules.1/@matcher/@nested.0/@nested.1/@code.3"/>
-          <nested maxLocals="0" maxStack="1">
-            <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@matcher/@nested.0/@nested.1/@nested.0/@lineNumbers.0" cbOffset="3" localVariableIndex="2"/>
-            <lineNumbers startLine="19" startColumn="45" startChar="522" endChar="523" instructions="//@rules.1/@matcher/@nested.0/@nested.1/@nested.0/@code.0"/>
-          </nested>
-        </nested>
-      </nested>
+      <localVariables name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM" slot="1"/>
     </matcher>
-    <applier maxLocals="4" maxStack="4">
-      <code xsi:type="emftvm:Invoke_all_cbs" lineNumber="//@rules.1/@applier/@lineNumbers.0"/>
-      <lineNumbers startLine="21" startColumn="1" startChar="553" endChar="576" instructions="//@rules.1/@applier/@code.0"/>
+    <applier maxLocals="3" maxStack="0">
       <localVariables name="__trace__" type="TraceLink" typeModel="TRACE" slot="0"/>
       <localVariables name="cb" type="CodeBlock" typeModel="EMFTVM" slot="1"/>
-      <localVariables name="invoke_cb" type="Invoke_cb" typeModel="EMFTVM" slot="2"/>
-      <localVariables name="ln" type="LineNumber" typeModel="EMFTVM" slot="3"/>
-      <nested maxLocals="0" maxStack="2">
-        <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.1/@applier/@nested.0/@lineNumbers.0" cbIndex="0"/>
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@applier/@nested.0/@lineNumbers.0" cbOffset="1" localVariableIndex="1"/>
-        <code xsi:type="emftvm:Remove" lineNumber="//@rules.1/@applier/@nested.0/@lineNumbers.0" fieldname="code"/>
-        <lineNumbers startLine="18" startColumn="29" startChar="458" endChar="473" instructions="//@rules.1/@applier/@nested.0/@code.0 //@rules.1/@applier/@nested.0/@code.1 //@rules.1/@applier/@nested.0/@code.2"/>
-        <nested maxLocals="0" maxStack="1">
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@applier/@nested.0/@nested.0/@lineNumbers.0" cbOffset="2" localVariableIndex="2"/>
-          <lineNumbers startLine="18" startColumn="36" startChar="465" endChar="473" instructions="//@rules.1/@applier/@nested.0/@nested.0/@code.0"/>
-        </nested>
-      </nested>
-      <nested maxLocals="0" maxStack="2">
-        <code xsi:type="emftvm:Invoke_cb" lineNumber="//@rules.1/@applier/@nested.1/@lineNumbers.0" cbIndex="0"/>
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@applier/@nested.1/@lineNumbers.0" cbOffset="1" localVariableIndex="2"/>
-        <code xsi:type="emftvm:Remove" lineNumber="//@rules.1/@applier/@nested.1/@lineNumbers.0" fieldname="lineNumber"/>
-        <lineNumbers startLine="19" startColumn="32" startChar="509" endChar="523" instructions="//@rules.1/@applier/@nested.1/@code.0 //@rules.1/@applier/@nested.1/@code.1 //@rules.1/@applier/@nested.1/@code.2"/>
-        <nested maxLocals="0" maxStack="1">
-          <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@applier/@nested.1/@nested.0/@lineNumbers.0" cbOffset="2" localVariableIndex="3"/>
-          <lineNumbers startLine="19" startColumn="45" startChar="522" endChar="523" instructions="//@rules.1/@applier/@nested.1/@nested.0/@code.0"/>
-        </nested>
-      </nested>
-      <nested maxLocals="0" maxStack="1">
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@applier/@nested.2/@lineNumbers.0" cbOffset="1" localVariableIndex="2"/>
-        <code xsi:type="emftvm:Delete" lineNumber="//@rules.1/@applier/@nested.2/@lineNumbers.0"/>
-        <lineNumbers startLine="19" startColumn="2" startChar="479" endChar="524" instructions="//@rules.1/@applier/@nested.2/@code.0 //@rules.1/@applier/@nested.2/@code.1"/>
-      </nested>
-      <nested maxLocals="0" maxStack="1">
-        <code xsi:type="emftvm:Load" lineNumber="//@rules.1/@applier/@nested.3/@lineNumbers.0" cbOffset="1" localVariableIndex="3"/>
-        <code xsi:type="emftvm:Delete" lineNumber="//@rules.1/@applier/@nested.3/@lineNumbers.0"/>
-        <lineNumbers startLine="20" startColumn="2" startChar="529" endChar="550" instructions="//@rules.1/@applier/@nested.3/@code.0 //@rules.1/@applier/@nested.3/@code.1"/>
-      </nested>
+      <localVariables name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM" slot="2"/>
     </applier>
-    <superRules>Invoke_cb</superRules>
+  </rules>
+  <rules name="Invoke_all_cbs_nested" mode="automaticRecursive">
+    <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+    <inputElements name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM"/>
+    <inputElements name="nestedCb" type="CodeBlock" typeModel="EMFTVM"/>
+    <matcher maxLocals="3" maxStack="1">
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@matcher/@lineNumbers.2" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@matcher/@lineNumbers.1" cbOffset="0" localVariableIndex="0"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.2/@matcher/@lineNumbers.1" fieldname="code"/>
+      <code xsi:type="emftvm:Invoke" lineNumber="//@rules.2/@matcher/@lineNumbers.1" argcount="1" opname="=~"/>
+      <code xsi:type="emftvm:And" lineNumber="//@rules.2/@matcher/@lineNumbers.0" cbIndex="0"/>
+      <lineNumbers startLine="26" startColumn="1" startChar="766" endChar="916" instructions="//@rules.2/@matcher/@code.4"/>
+      <lineNumbers startLine="27" startColumn="3" startChar="798" endChar="819" instructions="//@rules.2/@matcher/@code.1 //@rules.2/@matcher/@code.2 //@rules.2/@matcher/@code.3"/>
+      <lineNumbers startLine="27" startColumn="11" startChar="806" endChar="819" instructions="//@rules.2/@matcher/@code.0"/>
+      <localVariables name="cb" type="CodeBlock" typeModel="EMFTVM" slot="0"/>
+      <localVariables name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM" slot="1"/>
+      <localVariables name="nestedCb" type="CodeBlock" typeModel="EMFTVM" slot="2"/>
+      <nested maxLocals="0" maxStack="2">
+        <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@matcher/@nested.0/@lineNumbers.1" cbOffset="1" localVariableIndex="2"/>
+        <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@matcher/@nested.0/@lineNumbers.0" cbOffset="1" localVariableIndex="0"/>
+        <code xsi:type="emftvm:Get" lineNumber="//@rules.2/@matcher/@nested.0/@lineNumbers.0" fieldname="nested"/>
+        <code xsi:type="emftvm:Invoke" lineNumber="//@rules.2/@matcher/@nested.0/@lineNumbers.0" argcount="1" opname="=~"/>
+        <lineNumbers startLine="28" startColumn="3" startChar="825" endChar="842" instructions="//@rules.2/@matcher/@nested.0/@code.1 //@rules.2/@matcher/@nested.0/@code.2 //@rules.2/@matcher/@nested.0/@code.3"/>
+        <lineNumbers startLine="28" startColumn="13" startChar="835" endChar="842" instructions="//@rules.2/@matcher/@nested.0/@code.0"/>
+      </nested>
+    </matcher>
+    <applier maxLocals="4" maxStack="6">
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.0" cbOffset="0" localVariableIndex="2"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.0" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Dup_x1" lineNumber="//@rules.2/@applier/@lineNumbers.0"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.2/@applier/@lineNumbers.0" fieldname="code"/>
+      <code xsi:type="emftvm:Invoke" lineNumber="//@rules.2/@applier/@lineNumbers.0" argcount="1" opname="indexOf"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.1" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.2/@applier/@lineNumbers.1" fieldname="code"/>
+      <code xsi:type="emftvm:Swap_x1" lineNumber="//@rules.2/@applier/@lineNumbers.0"/>
+      <code xsi:type="emftvm:Insert" lineNumber="//@rules.2/@applier/@lineNumbers.0" fieldname="code"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.3" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.2" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Remove" lineNumber="//@rules.2/@applier/@lineNumbers.2" fieldname="nested"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.5" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.2/@applier/@lineNumbers.5" fieldname="localVariables"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.4" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Add" lineNumber="//@rules.2/@applier/@lineNumbers.4" fieldname="localVariables"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.7" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.2/@applier/@lineNumbers.7" fieldname="lineNumbers"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.6" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Add" lineNumber="//@rules.2/@applier/@lineNumbers.6" fieldname="lineNumbers"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.9" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.2/@applier/@lineNumbers.9" fieldname="nested"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.8" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Add" lineNumber="//@rules.2/@applier/@lineNumbers.8" fieldname="nested"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.2/@applier/@lineNumbers.10" cbOffset="0" localVariableIndex="3"/>
+      <code xsi:type="emftvm:Delete" lineNumber="//@rules.2/@applier/@lineNumbers.10"/>
+      <lineNumbers startLine="33" startColumn="2" startChar="974" endChar="1016" instructions="//@rules.2/@applier/@code.0 //@rules.2/@applier/@code.1 //@rules.2/@applier/@code.2 //@rules.2/@applier/@code.3 //@rules.2/@applier/@code.4 //@rules.2/@applier/@code.7 //@rules.2/@applier/@code.8"/>
+      <lineNumbers startLine="33" startColumn="10" startChar="982" endChar="994" instructions="//@rules.2/@applier/@code.5 //@rules.2/@applier/@code.6"/>
+      <lineNumbers startLine="28" startColumn="3" startChar="825" endChar="842" instructions="//@rules.2/@applier/@code.10 //@rules.2/@applier/@code.11"/>
+      <lineNumbers startLine="28" startColumn="13" startChar="835" endChar="842" instructions="//@rules.2/@applier/@code.9"/>
+      <lineNumbers startLine="34" startColumn="2" startChar="1021" endChar="1061" instructions="//@rules.2/@applier/@code.14 //@rules.2/@applier/@code.15"/>
+      <lineNumbers startLine="34" startColumn="20" startChar="1039" endChar="1061" instructions="//@rules.2/@applier/@code.12 //@rules.2/@applier/@code.13"/>
+      <lineNumbers startLine="35" startColumn="2" startChar="1066" endChar="1100" instructions="//@rules.2/@applier/@code.18 //@rules.2/@applier/@code.19"/>
+      <lineNumbers startLine="35" startColumn="17" startChar="1081" endChar="1100" instructions="//@rules.2/@applier/@code.16 //@rules.2/@applier/@code.17"/>
+      <lineNumbers startLine="36" startColumn="2" startChar="1105" endChar="1129" instructions="//@rules.2/@applier/@code.22 //@rules.2/@applier/@code.23"/>
+      <lineNumbers startLine="36" startColumn="12" startChar="1115" endChar="1129" instructions="//@rules.2/@applier/@code.20 //@rules.2/@applier/@code.21"/>
+      <lineNumbers startLine="30" startColumn="2" startChar="890" endChar="916" instructions="//@rules.2/@applier/@code.24 //@rules.2/@applier/@code.25"/>
+      <localVariables name="__trace__" type="TraceLink" typeModel="TRACE" slot="0"/>
+      <localVariables name="cb" type="CodeBlock" typeModel="EMFTVM" slot="1"/>
+      <localVariables name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM" slot="2"/>
+      <localVariables name="nestedCb" type="CodeBlock" typeModel="EMFTVM" slot="3"/>
+    </applier>
+    <superRules>Invoke_all_cbs</superRules>
+  </rules>
+  <rules name="Invoke_all_cbs_no_nested" mode="automaticRecursive">
+    <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+    <inputElements name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM"/>
+    <matcher maxLocals="2" maxStack="1">
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.3/@matcher/@lineNumbers.1" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.3/@matcher/@lineNumbers.0" cbOffset="0" localVariableIndex="0"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.3/@matcher/@lineNumbers.0" fieldname="code"/>
+      <code xsi:type="emftvm:Invoke" lineNumber="//@rules.3/@matcher/@lineNumbers.0" argcount="1" opname="=~"/>
+      <code xsi:type="emftvm:And" cbIndex="0"/>
+      <lineNumbers startLine="41" startColumn="29" startChar="1264" endChar="1285" instructions="//@rules.3/@matcher/@code.1 //@rules.3/@matcher/@code.2 //@rules.3/@matcher/@code.3"/>
+      <lineNumbers startLine="41" startColumn="37" startChar="1272" endChar="1285" instructions="//@rules.3/@matcher/@code.0"/>
+      <localVariables name="cb" type="CodeBlock" typeModel="EMFTVM" slot="0"/>
+      <localVariables name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM" slot="1"/>
+      <nested maxLocals="0" maxStack="1">
+        <code xsi:type="emftvm:Findtype" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0" modelname="EMFTVM" typename="CodeBlock"/>
+        <code xsi:type="emftvm:Allinst" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0"/>
+        <code xsi:type="emftvm:Iterate" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0" offset="12"/>
+        <code xsi:type="emftvm:Store" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0" cbOffset="0" localVariableIndex="0"/>
+        <code xsi:type="emftvm:Load" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.2" cbOffset="0" localVariableIndex="0"/>
+        <code xsi:type="emftvm:Load" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.1" cbOffset="1" localVariableIndex="0"/>
+        <code xsi:type="emftvm:Get" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.1" fieldname="nested"/>
+        <code xsi:type="emftvm:Invoke" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.1" argcount="1" opname="=~"/>
+        <code xsi:type="emftvm:Ifn" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0" offset="12"/>
+        <code xsi:type="emftvm:Pop" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0"/>
+        <code xsi:type="emftvm:Pushf" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0"/>
+        <code xsi:type="emftvm:Return" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0"/>
+        <code xsi:type="emftvm:Enditerate" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0" offset="2"/>
+        <code xsi:type="emftvm:Pusht" lineNumber="//@rules.3/@matcher/@nested.0/@lineNumbers.0"/>
+        <lineNumbers startLine="44" startColumn="2" startChar="1381" endChar="1407" instructions="//@rules.3/@matcher/@nested.0/@code.0 //@rules.3/@matcher/@nested.0/@code.1 //@rules.3/@matcher/@nested.0/@code.2 //@rules.3/@matcher/@nested.0/@code.3 //@rules.3/@matcher/@nested.0/@code.8 //@rules.3/@matcher/@nested.0/@code.9 //@rules.3/@matcher/@nested.0/@code.10 //@rules.3/@matcher/@nested.0/@code.11 //@rules.3/@matcher/@nested.0/@code.12 //@rules.3/@matcher/@nested.0/@code.13"/>
+        <lineNumbers startLine="43" startColumn="28" startChar="1358" endChar="1375" instructions="//@rules.3/@matcher/@nested.0/@code.5 //@rules.3/@matcher/@nested.0/@code.6 //@rules.3/@matcher/@nested.0/@code.7"/>
+        <lineNumbers startLine="43" startColumn="38" startChar="1368" endChar="1375" instructions="//@rules.3/@matcher/@nested.0/@code.4"/>
+        <localVariables name="nestedCb" type="CodeBlock" typeModel="EMFTVM" slot="0"/>
+      </nested>
+    </matcher>
+    <applier maxLocals="3" maxStack="2">
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.3/@applier/@lineNumbers.1" cbOffset="0" localVariableIndex="2"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.3/@applier/@lineNumbers.0" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Remove" lineNumber="//@rules.3/@applier/@lineNumbers.0" fieldname="code"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.3/@applier/@lineNumbers.2" cbOffset="0" localVariableIndex="2"/>
+      <code xsi:type="emftvm:Delete" lineNumber="//@rules.3/@applier/@lineNumbers.2"/>
+      <lineNumbers startLine="41" startColumn="29" startChar="1264" endChar="1285" instructions="//@rules.3/@applier/@code.1 //@rules.3/@applier/@code.2"/>
+      <lineNumbers startLine="41" startColumn="37" startChar="1272" endChar="1285" instructions="//@rules.3/@applier/@code.0"/>
+      <lineNumbers startLine="42" startColumn="2" startChar="1291" endChar="1328" instructions="//@rules.3/@applier/@code.3 //@rules.3/@applier/@code.4"/>
+      <localVariables name="__trace__" type="TraceLink" typeModel="TRACE" slot="0"/>
+      <localVariables name="cb" type="CodeBlock" typeModel="EMFTVM" slot="1"/>
+      <localVariables name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM" slot="2"/>
+    </applier>
+    <superRules>Invoke_all_cbs</superRules>
+  </rules>
+  <rules name="EmptyLineNumber" mode="automaticRecursive">
+    <inputElements name="ln" type="LineNumber" typeModel="EMFTVM"/>
+    <matcher maxLocals="1" maxStack="1">
+      <code xsi:type="emftvm:Findtype" lineNumber="//@rules.4/@matcher/@lineNumbers.0" modelname="EMFTVM" typename="Instruction"/>
+      <code xsi:type="emftvm:Allinst" lineNumber="//@rules.4/@matcher/@lineNumbers.0"/>
+      <code xsi:type="emftvm:Iterate" lineNumber="//@rules.4/@matcher/@lineNumbers.0" offset="12"/>
+      <code xsi:type="emftvm:Store" lineNumber="//@rules.4/@matcher/@lineNumbers.0" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.4/@matcher/@lineNumbers.2" cbOffset="0" localVariableIndex="0"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.4/@matcher/@lineNumbers.1" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.4/@matcher/@lineNumbers.1" fieldname="lineNumber"/>
+      <code xsi:type="emftvm:Invoke" lineNumber="//@rules.4/@matcher/@lineNumbers.1" argcount="1" opname="=~"/>
+      <code xsi:type="emftvm:Ifn" lineNumber="//@rules.4/@matcher/@lineNumbers.0" offset="12"/>
+      <code xsi:type="emftvm:Pop" lineNumber="//@rules.4/@matcher/@lineNumbers.0"/>
+      <code xsi:type="emftvm:Pushf" lineNumber="//@rules.4/@matcher/@lineNumbers.0"/>
+      <code xsi:type="emftvm:Return" lineNumber="//@rules.4/@matcher/@lineNumbers.0"/>
+      <code xsi:type="emftvm:Enditerate" lineNumber="//@rules.4/@matcher/@lineNumbers.0" offset="2"/>
+      <code xsi:type="emftvm:Pusht" lineNumber="//@rules.4/@matcher/@lineNumbers.0"/>
+      <lineNumbers startLine="50" startColumn="5" startChar="1495" endChar="1539" instructions="//@rules.4/@matcher/@code.0 //@rules.4/@matcher/@code.1 //@rules.4/@matcher/@code.2 //@rules.4/@matcher/@code.3 //@rules.4/@matcher/@code.8 //@rules.4/@matcher/@code.9 //@rules.4/@matcher/@code.10 //@rules.4/@matcher/@code.11 //@rules.4/@matcher/@code.12 //@rules.4/@matcher/@code.13"/>
+      <lineNumbers startLine="50" startColumn="33" startChar="1523" endChar="1538" instructions="//@rules.4/@matcher/@code.5 //@rules.4/@matcher/@code.6 //@rules.4/@matcher/@code.7"/>
+      <lineNumbers startLine="50" startColumn="47" startChar="1537" endChar="1538" instructions="//@rules.4/@matcher/@code.4"/>
+      <localVariables name="ln" type="LineNumber" typeModel="EMFTVM" slot="0"/>
+      <localVariables name="instr" type="Instruction" typeModel="EMFTVM" slot="0"/>
+    </matcher>
+    <applier maxLocals="2" maxStack="1">
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.4/@applier/@lineNumbers.0" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Delete" lineNumber="//@rules.4/@applier/@lineNumbers.0"/>
+      <lineNumbers startLine="49" startColumn="6" startChar="1467" endChar="1488" instructions="//@rules.4/@applier/@code.0 //@rules.4/@applier/@code.1"/>
+      <localVariables name="__trace__" type="TraceLink" typeModel="TRACE" slot="0"/>
+      <localVariables name="ln" type="LineNumber" typeModel="EMFTVM" slot="1"/>
+    </applier>
   </rules>
   <inoutModels modelName="M" metaModelName="EMFTVM"/>
 </emftvm:Module>

@@ -10,35 +10,58 @@
     </links>
     <links>
       <sourceElements name="cb">
-        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.0"/>
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@matcher"/>
       </sourceElements>
       <sourceElements name="invoke_cb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb">
-        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.1"/>
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@matcher"/>
       </sourceElements>
       <sourceElements name="invoke_cb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb">
-        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.2"/>
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@matcher/@nested.0"/>
       </sourceElements>
       <sourceElements name="invoke_cb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
-      <sourceElements name="cb">
-        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.3"/>
-      </sourceElements>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
       <sourceElements name="invoke_cb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb">
-        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier/@nested.4"/>
+        <object href="InlineCodeblocks.emftvm#//@rules.1/@matcher"/>
       </sourceElements>
       <sourceElements name="invoke_cb"/>
       <sourceElements name="nestedCb"/>
@@ -52,17 +75,320 @@
     </links>
     <links>
       <sourceElements name="cb">
-        <object href="InlineCodeblocks.emftvm#//@rules.1/@applier/@nested.0"/>
+        <object href="InlineCodeblocks.emftvm#//@rules.1/@matcher"/>
       </sourceElements>
       <sourceElements name="invoke_cb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb">
-        <object href="InlineCodeblocks.emftvm#//@rules.1/@applier/@nested.1"/>
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@matcher"/>
       </sourceElements>
       <sourceElements name="invoke_cb"/>
       <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@matcher/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.3/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.3/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.3/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.3/@matcher/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.3/@matcher/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.3/@matcher/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invoke_cb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+  </rules>
+  <rules rule="Invoke_all_cbs_nested">
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.3/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.3/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+  </rules>
+  <rules rule="Invoke_all_cbs_no_nested">
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.3/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="invoke_all_cbs"/>
+    </links>
+  </rules>
+  <rules rule="EmptyLineNumber">
+    <links>
+      <sourceElements name="ln"/>
+    </links>
+    <links>
+      <sourceElements name="ln"/>
+    </links>
+    <links>
+      <sourceElements name="ln"/>
+    </links>
+    <links>
+      <sourceElements name="ln"/>
+    </links>
+    <links>
+      <sourceElements name="ln"/>
+    </links>
+    <links>
+      <sourceElements name="ln"/>
+    </links>
+    <links>
+      <sourceElements name="ln"/>
+    </links>
+    <links>
+      <sourceElements name="ln"/>
+    </links>
+    <links>
+      <sourceElements name="ln"/>
     </links>
   </rules>
 </trace:TraceLinkSet>

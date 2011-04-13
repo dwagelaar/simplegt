@@ -36,7 +36,7 @@ LINEBREAK=8
 'transform'=13
 ';'=11
 'module'=10
-'='=26
+'=~'=26
 ')'=25
 '.'=27
 'import'=12

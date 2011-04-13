@@ -8,7 +8,7 @@ import java.util.HashMap;
 @SuppressWarnings("unused")
 public class SimplegtParser extends SimplegtANTLRParserBase {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "TEXT", "INTEGER", "FLOAT", "COMMENT", "LINEBREAK", "WHITESPACE", "'module'", "';'", "'import'", "'transform'", "','", "':'", "'abstract'", "'rule'", "'extends'", "'{'", "'}'", "'from'", "'!'", "'in'", "'('", "')'", "'='", "'.'", "'\\\"'", "'\\''", "'true'", "'false'", "'#'", "'not'", "'to'", "'before'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "TEXT", "INTEGER", "FLOAT", "COMMENT", "LINEBREAK", "WHITESPACE", "'module'", "';'", "'import'", "'transform'", "','", "':'", "'abstract'", "'rule'", "'extends'", "'{'", "'}'", "'from'", "'!'", "'in'", "'('", "')'", "'=~'", "'.'", "'\\\"'", "'\\''", "'true'", "'false'", "'#'", "'not'", "'to'", "'before'"
     };
     public static final int INTEGER=5;
     public static final int T__29=29;
@@ -2834,7 +2834,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_InputBinding"
-    // Simplegt.g:1940:1: parse_be_ac_vub_simplegt_InputBinding returns [be.ac.vub.simplegt.InputBinding element = null] : (a0= TEXT ) a1= '=' (a2_0= parse_be_ac_vub_simplegt_Expression ) ;
+    // Simplegt.g:1940:1: parse_be_ac_vub_simplegt_InputBinding returns [be.ac.vub.simplegt.InputBinding element = null] : (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ;
     public final be.ac.vub.simplegt.InputBinding parse_be_ac_vub_simplegt_InputBinding() throws RecognitionException {
         be.ac.vub.simplegt.InputBinding element =  null;
         int parse_be_ac_vub_simplegt_InputBinding_StartIndex = input.index();
@@ -2847,8 +2847,8 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return element; }
-            // Simplegt.g:1943:1: ( (a0= TEXT ) a1= '=' (a2_0= parse_be_ac_vub_simplegt_Expression ) )
-            // Simplegt.g:1944:2: (a0= TEXT ) a1= '=' (a2_0= parse_be_ac_vub_simplegt_Expression )
+            // Simplegt.g:1943:1: ( (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) )
+            // Simplegt.g:1944:2: (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression )
             {
             // Simplegt.g:1944:2: (a0= TEXT )
             // Simplegt.g:1945:3: a0= TEXT
@@ -4567,7 +4567,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_OutputBinding"
-    // Simplegt.g:2963:1: parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding element = null] : (a0= TEXT ) a1= '=' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )? ;
+    // Simplegt.g:2963:1: parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding element = null] : (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )? ;
     public final be.ac.vub.simplegt.OutputBinding parse_be_ac_vub_simplegt_OutputBinding() throws RecognitionException {
         be.ac.vub.simplegt.OutputBinding element =  null;
         int parse_be_ac_vub_simplegt_OutputBinding_StartIndex = input.index();
@@ -4582,8 +4582,8 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return element; }
-            // Simplegt.g:2966:1: ( (a0= TEXT ) a1= '=' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )? )
-            // Simplegt.g:2967:2: (a0= TEXT ) a1= '=' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )?
+            // Simplegt.g:2966:1: ( (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )? )
+            // Simplegt.g:2967:2: (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )?
             {
             // Simplegt.g:2967:2: (a0= TEXT )
             // Simplegt.g:2968:3: a0= TEXT
