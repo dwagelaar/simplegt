@@ -12,8 +12,8 @@ TOKENS {
 	DEFINE FRAGMENT DIGIT $('0'..'9')$;
 	DEFINE FRAGMENT CHAR $('A'..'Z'|'a'..'z')$;
 	DEFINE COMMENT $'--'(~('\n'|'\r'|'\uffff'))*$;
-	DEFINE FLOAT INTEGER + $'.'$ + INTEGER;
-	DEFINE INTEGER $($ + DIGIT + $)+$;
+	DEFINE FLOAT INTEGER + $'.'($ + DIGIT + $)+$;
+	DEFINE INTEGER $'-'?($ + DIGIT + $)+$;
 	DEFINE TEXT CHAR + $($ + CHAR + $|$ + DIGIT + $|'-'|'_')*$;
 	DEFINE LINEBREAK $('\r\n'|'\'r'|'\n')$;
 	DEFINE WHITESPACE $(' '|'\t'|'\f')$;
@@ -28,10 +28,10 @@ RULES {
 	InstanceModel ::= name[] ":" metaModel;
 	Metamodel ::= name[];
 	@Foldable Rule ::= !0!0 abstract["abstract" : ""] "rule" name[] ("extends" extends[] ("," extends[])*)? "{" !1 input? nac* output? "}";
-	InPattern ::= "from" elements ("," !1 elements)*;
+	@Foldable InPattern ::= "from" elements ("," !1 elements)*;
 	Type ::= model[] "!" name[];
 	InputElement ::= name[] ":" type ("in" inModel[])? ("(" !1 bindings ("," bindings)* ")")?;
-	InputBinding ::= property[] "=~" expr;
+	InputBinding ::= property[] last["=~|" : "=~"] expr;
 	ElementExp ::= element[] ("." property[])?;
 	StringLiteralExp ::= "\"" literal[] "\"";
 	IntegerLiteralExp ::= literal[INTEGER];
@@ -39,8 +39,8 @@ RULES {
 	CharLiteralExp ::= "'" literal[] "'";
 	BooleanLiteralExp ::= literal["true" : "false"];
 	EnumLiteralExp ::= "#" literal[];
-	NacPattern ::= "not" elements ("," !1 elements)*;
-	OutPattern ::= "to" elements ("," !1 elements)*;
+	@Foldable NacPattern ::= "not" elements ("," !1 elements)*;
+	@Foldable OutPattern ::= "to" elements ("," !1 elements)*;
 	OutputElement ::= name[] ":" type ("in" inModel[])? ("(" !1 bindings ("," bindings)* ")")?;
 	OutputBinding ::= property[] "=~" expr ("before" beforeElement[])?;
 }

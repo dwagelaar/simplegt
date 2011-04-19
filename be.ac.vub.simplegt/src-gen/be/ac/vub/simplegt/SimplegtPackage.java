@@ -1253,13 +1253,22 @@ public interface SimplegtPackage extends EPackage {
 	int INPUT_BINDING__ELEMENT = BINDING_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Last</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_BINDING__LAST = BINDING_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Input Binding</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 1;
+	int INPUT_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link be.ac.vub.simplegt.impl.OutputBindingImpl <em>Output Binding</em>}' class.
@@ -2692,6 +2701,17 @@ public interface SimplegtPackage extends EPackage {
 	EReference getInputBinding_Element();
 
 	/**
+	 * Returns the meta object for the attribute '{@link be.ac.vub.simplegt.InputBinding#isLast <em>Last</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last</em>'.
+	 * @see be.ac.vub.simplegt.InputBinding#isLast()
+	 * @see #getInputBinding()
+	 * @generated
+	 */
+	EAttribute getInputBinding_Last();
+
+	/**
 	 * Returns the meta object for class '{@link be.ac.vub.simplegt.OutputBinding <em>Output Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3375,6 +3395,14 @@ public interface SimplegtPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INPUT_BINDING__ELEMENT = eINSTANCE.getInputBinding_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Last</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_BINDING__LAST = eINSTANCE.getInputBinding_Last();
 
 		/**
 		 * The meta object literal for the '{@link be.ac.vub.simplegt.impl.OutputBindingImpl <em>Output Binding</em>}' class.

@@ -8,7 +8,7 @@ import java.util.HashMap;
 @SuppressWarnings("unused")
 public class SimplegtParser extends SimplegtANTLRParserBase {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "TEXT", "INTEGER", "FLOAT", "COMMENT", "LINEBREAK", "WHITESPACE", "'module'", "';'", "'import'", "'transform'", "','", "':'", "'abstract'", "'rule'", "'extends'", "'{'", "'}'", "'from'", "'!'", "'in'", "'('", "')'", "'=~'", "'.'", "'\\\"'", "'\\''", "'true'", "'false'", "'#'", "'not'", "'to'", "'before'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "TEXT", "INTEGER", "FLOAT", "COMMENT", "LINEBREAK", "WHITESPACE", "'module'", "';'", "'import'", "'transform'", "','", "':'", "'abstract'", "'rule'", "'extends'", "'{'", "'}'", "'from'", "'!'", "'in'", "'('", "')'", "'=~|'", "'=~'", "'.'", "'\\\"'", "'\\''", "'true'", "'false'", "'#'", "'not'", "'to'", "'before'"
     };
     public static final int INTEGER=5;
     public static final int T__29=29;
@@ -35,6 +35,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
     public static final int T__15=15;
     public static final int T__35=35;
     public static final int T__18=18;
+    public static final int T__36=36;
     public static final int T__17=17;
     public static final int T__12=12;
     public static final int T__11=11;
@@ -53,7 +54,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
         }
         public SimplegtParser(TokenStream input, RecognizerSharedState state) {
             super(input, state);
-            this.state.ruleMemo = new HashMap[48+1];
+            this.state.ruleMemo = new HashMap[49+1];
              
              
         }
@@ -1872,7 +1873,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==33) ) {
+                if ( (LA8_0==34) ) {
                     alt8=1;
                 }
 
@@ -1939,7 +1940,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==34) ) {
+            if ( (LA9_0==35) ) {
                 alt9=1;
             }
             switch (alt9) {
@@ -2834,21 +2835,22 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_InputBinding"
-    // Simplegt.g:1940:1: parse_be_ac_vub_simplegt_InputBinding returns [be.ac.vub.simplegt.InputBinding element = null] : (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ;
+    // Simplegt.g:1940:1: parse_be_ac_vub_simplegt_InputBinding returns [be.ac.vub.simplegt.InputBinding element = null] : (a0= TEXT ) ( (a1= '=~|' | a2= '=~' ) ) (a4_0= parse_be_ac_vub_simplegt_Expression ) ;
     public final be.ac.vub.simplegt.InputBinding parse_be_ac_vub_simplegt_InputBinding() throws RecognitionException {
         be.ac.vub.simplegt.InputBinding element =  null;
         int parse_be_ac_vub_simplegt_InputBinding_StartIndex = input.index();
         Token a0=null;
         Token a1=null;
-        be.ac.vub.simplegt.Expression a2_0 = null;
+        Token a2=null;
+        be.ac.vub.simplegt.Expression a4_0 = null;
 
 
 
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return element; }
-            // Simplegt.g:1943:1: ( (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) )
-            // Simplegt.g:1944:2: (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression )
+            // Simplegt.g:1943:1: ( (a0= TEXT ) ( (a1= '=~|' | a2= '=~' ) ) (a4_0= parse_be_ac_vub_simplegt_Expression ) )
+            // Simplegt.g:1944:2: (a0= TEXT ) ( (a1= '=~|' | a2= '=~' ) ) (a4_0= parse_be_ac_vub_simplegt_Expression )
             {
             // Simplegt.g:1944:2: (a0= TEXT )
             // Simplegt.g:1945:3: a0= TEXT
@@ -2893,18 +2895,77 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_40, 54);
               	
             }
-            a1=(Token)match(input,26,FOLLOW_26_in_parse_be_ac_vub_simplegt_InputBinding1566); if (state.failed) return element;
-            if ( state.backtracking==0 ) {
+            // Simplegt.g:1980:2: ( (a1= '=~|' | a2= '=~' ) )
+            // Simplegt.g:1981:3: (a1= '=~|' | a2= '=~' )
+            {
+            // Simplegt.g:1981:3: (a1= '=~|' | a2= '=~' )
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-              		if (element == null) {
-              			element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputBinding();
-              			incompleteObjects.push(element);
-              		}
-              		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_1, null, true);
-              		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
-              	
+            if ( (LA14_0==26) ) {
+                alt14=1;
             }
+            else if ( (LA14_0==27) ) {
+                alt14=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return element;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 14, 0, input);
+
+                throw nvae;
+            }
+            switch (alt14) {
+                case 1 :
+                    // Simplegt.g:1982:4: a1= '=~|'
+                    {
+                    a1=(Token)match(input,26,FOLLOW_26_in_parse_be_ac_vub_simplegt_InputBinding1575); if (state.failed) return element;
+                    if ( state.backtracking==0 ) {
+
+                      				if (element == null) {
+                      					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputBinding();
+                      					incompleteObjects.push(element);
+                      				}
+                      				collectHiddenTokens(element);
+                      				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_1, true, true);
+                      				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+                      				// set value of boolean attribute
+                      				Object value = true;
+                      				element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__LAST), value);
+                      				completedElement(value, false);
+                      			
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // Simplegt.g:1995:8: a2= '=~'
+                    {
+                    a2=(Token)match(input,27,FOLLOW_27_in_parse_be_ac_vub_simplegt_InputBinding1590); if (state.failed) return element;
+                    if ( state.backtracking==0 ) {
+
+                      				if (element == null) {
+                      					element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputBinding();
+                      					incompleteObjects.push(element);
+                      				}
+                      				collectHiddenTokens(element);
+                      				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_1, false, true);
+                      				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
+                      				// set value of boolean attribute
+                      				Object value = false;
+                      				element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__LAST), value);
+                      				completedElement(value, false);
+                      			
+                    }
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
@@ -2917,11 +2978,11 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_47, 55, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
               	
             }
-            // Simplegt.g:2000:2: (a2_0= parse_be_ac_vub_simplegt_Expression )
-            // Simplegt.g:2001:3: a2_0= parse_be_ac_vub_simplegt_Expression
+            // Simplegt.g:2021:2: (a4_0= parse_be_ac_vub_simplegt_Expression )
+            // Simplegt.g:2022:3: a4_0= parse_be_ac_vub_simplegt_Expression
             {
-            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_Expression_in_parse_be_ac_vub_simplegt_InputBinding1584);
-            a2_0=parse_be_ac_vub_simplegt_Expression();
+            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_Expression_in_parse_be_ac_vub_simplegt_InputBinding1615);
+            a4_0=parse_be_ac_vub_simplegt_Expression();
 
             state._fsp--;
             if (state.failed) return element;
@@ -2934,15 +2995,15 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               				element = be.ac.vub.simplegt.SimplegtFactory.eINSTANCE.createInputBinding();
               				incompleteObjects.push(element);
               			}
-              			if (a2_0 != null) {
-              				if (a2_0 != null) {
-              					Object value = a2_0;
+              			if (a4_0 != null) {
+              				if (a4_0 != null) {
+              					Object value = a4_0;
               					element.eSet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__EXPR), value);
               					completedElement(value, true);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_2, a2_0, true);
-              				copyLocalizationInfos(a2_0, element);
+              				retrieveLayoutInformation(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7_0_0_2, a4_0, true);
+              				copyLocalizationInfos(a4_0, element);
               			}
               		
             }
@@ -2973,7 +3034,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_ElementExp"
-    // Simplegt.g:2029:1: parse_be_ac_vub_simplegt_ElementExp returns [be.ac.vub.simplegt.ElementExp element = null] : (a0= TEXT ) ( (a1= '.' (a2= TEXT ) ) )? ;
+    // Simplegt.g:2050:1: parse_be_ac_vub_simplegt_ElementExp returns [be.ac.vub.simplegt.ElementExp element = null] : (a0= TEXT ) ( (a1= '.' (a2= TEXT ) ) )? ;
     public final be.ac.vub.simplegt.ElementExp parse_be_ac_vub_simplegt_ElementExp() throws RecognitionException {
         be.ac.vub.simplegt.ElementExp element =  null;
         int parse_be_ac_vub_simplegt_ElementExp_StartIndex = input.index();
@@ -2985,13 +3046,13 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return element; }
-            // Simplegt.g:2032:1: ( (a0= TEXT ) ( (a1= '.' (a2= TEXT ) ) )? )
-            // Simplegt.g:2033:2: (a0= TEXT ) ( (a1= '.' (a2= TEXT ) ) )?
+            // Simplegt.g:2053:1: ( (a0= TEXT ) ( (a1= '.' (a2= TEXT ) ) )? )
+            // Simplegt.g:2054:2: (a0= TEXT ) ( (a1= '.' (a2= TEXT ) ) )?
             {
-            // Simplegt.g:2033:2: (a0= TEXT )
-            // Simplegt.g:2034:3: a0= TEXT
+            // Simplegt.g:2054:2: (a0= TEXT )
+            // Simplegt.g:2055:3: a0= TEXT
             {
-            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_ElementExp1621); if (state.failed) return element;
+            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_ElementExp1652); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -3040,21 +3101,21 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 57);
               	
             }
-            // Simplegt.g:2078:2: ( (a1= '.' (a2= TEXT ) ) )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // Simplegt.g:2099:2: ( (a1= '.' (a2= TEXT ) ) )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==27) ) {
-                alt14=1;
+            if ( (LA15_0==28) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // Simplegt.g:2079:3: (a1= '.' (a2= TEXT ) )
+                    // Simplegt.g:2100:3: (a1= '.' (a2= TEXT ) )
                     {
-                    // Simplegt.g:2079:3: (a1= '.' (a2= TEXT ) )
-                    // Simplegt.g:2080:4: a1= '.' (a2= TEXT )
+                    // Simplegt.g:2100:3: (a1= '.' (a2= TEXT ) )
+                    // Simplegt.g:2101:4: a1= '.' (a2= TEXT )
                     {
-                    a1=(Token)match(input,27,FOLLOW_27_in_parse_be_ac_vub_simplegt_ElementExp1651); if (state.failed) return element;
+                    a1=(Token)match(input,28,FOLLOW_28_in_parse_be_ac_vub_simplegt_ElementExp1682); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -3072,10 +3133,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                       				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_52, 58);
                       			
                     }
-                    // Simplegt.g:2094:4: (a2= TEXT )
-                    // Simplegt.g:2095:5: a2= TEXT
+                    // Simplegt.g:2115:4: (a2= TEXT )
+                    // Simplegt.g:2116:5: a2= TEXT
                     {
-                    a2=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_ElementExp1677); if (state.failed) return element;
+                    a2=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_ElementExp1708); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -3155,7 +3216,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_StringLiteralExp"
-    // Simplegt.g:2147:1: parse_be_ac_vub_simplegt_StringLiteralExp returns [be.ac.vub.simplegt.StringLiteralExp element = null] : a0= '\\\"' (a1= TEXT ) a2= '\\\"' ;
+    // Simplegt.g:2168:1: parse_be_ac_vub_simplegt_StringLiteralExp returns [be.ac.vub.simplegt.StringLiteralExp element = null] : a0= '\\\"' (a1= TEXT ) a2= '\\\"' ;
     public final be.ac.vub.simplegt.StringLiteralExp parse_be_ac_vub_simplegt_StringLiteralExp() throws RecognitionException {
         be.ac.vub.simplegt.StringLiteralExp element =  null;
         int parse_be_ac_vub_simplegt_StringLiteralExp_StartIndex = input.index();
@@ -3167,10 +3228,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return element; }
-            // Simplegt.g:2150:1: (a0= '\\\"' (a1= TEXT ) a2= '\\\"' )
-            // Simplegt.g:2151:2: a0= '\\\"' (a1= TEXT ) a2= '\\\"'
+            // Simplegt.g:2171:1: (a0= '\\\"' (a1= TEXT ) a2= '\\\"' )
+            // Simplegt.g:2172:2: a0= '\\\"' (a1= TEXT ) a2= '\\\"'
             {
-            a0=(Token)match(input,28,FOLLOW_28_in_parse_be_ac_vub_simplegt_StringLiteralExp1738); if (state.failed) return element;
+            a0=(Token)match(input,29,FOLLOW_29_in_parse_be_ac_vub_simplegt_StringLiteralExp1769); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3188,10 +3249,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_53, 61);
               	
             }
-            // Simplegt.g:2165:2: (a1= TEXT )
-            // Simplegt.g:2166:3: a1= TEXT
+            // Simplegt.g:2186:2: (a1= TEXT )
+            // Simplegt.g:2187:3: a1= TEXT
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_StringLiteralExp1756); if (state.failed) return element;
+            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_StringLiteralExp1787); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -3231,7 +3292,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_54, 62);
               	
             }
-            a2=(Token)match(input,28,FOLLOW_28_in_parse_be_ac_vub_simplegt_StringLiteralExp1777); if (state.failed) return element;
+            a2=(Token)match(input,29,FOLLOW_29_in_parse_be_ac_vub_simplegt_StringLiteralExp1808); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3270,7 +3331,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_IntegerLiteralExp"
-    // Simplegt.g:2221:1: parse_be_ac_vub_simplegt_IntegerLiteralExp returns [be.ac.vub.simplegt.IntegerLiteralExp element = null] : (a0= INTEGER ) ;
+    // Simplegt.g:2242:1: parse_be_ac_vub_simplegt_IntegerLiteralExp returns [be.ac.vub.simplegt.IntegerLiteralExp element = null] : (a0= INTEGER ) ;
     public final be.ac.vub.simplegt.IntegerLiteralExp parse_be_ac_vub_simplegt_IntegerLiteralExp() throws RecognitionException {
         be.ac.vub.simplegt.IntegerLiteralExp element =  null;
         int parse_be_ac_vub_simplegt_IntegerLiteralExp_StartIndex = input.index();
@@ -3280,13 +3341,13 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return element; }
-            // Simplegt.g:2224:1: ( (a0= INTEGER ) )
-            // Simplegt.g:2225:2: (a0= INTEGER )
+            // Simplegt.g:2245:1: ( (a0= INTEGER ) )
+            // Simplegt.g:2246:2: (a0= INTEGER )
             {
-            // Simplegt.g:2225:2: (a0= INTEGER )
-            // Simplegt.g:2226:3: a0= INTEGER
+            // Simplegt.g:2246:2: (a0= INTEGER )
+            // Simplegt.g:2247:3: a0= INTEGER
             {
-            a0=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_parse_be_ac_vub_simplegt_IntegerLiteralExp1810); if (state.failed) return element;
+            a0=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_parse_be_ac_vub_simplegt_IntegerLiteralExp1841); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -3347,7 +3408,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_DoubleLiteralExp"
-    // Simplegt.g:2267:1: parse_be_ac_vub_simplegt_DoubleLiteralExp returns [be.ac.vub.simplegt.DoubleLiteralExp element = null] : (a0= FLOAT ) ;
+    // Simplegt.g:2288:1: parse_be_ac_vub_simplegt_DoubleLiteralExp returns [be.ac.vub.simplegt.DoubleLiteralExp element = null] : (a0= FLOAT ) ;
     public final be.ac.vub.simplegt.DoubleLiteralExp parse_be_ac_vub_simplegt_DoubleLiteralExp() throws RecognitionException {
         be.ac.vub.simplegt.DoubleLiteralExp element =  null;
         int parse_be_ac_vub_simplegt_DoubleLiteralExp_StartIndex = input.index();
@@ -3357,13 +3418,13 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return element; }
-            // Simplegt.g:2270:1: ( (a0= FLOAT ) )
-            // Simplegt.g:2271:2: (a0= FLOAT )
+            // Simplegt.g:2291:1: ( (a0= FLOAT ) )
+            // Simplegt.g:2292:2: (a0= FLOAT )
             {
-            // Simplegt.g:2271:2: (a0= FLOAT )
-            // Simplegt.g:2272:3: a0= FLOAT
+            // Simplegt.g:2292:2: (a0= FLOAT )
+            // Simplegt.g:2293:3: a0= FLOAT
             {
-            a0=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_parse_be_ac_vub_simplegt_DoubleLiteralExp1850); if (state.failed) return element;
+            a0=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_parse_be_ac_vub_simplegt_DoubleLiteralExp1881); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -3424,7 +3485,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_CharLiteralExp"
-    // Simplegt.g:2313:1: parse_be_ac_vub_simplegt_CharLiteralExp returns [be.ac.vub.simplegt.CharLiteralExp element = null] : a0= '\\'' (a1= TEXT ) a2= '\\'' ;
+    // Simplegt.g:2334:1: parse_be_ac_vub_simplegt_CharLiteralExp returns [be.ac.vub.simplegt.CharLiteralExp element = null] : a0= '\\'' (a1= TEXT ) a2= '\\'' ;
     public final be.ac.vub.simplegt.CharLiteralExp parse_be_ac_vub_simplegt_CharLiteralExp() throws RecognitionException {
         be.ac.vub.simplegt.CharLiteralExp element =  null;
         int parse_be_ac_vub_simplegt_CharLiteralExp_StartIndex = input.index();
@@ -3436,10 +3497,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return element; }
-            // Simplegt.g:2316:1: (a0= '\\'' (a1= TEXT ) a2= '\\'' )
-            // Simplegt.g:2317:2: a0= '\\'' (a1= TEXT ) a2= '\\''
+            // Simplegt.g:2337:1: (a0= '\\'' (a1= TEXT ) a2= '\\'' )
+            // Simplegt.g:2338:2: a0= '\\'' (a1= TEXT ) a2= '\\''
             {
-            a0=(Token)match(input,29,FOLLOW_29_in_parse_be_ac_vub_simplegt_CharLiteralExp1886); if (state.failed) return element;
+            a0=(Token)match(input,30,FOLLOW_30_in_parse_be_ac_vub_simplegt_CharLiteralExp1917); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3457,10 +3518,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_55, 66);
               	
             }
-            // Simplegt.g:2331:2: (a1= TEXT )
-            // Simplegt.g:2332:3: a1= TEXT
+            // Simplegt.g:2352:2: (a1= TEXT )
+            // Simplegt.g:2353:3: a1= TEXT
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_CharLiteralExp1904); if (state.failed) return element;
+            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_CharLiteralExp1935); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -3500,7 +3561,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_56, 67);
               	
             }
-            a2=(Token)match(input,29,FOLLOW_29_in_parse_be_ac_vub_simplegt_CharLiteralExp1925); if (state.failed) return element;
+            a2=(Token)match(input,30,FOLLOW_30_in_parse_be_ac_vub_simplegt_CharLiteralExp1956); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3539,7 +3600,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_BooleanLiteralExp"
-    // Simplegt.g:2387:1: parse_be_ac_vub_simplegt_BooleanLiteralExp returns [be.ac.vub.simplegt.BooleanLiteralExp element = null] : ( (a0= 'true' | a1= 'false' ) ) ;
+    // Simplegt.g:2408:1: parse_be_ac_vub_simplegt_BooleanLiteralExp returns [be.ac.vub.simplegt.BooleanLiteralExp element = null] : ( (a0= 'true' | a1= 'false' ) ) ;
     public final be.ac.vub.simplegt.BooleanLiteralExp parse_be_ac_vub_simplegt_BooleanLiteralExp() throws RecognitionException {
         be.ac.vub.simplegt.BooleanLiteralExp element =  null;
         int parse_be_ac_vub_simplegt_BooleanLiteralExp_StartIndex = input.index();
@@ -3550,34 +3611,34 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return element; }
-            // Simplegt.g:2390:1: ( ( (a0= 'true' | a1= 'false' ) ) )
-            // Simplegt.g:2391:2: ( (a0= 'true' | a1= 'false' ) )
+            // Simplegt.g:2411:1: ( ( (a0= 'true' | a1= 'false' ) ) )
+            // Simplegt.g:2412:2: ( (a0= 'true' | a1= 'false' ) )
             {
-            // Simplegt.g:2391:2: ( (a0= 'true' | a1= 'false' ) )
-            // Simplegt.g:2392:3: (a0= 'true' | a1= 'false' )
+            // Simplegt.g:2412:2: ( (a0= 'true' | a1= 'false' ) )
+            // Simplegt.g:2413:3: (a0= 'true' | a1= 'false' )
             {
-            // Simplegt.g:2392:3: (a0= 'true' | a1= 'false' )
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // Simplegt.g:2413:3: (a0= 'true' | a1= 'false' )
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA15_0==30) ) {
-                alt15=1;
+            if ( (LA16_0==31) ) {
+                alt16=1;
             }
-            else if ( (LA15_0==31) ) {
-                alt15=2;
+            else if ( (LA16_0==32) ) {
+                alt16=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 15, 0, input);
+                    new NoViableAltException("", 16, 0, input);
 
                 throw nvae;
             }
-            switch (alt15) {
+            switch (alt16) {
                 case 1 :
-                    // Simplegt.g:2393:4: a0= 'true'
+                    // Simplegt.g:2414:4: a0= 'true'
                     {
-                    a0=(Token)match(input,30,FOLLOW_30_in_parse_be_ac_vub_simplegt_BooleanLiteralExp1963); if (state.failed) return element;
+                    a0=(Token)match(input,31,FOLLOW_31_in_parse_be_ac_vub_simplegt_BooleanLiteralExp1994); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -3597,9 +3658,9 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Simplegt.g:2406:8: a1= 'false'
+                    // Simplegt.g:2427:8: a1= 'false'
                     {
-                    a1=(Token)match(input,31,FOLLOW_31_in_parse_be_ac_vub_simplegt_BooleanLiteralExp1978); if (state.failed) return element;
+                    a1=(Token)match(input,32,FOLLOW_32_in_parse_be_ac_vub_simplegt_BooleanLiteralExp2009); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -3651,7 +3712,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_EnumLiteralExp"
-    // Simplegt.g:2432:1: parse_be_ac_vub_simplegt_EnumLiteralExp returns [be.ac.vub.simplegt.EnumLiteralExp element = null] : a0= '#' (a1= TEXT ) ;
+    // Simplegt.g:2453:1: parse_be_ac_vub_simplegt_EnumLiteralExp returns [be.ac.vub.simplegt.EnumLiteralExp element = null] : a0= '#' (a1= TEXT ) ;
     public final be.ac.vub.simplegt.EnumLiteralExp parse_be_ac_vub_simplegt_EnumLiteralExp() throws RecognitionException {
         be.ac.vub.simplegt.EnumLiteralExp element =  null;
         int parse_be_ac_vub_simplegt_EnumLiteralExp_StartIndex = input.index();
@@ -3662,10 +3723,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return element; }
-            // Simplegt.g:2435:1: (a0= '#' (a1= TEXT ) )
-            // Simplegt.g:2436:2: a0= '#' (a1= TEXT )
+            // Simplegt.g:2456:1: (a0= '#' (a1= TEXT ) )
+            // Simplegt.g:2457:2: a0= '#' (a1= TEXT )
             {
-            a0=(Token)match(input,32,FOLLOW_32_in_parse_be_ac_vub_simplegt_EnumLiteralExp2014); if (state.failed) return element;
+            a0=(Token)match(input,33,FOLLOW_33_in_parse_be_ac_vub_simplegt_EnumLiteralExp2045); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3683,10 +3744,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_57, 70);
               	
             }
-            // Simplegt.g:2450:2: (a1= TEXT )
-            // Simplegt.g:2451:3: a1= TEXT
+            // Simplegt.g:2471:2: (a1= TEXT )
+            // Simplegt.g:2472:3: a1= TEXT
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_EnumLiteralExp2032); if (state.failed) return element;
+            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_EnumLiteralExp2063); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -3747,7 +3808,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_NacPattern"
-    // Simplegt.g:2492:1: parse_be_ac_vub_simplegt_NacPattern returns [be.ac.vub.simplegt.NacPattern element = null] : a0= 'not' (a1_0= parse_be_ac_vub_simplegt_InputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) ) )* ;
+    // Simplegt.g:2513:1: parse_be_ac_vub_simplegt_NacPattern returns [be.ac.vub.simplegt.NacPattern element = null] : a0= 'not' (a1_0= parse_be_ac_vub_simplegt_InputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) ) )* ;
     public final be.ac.vub.simplegt.NacPattern parse_be_ac_vub_simplegt_NacPattern() throws RecognitionException {
         be.ac.vub.simplegt.NacPattern element =  null;
         int parse_be_ac_vub_simplegt_NacPattern_StartIndex = input.index();
@@ -3762,10 +3823,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return element; }
-            // Simplegt.g:2495:1: (a0= 'not' (a1_0= parse_be_ac_vub_simplegt_InputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) ) )* )
-            // Simplegt.g:2496:2: a0= 'not' (a1_0= parse_be_ac_vub_simplegt_InputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) ) )*
+            // Simplegt.g:2516:1: (a0= 'not' (a1_0= parse_be_ac_vub_simplegt_InputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) ) )* )
+            // Simplegt.g:2517:2: a0= 'not' (a1_0= parse_be_ac_vub_simplegt_InputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) ) )*
             {
-            a0=(Token)match(input,33,FOLLOW_33_in_parse_be_ac_vub_simplegt_NacPattern2068); if (state.failed) return element;
+            a0=(Token)match(input,34,FOLLOW_34_in_parse_be_ac_vub_simplegt_NacPattern2099); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3783,10 +3844,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_24, 72, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_6);
               	
             }
-            // Simplegt.g:2510:2: (a1_0= parse_be_ac_vub_simplegt_InputElement )
-            // Simplegt.g:2511:3: a1_0= parse_be_ac_vub_simplegt_InputElement
+            // Simplegt.g:2531:2: (a1_0= parse_be_ac_vub_simplegt_InputElement )
+            // Simplegt.g:2532:3: a1_0= parse_be_ac_vub_simplegt_InputElement
             {
-            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_InputElement_in_parse_be_ac_vub_simplegt_NacPattern2086);
+            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_InputElement_in_parse_be_ac_vub_simplegt_NacPattern2117);
             a1_0=parse_be_ac_vub_simplegt_InputElement();
 
             state._fsp--;
@@ -3824,25 +3885,25 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 73);
               	
             }
-            // Simplegt.g:2539:2: ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) ) )*
-            loop16:
+            // Simplegt.g:2560:2: ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) ) )*
+            loop17:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt17=2;
+                int LA17_0 = input.LA(1);
 
-                if ( (LA16_0==14) ) {
-                    alt16=1;
+                if ( (LA17_0==14) ) {
+                    alt17=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt17) {
             	case 1 :
-            	    // Simplegt.g:2540:3: (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) )
+            	    // Simplegt.g:2561:3: (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) )
             	    {
-            	    // Simplegt.g:2540:3: (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) )
-            	    // Simplegt.g:2541:4: a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement )
+            	    // Simplegt.g:2561:3: (a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement ) )
+            	    // Simplegt.g:2562:4: a2= ',' (a3_0= parse_be_ac_vub_simplegt_InputElement )
             	    {
-            	    a2=(Token)match(input,14,FOLLOW_14_in_parse_be_ac_vub_simplegt_NacPattern2113); if (state.failed) return element;
+            	    a2=(Token)match(input,14,FOLLOW_14_in_parse_be_ac_vub_simplegt_NacPattern2144); if (state.failed) return element;
             	    if ( state.backtracking==0 ) {
 
             	      				if (element == null) {
@@ -3860,10 +3921,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
             	      				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_24, 74, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_6);
             	      			
             	    }
-            	    // Simplegt.g:2555:4: (a3_0= parse_be_ac_vub_simplegt_InputElement )
-            	    // Simplegt.g:2556:5: a3_0= parse_be_ac_vub_simplegt_InputElement
+            	    // Simplegt.g:2576:4: (a3_0= parse_be_ac_vub_simplegt_InputElement )
+            	    // Simplegt.g:2577:5: a3_0= parse_be_ac_vub_simplegt_InputElement
             	    {
-            	    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_InputElement_in_parse_be_ac_vub_simplegt_NacPattern2139);
+            	    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_InputElement_in_parse_be_ac_vub_simplegt_NacPattern2170);
             	    a3_0=parse_be_ac_vub_simplegt_InputElement();
 
             	    state._fsp--;
@@ -3909,7 +3970,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop17;
                 }
             } while (true);
 
@@ -3939,7 +4000,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_OutPattern"
-    // Simplegt.g:2596:1: parse_be_ac_vub_simplegt_OutPattern returns [be.ac.vub.simplegt.OutPattern element = null] : a0= 'to' (a1_0= parse_be_ac_vub_simplegt_OutputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) ) )* ;
+    // Simplegt.g:2617:1: parse_be_ac_vub_simplegt_OutPattern returns [be.ac.vub.simplegt.OutPattern element = null] : a0= 'to' (a1_0= parse_be_ac_vub_simplegt_OutputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) ) )* ;
     public final be.ac.vub.simplegt.OutPattern parse_be_ac_vub_simplegt_OutPattern() throws RecognitionException {
         be.ac.vub.simplegt.OutPattern element =  null;
         int parse_be_ac_vub_simplegt_OutPattern_StartIndex = input.index();
@@ -3954,10 +4015,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return element; }
-            // Simplegt.g:2599:1: (a0= 'to' (a1_0= parse_be_ac_vub_simplegt_OutputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) ) )* )
-            // Simplegt.g:2600:2: a0= 'to' (a1_0= parse_be_ac_vub_simplegt_OutputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) ) )*
+            // Simplegt.g:2620:1: (a0= 'to' (a1_0= parse_be_ac_vub_simplegt_OutputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) ) )* )
+            // Simplegt.g:2621:2: a0= 'to' (a1_0= parse_be_ac_vub_simplegt_OutputElement ) ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) ) )*
             {
-            a0=(Token)match(input,34,FOLLOW_34_in_parse_be_ac_vub_simplegt_OutPattern2195); if (state.failed) return element;
+            a0=(Token)match(input,35,FOLLOW_35_in_parse_be_ac_vub_simplegt_OutPattern2226); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3975,10 +4036,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_58, 77, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_10);
               	
             }
-            // Simplegt.g:2614:2: (a1_0= parse_be_ac_vub_simplegt_OutputElement )
-            // Simplegt.g:2615:3: a1_0= parse_be_ac_vub_simplegt_OutputElement
+            // Simplegt.g:2635:2: (a1_0= parse_be_ac_vub_simplegt_OutputElement )
+            // Simplegt.g:2636:3: a1_0= parse_be_ac_vub_simplegt_OutputElement
             {
-            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_OutputElement_in_parse_be_ac_vub_simplegt_OutPattern2213);
+            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_OutputElement_in_parse_be_ac_vub_simplegt_OutPattern2244);
             a1_0=parse_be_ac_vub_simplegt_OutputElement();
 
             state._fsp--;
@@ -4014,25 +4075,25 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 78);
               	
             }
-            // Simplegt.g:2641:2: ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) ) )*
-            loop17:
+            // Simplegt.g:2662:2: ( (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) ) )*
+            loop18:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA17_0==14) ) {
-                    alt17=1;
+                if ( (LA18_0==14) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt18) {
             	case 1 :
-            	    // Simplegt.g:2642:3: (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) )
+            	    // Simplegt.g:2663:3: (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) )
             	    {
-            	    // Simplegt.g:2642:3: (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) )
-            	    // Simplegt.g:2643:4: a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement )
+            	    // Simplegt.g:2663:3: (a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement ) )
+            	    // Simplegt.g:2664:4: a2= ',' (a3_0= parse_be_ac_vub_simplegt_OutputElement )
             	    {
-            	    a2=(Token)match(input,14,FOLLOW_14_in_parse_be_ac_vub_simplegt_OutPattern2240); if (state.failed) return element;
+            	    a2=(Token)match(input,14,FOLLOW_14_in_parse_be_ac_vub_simplegt_OutPattern2271); if (state.failed) return element;
             	    if ( state.backtracking==0 ) {
 
             	      				if (element == null) {
@@ -4050,10 +4111,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
             	      				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_58, 79, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_10);
             	      			
             	    }
-            	    // Simplegt.g:2657:4: (a3_0= parse_be_ac_vub_simplegt_OutputElement )
-            	    // Simplegt.g:2658:5: a3_0= parse_be_ac_vub_simplegt_OutputElement
+            	    // Simplegt.g:2678:4: (a3_0= parse_be_ac_vub_simplegt_OutputElement )
+            	    // Simplegt.g:2679:5: a3_0= parse_be_ac_vub_simplegt_OutputElement
             	    {
-            	    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_OutputElement_in_parse_be_ac_vub_simplegt_OutPattern2266);
+            	    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_OutputElement_in_parse_be_ac_vub_simplegt_OutPattern2297);
             	    a3_0=parse_be_ac_vub_simplegt_OutputElement();
 
             	    state._fsp--;
@@ -4097,7 +4158,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
             	    break;
 
             	default :
-            	    break loop17;
+            	    break loop18;
                 }
             } while (true);
 
@@ -4125,7 +4186,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_OutputElement"
-    // Simplegt.g:2694:1: parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement element = null] : (a0= TEXT ) a1= ':' (a2_0= parse_be_ac_vub_simplegt_Type ) ( (a3= 'in' (a4= TEXT ) ) )? ( (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' ) )? ;
+    // Simplegt.g:2715:1: parse_be_ac_vub_simplegt_OutputElement returns [be.ac.vub.simplegt.OutputElement element = null] : (a0= TEXT ) a1= ':' (a2_0= parse_be_ac_vub_simplegt_Type ) ( (a3= 'in' (a4= TEXT ) ) )? ( (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' ) )? ;
     public final be.ac.vub.simplegt.OutputElement parse_be_ac_vub_simplegt_OutputElement() throws RecognitionException {
         be.ac.vub.simplegt.OutputElement element =  null;
         int parse_be_ac_vub_simplegt_OutputElement_StartIndex = input.index();
@@ -4147,13 +4208,13 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return element; }
-            // Simplegt.g:2697:1: ( (a0= TEXT ) a1= ':' (a2_0= parse_be_ac_vub_simplegt_Type ) ( (a3= 'in' (a4= TEXT ) ) )? ( (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' ) )? )
-            // Simplegt.g:2698:2: (a0= TEXT ) a1= ':' (a2_0= parse_be_ac_vub_simplegt_Type ) ( (a3= 'in' (a4= TEXT ) ) )? ( (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' ) )?
+            // Simplegt.g:2718:1: ( (a0= TEXT ) a1= ':' (a2_0= parse_be_ac_vub_simplegt_Type ) ( (a3= 'in' (a4= TEXT ) ) )? ( (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' ) )? )
+            // Simplegt.g:2719:2: (a0= TEXT ) a1= ':' (a2_0= parse_be_ac_vub_simplegt_Type ) ( (a3= 'in' (a4= TEXT ) ) )? ( (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' ) )?
             {
-            // Simplegt.g:2698:2: (a0= TEXT )
-            // Simplegt.g:2699:3: a0= TEXT
+            // Simplegt.g:2719:2: (a0= TEXT )
+            // Simplegt.g:2720:3: a0= TEXT
             {
-            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputElement2326); if (state.failed) return element;
+            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputElement2357); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -4193,7 +4254,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_59, 82);
               	
             }
-            a1=(Token)match(input,15,FOLLOW_15_in_parse_be_ac_vub_simplegt_OutputElement2347); if (state.failed) return element;
+            a1=(Token)match(input,15,FOLLOW_15_in_parse_be_ac_vub_simplegt_OutputElement2378); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -4211,10 +4272,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_26, 83, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_7);
               	
             }
-            // Simplegt.g:2748:2: (a2_0= parse_be_ac_vub_simplegt_Type )
-            // Simplegt.g:2749:3: a2_0= parse_be_ac_vub_simplegt_Type
+            // Simplegt.g:2769:2: (a2_0= parse_be_ac_vub_simplegt_Type )
+            // Simplegt.g:2770:3: a2_0= parse_be_ac_vub_simplegt_Type
             {
-            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_Type_in_parse_be_ac_vub_simplegt_OutputElement2365);
+            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_Type_in_parse_be_ac_vub_simplegt_OutputElement2396);
             a2_0=parse_be_ac_vub_simplegt_Type();
 
             state._fsp--;
@@ -4252,21 +4313,21 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 84);
               	
             }
-            // Simplegt.g:2777:2: ( (a3= 'in' (a4= TEXT ) ) )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // Simplegt.g:2798:2: ( (a3= 'in' (a4= TEXT ) ) )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0==23) ) {
-                alt18=1;
+            if ( (LA19_0==23) ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
-                    // Simplegt.g:2778:3: (a3= 'in' (a4= TEXT ) )
+                    // Simplegt.g:2799:3: (a3= 'in' (a4= TEXT ) )
                     {
-                    // Simplegt.g:2778:3: (a3= 'in' (a4= TEXT ) )
-                    // Simplegt.g:2779:4: a3= 'in' (a4= TEXT )
+                    // Simplegt.g:2799:3: (a3= 'in' (a4= TEXT ) )
+                    // Simplegt.g:2800:4: a3= 'in' (a4= TEXT )
                     {
-                    a3=(Token)match(input,23,FOLLOW_23_in_parse_be_ac_vub_simplegt_OutputElement2392); if (state.failed) return element;
+                    a3=(Token)match(input,23,FOLLOW_23_in_parse_be_ac_vub_simplegt_OutputElement2423); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -4284,10 +4345,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                       				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_60, 85);
                       			
                     }
-                    // Simplegt.g:2793:4: (a4= TEXT )
-                    // Simplegt.g:2794:5: a4= TEXT
+                    // Simplegt.g:2814:4: (a4= TEXT )
+                    // Simplegt.g:2815:5: a4= TEXT
                     {
-                    a4=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputElement2418); if (state.failed) return element;
+                    a4=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputElement2449); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -4350,21 +4411,21 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_23, 87);
               	
             }
-            // Simplegt.g:2844:2: ( (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' ) )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // Simplegt.g:2865:2: ( (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' ) )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA20_0==24) ) {
-                alt20=1;
+            if ( (LA21_0==24) ) {
+                alt21=1;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // Simplegt.g:2845:3: (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' )
+                    // Simplegt.g:2866:3: (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' )
                     {
-                    // Simplegt.g:2845:3: (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' )
-                    // Simplegt.g:2846:4: a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')'
+                    // Simplegt.g:2866:3: (a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')' )
+                    // Simplegt.g:2867:4: a5= '(' (a6_0= parse_be_ac_vub_simplegt_OutputBinding ) ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )* a9= ')'
                     {
-                    a5=(Token)match(input,24,FOLLOW_24_in_parse_be_ac_vub_simplegt_OutputElement2473); if (state.failed) return element;
+                    a5=(Token)match(input,24,FOLLOW_24_in_parse_be_ac_vub_simplegt_OutputElement2504); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -4382,10 +4443,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                       				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_61, 88, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
                       			
                     }
-                    // Simplegt.g:2860:4: (a6_0= parse_be_ac_vub_simplegt_OutputBinding )
-                    // Simplegt.g:2861:5: a6_0= parse_be_ac_vub_simplegt_OutputBinding
+                    // Simplegt.g:2881:4: (a6_0= parse_be_ac_vub_simplegt_OutputBinding )
+                    // Simplegt.g:2882:5: a6_0= parse_be_ac_vub_simplegt_OutputBinding
                     {
-                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_OutputBinding_in_parse_be_ac_vub_simplegt_OutputElement2499);
+                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_OutputBinding_in_parse_be_ac_vub_simplegt_OutputElement2530);
                     a6_0=parse_be_ac_vub_simplegt_OutputBinding();
 
                     state._fsp--;
@@ -4421,25 +4482,25 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                       				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 89);
                       			
                     }
-                    // Simplegt.g:2887:4: ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )*
-                    loop19:
+                    // Simplegt.g:2908:4: ( (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) ) )*
+                    loop20:
                     do {
-                        int alt19=2;
-                        int LA19_0 = input.LA(1);
+                        int alt20=2;
+                        int LA20_0 = input.LA(1);
 
-                        if ( (LA19_0==14) ) {
-                            alt19=1;
+                        if ( (LA20_0==14) ) {
+                            alt20=1;
                         }
 
 
-                        switch (alt19) {
+                        switch (alt20) {
                     	case 1 :
-                    	    // Simplegt.g:2888:5: (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) )
+                    	    // Simplegt.g:2909:5: (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) )
                     	    {
-                    	    // Simplegt.g:2888:5: (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) )
-                    	    // Simplegt.g:2889:6: a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding )
+                    	    // Simplegt.g:2909:5: (a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding ) )
+                    	    // Simplegt.g:2910:6: a7= ',' (a8_0= parse_be_ac_vub_simplegt_OutputBinding )
                     	    {
-                    	    a7=(Token)match(input,14,FOLLOW_14_in_parse_be_ac_vub_simplegt_OutputElement2540); if (state.failed) return element;
+                    	    a7=(Token)match(input,14,FOLLOW_14_in_parse_be_ac_vub_simplegt_OutputElement2571); if (state.failed) return element;
                     	    if ( state.backtracking==0 ) {
 
                     	      						if (element == null) {
@@ -4457,10 +4518,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                     	      						addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_61, 90, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_11);
                     	      					
                     	    }
-                    	    // Simplegt.g:2903:6: (a8_0= parse_be_ac_vub_simplegt_OutputBinding )
-                    	    // Simplegt.g:2904:7: a8_0= parse_be_ac_vub_simplegt_OutputBinding
+                    	    // Simplegt.g:2924:6: (a8_0= parse_be_ac_vub_simplegt_OutputBinding )
+                    	    // Simplegt.g:2925:7: a8_0= parse_be_ac_vub_simplegt_OutputBinding
                     	    {
-                    	    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_OutputBinding_in_parse_be_ac_vub_simplegt_OutputElement2574);
+                    	    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_OutputBinding_in_parse_be_ac_vub_simplegt_OutputElement2605);
                     	    a8_0=parse_be_ac_vub_simplegt_OutputBinding();
 
                     	    state._fsp--;
@@ -4504,7 +4565,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                     	    break;
 
                     	default :
-                    	    break loop19;
+                    	    break loop20;
                         }
                     } while (true);
 
@@ -4515,7 +4576,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                       				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 92);
                       			
                     }
-                    a9=(Token)match(input,25,FOLLOW_25_in_parse_be_ac_vub_simplegt_OutputElement2635); if (state.failed) return element;
+                    a9=(Token)match(input,25,FOLLOW_25_in_parse_be_ac_vub_simplegt_OutputElement2666); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -4567,7 +4628,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_OutputBinding"
-    // Simplegt.g:2963:1: parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding element = null] : (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )? ;
+    // Simplegt.g:2984:1: parse_be_ac_vub_simplegt_OutputBinding returns [be.ac.vub.simplegt.OutputBinding element = null] : (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )? ;
     public final be.ac.vub.simplegt.OutputBinding parse_be_ac_vub_simplegt_OutputBinding() throws RecognitionException {
         be.ac.vub.simplegt.OutputBinding element =  null;
         int parse_be_ac_vub_simplegt_OutputBinding_StartIndex = input.index();
@@ -4582,13 +4643,13 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return element; }
-            // Simplegt.g:2966:1: ( (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )? )
-            // Simplegt.g:2967:2: (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )?
+            // Simplegt.g:2987:1: ( (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )? )
+            // Simplegt.g:2988:2: (a0= TEXT ) a1= '=~' (a2_0= parse_be_ac_vub_simplegt_Expression ) ( (a3= 'before' (a4= TEXT ) ) )?
             {
-            // Simplegt.g:2967:2: (a0= TEXT )
-            // Simplegt.g:2968:3: a0= TEXT
+            // Simplegt.g:2988:2: (a0= TEXT )
+            // Simplegt.g:2989:3: a0= TEXT
             {
-            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputBinding2687); if (state.failed) return element;
+            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputBinding2718); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -4628,7 +4689,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_62, 95);
               	
             }
-            a1=(Token)match(input,26,FOLLOW_26_in_parse_be_ac_vub_simplegt_OutputBinding2708); if (state.failed) return element;
+            a1=(Token)match(input,27,FOLLOW_27_in_parse_be_ac_vub_simplegt_OutputBinding2739); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -4652,10 +4713,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_47, 96, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.FEATURE_9);
               	
             }
-            // Simplegt.g:3023:2: (a2_0= parse_be_ac_vub_simplegt_Expression )
-            // Simplegt.g:3024:3: a2_0= parse_be_ac_vub_simplegt_Expression
+            // Simplegt.g:3044:2: (a2_0= parse_be_ac_vub_simplegt_Expression )
+            // Simplegt.g:3045:3: a2_0= parse_be_ac_vub_simplegt_Expression
             {
-            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_Expression_in_parse_be_ac_vub_simplegt_OutputBinding2726);
+            pushFollow(FOLLOW_parse_be_ac_vub_simplegt_Expression_in_parse_be_ac_vub_simplegt_OutputBinding2757);
             a2_0=parse_be_ac_vub_simplegt_Expression();
 
             state._fsp--;
@@ -4692,21 +4753,21 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
               		addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_51, 97);
               	
             }
-            // Simplegt.g:3051:2: ( (a3= 'before' (a4= TEXT ) ) )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // Simplegt.g:3072:2: ( (a3= 'before' (a4= TEXT ) ) )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA21_0==35) ) {
-                alt21=1;
+            if ( (LA22_0==36) ) {
+                alt22=1;
             }
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
-                    // Simplegt.g:3052:3: (a3= 'before' (a4= TEXT ) )
+                    // Simplegt.g:3073:3: (a3= 'before' (a4= TEXT ) )
                     {
-                    // Simplegt.g:3052:3: (a3= 'before' (a4= TEXT ) )
-                    // Simplegt.g:3053:4: a3= 'before' (a4= TEXT )
+                    // Simplegt.g:3073:3: (a3= 'before' (a4= TEXT ) )
+                    // Simplegt.g:3074:4: a3= 'before' (a4= TEXT )
                     {
-                    a3=(Token)match(input,35,FOLLOW_35_in_parse_be_ac_vub_simplegt_OutputBinding2753); if (state.failed) return element;
+                    a3=(Token)match(input,36,FOLLOW_36_in_parse_be_ac_vub_simplegt_OutputBinding2784); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -4724,10 +4785,10 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                       				addExpectedElement(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtFollowSetProvider.TERMINAL_63, 98);
                       			
                     }
-                    // Simplegt.g:3067:4: (a4= TEXT )
-                    // Simplegt.g:3068:5: a4= TEXT
+                    // Simplegt.g:3088:4: (a4= TEXT )
+                    // Simplegt.g:3089:5: a4= TEXT
                     {
-                    a4=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputBinding2779); if (state.failed) return element;
+                    a4=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputBinding2810); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -4805,7 +4866,7 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
 
     // $ANTLR start "parse_be_ac_vub_simplegt_Expression"
-    // Simplegt.g:3118:1: parse_be_ac_vub_simplegt_Expression returns [be.ac.vub.simplegt.Expression element = null] : (c0= parse_be_ac_vub_simplegt_ElementExp | c1= parse_be_ac_vub_simplegt_StringLiteralExp | c2= parse_be_ac_vub_simplegt_IntegerLiteralExp | c3= parse_be_ac_vub_simplegt_DoubleLiteralExp | c4= parse_be_ac_vub_simplegt_CharLiteralExp | c5= parse_be_ac_vub_simplegt_BooleanLiteralExp | c6= parse_be_ac_vub_simplegt_EnumLiteralExp );
+    // Simplegt.g:3139:1: parse_be_ac_vub_simplegt_Expression returns [be.ac.vub.simplegt.Expression element = null] : (c0= parse_be_ac_vub_simplegt_ElementExp | c1= parse_be_ac_vub_simplegt_StringLiteralExp | c2= parse_be_ac_vub_simplegt_IntegerLiteralExp | c3= parse_be_ac_vub_simplegt_DoubleLiteralExp | c4= parse_be_ac_vub_simplegt_CharLiteralExp | c5= parse_be_ac_vub_simplegt_BooleanLiteralExp | c6= parse_be_ac_vub_simplegt_EnumLiteralExp );
     public final be.ac.vub.simplegt.Expression parse_be_ac_vub_simplegt_Expression() throws RecognitionException {
         be.ac.vub.simplegt.Expression element =  null;
         int parse_be_ac_vub_simplegt_Expression_StartIndex = input.index();
@@ -4826,58 +4887,58 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return element; }
-            // Simplegt.g:3119:1: (c0= parse_be_ac_vub_simplegt_ElementExp | c1= parse_be_ac_vub_simplegt_StringLiteralExp | c2= parse_be_ac_vub_simplegt_IntegerLiteralExp | c3= parse_be_ac_vub_simplegt_DoubleLiteralExp | c4= parse_be_ac_vub_simplegt_CharLiteralExp | c5= parse_be_ac_vub_simplegt_BooleanLiteralExp | c6= parse_be_ac_vub_simplegt_EnumLiteralExp )
-            int alt22=7;
+            // Simplegt.g:3140:1: (c0= parse_be_ac_vub_simplegt_ElementExp | c1= parse_be_ac_vub_simplegt_StringLiteralExp | c2= parse_be_ac_vub_simplegt_IntegerLiteralExp | c3= parse_be_ac_vub_simplegt_DoubleLiteralExp | c4= parse_be_ac_vub_simplegt_CharLiteralExp | c5= parse_be_ac_vub_simplegt_BooleanLiteralExp | c6= parse_be_ac_vub_simplegt_EnumLiteralExp )
+            int alt23=7;
             switch ( input.LA(1) ) {
             case TEXT:
                 {
-                alt22=1;
-                }
-                break;
-            case 28:
-                {
-                alt22=2;
-                }
-                break;
-            case INTEGER:
-                {
-                alt22=3;
-                }
-                break;
-            case FLOAT:
-                {
-                alt22=4;
+                alt23=1;
                 }
                 break;
             case 29:
                 {
-                alt22=5;
+                alt23=2;
+                }
+                break;
+            case INTEGER:
+                {
+                alt23=3;
+                }
+                break;
+            case FLOAT:
+                {
+                alt23=4;
                 }
                 break;
             case 30:
-            case 31:
                 {
-                alt22=6;
+                alt23=5;
                 }
                 break;
+            case 31:
             case 32:
                 {
-                alt22=7;
+                alt23=6;
+                }
+                break;
+            case 33:
+                {
+                alt23=7;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 23, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // Simplegt.g:3120:2: c0= parse_be_ac_vub_simplegt_ElementExp
+                    // Simplegt.g:3141:2: c0= parse_be_ac_vub_simplegt_ElementExp
                     {
-                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_ElementExp_in_parse_be_ac_vub_simplegt_Expression2836);
+                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_ElementExp_in_parse_be_ac_vub_simplegt_Expression2867);
                     c0=parse_be_ac_vub_simplegt_ElementExp();
 
                     state._fsp--;
@@ -4889,9 +4950,9 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Simplegt.g:3121:4: c1= parse_be_ac_vub_simplegt_StringLiteralExp
+                    // Simplegt.g:3142:4: c1= parse_be_ac_vub_simplegt_StringLiteralExp
                     {
-                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_StringLiteralExp_in_parse_be_ac_vub_simplegt_Expression2846);
+                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_StringLiteralExp_in_parse_be_ac_vub_simplegt_Expression2877);
                     c1=parse_be_ac_vub_simplegt_StringLiteralExp();
 
                     state._fsp--;
@@ -4903,9 +4964,9 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Simplegt.g:3122:4: c2= parse_be_ac_vub_simplegt_IntegerLiteralExp
+                    // Simplegt.g:3143:4: c2= parse_be_ac_vub_simplegt_IntegerLiteralExp
                     {
-                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_IntegerLiteralExp_in_parse_be_ac_vub_simplegt_Expression2856);
+                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_IntegerLiteralExp_in_parse_be_ac_vub_simplegt_Expression2887);
                     c2=parse_be_ac_vub_simplegt_IntegerLiteralExp();
 
                     state._fsp--;
@@ -4917,9 +4978,9 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                     }
                     break;
                 case 4 :
-                    // Simplegt.g:3123:4: c3= parse_be_ac_vub_simplegt_DoubleLiteralExp
+                    // Simplegt.g:3144:4: c3= parse_be_ac_vub_simplegt_DoubleLiteralExp
                     {
-                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_DoubleLiteralExp_in_parse_be_ac_vub_simplegt_Expression2866);
+                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_DoubleLiteralExp_in_parse_be_ac_vub_simplegt_Expression2897);
                     c3=parse_be_ac_vub_simplegt_DoubleLiteralExp();
 
                     state._fsp--;
@@ -4931,9 +4992,9 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                     }
                     break;
                 case 5 :
-                    // Simplegt.g:3124:4: c4= parse_be_ac_vub_simplegt_CharLiteralExp
+                    // Simplegt.g:3145:4: c4= parse_be_ac_vub_simplegt_CharLiteralExp
                     {
-                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_CharLiteralExp_in_parse_be_ac_vub_simplegt_Expression2876);
+                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_CharLiteralExp_in_parse_be_ac_vub_simplegt_Expression2907);
                     c4=parse_be_ac_vub_simplegt_CharLiteralExp();
 
                     state._fsp--;
@@ -4945,9 +5006,9 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                     }
                     break;
                 case 6 :
-                    // Simplegt.g:3125:4: c5= parse_be_ac_vub_simplegt_BooleanLiteralExp
+                    // Simplegt.g:3146:4: c5= parse_be_ac_vub_simplegt_BooleanLiteralExp
                     {
-                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_BooleanLiteralExp_in_parse_be_ac_vub_simplegt_Expression2886);
+                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_BooleanLiteralExp_in_parse_be_ac_vub_simplegt_Expression2917);
                     c5=parse_be_ac_vub_simplegt_BooleanLiteralExp();
 
                     state._fsp--;
@@ -4959,9 +5020,9 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
                     }
                     break;
                 case 7 :
-                    // Simplegt.g:3126:4: c6= parse_be_ac_vub_simplegt_EnumLiteralExp
+                    // Simplegt.g:3147:4: c6= parse_be_ac_vub_simplegt_EnumLiteralExp
                     {
-                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_EnumLiteralExp_in_parse_be_ac_vub_simplegt_Expression2896);
+                    pushFollow(FOLLOW_parse_be_ac_vub_simplegt_EnumLiteralExp_in_parse_be_ac_vub_simplegt_Expression2927);
                     c6=parse_be_ac_vub_simplegt_EnumLiteralExp();
 
                     state._fsp--;
@@ -5016,9 +5077,9 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
     public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_Rule665 = new BitSet(new long[]{0x0000000000084000L});
     public static final BitSet FOLLOW_14_in_parse_be_ac_vub_simplegt_Rule711 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_Rule745 = new BitSet(new long[]{0x0000000000084000L});
-    public static final BitSet FOLLOW_19_in_parse_be_ac_vub_simplegt_Rule826 = new BitSet(new long[]{0x0000000600300000L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_InPattern_in_parse_be_ac_vub_simplegt_Rule849 = new BitSet(new long[]{0x0000000600100000L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_NacPattern_in_parse_be_ac_vub_simplegt_Rule884 = new BitSet(new long[]{0x0000000600100000L});
+    public static final BitSet FOLLOW_19_in_parse_be_ac_vub_simplegt_Rule826 = new BitSet(new long[]{0x0000000C00300000L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_InPattern_in_parse_be_ac_vub_simplegt_Rule849 = new BitSet(new long[]{0x0000000C00100000L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_NacPattern_in_parse_be_ac_vub_simplegt_Rule884 = new BitSet(new long[]{0x0000000C00100000L});
     public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_OutPattern_in_parse_be_ac_vub_simplegt_Rule919 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_parse_be_ac_vub_simplegt_Rule945 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_21_in_parse_be_ac_vub_simplegt_InPattern974 = new BitSet(new long[]{0x0000000000000010L});
@@ -5038,53 +5099,54 @@ public class SimplegtParser extends SimplegtANTLRParserBase {
     public static final BitSet FOLLOW_14_in_parse_be_ac_vub_simplegt_InputElement1398 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_InputBinding_in_parse_be_ac_vub_simplegt_InputElement1432 = new BitSet(new long[]{0x0000000002004000L});
     public static final BitSet FOLLOW_25_in_parse_be_ac_vub_simplegt_InputElement1493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_InputBinding1545 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_parse_be_ac_vub_simplegt_InputBinding1566 = new BitSet(new long[]{0x00000001F0000070L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_Expression_in_parse_be_ac_vub_simplegt_InputBinding1584 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_ElementExp1621 = new BitSet(new long[]{0x0000000008000002L});
-    public static final BitSet FOLLOW_27_in_parse_be_ac_vub_simplegt_ElementExp1651 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_ElementExp1677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_parse_be_ac_vub_simplegt_StringLiteralExp1738 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_StringLiteralExp1756 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_parse_be_ac_vub_simplegt_StringLiteralExp1777 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INTEGER_in_parse_be_ac_vub_simplegt_IntegerLiteralExp1810 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOAT_in_parse_be_ac_vub_simplegt_DoubleLiteralExp1850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_parse_be_ac_vub_simplegt_CharLiteralExp1886 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_CharLiteralExp1904 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_parse_be_ac_vub_simplegt_CharLiteralExp1925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_parse_be_ac_vub_simplegt_BooleanLiteralExp1963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_parse_be_ac_vub_simplegt_BooleanLiteralExp1978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_parse_be_ac_vub_simplegt_EnumLiteralExp2014 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_EnumLiteralExp2032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_parse_be_ac_vub_simplegt_NacPattern2068 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_InputElement_in_parse_be_ac_vub_simplegt_NacPattern2086 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_14_in_parse_be_ac_vub_simplegt_NacPattern2113 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_InputElement_in_parse_be_ac_vub_simplegt_NacPattern2139 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_34_in_parse_be_ac_vub_simplegt_OutPattern2195 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_OutputElement_in_parse_be_ac_vub_simplegt_OutPattern2213 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_14_in_parse_be_ac_vub_simplegt_OutPattern2240 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_OutputElement_in_parse_be_ac_vub_simplegt_OutPattern2266 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputElement2326 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_parse_be_ac_vub_simplegt_OutputElement2347 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_Type_in_parse_be_ac_vub_simplegt_OutputElement2365 = new BitSet(new long[]{0x0000000001800002L});
-    public static final BitSet FOLLOW_23_in_parse_be_ac_vub_simplegt_OutputElement2392 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputElement2418 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_24_in_parse_be_ac_vub_simplegt_OutputElement2473 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_OutputBinding_in_parse_be_ac_vub_simplegt_OutputElement2499 = new BitSet(new long[]{0x0000000002004000L});
-    public static final BitSet FOLLOW_14_in_parse_be_ac_vub_simplegt_OutputElement2540 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_OutputBinding_in_parse_be_ac_vub_simplegt_OutputElement2574 = new BitSet(new long[]{0x0000000002004000L});
-    public static final BitSet FOLLOW_25_in_parse_be_ac_vub_simplegt_OutputElement2635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputBinding2687 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_parse_be_ac_vub_simplegt_OutputBinding2708 = new BitSet(new long[]{0x00000001F0000070L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_Expression_in_parse_be_ac_vub_simplegt_OutputBinding2726 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_35_in_parse_be_ac_vub_simplegt_OutputBinding2753 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputBinding2779 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_ElementExp_in_parse_be_ac_vub_simplegt_Expression2836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_StringLiteralExp_in_parse_be_ac_vub_simplegt_Expression2846 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_IntegerLiteralExp_in_parse_be_ac_vub_simplegt_Expression2856 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_DoubleLiteralExp_in_parse_be_ac_vub_simplegt_Expression2866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_CharLiteralExp_in_parse_be_ac_vub_simplegt_Expression2876 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_BooleanLiteralExp_in_parse_be_ac_vub_simplegt_Expression2886 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_EnumLiteralExp_in_parse_be_ac_vub_simplegt_Expression2896 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_InputBinding1545 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_26_in_parse_be_ac_vub_simplegt_InputBinding1575 = new BitSet(new long[]{0x00000003E0000070L});
+    public static final BitSet FOLLOW_27_in_parse_be_ac_vub_simplegt_InputBinding1590 = new BitSet(new long[]{0x00000003E0000070L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_Expression_in_parse_be_ac_vub_simplegt_InputBinding1615 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_ElementExp1652 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_28_in_parse_be_ac_vub_simplegt_ElementExp1682 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_ElementExp1708 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_parse_be_ac_vub_simplegt_StringLiteralExp1769 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_StringLiteralExp1787 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_29_in_parse_be_ac_vub_simplegt_StringLiteralExp1808 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INTEGER_in_parse_be_ac_vub_simplegt_IntegerLiteralExp1841 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOAT_in_parse_be_ac_vub_simplegt_DoubleLiteralExp1881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_parse_be_ac_vub_simplegt_CharLiteralExp1917 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_CharLiteralExp1935 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_parse_be_ac_vub_simplegt_CharLiteralExp1956 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_parse_be_ac_vub_simplegt_BooleanLiteralExp1994 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_parse_be_ac_vub_simplegt_BooleanLiteralExp2009 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_parse_be_ac_vub_simplegt_EnumLiteralExp2045 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_EnumLiteralExp2063 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_parse_be_ac_vub_simplegt_NacPattern2099 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_InputElement_in_parse_be_ac_vub_simplegt_NacPattern2117 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_14_in_parse_be_ac_vub_simplegt_NacPattern2144 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_InputElement_in_parse_be_ac_vub_simplegt_NacPattern2170 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_35_in_parse_be_ac_vub_simplegt_OutPattern2226 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_OutputElement_in_parse_be_ac_vub_simplegt_OutPattern2244 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_14_in_parse_be_ac_vub_simplegt_OutPattern2271 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_OutputElement_in_parse_be_ac_vub_simplegt_OutPattern2297 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputElement2357 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_parse_be_ac_vub_simplegt_OutputElement2378 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_Type_in_parse_be_ac_vub_simplegt_OutputElement2396 = new BitSet(new long[]{0x0000000001800002L});
+    public static final BitSet FOLLOW_23_in_parse_be_ac_vub_simplegt_OutputElement2423 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputElement2449 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_24_in_parse_be_ac_vub_simplegt_OutputElement2504 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_OutputBinding_in_parse_be_ac_vub_simplegt_OutputElement2530 = new BitSet(new long[]{0x0000000002004000L});
+    public static final BitSet FOLLOW_14_in_parse_be_ac_vub_simplegt_OutputElement2571 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_OutputBinding_in_parse_be_ac_vub_simplegt_OutputElement2605 = new BitSet(new long[]{0x0000000002004000L});
+    public static final BitSet FOLLOW_25_in_parse_be_ac_vub_simplegt_OutputElement2666 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputBinding2718 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_parse_be_ac_vub_simplegt_OutputBinding2739 = new BitSet(new long[]{0x00000003E0000070L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_Expression_in_parse_be_ac_vub_simplegt_OutputBinding2757 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_36_in_parse_be_ac_vub_simplegt_OutputBinding2784 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_be_ac_vub_simplegt_OutputBinding2810 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_ElementExp_in_parse_be_ac_vub_simplegt_Expression2867 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_StringLiteralExp_in_parse_be_ac_vub_simplegt_Expression2877 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_IntegerLiteralExp_in_parse_be_ac_vub_simplegt_Expression2887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_DoubleLiteralExp_in_parse_be_ac_vub_simplegt_Expression2897 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_CharLiteralExp_in_parse_be_ac_vub_simplegt_Expression2907 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_BooleanLiteralExp_in_parse_be_ac_vub_simplegt_Expression2917 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_be_ac_vub_simplegt_EnumLiteralExp_in_parse_be_ac_vub_simplegt_Expression2927 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -68,6 +68,7 @@
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//InputBinding">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//InputBinding/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//InputBinding/last"/>
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//OutputBinding">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//OutputBinding/element"/>

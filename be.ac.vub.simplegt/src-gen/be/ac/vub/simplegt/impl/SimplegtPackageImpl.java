@@ -717,6 +717,15 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getInputBinding_Last() {
+		return (EAttribute)inputBindingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOutputBinding() {
 		return outputBindingEClass;
 	}
@@ -1033,6 +1042,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 
 		inputBindingEClass = createEClass(INPUT_BINDING);
 		createEReference(inputBindingEClass, INPUT_BINDING__ELEMENT);
+		createEAttribute(inputBindingEClass, INPUT_BINDING__LAST);
 
 		outputBindingEClass = createEClass(OUTPUT_BINDING);
 		createEReference(outputBindingEClass, OUTPUT_BINDING__ELEMENT);
@@ -1190,6 +1200,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 
 		initEClass(inputBindingEClass, InputBinding.class, "InputBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInputBinding_Element(), this.getInputElement(), this.getInputElement_Bindings(), "element", null, 0, 1, InputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInputBinding_Last(), ecorePackage.getEBoolean(), "last", null, 1, 1, InputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outputBindingEClass, OutputBinding.class, "OutputBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOutputBinding_Element(), this.getOutputElement(), this.getOutputElement_Bindings(), "element", null, 0, 1, OutputBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

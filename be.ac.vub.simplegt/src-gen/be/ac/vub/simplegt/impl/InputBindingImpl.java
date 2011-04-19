@@ -27,12 +27,32 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link be.ac.vub.simplegt.impl.InputBindingImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.impl.InputBindingImpl#isLast <em>Last</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class InputBindingImpl extends BindingImpl implements InputBinding {
+	/**
+	 * The default value of the '{@link #isLast() <em>Last</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLast()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LAST_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isLast() <em>Last</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLast()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean last = LAST_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,6 +118,27 @@ public class InputBindingImpl extends BindingImpl implements InputBinding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isLast() {
+		return last;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLast(boolean newLast) {
+		boolean oldLast = last;
+		last = newLast;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.INPUT_BINDING__LAST, oldLast, last));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -147,6 +188,8 @@ public class InputBindingImpl extends BindingImpl implements InputBinding {
 		switch (featureID) {
 			case SimplegtPackage.INPUT_BINDING__ELEMENT:
 				return getElement();
+			case SimplegtPackage.INPUT_BINDING__LAST:
+				return isLast();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +204,9 @@ public class InputBindingImpl extends BindingImpl implements InputBinding {
 		switch (featureID) {
 			case SimplegtPackage.INPUT_BINDING__ELEMENT:
 				setElement((InputElement)newValue);
+				return;
+			case SimplegtPackage.INPUT_BINDING__LAST:
+				setLast((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,6 +223,9 @@ public class InputBindingImpl extends BindingImpl implements InputBinding {
 			case SimplegtPackage.INPUT_BINDING__ELEMENT:
 				setElement((InputElement)null);
 				return;
+			case SimplegtPackage.INPUT_BINDING__LAST:
+				setLast(LAST_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -191,8 +240,26 @@ public class InputBindingImpl extends BindingImpl implements InputBinding {
 		switch (featureID) {
 			case SimplegtPackage.INPUT_BINDING__ELEMENT:
 				return getElement() != null;
+			case SimplegtPackage.INPUT_BINDING__LAST:
+				return last != LAST_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (last: ");
+		result.append(last);
+		result.append(')');
+		return result.toString();
 	}
 
 } //InputBindingImpl

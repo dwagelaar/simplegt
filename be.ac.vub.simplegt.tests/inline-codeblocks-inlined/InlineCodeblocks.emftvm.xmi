@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emftvm="http://soft.vub.ac.be/emftvm/2011/EMFTVM">
+  <emftvm:Module name="InlineCodeblocks" sourceName="InlineCodeblocks.simplegt">
+    <features xsi:type="emftvm:Operation" name="main" type="java.lang.Object" typeModel="#native" static="true" context="ExecEnv" contextModel="EMFTVM">
+      <body maxLocals="0" maxStack="0"/>
+    </features>
+    <rules name="Invoke_cb" mode="automaticRecursive">
+      <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+      <inputElements name="invoke_cb" type="Invoke_cb" typeModel="EMFTVM"/>
+      <inputElements name="nestedCb" type="CodeBlock" typeModel="EMFTVM"/>
+    </rules>
+    <rules name="Invoke_all_cbs" mode="automaticRecursive" abstract="true">
+      <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+      <inputElements name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM"/>
+    </rules>
+    <rules name="Invoke_all_cbs_nested" mode="automaticRecursive">
+      <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+      <inputElements name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM"/>
+      <inputElements name="nestedCb" type="CodeBlock" typeModel="EMFTVM"/>
+      <superRules>Invoke_all_cbs</superRules>
+    </rules>
+    <rules name="Invoke_all_cbs_no_nested" mode="automaticRecursive">
+      <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+      <inputElements name="invoke_all_cbs" type="Invoke_all_cbs" typeModel="EMFTVM"/>
+      <superRules>Invoke_all_cbs</superRules>
+    </rules>
+    <rules name="EmptyLineNumber" mode="automaticRecursive">
+      <inputElements name="ln" type="LineNumber" typeModel="EMFTVM"/>
+    </rules>
+    <rules name="EmptyCodeBlock" mode="automaticRecursive" abstract="true">
+      <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+    </rules>
+    <rules name="EmptyCodeBlockWithLocals" mode="automaticRecursive">
+      <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+      <inputElements name="lv" type="LocalVariable" typeModel="EMFTVM"/>
+      <superRules>EmptyCodeBlock</superRules>
+    </rules>
+    <rules name="EmptyCodeBlockWithLineNumbers" mode="automaticRecursive">
+      <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+      <inputElements name="ln" type="LineNumber" typeModel="EMFTVM"/>
+      <superRules>EmptyCodeBlock</superRules>
+    </rules>
+    <rules name="EmptyCodeBlockWithoutAnything" mode="automaticRecursive">
+      <inputElements name="cb" type="CodeBlock" typeModel="EMFTVM"/>
+      <superRules>EmptyCodeBlock</superRules>
+    </rules>
+    <inoutModels modelName="M" metaModelName="EMFTVM"/>
+  </emftvm:Module>
+  <emftvm:Pusht/>
+  <emftvm:Pusht/>
+  <emftvm:Pusht/>
+  <emftvm:Pusht/>
+  <emftvm:Pusht/>
+  <emftvm:Pushf/>
+  <emftvm:Pushf/>
+  <emftvm:Pushf/>
+  <emftvm:Pushf/>
+  <emftvm:Pushf/>
+  <emftvm:Pop/>
+  <emftvm:Pop/>
+  <emftvm:Pop/>
+  <emftvm:Pop/>
+  <emftvm:Pop/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Load/>
+  <emftvm:Store/>
+  <emftvm:Store/>
+  <emftvm:Store/>
+  <emftvm:Store/>
+  <emftvm:Store/>
+  <emftvm:Get fieldname="code"/>
+  <emftvm:Get fieldname="code"/>
+  <emftvm:Get fieldname="code"/>
+  <emftvm:Get fieldname="nested"/>
+  <emftvm:Get fieldname="nested"/>
+  <emftvm:Get fieldname="maxStack"/>
+  <emftvm:Get fieldname="maxLocals"/>
+  <emftvm:Get fieldname="localVariables"/>
+  <emftvm:Get fieldname="lineNumbers"/>
+  <emftvm:Get fieldname="code"/>
+  <emftvm:Get fieldname="code"/>
+  <emftvm:Get fieldname="code"/>
+  <emftvm:Get fieldname="code"/>
+  <emftvm:Get fieldname="nested"/>
+  <emftvm:Get fieldname="nested"/>
+  <emftvm:Get fieldname="localVariables"/>
+  <emftvm:Get fieldname="lineNumbers"/>
+  <emftvm:Get fieldname="code"/>
+  <emftvm:Get fieldname="maxStack"/>
+  <emftvm:Get fieldname="maxLocals"/>
+  <emftvm:Get fieldname="lineNumber"/>
+  <emftvm:Get fieldname="owningBlock"/>
+  <emftvm:Get fieldname="localVariables"/>
+  <emftvm:Get fieldname="lineNumbers"/>
+  <emftvm:Get fieldname="owningBlock"/>
+  <emftvm:Get fieldname="maxStack"/>
+  <emftvm:Get fieldname="maxStack"/>
+  <emftvm:Get fieldname="maxLocals"/>
+  <emftvm:Get fieldname="maxLocals"/>
+  <emftvm:Get fieldname="codeBlock"/>
+  <emftvm:Get fieldname="nested"/>
+  <emftvm:Get fieldname="maxStack"/>
+  <emftvm:Get fieldname="maxStack"/>
+  <emftvm:Get fieldname="maxLocals"/>
+  <emftvm:Get fieldname="maxLocals"/>
+  <emftvm:Get fieldname="nested"/>
+  <emftvm:Get fieldname="owningBlock"/>
+  <emftvm:Findtype modelname="EMFTVM" typename="Instruction"/>
+  <emftvm:Findtype modelname="EMFTVM" typename="Instruction"/>
+  <emftvm:Findtype modelname="EMFTVM" typename="LineNumber"/>
+  <emftvm:Findtype modelname="EMFTVM" typename="CodeBlock"/>
+  <emftvm:Findtype modelname="EMFTVM" typename="LocalVariable"/>
+  <emftvm:Delete/>
+  <emftvm:Delete/>
+  <emftvm:Delete/>
+  <emftvm:Delete/>
+  <emftvm:Delete/>
+  <emftvm:Delete/>
+  <emftvm:Delete/>
+  <emftvm:Delete/>
+  <emftvm:Dup_x1/>
+  <emftvm:Dup_x1/>
+  <emftvm:Dup_x1/>
+  <emftvm:Dup_x1/>
+  <emftvm:Swap_x1/>
+  <emftvm:Swap_x1/>
+  <emftvm:Swap_x1/>
+  <emftvm:Swap_x1/>
+  <emftvm:Ifn/>
+  <emftvm:Ifn/>
+  <emftvm:Ifn/>
+  <emftvm:Ifn/>
+  <emftvm:Ifn/>
+  <emftvm:Iterate/>
+  <emftvm:Iterate/>
+  <emftvm:Iterate/>
+  <emftvm:Iterate/>
+  <emftvm:Iterate/>
+  <emftvm:Enditerate/>
+  <emftvm:Enditerate/>
+  <emftvm:Enditerate/>
+  <emftvm:Enditerate/>
+  <emftvm:Enditerate/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="indexOf"/>
+  <emftvm:Invoke argcount="1" opname="indexOf"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="indexOf"/>
+  <emftvm:Invoke argcount="1" opname="indexOf"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Invoke argcount="1" opname="=~"/>
+  <emftvm:Allinst/>
+  <emftvm:Allinst/>
+  <emftvm:Allinst/>
+  <emftvm:Allinst/>
+  <emftvm:Allinst/>
+  <emftvm:And/>
+  <emftvm:And/>
+  <emftvm:And/>
+  <emftvm:And/>
+  <emftvm:And/>
+  <emftvm:And/>
+  <emftvm:And/>
+  <emftvm:And/>
+  <emftvm:Return/>
+  <emftvm:Return/>
+  <emftvm:Return/>
+  <emftvm:Return/>
+  <emftvm:Return/>
+  <emftvm:Add fieldname="localVariables"/>
+  <emftvm:Add fieldname="lineNumbers"/>
+  <emftvm:Add fieldname="localVariables"/>
+  <emftvm:Add fieldname="lineNumbers"/>
+  <emftvm:Remove fieldname="code"/>
+  <emftvm:Remove fieldname="maxStack"/>
+  <emftvm:Remove fieldname="maxLocals"/>
+  <emftvm:Remove fieldname="codeBlock"/>
+  <emftvm:Remove fieldname="nested"/>
+  <emftvm:Remove fieldname="code"/>
+  <emftvm:Remove fieldname="maxStack"/>
+  <emftvm:Remove fieldname="maxLocals"/>
+  <emftvm:Remove fieldname="localVariables"/>
+  <emftvm:Remove fieldname="lineNumbers"/>
+  <emftvm:Insert fieldname="code"/>
+  <emftvm:Insert fieldname="nested"/>
+  <emftvm:Insert fieldname="code"/>
+  <emftvm:Insert fieldname="nested"/>
+</xmi:XMI>

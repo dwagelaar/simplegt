@@ -32,6 +32,7 @@ public class SimplegtLexer extends Lexer {
     public static final int T__18=18;
     public static final int T__35=35;
     public static final int T__17=17;
+    public static final int T__36=36;
     public static final int T__12=12;
     public static final int T__11=11;
     public static final int T__14=14;
@@ -395,10 +396,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:32:7: ( '=~' )
-            // Simplegt.g:32:9: '=~'
+            // Simplegt.g:32:7: ( '=~|' )
+            // Simplegt.g:32:9: '=~|'
             {
-            match("=~"); 
+            match("=~|"); 
 
 
             }
@@ -416,10 +417,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:33:7: ( '.' )
-            // Simplegt.g:33:9: '.'
+            // Simplegt.g:33:7: ( '=~' )
+            // Simplegt.g:33:9: '=~'
             {
-            match('.'); 
+            match("=~"); 
+
 
             }
 
@@ -436,10 +438,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:34:7: ( '\\\"' )
-            // Simplegt.g:34:9: '\\\"'
+            // Simplegt.g:34:7: ( '.' )
+            // Simplegt.g:34:9: '.'
             {
-            match('\"'); 
+            match('.'); 
 
             }
 
@@ -456,10 +458,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:35:7: ( '\\'' )
-            // Simplegt.g:35:9: '\\''
+            // Simplegt.g:35:7: ( '\\\"' )
+            // Simplegt.g:35:9: '\\\"'
             {
-            match('\''); 
+            match('\"'); 
 
             }
 
@@ -476,11 +478,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:36:7: ( 'true' )
-            // Simplegt.g:36:9: 'true'
+            // Simplegt.g:36:7: ( '\\'' )
+            // Simplegt.g:36:9: '\\''
             {
-            match("true"); 
-
+            match('\''); 
 
             }
 
@@ -497,10 +498,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:37:7: ( 'false' )
-            // Simplegt.g:37:9: 'false'
+            // Simplegt.g:37:7: ( 'true' )
+            // Simplegt.g:37:9: 'true'
             {
-            match("false"); 
+            match("true"); 
 
 
             }
@@ -518,10 +519,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:38:7: ( '#' )
-            // Simplegt.g:38:9: '#'
+            // Simplegt.g:38:7: ( 'false' )
+            // Simplegt.g:38:9: 'false'
             {
-            match('#'); 
+            match("false"); 
+
 
             }
 
@@ -538,11 +540,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:39:7: ( 'not' )
-            // Simplegt.g:39:9: 'not'
+            // Simplegt.g:39:7: ( '#' )
+            // Simplegt.g:39:9: '#'
             {
-            match("not"); 
-
+            match('#'); 
 
             }
 
@@ -559,10 +560,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:40:7: ( 'to' )
-            // Simplegt.g:40:9: 'to'
+            // Simplegt.g:40:7: ( 'not' )
+            // Simplegt.g:40:9: 'not'
             {
-            match("to"); 
+            match("not"); 
 
 
             }
@@ -580,10 +581,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:41:7: ( 'before' )
-            // Simplegt.g:41:9: 'before'
+            // Simplegt.g:41:7: ( 'to' )
+            // Simplegt.g:41:9: 'to'
             {
-            match("before"); 
+            match("to"); 
 
 
             }
@@ -596,20 +597,41 @@ public class SimplegtLexer extends Lexer {
     }
     // $ANTLR end "T__35"
 
+    // $ANTLR start "T__36"
+    public final void mT__36() throws RecognitionException {
+        try {
+            int _type = T__36;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Simplegt.g:42:7: ( 'before' )
+            // Simplegt.g:42:9: 'before'
+            {
+            match("before"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__36"
+
     // $ANTLR start "COMMENT"
     public final void mCOMMENT() throws RecognitionException {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:3130:8: ( ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* ) )
-            // Simplegt.g:3131:2: ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
+            // Simplegt.g:3151:8: ( ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* ) )
+            // Simplegt.g:3152:2: ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
             {
-            // Simplegt.g:3131:2: ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
-            // Simplegt.g:3131:3: '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )*
+            // Simplegt.g:3152:2: ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
+            // Simplegt.g:3152:3: '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )*
             {
             match("--"); 
 
-            // Simplegt.g:3131:7: (~ ( '\\n' | '\\r' | '\\uffff' ) )*
+            // Simplegt.g:3152:7: (~ ( '\\n' | '\\r' | '\\uffff' ) )*
             loop1:
             do {
                 int alt1=2;
@@ -622,7 +644,7 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // Simplegt.g:3131:8: ~ ( '\\n' | '\\r' | '\\uffff' )
+            	    // Simplegt.g:3152:8: ~ ( '\\n' | '\\r' | '\\uffff' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -662,50 +684,31 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:3134:6: ( ( ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ ) )
-            // Simplegt.g:3135:2: ( ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ )
+            // Simplegt.g:3155:6: ( ( ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ ) )
+            // Simplegt.g:3156:2: ( ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ )
             {
-            // Simplegt.g:3135:2: ( ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ )
-            // Simplegt.g:3135:3: ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+
+            // Simplegt.g:3156:2: ( ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ )
+            // Simplegt.g:3156:3: ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+
             {
-            // Simplegt.g:3135:3: ( ( '0' .. '9' ) )+
-            int cnt2=0;
-            loop2:
-            do {
-                int alt2=2;
-                int LA2_0 = input.LA(1);
+            // Simplegt.g:3156:3: ( '-' )?
+            int alt2=2;
+            int LA2_0 = input.LA(1);
 
-                if ( ((LA2_0>='0' && LA2_0<='9')) ) {
-                    alt2=1;
-                }
+            if ( (LA2_0=='-') ) {
+                alt2=1;
+            }
+            switch (alt2) {
+                case 1 :
+                    // Simplegt.g:3156:3: '-'
+                    {
+                    match('-'); 
 
+                    }
+                    break;
 
-                switch (alt2) {
-            	case 1 :
-            	    // Simplegt.g:3135:4: ( '0' .. '9' )
-            	    {
-            	    // Simplegt.g:3135:4: ( '0' .. '9' )
-            	    // Simplegt.g:3135:5: '0' .. '9'
-            	    {
-            	    matchRange('0','9'); 
+            }
 
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt2 >= 1 ) break loop2;
-                        EarlyExitException eee =
-                            new EarlyExitException(2, input);
-                        throw eee;
-                }
-                cnt2++;
-            } while (true);
-
-            match('.'); 
-            // Simplegt.g:3135:19: ( ( '0' .. '9' ) )+
+            // Simplegt.g:3156:7: ( ( '0' .. '9' ) )+
             int cnt3=0;
             loop3:
             do {
@@ -719,10 +722,10 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // Simplegt.g:3135:20: ( '0' .. '9' )
+            	    // Simplegt.g:3156:8: ( '0' .. '9' )
             	    {
-            	    // Simplegt.g:3135:20: ( '0' .. '9' )
-            	    // Simplegt.g:3135:21: '0' .. '9'
+            	    // Simplegt.g:3156:8: ( '0' .. '9' )
+            	    // Simplegt.g:3156:9: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -741,32 +744,8 @@ public class SimplegtLexer extends Lexer {
                 cnt3++;
             } while (true);
 
-
-            }
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "FLOAT"
-
-    // $ANTLR start "INTEGER"
-    public final void mINTEGER() throws RecognitionException {
-        try {
-            int _type = INTEGER;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:3137:8: ( ( ( ( '0' .. '9' ) )+ ) )
-            // Simplegt.g:3138:2: ( ( ( '0' .. '9' ) )+ )
-            {
-            // Simplegt.g:3138:2: ( ( ( '0' .. '9' ) )+ )
-            // Simplegt.g:3138:3: ( ( '0' .. '9' ) )+
-            {
-            // Simplegt.g:3138:3: ( ( '0' .. '9' ) )+
+            match('.'); 
+            // Simplegt.g:3156:23: ( ( '0' .. '9' ) )+
             int cnt4=0;
             loop4:
             do {
@@ -780,10 +759,10 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // Simplegt.g:3138:4: ( '0' .. '9' )
+            	    // Simplegt.g:3156:24: ( '0' .. '9' )
             	    {
-            	    // Simplegt.g:3138:4: ( '0' .. '9' )
-            	    // Simplegt.g:3138:5: '0' .. '9'
+            	    // Simplegt.g:3156:24: ( '0' .. '9' )
+            	    // Simplegt.g:3156:25: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -814,6 +793,85 @@ public class SimplegtLexer extends Lexer {
         finally {
         }
     }
+    // $ANTLR end "FLOAT"
+
+    // $ANTLR start "INTEGER"
+    public final void mINTEGER() throws RecognitionException {
+        try {
+            int _type = INTEGER;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Simplegt.g:3158:8: ( ( ( '-' )? ( ( '0' .. '9' ) )+ ) )
+            // Simplegt.g:3159:2: ( ( '-' )? ( ( '0' .. '9' ) )+ )
+            {
+            // Simplegt.g:3159:2: ( ( '-' )? ( ( '0' .. '9' ) )+ )
+            // Simplegt.g:3159:3: ( '-' )? ( ( '0' .. '9' ) )+
+            {
+            // Simplegt.g:3159:3: ( '-' )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0=='-') ) {
+                alt5=1;
+            }
+            switch (alt5) {
+                case 1 :
+                    // Simplegt.g:3159:3: '-'
+                    {
+                    match('-'); 
+
+                    }
+                    break;
+
+            }
+
+            // Simplegt.g:3159:7: ( ( '0' .. '9' ) )+
+            int cnt6=0;
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( ((LA6_0>='0' && LA6_0<='9')) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // Simplegt.g:3159:8: ( '0' .. '9' )
+            	    {
+            	    // Simplegt.g:3159:8: ( '0' .. '9' )
+            	    // Simplegt.g:3159:9: '0' .. '9'
+            	    {
+            	    matchRange('0','9'); 
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt6 >= 1 ) break loop6;
+                        EarlyExitException eee =
+                            new EarlyExitException(6, input);
+                        throw eee;
+                }
+                cnt6++;
+            } while (true);
+
+
+            }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
     // $ANTLR end "INTEGER"
 
     // $ANTLR start "TEXT"
@@ -821,11 +879,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:3140:5: ( ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )* ) )
-            // Simplegt.g:3141:2: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )* )
+            // Simplegt.g:3161:5: ( ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )* ) )
+            // Simplegt.g:3162:2: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )* )
             {
-            // Simplegt.g:3141:2: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )* )
-            // Simplegt.g:3141:3: ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )*
+            // Simplegt.g:3162:2: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )* )
+            // Simplegt.g:3162:3: ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -836,10 +894,10 @@ public class SimplegtLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // Simplegt.g:3141:22: ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )*
-            loop5:
+            // Simplegt.g:3162:22: ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '-' | '_' )*
+            loop7:
             do {
-                int alt5=5;
+                int alt7=5;
                 switch ( input.LA(1) ) {
                 case 'A':
                 case 'B':
@@ -894,7 +952,7 @@ public class SimplegtLexer extends Lexer {
                 case 'y':
                 case 'z':
                     {
-                    alt5=1;
+                    alt7=1;
                     }
                     break;
                 case '0':
@@ -908,25 +966,25 @@ public class SimplegtLexer extends Lexer {
                 case '8':
                 case '9':
                     {
-                    alt5=2;
+                    alt7=2;
                     }
                     break;
                 case '-':
                     {
-                    alt5=3;
+                    alt7=3;
                     }
                     break;
                 case '_':
                     {
-                    alt5=4;
+                    alt7=4;
                     }
                     break;
 
                 }
 
-                switch (alt5) {
+                switch (alt7) {
             	case 1 :
-            	    // Simplegt.g:3141:23: ( 'A' .. 'Z' | 'a' .. 'z' )
+            	    // Simplegt.g:3162:23: ( 'A' .. 'Z' | 'a' .. 'z' )
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -941,10 +999,10 @@ public class SimplegtLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // Simplegt.g:3141:43: ( '0' .. '9' )
+            	    // Simplegt.g:3162:43: ( '0' .. '9' )
             	    {
-            	    // Simplegt.g:3141:43: ( '0' .. '9' )
-            	    // Simplegt.g:3141:44: '0' .. '9'
+            	    // Simplegt.g:3162:43: ( '0' .. '9' )
+            	    // Simplegt.g:3162:44: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -954,14 +1012,14 @@ public class SimplegtLexer extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // Simplegt.g:3141:54: '-'
+            	    // Simplegt.g:3162:54: '-'
             	    {
             	    match('-'); 
 
             	    }
             	    break;
             	case 4 :
-            	    // Simplegt.g:3141:58: '_'
+            	    // Simplegt.g:3162:58: '_'
             	    {
             	    match('_'); 
 
@@ -969,7 +1027,7 @@ public class SimplegtLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop5;
+            	    break loop7;
                 }
             } while (true);
 
@@ -992,40 +1050,40 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = LINEBREAK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:3143:10: ( ( ( '\\r\\n' | '\\'r' | '\\n' ) ) )
-            // Simplegt.g:3144:2: ( ( '\\r\\n' | '\\'r' | '\\n' ) )
+            // Simplegt.g:3164:10: ( ( ( '\\r\\n' | '\\'r' | '\\n' ) ) )
+            // Simplegt.g:3165:2: ( ( '\\r\\n' | '\\'r' | '\\n' ) )
             {
-            // Simplegt.g:3144:2: ( ( '\\r\\n' | '\\'r' | '\\n' ) )
-            // Simplegt.g:3144:3: ( '\\r\\n' | '\\'r' | '\\n' )
+            // Simplegt.g:3165:2: ( ( '\\r\\n' | '\\'r' | '\\n' ) )
+            // Simplegt.g:3165:3: ( '\\r\\n' | '\\'r' | '\\n' )
             {
-            // Simplegt.g:3144:3: ( '\\r\\n' | '\\'r' | '\\n' )
-            int alt6=3;
+            // Simplegt.g:3165:3: ( '\\r\\n' | '\\'r' | '\\n' )
+            int alt8=3;
             switch ( input.LA(1) ) {
             case '\r':
                 {
-                alt6=1;
+                alt8=1;
                 }
                 break;
             case '\'':
                 {
-                alt6=2;
+                alt8=2;
                 }
                 break;
             case '\n':
                 {
-                alt6=3;
+                alt8=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt6) {
+            switch (alt8) {
                 case 1 :
-                    // Simplegt.g:3144:4: '\\r\\n'
+                    // Simplegt.g:3165:4: '\\r\\n'
                     {
                     match("\r\n"); 
 
@@ -1033,7 +1091,7 @@ public class SimplegtLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // Simplegt.g:3144:11: '\\'r'
+                    // Simplegt.g:3165:11: '\\'r'
                     {
                     match("'r"); 
 
@@ -1041,7 +1099,7 @@ public class SimplegtLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // Simplegt.g:3144:17: '\\n'
+                    // Simplegt.g:3165:17: '\\n'
                     {
                     match('\n'); 
 
@@ -1070,11 +1128,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:3147:11: ( ( ( ' ' | '\\t' | '\\f' ) ) )
-            // Simplegt.g:3148:2: ( ( ' ' | '\\t' | '\\f' ) )
+            // Simplegt.g:3168:11: ( ( ( ' ' | '\\t' | '\\f' ) ) )
+            // Simplegt.g:3169:2: ( ( ' ' | '\\t' | '\\f' ) )
             {
-            // Simplegt.g:3148:2: ( ( ' ' | '\\t' | '\\f' ) )
-            // Simplegt.g:3148:3: ( ' ' | '\\t' | '\\f' )
+            // Simplegt.g:3169:2: ( ( ' ' | '\\t' | '\\f' ) )
+            // Simplegt.g:3169:3: ( ' ' | '\\t' | '\\f' )
             {
             if ( input.LA(1)=='\t'||input.LA(1)=='\f'||input.LA(1)==' ' ) {
                 input.consume();
@@ -1101,10 +1159,10 @@ public class SimplegtLexer extends Lexer {
     // $ANTLR end "WHITESPACE"
 
     public void mTokens() throws RecognitionException {
-        // Simplegt.g:1:8: ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | COMMENT | FLOAT | INTEGER | TEXT | LINEBREAK | WHITESPACE )
-        int alt7=32;
-        alt7 = dfa7.predict(input);
-        switch (alt7) {
+        // Simplegt.g:1:8: ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | COMMENT | FLOAT | INTEGER | TEXT | LINEBREAK | WHITESPACE )
+        int alt9=33;
+        alt9 = dfa9.predict(input);
+        switch (alt9) {
             case 1 :
                 // Simplegt.g:1:10: T__10
                 {
@@ -1288,42 +1346,49 @@ public class SimplegtLexer extends Lexer {
                 }
                 break;
             case 27 :
-                // Simplegt.g:1:166: COMMENT
+                // Simplegt.g:1:166: T__36
+                {
+                mT__36(); 
+
+                }
+                break;
+            case 28 :
+                // Simplegt.g:1:172: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
-            case 28 :
-                // Simplegt.g:1:174: FLOAT
+            case 29 :
+                // Simplegt.g:1:180: FLOAT
                 {
                 mFLOAT(); 
 
                 }
                 break;
-            case 29 :
-                // Simplegt.g:1:180: INTEGER
+            case 30 :
+                // Simplegt.g:1:186: INTEGER
                 {
                 mINTEGER(); 
 
                 }
                 break;
-            case 30 :
-                // Simplegt.g:1:188: TEXT
+            case 31 :
+                // Simplegt.g:1:194: TEXT
                 {
                 mTEXT(); 
 
                 }
                 break;
-            case 31 :
-                // Simplegt.g:1:193: LINEBREAK
+            case 32 :
+                // Simplegt.g:1:199: LINEBREAK
                 {
                 mLINEBREAK(); 
 
                 }
                 break;
-            case 32 :
-                // Simplegt.g:1:203: WHITESPACE
+            case 33 :
+                // Simplegt.g:1:209: WHITESPACE
                 {
                 mWHITESPACE(); 
 
@@ -1335,45 +1400,46 @@ public class SimplegtLexer extends Lexer {
     }
 
 
-    protected DFA7 dfa7 = new DFA7(this);
-    static final String DFA7_eotS =
-        "\1\uffff\1\31\1\uffff\2\31\2\uffff\3\31\2\uffff\1\31\6\uffff\1\46"+
-        "\1\uffff\2\31\1\uffff\1\52\3\uffff\2\31\1\55\1\31\1\60\5\31\1\uffff"+
-        "\2\31\2\uffff\2\31\1\uffff\2\31\1\uffff\5\31\1\101\4\31\1\106\1"+
-        "\31\1\110\1\31\1\112\1\31\1\uffff\4\31\1\uffff\1\31\1\uffff\1\31"+
-        "\1\uffff\1\122\1\31\1\124\1\125\3\31\1\uffff\1\131\2\uffff\2\31"+
-        "\1\134\1\uffff\1\31\1\136\1\uffff\1\137\2\uffff";
-    static final String DFA7_eofS =
-        "\140\uffff";
-    static final String DFA7_minS =
+    protected DFA9 dfa9 = new DFA9(this);
+    static final String DFA9_eotS =
+        "\1\uffff\1\31\1\uffff\2\31\2\uffff\3\31\2\uffff\1\31\6\uffff\1\47"+
+        "\1\uffff\2\31\1\uffff\1\54\3\uffff\2\31\1\57\1\31\1\62\5\31\1\71"+
+        "\1\uffff\2\31\3\uffff\2\31\1\uffff\2\31\1\uffff\5\31\2\uffff\1\105"+
+        "\4\31\1\112\1\31\1\114\1\31\1\116\1\31\1\uffff\4\31\1\uffff\1\31"+
+        "\1\uffff\1\31\1\uffff\1\126\1\31\1\130\1\131\3\31\1\uffff\1\135"+
+        "\2\uffff\2\31\1\140\1\uffff\1\31\1\142\1\uffff\1\143\2\uffff";
+    static final String DFA9_eofS =
+        "\144\uffff";
+    static final String DFA9_minS =
         "\1\11\1\157\1\uffff\1\155\1\157\2\uffff\1\142\1\165\1\170\2\uffff"+
-        "\1\141\6\uffff\1\162\1\uffff\1\157\1\145\1\uffff\1\56\3\uffff\1"+
-        "\144\1\160\1\55\1\141\1\55\1\163\1\154\1\164\1\157\1\154\1\uffff"+
-        "\1\164\1\146\2\uffff\1\165\1\157\1\uffff\1\156\1\145\1\uffff\1\164"+
-        "\2\145\1\155\1\163\1\55\1\157\1\154\1\162\1\163\1\55\1\162\1\55"+
-        "\1\156\1\55\1\145\1\uffff\1\162\1\145\1\164\1\146\1\uffff\1\141"+
-        "\1\uffff\1\144\1\uffff\1\55\1\145\2\55\1\157\1\143\1\163\1\uffff"+
-        "\1\55\2\uffff\1\162\1\164\1\55\1\uffff\1\155\1\55\1\uffff\1\55\2"+
-        "\uffff";
-    static final String DFA7_maxS =
+        "\1\141\3\uffff\1\176\2\uffff\1\162\1\uffff\1\157\1\145\1\55\1\56"+
+        "\3\uffff\1\144\1\160\1\55\1\141\1\55\1\163\1\154\1\164\1\157\1\154"+
+        "\1\174\1\uffff\1\164\1\146\3\uffff\1\165\1\157\1\uffff\1\156\1\145"+
+        "\1\uffff\1\164\2\145\1\155\1\163\2\uffff\1\55\1\157\1\154\1\162"+
+        "\1\163\1\55\1\162\1\55\1\156\1\55\1\145\1\uffff\1\162\1\145\1\164"+
+        "\1\146\1\uffff\1\141\1\uffff\1\144\1\uffff\1\55\1\145\2\55\1\157"+
+        "\1\143\1\163\1\uffff\1\55\2\uffff\1\162\1\164\1\55\1\uffff\1\155"+
+        "\1\55\1\uffff\1\55\2\uffff";
+    static final String DFA9_maxS =
         "\1\175\1\157\1\uffff\1\156\1\162\2\uffff\1\142\1\165\1\170\2\uffff"+
-        "\1\162\6\uffff\1\162\1\uffff\1\157\1\145\1\uffff\1\71\3\uffff\1"+
-        "\144\1\160\1\172\1\165\1\172\1\163\1\154\1\164\1\157\1\154\1\uffff"+
-        "\1\164\1\146\2\uffff\1\165\1\157\1\uffff\1\156\1\145\1\uffff\1\164"+
-        "\2\145\1\155\1\163\1\172\1\157\1\154\1\162\1\163\1\172\1\162\1\172"+
-        "\1\156\1\172\1\145\1\uffff\1\162\1\145\1\164\1\146\1\uffff\1\141"+
-        "\1\uffff\1\144\1\uffff\1\172\1\145\2\172\1\157\1\143\1\163\1\uffff"+
-        "\1\172\2\uffff\1\162\1\164\1\172\1\uffff\1\155\1\172\1\uffff\1\172"+
-        "\2\uffff";
-    static final String DFA7_acceptS =
+        "\1\162\3\uffff\1\176\2\uffff\1\162\1\uffff\1\157\1\145\2\71\3\uffff"+
+        "\1\144\1\160\1\172\1\165\1\172\1\163\1\154\1\164\1\157\1\154\1\174"+
+        "\1\uffff\1\164\1\146\3\uffff\1\165\1\157\1\uffff\1\156\1\145\1\uffff"+
+        "\1\164\2\145\1\155\1\163\2\uffff\1\172\1\157\1\154\1\162\1\163\1"+
+        "\172\1\162\1\172\1\156\1\172\1\145\1\uffff\1\162\1\145\1\164\1\146"+
+        "\1\uffff\1\141\1\uffff\1\144\1\uffff\1\172\1\145\2\172\1\157\1\143"+
+        "\1\163\1\uffff\1\172\2\uffff\1\162\1\164\1\172\1\uffff\1\155\1\172"+
+        "\1\uffff\1\172\2\uffff";
+    static final String DFA9_acceptS =
         "\2\uffff\1\2\2\uffff\1\5\1\6\3\uffff\1\12\1\13\1\uffff\1\15\1\17"+
-        "\1\20\1\21\1\22\1\23\1\uffff\1\27\2\uffff\1\33\1\uffff\1\36\1\37"+
-        "\1\40\12\uffff\1\24\2\uffff\1\34\1\35\2\uffff\1\16\2\uffff\1\31"+
-        "\20\uffff\1\30\4\uffff\1\25\1\uffff\1\10\1\uffff\1\14\7\uffff\1"+
-        "\26\1\uffff\1\1\1\3\3\uffff\1\32\2\uffff\1\11\1\uffff\1\7\1\4";
-    static final String DFA7_specialS =
-        "\140\uffff}>";
-    static final String[] DFA7_transitionS = {
+        "\1\20\1\uffff\1\23\1\24\1\uffff\1\30\4\uffff\1\37\1\40\1\41\13\uffff"+
+        "\1\25\2\uffff\1\34\1\35\1\36\2\uffff\1\16\2\uffff\1\32\5\uffff\1"+
+        "\21\1\22\13\uffff\1\31\4\uffff\1\26\1\uffff\1\10\1\uffff\1\14\7"+
+        "\uffff\1\27\1\uffff\1\1\1\3\3\uffff\1\33\2\uffff\1\11\1\uffff\1"+
+        "\7\1\4";
+    static final String DFA9_specialS =
+        "\144\uffff}>";
+    static final String[] DFA9_transitionS = {
             "\1\33\1\32\1\uffff\1\33\1\32\22\uffff\1\33\1\15\1\22\1\24\3"+
             "\uffff\1\23\1\16\1\17\2\uffff\1\5\1\27\1\21\1\uffff\12\30\1"+
             "\6\1\2\1\uffff\1\20\3\uffff\32\31\6\uffff\1\7\1\26\2\31\1\11"+
@@ -1394,81 +1460,85 @@ public class SimplegtLexer extends Lexer {
             "",
             "",
             "",
-            "",
+            "\1\46",
             "",
             "",
             "\1\32",
             "",
-            "\1\47",
             "\1\50",
+            "\1\51",
+            "\1\52\2\uffff\12\30",
+            "\1\53\1\uffff\12\30",
             "",
-            "\1\51\1\uffff\12\30",
             "",
             "",
-            "",
-            "\1\53",
-            "\1\54",
+            "\1\55",
+            "\1\56",
             "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\1\56\23\uffff\1\57",
+            "\1\60\23\uffff\1\61",
             "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\1\61",
-            "\1\62",
             "\1\63",
             "\1\64",
             "\1\65",
-            "",
             "\1\66",
             "\1\67",
-            "",
-            "",
             "\1\70",
-            "\1\71",
             "",
             "\1\72",
             "\1\73",
             "",
+            "",
+            "",
             "\1\74",
             "\1\75",
+            "",
             "\1\76",
             "\1\77",
+            "",
             "\1\100",
-            "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
+            "\1\101",
             "\1\102",
             "\1\103",
             "\1\104",
-            "\1\105",
+            "",
+            "",
             "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
+            "\1\106",
             "\1\107",
-            "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
+            "\1\110",
             "\1\111",
             "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
             "\1\113",
-            "",
-            "\1\114",
+            "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
             "\1\115",
-            "\1\116",
+            "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
             "\1\117",
             "",
             "\1\120",
-            "",
             "\1\121",
-            "",
-            "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
+            "\1\122",
             "\1\123",
+            "",
+            "\1\124",
+            "",
+            "\1\125",
+            "",
             "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\1\126",
             "\1\127",
-            "\1\130",
-            "",
             "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "",
-            "",
+            "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
             "\1\132",
             "\1\133",
+            "\1\134",
+            "",
             "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
             "",
-            "\1\135",
+            "",
+            "\1\136",
+            "\1\137",
+            "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
+            "",
+            "\1\141",
             "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
             "",
             "\1\31\2\uffff\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
@@ -1476,37 +1546,37 @@ public class SimplegtLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA7_eot = DFA.unpackEncodedString(DFA7_eotS);
-    static final short[] DFA7_eof = DFA.unpackEncodedString(DFA7_eofS);
-    static final char[] DFA7_min = DFA.unpackEncodedStringToUnsignedChars(DFA7_minS);
-    static final char[] DFA7_max = DFA.unpackEncodedStringToUnsignedChars(DFA7_maxS);
-    static final short[] DFA7_accept = DFA.unpackEncodedString(DFA7_acceptS);
-    static final short[] DFA7_special = DFA.unpackEncodedString(DFA7_specialS);
-    static final short[][] DFA7_transition;
+    static final short[] DFA9_eot = DFA.unpackEncodedString(DFA9_eotS);
+    static final short[] DFA9_eof = DFA.unpackEncodedString(DFA9_eofS);
+    static final char[] DFA9_min = DFA.unpackEncodedStringToUnsignedChars(DFA9_minS);
+    static final char[] DFA9_max = DFA.unpackEncodedStringToUnsignedChars(DFA9_maxS);
+    static final short[] DFA9_accept = DFA.unpackEncodedString(DFA9_acceptS);
+    static final short[] DFA9_special = DFA.unpackEncodedString(DFA9_specialS);
+    static final short[][] DFA9_transition;
 
     static {
-        int numStates = DFA7_transitionS.length;
-        DFA7_transition = new short[numStates][];
+        int numStates = DFA9_transitionS.length;
+        DFA9_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA7_transition[i] = DFA.unpackEncodedString(DFA7_transitionS[i]);
+            DFA9_transition[i] = DFA.unpackEncodedString(DFA9_transitionS[i]);
         }
     }
 
-    class DFA7 extends DFA {
+    class DFA9 extends DFA {
 
-        public DFA7(BaseRecognizer recognizer) {
+        public DFA9(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 7;
-            this.eot = DFA7_eot;
-            this.eof = DFA7_eof;
-            this.min = DFA7_min;
-            this.max = DFA7_max;
-            this.accept = DFA7_accept;
-            this.special = DFA7_special;
-            this.transition = DFA7_transition;
+            this.decisionNumber = 9;
+            this.eot = DFA9_eot;
+            this.eof = DFA9_eof;
+            this.min = DFA9_min;
+            this.max = DFA9_max;
+            this.accept = DFA9_accept;
+            this.special = DFA9_special;
+            this.transition = DFA9_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | COMMENT | FLOAT | INTEGER | TEXT | LINEBREAK | WHITESPACE );";
+            return "1:1: Tokens : ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | COMMENT | FLOAT | INTEGER | TEXT | LINEBREAK | WHITESPACE );";
         }
     }
  

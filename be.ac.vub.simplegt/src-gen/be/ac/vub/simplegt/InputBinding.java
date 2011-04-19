@@ -15,6 +15,7 @@ package be.ac.vub.simplegt;
  * The following features are supported:
  * <ul>
  *   <li>{@link be.ac.vub.simplegt.InputBinding#getElement <em>Element</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.InputBinding#isLast <em>Last</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +51,31 @@ public interface InputBinding extends Binding {
 	 * @generated
 	 */
 	void setElement(InputElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Last</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Last</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last</em>' attribute.
+	 * @see #setLast(boolean)
+	 * @see be.ac.vub.simplegt.SimplegtPackage#getInputBinding_Last()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isLast();
+
+	/**
+	 * Sets the value of the '{@link be.ac.vub.simplegt.InputBinding#isLast <em>Last</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last</em>' attribute.
+	 * @see #isLast()
+	 * @generated
+	 */
+	void setLast(boolean value);
 
 } // InputBinding
