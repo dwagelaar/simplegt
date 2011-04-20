@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link be.ac.vub.simplegt.Module#getModels <em>Models</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.Module#getRules <em>Rules</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.Module#getImports <em>Imports</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.Module#isDebug <em>Debug</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +78,31 @@ public interface Module extends NamedElement {
 	 * @generated
 	 */
 	EList<String> getImports();
+
+	/**
+	 * Returns the value of the '<em><b>Debug</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Debug</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Debug</em>' attribute.
+	 * @see #setDebug(boolean)
+	 * @see be.ac.vub.simplegt.SimplegtPackage#getModule_Debug()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isDebug();
+
+	/**
+	 * Sets the value of the '{@link be.ac.vub.simplegt.Module#isDebug <em>Debug</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Debug</em>' attribute.
+	 * @see #isDebug()
+	 * @generated
+	 */
+	void setDebug(boolean value);
 
 } // Module

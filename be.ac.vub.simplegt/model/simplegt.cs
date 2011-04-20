@@ -24,7 +24,7 @@ TOKENSTYLES {
 }
 
 RULES {
-	Module ::= "module" name[] ";" (!0 "import" imports[] ";")* !0 "transform" models ("," models)* ";" rules*;
+	Module ::= "module" name[] debug["debug" : ""] ";" (!0 "import" imports[] ";")* !0 "transform" models ("," models)* ";" rules*;
 	InstanceModel ::= name[] ":" metaModel;
 	Metamodel ::= name[];
 	@Foldable Rule ::= !0!0 abstract["abstract" : ""] "rule" name[] ("extends" extends[] ("," extends[])*)? "{" !1 input? nac* output? "}";

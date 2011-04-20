@@ -415,13 +415,22 @@ public interface SimplegtPackage extends EPackage {
 	int MODULE__IMPORTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Debug</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__DEBUG = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MODULE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link be.ac.vub.simplegt.impl.RuleImpl <em>Rule</em>}' class.
@@ -2392,6 +2401,17 @@ public interface SimplegtPackage extends EPackage {
 	EAttribute getModule_Imports();
 
 	/**
+	 * Returns the meta object for the attribute '{@link be.ac.vub.simplegt.Module#isDebug <em>Debug</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Debug</em>'.
+	 * @see be.ac.vub.simplegt.Module#isDebug()
+	 * @see #getModule()
+	 * @generated
+	 */
+	EAttribute getModule_Debug();
+
+	/**
 	 * Returns the meta object for class '{@link be.ac.vub.simplegt.Rule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3143,6 +3163,14 @@ public interface SimplegtPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODULE__IMPORTS = eINSTANCE.getModule_Imports();
+
+		/**
+		 * The meta object literal for the '<em><b>Debug</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODULE__DEBUG = eINSTANCE.getModule_Debug();
 
 		/**
 		 * The meta object literal for the '{@link be.ac.vub.simplegt.impl.RuleImpl <em>Rule</em>}' class.

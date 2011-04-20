@@ -12,6 +12,7 @@ import be.ac.vub.simplegt.SimplegtPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link be.ac.vub.simplegt.impl.ModuleImpl#getModels <em>Models</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.impl.ModuleImpl#getRules <em>Rules</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.impl.ModuleImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.impl.ModuleImpl#isDebug <em>Debug</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,6 +71,26 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 	 * @ordered
 	 */
 	protected EList<String> imports;
+
+	/**
+	 * The default value of the '{@link #isDebug() <em>Debug</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDebug()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEBUG_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDebug() <em>Debug</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDebug()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean debug = DEBUG_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,6 +152,27 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDebug() {
+		return debug;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDebug(boolean newDebug) {
+		boolean oldDebug = debug;
+		debug = newDebug;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.MODULE__DEBUG, oldDebug, debug));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -171,6 +215,8 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 				return getRules();
 			case SimplegtPackage.MODULE__IMPORTS:
 				return getImports();
+			case SimplegtPackage.MODULE__DEBUG:
+				return isDebug();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -196,6 +242,9 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 				getImports().clear();
 				getImports().addAll((Collection<? extends String>)newValue);
 				return;
+			case SimplegtPackage.MODULE__DEBUG:
+				setDebug((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -217,6 +266,9 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 			case SimplegtPackage.MODULE__IMPORTS:
 				getImports().clear();
 				return;
+			case SimplegtPackage.MODULE__DEBUG:
+				setDebug(DEBUG_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -235,6 +287,8 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 				return rules != null && !rules.isEmpty();
 			case SimplegtPackage.MODULE__IMPORTS:
 				return imports != null && !imports.isEmpty();
+			case SimplegtPackage.MODULE__DEBUG:
+				return debug != DEBUG_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -251,6 +305,8 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (imports: ");
 		result.append(imports);
+		result.append(", debug: ");
+		result.append(debug);
 		result.append(')');
 		return result.toString();
 	}

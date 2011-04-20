@@ -456,6 +456,15 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getModule_Debug() {
+		return (EAttribute)moduleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRule() {
 		return ruleEClass;
 	}
@@ -1003,6 +1012,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		createEReference(moduleEClass, MODULE__MODELS);
 		createEReference(moduleEClass, MODULE__RULES);
 		createEAttribute(moduleEClass, MODULE__IMPORTS);
+		createEAttribute(moduleEClass, MODULE__DEBUG);
 
 		ruleEClass = createEClass(RULE);
 		createEReference(ruleEClass, RULE__MODULE);
@@ -1161,6 +1171,7 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		initEReference(getModule_Models(), this.getInstanceModel(), this.getInstanceModel_Module(), "models", null, 1, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModule_Rules(), this.getRule(), this.getRule_Module(), "rules", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModule_Imports(), ecorePackage.getEString(), "imports", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModule_Debug(), ecorePackage.getEBoolean(), "debug", null, 1, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRule_Module(), this.getModule(), this.getModule_Rules(), "module", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

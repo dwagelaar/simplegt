@@ -29,6 +29,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Module/models"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Module/rules"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Module/imports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Module/debug"/>
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//Rule">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//Rule/module"/>
