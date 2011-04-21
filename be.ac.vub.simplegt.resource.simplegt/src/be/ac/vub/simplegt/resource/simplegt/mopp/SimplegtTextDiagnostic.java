@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2011 Dennis Wagelaar, Vrije Universiteit Brussel.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Dennis Wagelaar, Vrije Universiteit Brussel
+ *******************************************************************************/
 package be.ac.vub.simplegt.resource.simplegt.mopp;
 
 import org.eclipse.emf.ecore.EObject;
@@ -5,6 +15,10 @@ import org.eclipse.emf.ecore.EObject;
 import be.ac.vub.simplegt.resource.simplegt.ISimplegtProblem;
 import be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic;
 
+/**
+ * Default implementation of {@link ISimplegtTextDiagnostic}.
+ * @author Dennis Wagelaar <dennis.wagelaar@vub.ac.be>
+ */
 public class SimplegtTextDiagnostic implements ISimplegtTextDiagnostic {
 	
 	private final ISimplegtProblem problem;
@@ -38,7 +52,6 @@ public class SimplegtTextDiagnostic implements ISimplegtTextDiagnostic {
 	 * (non-Javadoc)
 	 * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic#getCharEnd()
 	 */
-	@Override
 	public int getCharEnd() {
 		return charEnd;
 	}
@@ -47,7 +60,6 @@ public class SimplegtTextDiagnostic implements ISimplegtTextDiagnostic {
 	 * (non-Javadoc)
 	 * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic#getCharStart()
 	 */
-	@Override
 	public int getCharStart() {
 		return charStart;
 	}
@@ -56,7 +68,6 @@ public class SimplegtTextDiagnostic implements ISimplegtTextDiagnostic {
 	 * (non-Javadoc)
 	 * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic#getColumn()
 	 */
-	@Override
 	public int getColumn() {
 		return column;
 	}
@@ -65,7 +76,6 @@ public class SimplegtTextDiagnostic implements ISimplegtTextDiagnostic {
 	 * (non-Javadoc)
 	 * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic#getLine()
 	 */
-	@Override
 	public int getLine() {
 		return line;
 	}
@@ -74,7 +84,6 @@ public class SimplegtTextDiagnostic implements ISimplegtTextDiagnostic {
 	 * (non-Javadoc)
 	 * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic#getProblem()
 	 */
-	@Override
 	public ISimplegtProblem getProblem() {
 		return problem;
 	}
@@ -83,7 +92,6 @@ public class SimplegtTextDiagnostic implements ISimplegtTextDiagnostic {
 	 * (non-Javadoc)
 	 * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic#wasCausedBy(org.eclipse.emf.ecore.EObject)
 	 */
-	@Override
 	public boolean wasCausedBy(final EObject element) {
 		return false;
 	}
@@ -92,7 +100,6 @@ public class SimplegtTextDiagnostic implements ISimplegtTextDiagnostic {
 	 * (non-Javadoc)
 	 * @see org.eclipse.emf.ecore.resource.Resource.Diagnostic#getLocation()
 	 */
-	@Override
 	public String getLocation() {
 		return location;
 	}
@@ -101,7 +108,6 @@ public class SimplegtTextDiagnostic implements ISimplegtTextDiagnostic {
 	 * (non-Javadoc)
 	 * @see org.eclipse.emf.ecore.resource.Resource.Diagnostic#getMessage()
 	 */
-	@Override
 	public String getMessage() {
 		return getProblem().getMessage();
 	}
