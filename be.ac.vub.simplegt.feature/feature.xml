@@ -5,21 +5,42 @@
       version="1.0.0.qualifier"
       provider-name="Vrije Universiteit Brussel">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+   <description url="about.html">
+      %description
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
+   <copyright url="about.html">
+      %copyright
    </copyright>
 
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
+   <license url="about.html">
+      %license
    </license>
 
    <url>
       <update label="%updateSiteName" url="http://soft.vub.ac.be/eclipse/update-3.5"/>
+      <discovery label="EMFText update site" url="http://emftext.org/update"/>
    </url>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf"/>
+      <import plugin="org.eclipse.emf.codegen.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import plugin="org.eclipse.emf.validation"/>
+      <import plugin="org.eclipse.emf.workspace"/>
+      <import plugin="org.emftext.commons.antlr3_2_0"/>
+      <import plugin="be.ac.vub.emftvm" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.views"/>
+   </requires>
 
    <plugin
          id="be.ac.vub.simplegt"
@@ -37,13 +58,6 @@
 
    <plugin
          id="be.ac.vub.simplegt.resource.simplegt.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="be.ac.vub.simplegt.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"
