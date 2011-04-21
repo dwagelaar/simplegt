@@ -1,6 +1,6 @@
 -- Inlines nested code blocks
 -- $Id$
-module InlineCodeblocks debug;
+module InlineCodeblocks;
 
 transform M : EMFTVM;
 

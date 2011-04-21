@@ -1,0 +1,17 @@
+<project name="be.ac.vub.simplegt.resource.simplegt/transformations" default="all">
+
+	<eclipse.convertPath property="emftvm.path" resourcepath="emftvm.compiler/transformations/inlined/"/>
+
+	<target name="copy-emftvm-files">
+		<copy todir=".">
+			<fileset dir="${emftvm.path}">
+				<include name="SimpleGTtoEMFTVM.emftvm"/>
+				<include name="EMFTVMCopy.emftvm"/>
+				<include name="InlineCodeblocks.emftvm"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="all" depends="copy-emftvm-files"/>
+
+</project>

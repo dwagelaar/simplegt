@@ -13,9 +13,11 @@ public class SimplegtBuilderAdapter extends org.eclipse.core.resources.Increment
 	 */
 	public final static String BUILDER_ID = "be.ac.vub.simplegt.resource.simplegt.builder";
 	
-	private be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder builder = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtBuilder();
+	private be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder builder;
 	
-	public org.eclipse.core.resources.IProject[] build(int kind, @SuppressWarnings("rawtypes") java.util.Map args, final org.eclipse.core.runtime.IProgressMonitor monitor) throws org.eclipse.core.runtime.CoreException {
+	@SuppressWarnings("unchecked")
+	public org.eclipse.core.resources.IProject[] build(int kind, java.util.Map args, final org.eclipse.core.runtime.IProgressMonitor monitor) throws org.eclipse.core.runtime.CoreException {
+		if (builder==null) builder = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtBuilder();
 		return build(kind, args, monitor, builder, getProject());
 	}
 	

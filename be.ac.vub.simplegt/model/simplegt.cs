@@ -6,6 +6,9 @@ OPTIONS {
     reloadGeneratorModel = "true";
 	usePredefinedTokens = "false";
 	overrideResourceFactory = "false";
+	overrideBuilder = "false";
+	overrideBuilderAdapter = "false";
+	overrideManifest = "false";
 }
 
 TOKENS {
