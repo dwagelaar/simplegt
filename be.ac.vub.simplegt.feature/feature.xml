@@ -31,7 +31,6 @@
       <import plugin="org.eclipse.emf.ecore.edit"/>
       <import plugin="org.eclipse.emf.validation"/>
       <import plugin="org.eclipse.emf.workspace"/>
-      <import plugin="org.emftext.commons.antlr3_2_0"/>
       <import plugin="be.ac.vub.emftvm" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.jface"/>
@@ -58,6 +57,13 @@
 
    <plugin
          id="be.ac.vub.simplegt.resource.simplegt.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.emftext.commons.antlr3_2_0"
          download-size="0"
          install-size="0"
          version="0.0.0"
