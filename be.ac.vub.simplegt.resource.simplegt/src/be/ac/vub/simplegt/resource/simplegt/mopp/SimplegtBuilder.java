@@ -10,7 +10,6 @@
  *******************************************************************************/
 package be.ac.vub.simplegt.resource.simplegt.mopp;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -22,6 +21,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
@@ -43,7 +43,6 @@ import be.ac.vub.emftvm.util.DefaultModuleResolver;
 import be.ac.vub.emftvm.util.EMFTVMLogger;
 import be.ac.vub.emftvm.util.ModuleResolver;
 import be.ac.vub.emftvm.util.TimingData;
-import be.ac.vub.emftvm.util.VMException;
 import be.ac.vub.simplegt.SimplegtPackage;
 import be.ac.vub.simplegt.resource.simplegt.ISimplegtProblem;
 import be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic;
@@ -102,6 +101,7 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 	 * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder#build(be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource, org.eclipse.core.runtime.IProgressMonitor)
 	 */
 	public org.eclipse.core.runtime.IStatus build(final SimplegtResource resource, final IProgressMonitor monitor) {
+		IStatus status = Status.OK_STATUS;
 		final List<EObject> pbs = new ArrayList<EObject>();
 
 		final Model simplegtm = EmftvmFactory.eINSTANCE.createModel();
@@ -121,6 +121,7 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 		emftvmmi.setResource(ri);
 		
 		try {
+
 			ExecEnv env = EmftvmFactory.eINSTANCE.createExecEnv();
 			env.getMetaModels().put("SimpleGT", simplegtmm);
 			env.getMetaModels().put("Problem", pbmm);
@@ -144,25 +145,26 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 					riFile.setDerived(true);
 				}
 			}
-		} catch (VMException e) {
-			EMFTVMLogger.log(Level.SEVERE, e.getLocalizedMessage(), e);
-		} catch (IOException e) {
-			EMFTVMLogger.log(Level.SEVERE, e.getLocalizedMessage(), e);
+
+			final String location = resource.getURI().toString();
+			for (EObject pb : pbs) {
+				ISimplegtTextDiagnostic diag = createDiagnostic(location, pb);
+				SimplegtMarkerHelper.mark(resource, diag);
+			}
+
 		} catch (CoreException e) {
-			EMFTVMLogger.log(Level.SEVERE, e.getLocalizedMessage(), e);
+			EMFTVMLogger.log(Level.SEVERE, e.getMessage(), e);
+			status = e.getStatus();
+		} catch (Exception e) {
+			EMFTVMLogger.log(Level.SEVERE, e.getMessage(), e);
+			status = new Status(IStatus.ERROR, SimplegtPlugin.PLUGIN_ID, 0, e.getMessage(), e);
 		} finally {
 			rs.getResources().remove(pr); // unload
 			rs.getResources().remove(r); // unload
 			rs.getResources().remove(ri); // unload
 		}
 
-		final String location = resource.getURI().toString();
-		for (EObject pb : pbs) {
-			ISimplegtTextDiagnostic diag = createDiagnostic(location, pb);
-			SimplegtMarkerHelper.mark(resource, diag);
-		}
-
-		return Status.OK_STATUS;
+		return status;
 	}
 	
 	/**

@@ -1,50 +1,140 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2011 Dennis Wagelaar, Vrije Universiteit Brussel.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * 
- */
+ * Contributors:
+ *     Dennis Wagelaar, Vrije Universiteit Brussel
+ *******************************************************************************/
 package be.ac.vub.simplegt.resource.simplegt.mopp;
 
-public class SimplegtBuilderAdapter extends org.eclipse.core.resources.IncrementalProjectBuilder {
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceDelta;
+import org.eclipse.core.resources.IResourceDeltaVisitor;
+import org.eclipse.core.resources.IResourceVisitor;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+
+import be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder;
+import be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType;
+
+/**
+ * Adapter class for {@link ISimplegtBuilder}.
+ * @author Dennis Wagelaar <dennis.wagelaar@vub.ac.be>
+ */
+public class SimplegtBuilderAdapter extends IncrementalProjectBuilder {
 	
 	/**
 	 * the ID of the default, generated builder
 	 */
 	public final static String BUILDER_ID = "be.ac.vub.simplegt.resource.simplegt.builder";
-	
-	private be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder builder;
-	
+
+	/**
+	 * the builder object
+	 */
+	protected be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder builder;
+
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.core.resources.IncrementalProjectBuilder#build(int, java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
+	 */
 	@SuppressWarnings("unchecked")
-	public org.eclipse.core.resources.IProject[] build(int kind, java.util.Map args, final org.eclipse.core.runtime.IProgressMonitor monitor) throws org.eclipse.core.runtime.CoreException {
+	@Override
+	protected IProject[] build(int kind, java.util.Map args, final org.eclipse.core.runtime.IProgressMonitor monitor) throws org.eclipse.core.runtime.CoreException {
 		if (builder==null) builder = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtBuilder();
 		return build(kind, args, monitor, builder, getProject());
 	}
-	
-	public org.eclipse.core.resources.IProject[] build(int kind, java.util.Map<?,?> args, final org.eclipse.core.runtime.IProgressMonitor monitor, final be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder builder, org.eclipse.core.resources.IProject project) throws org.eclipse.core.runtime.CoreException {
-		org.eclipse.core.resources.IResourceDelta delta = getDelta(project);
+
+	/**
+	 * Builds <code>project</code> using <code>builder</code>.
+	 * @param kind
+	 * @param args
+	 * @param monitor
+	 * @param builder
+	 * @param project
+	 * @return <code>null</code>
+	 * @throws CoreException
+	 */
+	public IProject[] build(int kind, java.util.Map<?,?> args, final IProgressMonitor monitor, 
+			final ISimplegtBuilder builder, final IProject project) throws CoreException {
+		final IResourceDelta delta = getDelta(project);
 		if (delta == null) {
 			return null;
 		}
-		delta.accept(new org.eclipse.core.resources.IResourceDeltaVisitor() {
-			public boolean visit(org.eclipse.core.resources.IResourceDelta delta) throws org.eclipse.core.runtime.CoreException {
-				if (delta.getKind() == org.eclipse.core.resources.IResourceDelta.REMOVED) {
+		delta.accept(new IResourceDeltaVisitor() {
+			public boolean visit(final IResourceDelta delta) throws CoreException {
+				if (delta.getKind() == IResourceDelta.REMOVED) {
 					return false;
 				}
-				org.eclipse.core.resources.IResource resource = delta.getResource();
-				if (resource instanceof org.eclipse.core.resources.IFile && "simplegt".equals(resource.getFileExtension())) {
-					org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createPlatformResourceURI(resource.getFullPath().toString(), true);
+				if (monitor.isCanceled()) {
+					return false;
+				}
+				final IResource resource = delta.getResource();
+				if (resource instanceof IFile && "simplegt".equals(resource.getFileExtension())) {
+					final URI uri = URI.createPlatformResourceURI(resource.getFullPath().toString(), true);
 					if (builder.isBuildingNeeded(uri)) {
-						be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource customResource = (be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource) new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl().getResource(uri, true);
-						be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper.unmark(customResource, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.BUILDER_ERROR);
-						builder.build(customResource, monitor);
+						final SimplegtResource customResource = (SimplegtResource) new ResourceSetImpl().getResource(uri, true);
+						SimplegtMarkerHelper.unmark(customResource, SimplegtEProblemType.BUILDER_ERROR);
+						final IStatus status = builder.build(customResource, monitor);
+						if (!status.isOK()) {
+							SimplegtPlugin.getDefault().getLog().log(status);
+						}
 					}
 					return false;
 				}
+				
 				return true;
 			}
 		});
 		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.core.resources.IncrementalProjectBuilder#clean(org.eclipse.core.runtime.IProgressMonitor)
+	 */
+	@Override
+	protected void clean(final IProgressMonitor monitor) throws CoreException {
+		super.clean(monitor);
+		clean(monitor, getProject());
+	}
+
+	/**
+	 * Cleans <code>project</code>.
+	 * @param monitor
+	 * @param project
+	 */
+	public void clean(final IProgressMonitor monitor, final IProject project) {
+		try {
+			project.accept(new IResourceVisitor() {
+				public boolean visit(final IResource resource) throws CoreException {
+					if (monitor.isCanceled()) {
+						return false;
+					}
+					if (resource instanceof IFile && "simplegt".equals(resource.getFileExtension())) {
+						final String name = resource.getName();
+						final IFile emftvmFile = resource.getParent().getFile(
+								new Path(name.substring(0, name.lastIndexOf('.'))));
+						if (emftvmFile.exists()) {
+							emftvmFile.delete(true, monitor);
+						}
+						return false;
+					}
+					return true;
+				}
+			});
+		} catch (CoreException e) {
+			SimplegtPlugin.getDefault().getLog().log(e.getStatus());
+		}
 	}
 	
 }
