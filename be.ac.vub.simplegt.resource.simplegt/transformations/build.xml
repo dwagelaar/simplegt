@@ -1,6 +1,6 @@
 <project name="be.ac.vub.simplegt.resource.simplegt/transformations" default="all">
 
-	<eclipse.convertPath property="emftvm.path" resourcepath="emftvm.compiler/transformations/inlined/"/>
+	<eclipse.convertPath property="emftvm.path" resourcepath="emftvm.compiler/transformations/"/>
 
 	<target name="copy-emftvm-files">
 		<copy todir=".">
