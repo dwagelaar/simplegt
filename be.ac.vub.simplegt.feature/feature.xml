@@ -39,6 +39,7 @@
       <import plugin="org.eclipse.ui.editors"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.emftext.commons.antlr3_2_0"/>
    </requires>
 
    <plugin
@@ -57,13 +58,6 @@
 
    <plugin
          id="be.ac.vub.simplegt.resource.simplegt.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.emftext.commons.antlr3_2_0"
          download-size="0"
          install-size="0"
          version="0.0.0"
