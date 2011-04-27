@@ -231,15 +231,23 @@ helper context SimpleGT!CharLiteralExp def : sameAs(other : SimpleGT!CharLiteral
 helper context SimpleGT!EnumLiteralExp def : sameAs(other : SimpleGT!EnumLiteralExp) : Boolean =
 	self.literal = other.literal;
 
-helper context SimpleGT!Expression def : isUsedInApply : Boolean =
-	let parent : OclAny = self.refImmediateComposite() in
-	if parent.oclIsKindOf(SimpleGT!Expression) then
-		parent.isUsedInApply
-	else if parent.oclIsKindOf(SimpleGT!InputBinding) then
-		parent.element.pattern.patternFor.removedBindings->includes(parent)
+helper context SimpleGT!Expression def : isUsed : Boolean =
+	let parent : SimpleGT!Binding = self.binding in
+	if parent.oclIsKindOf(SimpleGT!InputBinding) then
+		true
+	else if parent.oclIsKindOf(SimpleGT!OutputBinding) then
+		parent.element.pattern.patternFor.addedBindings->includes(parent)
 	else
 		false
 	endif endif;
+
+helper context SimpleGT!Expression def : isUsedTwice : Boolean =
+	let parent : SimpleGT!Binding = self.binding in
+	if parent.oclIsKindOf(SimpleGT!InputBinding) then
+		parent.element.pattern.patternFor.removedBindings->includes(parent)
+	else
+		false
+	endif;
 
 helper context SimpleGT!InputElementPattern def : accessibleBindings : Sequence(SimpleGT!InputBinding) =
 	self.bindings;
@@ -309,6 +317,7 @@ rule Rule {
 	   	localVariables <- Sequence{a_trace}
 	   		->union(s.inputElements->collect(e|thisModule.resolveTemp(e, 'ov')))
 			->union(s.newOutputElements->collect(e|thisModule.resolveTemp(e, 'ov'))),
+		lineNumbers <- Sequence{a_ln},
 		nested <- s.addedBindings->select(b|not b.beforeElement.oclIsUndefined())
 			->union(s.removedBindings->collect(r|thisModule.resolveTemp(r, 'cb2')))
 			->union(s.addedBindings->select(b|b.beforeElement.oclIsUndefined()))
@@ -333,14 +342,15 @@ rule RuleWithDebug extends Rule {
 		s.matcherPatterns->isEmpty())
 	to t : EMFTVM!Rule,
 	   a : EMFTVM!CodeBlock (
-	   	code <- Sequence{a_invoke_all_cbs, a_push, a_push2, a_invoke, a_pop}),
+	   	code <- Sequence{a_invoke_all_cbs, a_push, a_load, a_invoke, a_pop}),
 	   a_ln : EMFTVM!LineNumber (
-		instructions <- Sequence{a_invoke_all_cbs, a_push, a_push2, a_invoke, a_pop}),
-	   a_invoke_all_cbs : EMFTVM!Invoke_all_cbs,					-- [null] * nested_cb_size
-	   a_push : EMFTVM!Push (stringValue <- 'Applied'),				-- ['Applied', null * nested_cb_size]
-	   a_push2 : EMFTVM!Push (stringValue <- s.name),				-- [rule name, 'Applied', null * nested_cb_size]
-	   a_invoke : EMFTVM!Invoke (opname <- 'debug', argcount <- 1),	-- [rule name, null * nested_cb_size]
-	   a_pop : EMFTVM!Pop											-- [null] * nested_cb_size
+		instructions <- Sequence{a_invoke_all_cbs, a_push, a_load, a_invoke, a_pop}),
+	   a_trace : EMFTVM!LocalVariable,
+	   a_invoke_all_cbs : EMFTVM!Invoke_all_cbs,							-- [null] * nested_cb_size
+	   a_push : EMFTVM!Push (stringValue <- 'Applied ' + s.name + ' to'),	-- ['Applied...', null * nested_cb_size]
+	   a_load : EMFTVM!Load (localVariable <- a_trace),						-- [trace, 'Applied...', null * nested_cb_size]
+	   a_invoke : EMFTVM!Invoke (opname <- 'debug', argcount <- 1),			-- [trace, null * nested_cb_size]
+	   a_pop : EMFTVM!Pop													-- [null] * nested_cb_size
 }
 
 rule RuleWithMatcher extends Rule {
@@ -373,14 +383,15 @@ rule RuleWithMatcherWithDebug extends RuleWithMatcher {
 		s."module".debug)
 	to t : EMFTVM!Rule,
 	   a : EMFTVM!CodeBlock (
-	   	code <- Sequence{a_invoke_all_cbs, a_push, a_push2, a_invoke, a_pop}),
+	   	code <- Sequence{a_invoke_all_cbs, a_push, a_load, a_invoke, a_pop}),
 	   a_ln : EMFTVM!LineNumber (
-		instructions <- Sequence{a_invoke_all_cbs, a_push, a_push2, a_invoke, a_pop}),
-	   a_invoke_all_cbs : EMFTVM!Invoke_all_cbs,					-- [null] * nested_cb_size
-	   a_push : EMFTVM!Push (stringValue <- 'Applied'),				-- ['Applied', null * nested_cb_size]
-	   a_push2 : EMFTVM!Push (stringValue <- s.name),				-- [rule name, 'Applied', null * nested_cb_size]
-	   a_invoke : EMFTVM!Invoke (opname <- 'debug', argcount <- 1),	-- [rule name, null * nested_cb_size]
-	   a_pop : EMFTVM!Pop											-- [null] * nested_cb_size
+		instructions <- Sequence{a_invoke_all_cbs, a_push, a_load, a_invoke, a_pop}),
+	   a_trace : EMFTVM!LocalVariable,
+	   a_invoke_all_cbs : EMFTVM!Invoke_all_cbs,							-- [null] * nested_cb_size
+	   a_push : EMFTVM!Push (stringValue <- 'Applied ' + s.name + ' to'),	-- ['Applied...', null * nested_cb_size]
+	   a_load : EMFTVM!Load (localVariable <- a_trace),						-- [trace, 'Applied...', null * nested_cb_size]
+	   a_invoke : EMFTVM!Invoke (opname <- 'debug', argcount <- 1),			-- [rule name, null * nested_cb_size]
+	   a_pop : EMFTVM!Pop													-- [null] * nested_cb_size
 }
 
 rule InPattern {
@@ -843,17 +854,25 @@ rule NonFirstRemovedInputBinding extends RemovedInputBinding {
 	   and_ : EMFTVM!And (codeBlock <- cb)	-- AND instruction for parent code block
 }
 
-rule OutputBinding {
-	from s : SimpleGT!OutputBinding in IN
+abstract rule OutputBinding {
+	from s : SimpleGT!OutputBinding in IN (
+		s.element.pattern.patternFor.addedBindings->includes(s))
 	to cb : EMFTVM!CodeBlock (
 		nested <- Sequence{s.expr},
-		code <- Sequence{invoke_cb, load, add},
 		lineNumbers <- Sequence{ln}),
 	   ln : EMFTVM!LineNumber (
 	   	startLine <- s.line,
 		startColumn <- s.column,
 		startChar <- s.charStart,
-		endChar <- s.charEnd,
+		endChar <- s.charEnd)
+}
+
+rule SimpleOutputBinding extends OutputBinding {
+	from s : SimpleGT!OutputBinding in IN (
+		s.beforeElement.oclIsUndefined())
+	to cb : EMFTVM!CodeBlock (
+		code <- Sequence{invoke_cb, load, add}),
+	   ln : EMFTVM!LineNumber (
 		instructions <- Sequence{invoke_cb, load, add}),
 	   invoke_cb : EMFTVM!Invoke_cb (codeBlock <- s.expr),			-- [value]
 	   load : EMFTVM!Load (											-- [element, value]
@@ -865,14 +884,8 @@ rule OutputBindingBeforeElement extends OutputBinding {
 	from s : SimpleGT!OutputBinding in IN (
 		not s.beforeElement.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
-		nested <- Sequence{s.expr},
-		code <- Sequence{load2, load, dup_x1, get, invoke, invoke_cb, swap_x1, insert},
-		lineNumbers <- Sequence{ln}),
+		code <- Sequence{load2, load, dup_x1, get, invoke, invoke_cb, swap_x1, insert}),
 	   ln : EMFTVM!LineNumber (
-	   	startLine <- s.line,
-		startColumn <- s.column,
-		startChar <- s.charStart,
-		endChar <- s.charEnd,
 		instructions <- Sequence{load2, load, dup_x1, get, invoke, invoke_cb, swap_x1, insert}),
 	   load2 : EMFTVM!Load (										-- [before]
 	   	localVariable <- thisModule.resolveTemp(s.beforeElement.refersTo, 'ov')),
@@ -889,7 +902,8 @@ rule OutputBindingBeforeElement extends OutputBinding {
 -------------- Expressions -----------------
 
 abstract rule Expression {
-	from s : SimpleGT!Expression in IN
+	from s : SimpleGT!Expression in IN (
+		s.isUsed)
 	to cb : EMFTVM!CodeBlock (
 		lineNumbers <- Sequence{ln}),
 	   ln : EMFTVM!LineNumber (
@@ -901,7 +915,7 @@ abstract rule Expression {
 
 abstract rule ExpressionWithApply extends Expression {
 	from s : SimpleGT!Expression in IN (
-		s.isUsedInApply)
+		s.isUsedTwice)
 	to cb : EMFTVM!CodeBlock (
 		lineNumbers <- Sequence{ln}),
 	   ln : EMFTVM!LineNumber (
@@ -920,7 +934,7 @@ abstract rule ExpressionWithApply extends Expression {
 
 rule ElementExp extends Expression {
 	from s : SimpleGT!ElementExp in IN (
-		not s.isUsedInApply)
+		not s.isUsedTwice)
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{load}),
 	   ln : EMFTVM!LineNumber (
@@ -953,7 +967,7 @@ rule ElementExpWithApply extends ExpressionWithApply {
 
 rule ElementExpWithProperty extends ElementExp {
 	from s : SimpleGT!ElementExp in IN (
-		not s.isUsedInApply and
+		not s.isUsedTwice and
 		not s.property.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{load, get}),
@@ -982,7 +996,7 @@ rule ElementExpWithApplyWithProperty extends ElementExpWithApply {
 
 abstract rule LiteralExp extends Expression {
 	from s : SimpleGT!LiteralExp in IN (
-		not s.isUsedInApply and
+		not s.isUsedTwice and
 		not s.oclIsKindOf(SimpleGT!BooleanLiteralExp))
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{push}),
@@ -1007,7 +1021,7 @@ abstract rule LiteralExpWithApply extends ExpressionWithApply {
 }
 
 rule StringLiteralExp extends LiteralExp {
-	from s : SimpleGT!StringLiteralExp in IN (not s.isUsedInApply)
+	from s : SimpleGT!StringLiteralExp in IN (not s.isUsedTwice)
 	to cb : EMFTVM!CodeBlock,
 	   push : EMFTVM!Push (stringValue <- s.literal)			-- [string]
 }
@@ -1020,7 +1034,7 @@ rule StringLiteralExpWithApply extends LiteralExpWithApply {
 }
 
 rule IntegerLiteralExp extends LiteralExp {
-	from s : SimpleGT!IntegerLiteralExp in IN (not s.isUsedInApply)
+	from s : SimpleGT!IntegerLiteralExp in IN (not s.isUsedTwice)
 	to cb : EMFTVM!CodeBlock,
 	   push : EMFTVM!Push (intValue <- s.literal)				-- [int]
 }
@@ -1033,7 +1047,7 @@ rule IntegerLiteralExpWithApply extends LiteralExpWithApply {
 }
 
 rule DoubleLiteralExp extends LiteralExp {
-	from s : SimpleGT!DoubleLiteralExp in IN (not s.isUsedInApply)
+	from s : SimpleGT!DoubleLiteralExp in IN (not s.isUsedTwice)
 	to cb : EMFTVM!CodeBlock,
 	   push : EMFTVM!Push (doubleValue <- s.literal)			-- [double]
 }
@@ -1046,7 +1060,7 @@ rule DoubleLiteralExpWithApply extends LiteralExpWithApply {
 }
 
 rule CharLiteralExp extends LiteralExp {
-	from s : SimpleGT!CharLiteralExp in IN (not s.isUsedInApply)
+	from s : SimpleGT!CharLiteralExp in IN (not s.isUsedTwice)
 	to cb : EMFTVM!CodeBlock,
 	   push : EMFTVM!Push (charValue <- s.literal)				-- [char]
 }
@@ -1060,7 +1074,7 @@ rule CharLiteralExpWithApply extends LiteralExpWithApply {
 
 rule TrueBooleanLiteralExp extends Expression {
 	from s : SimpleGT!BooleanLiteralExp in IN (
-		s.literal and not s.isUsedInApply)
+		s.literal and not s.isUsedTwice)
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{push}),
 	   ln : EMFTVM!LineNumber (
@@ -1084,7 +1098,7 @@ rule TrueBooleanLiteralExpWithApply extends ExpressionWithApply {
 
 rule FalseBooleanLiteralExp extends Expression {
 	from s : SimpleGT!BooleanLiteralExp in IN (
-		not s.literal and not s.isUsedInApply)
+		not s.literal and not s.isUsedTwice)
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{push}),
 	   ln : EMFTVM!LineNumber (
@@ -1107,7 +1121,7 @@ rule FalseBooleanLiteralExpWithApply extends ExpressionWithApply {
 }
 
 rule EnumLiteralExp extends LiteralExp {
-	from s : SimpleGT!EnumLiteralExp in IN (not s.isUsedInApply)
+	from s : SimpleGT!EnumLiteralExp in IN (not s.isUsedTwice)
 	to cb : EMFTVM!CodeBlock,
 	   push : EMFTVM!Push (enumValue <- s.literal)				-- [enumliteral]
 }
