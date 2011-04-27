@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="be.ac.vub.simplegt.tests/inline-codeblocks-atl" default="all">
 
-	<target name="all" depends="saveModels, saveModels-xmi"/>
+	<target name="all" depends="saveModels-xmi"/>
 	
 	<target name="loadModels">
-		<emftvm.loadModel name="InlineCodeblocks" wspath="be.ac.vub.simplegt.tests/test-data/InlineCodeblocks.emftvm"/>
+		<emftvm.loadModel name="InlineCodeblocks" wspath="be.ac.vub.simplegt.tests/test-data/InlineCodeblocks.simplegt"/>
+		<emftvm.loadMetamodel name="SimpleGT" uri="http://soft.vub.ac.be/simplegt/2011/SimpleGT"/>
+		<emftvm.loadMetamodel name="Problem" uri="http://soft.vub.ac.be/simplegt/2011/Problem"/>
 	</target>
 
-	<target name="run" depends="loadModels">
-		<emftvm.run modulepath="platform:/resource/emftvm.compiler/transformations/inlined/" module="InlineCodeblocks">
+	<target name="compile" depends="loadModels">
+		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.resource.simplegt/transformations/" module="SimpleGTtoEMFTVM">
+			<metamodel name="SimpleGT"/>
+			<metamodel name="Problem"/>
 			<inputmodel name="InlineCodeblocks" as="IN"/>
-			<outputmodel name="InlineCodeblocks-Copy" as="OUT" wspath="${ant.project.name}/InlineCodeblocks.emftvm"/>
+			<outputmodel name="InlineCodeblocks-OUT" as="OUT" wspath="${ant.project.name}/InlineCodeblocks-noinline.emftvm"/>
+			<outputmodel name="InlineCodeblocks-problems" as="PBS" wspath="${ant.project.name}/InlineCodeblocks-problems.xmi"/>
+		</emftvm.run>
+	</target>
+
+	<target name="saveCompiledModel" depends="compile">
+		<emftvm.saveModel name="InlineCodeblocks-OUT" derived="true"/>
+	</target>
+
+	<target name="inline" depends="saveCompiledModel">
+		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.resource.simplegt/transformations/" module="InlineCodeblocks">
+			<inputmodel name="InlineCodeblocks-OUT" as="IN"/>
+			<outputmodel name="InlineCodeblocks-Inlined" as="OUT" wspath="${ant.project.name}/InlineCodeblocks.emftvm"/>
 			<outputmodel name="InlineCodeblocks-match" as="match" wspath="${ant.project.name}/InlineCodeblocks-match.trace"/>
 			<outputmodel name="InlineCodeblocks-trace" as="trace" wspath="${ant.project.name}/InlineCodeblocks.trace"/>
 		</emftvm.run>
 	</target>
 
-	<target name="saveModels" depends="run">
+	<target name="saveInlinedModels" depends="inline">
 		<emftvm.saveModel name="InlineCodeblocks-match" derived="true"/>
 		<emftvm.saveModel name="InlineCodeblocks-trace" derived="true"/>
-		<emftvm.saveModel name="InlineCodeblocks-Copy" derived="true"/>
+		<emftvm.saveModel name="InlineCodeblocks-Inlined" derived="true"/>
 	</target>
 
-	<target name="copy-xmi" depends="saveModels">
-		<emftvm.run modulepath="platform:/resource/emftvm.compiler/transformations/inlined/" module="EMFTVMCopy">
-			<inputmodel name="InlineCodeblocks-Copy" as="IN"/>
+	<target name="copy-xmi" depends="saveInlinedModels">
+		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.resource.simplegt/transformations/" module="EMFTVMCopy">
+			<inputmodel name="InlineCodeblocks-Inlined" as="IN"/>
 			<outputmodel name="InlineCodeblocks-XMI" as="OUT" wspath="${ant.project.name}/InlineCodeblocks.emftvm.xmi"/>
 		</emftvm.run>
 	</target>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="be.ac.vub.simplegt.tests/test-data" default="all">
+
+	<target name="all" depends="saveModels-xmi"/>
+	
+	<target name="loadModels">
+		<emftvm.loadModel name="Test" wspath="${ant.project.name}/Test.emftvm"/>
+		<emftvm.loadModel name="InlineCodeblocks" wspath="${ant.project.name}/InlineCodeblocks.emftvm"/>
+	</target>
+
+	<target name="copy-xmi" depends="loadModels">
+		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.resource.simplegt/transformations/" module="EMFTVMCopy">
+			<inputmodel name="Test" as="IN"/>
+			<outputmodel name="Test-XMI" as="OUT" wspath="${ant.project.name}/Test.emftvm.xmi"/>
+		</emftvm.run>
+		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.resource.simplegt/transformations/" module="EMFTVMCopy">
+			<inputmodel name="InlineCodeblocks" as="IN"/>
+			<outputmodel name="InlineCodeblocks-XMI" as="OUT" wspath="${ant.project.name}/InlineCodeblocks.emftvm.xmi"/>
+		</emftvm.run>
+	</target>
+
+	<target name="saveModels-xmi" depends="copy-xmi">
+		<emftvm.saveModel name="Test-XMI" derived="true"/>
+		<emftvm.saveModel name="InlineCodeblocks-XMI" derived="true"/>
+	</target>
+
+</project>

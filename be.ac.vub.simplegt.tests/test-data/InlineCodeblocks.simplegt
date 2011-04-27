@@ -37,14 +37,28 @@ abstract rule Invoke_cb {
 	   invoke_cb : EMFTVM!Invoke_cb
 }
 
+rule Invoke_cb_inline_locals extends Invoke_cb {
+	from cb : EMFTVM!CodeBlock (code =~ invoke_cb),
+		invoke_cb : EMFTVM!Invoke_cb (codeBlock =~ nestedCb),
+		nestedCb : EMFTVM!CodeBlock (localVariables =~ lv),
+		lv : EMFTVM!LocalVariable (slot =~ lv.slot)
+	to cb : EMFTVM!CodeBlock (
+		code =~ invoke_cb,
+		localVariables =~ lv),
+	   invoke_cb : EMFTVM!Invoke_cb (codeBlock =~ nestedCb),
+	   nestedCb : EMFTVM!CodeBlock,
+	   lv : EMFTVM!LocalVariable
+}
+
 rule Invoke_cb_inline extends Invoke_cb {
 	from cb : EMFTVM!CodeBlock (code =~ invoke_cb),
 		invoke_cb : EMFTVM!Invoke_cb (codeBlock =~ nestedCb),
 		nestedCb : EMFTVM!CodeBlock
+	not nestedCb : EMFTVM!CodeBlock (localVariables =~ lv),
+		lv : EMFTVM!LocalVariable
 	to cb : EMFTVM!CodeBlock (
 		code =~ invoke_cb,
 		code =~ nestedCb.code before invoke_cb,
-		localVariables =~ nestedCb.localVariables,
 		lineNumbers =~ nestedCb.lineNumbers,
 		nested =~ nestedCb.nested before nestedCb),
 	   invoke_cb : EMFTVM!Invoke_cb
@@ -103,22 +117,39 @@ abstract rule Invoke_all_cbs {
      invoke_all_cbs : EMFTVM!Invoke_all_cbs
 }
 
-rule Invoke_all_cbs_nested extends Invoke_all_cbs {
+rule Invoke_all_cbs_inline_locals extends Invoke_all_cbs {
+	from cb : EMFTVM!CodeBlock (
+			code =~ invoke_all_cbs,
+			nested =~ nestedCb),
+		invoke_all_cbs : EMFTVM!Invoke_all_cbs,
+		nestedCb : EMFTVM!CodeBlock (localVariables =~ lv),
+		lv : EMFTVM!LocalVariable (slot =~ lv.slot)
+	to cb : EMFTVM!CodeBlock (
+		code =~ invoke_all_cbs,
+		nested =~ nestedCb,
+		localVariables =~ lv),
+       invoke_all_cbs : EMFTVM!Invoke_all_cbs,
+       nestedCb : EMFTVM!CodeBlock,
+	   lv : EMFTVM!LocalVariable
+}
+
+rule Invoke_all_cbs_inline extends Invoke_all_cbs {
 	from cb : EMFTVM!CodeBlock (
 			code =~ invoke_all_cbs,
 			nested =~ nestedCb),
 		invoke_all_cbs : EMFTVM!Invoke_all_cbs,
 		nestedCb : EMFTVM!CodeBlock
+	not nestedCb : EMFTVM!CodeBlock (localVariables =~ lv),
+		lv : EMFTVM!LocalVariable (slot =~ lv.slot)
 	to cb : EMFTVM!CodeBlock (
 		code =~ invoke_all_cbs,
 		code =~ nestedCb.code before invoke_all_cbs,
-		localVariables =~ nestedCb.localVariables,
 		lineNumbers =~ nestedCb.lineNumbers,
 		nested =~ nestedCb.nested before nestedCb),
      invoke_all_cbs : EMFTVM!Invoke_all_cbs
 }
 
-rule Invoke_all_cbs_no_nested extends Invoke_all_cbs {
+rule Invoke_all_cbs_maxreset extends Invoke_all_cbs {
 	from cb : EMFTVM!CodeBlock (
 			code =~ invoke_all_cbs,
 			maxStack =~ cb.maxStack,
