@@ -5,7 +5,6 @@
 	<target name="copy-emftvm-files">
 		<copy todir=".">
 			<fileset dir="${emftvm.path}">
-				<include name="SimpleGTtoEMFTVM.emftvm"/>
 				<include name="EMFTVMCopy.emftvm"/>
 				<include name="InlineCodeblocks.emftvm"/>
 			</fileset>
