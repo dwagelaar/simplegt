@@ -438,14 +438,14 @@ rule BoundInputElement extends InputElement {
 	to re : EMFTVM!InputRuleElement (
 		binding <- bindingCb),
 	   bindingCb : EMFTVM!CodeBlock (
-	   	lineNumbers <- Sequence{ln},
+	   	lineNumbers <- Sequence{b_ln},
 		localVariables <- locals,
 	   	code <- Sequence{b_load, b_get}),
-	   ln : EMFTVM!LineNumber (
-	   	startLine <- s.bindingExp.line,
-		startColumn <- s.bindingExp.column,
-		startChar <- s.bindingExp.charStart,
-		endChar <- s.bindingExp.charEnd,
+	   b_ln : EMFTVM!LineNumber (
+	   	startLine <- s.bindingExp.binding.line,
+		startColumn <- s.bindingExp.binding.column,
+		startChar <- s.bindingExp.binding.charStart,
+		endChar <- s.bindingExp.binding.charEnd,
 		instructions <- Sequence{b_load, b_get}),
 	   b_load : EMFTVM!Load (								-- [element]
 	   	localVariable <- locals->at(
@@ -465,7 +465,7 @@ rule LastBoundInputElement extends BoundInputElement {
 	to re : EMFTVM!InputRuleElement,
 	   bindingCb : EMFTVM!CodeBlock (
 	   	code <- Sequence{b_load, b_get, b_dup, b_findtype, b_swap, b_invoke, b_ifn, b_dup2, b_invoke2, b_if, b_invoke3, b_ret}),
-	   ln : EMFTVM!LineNumber (
+	   b_ln : EMFTVM!LineNumber (
 		instructions <- Sequence{b_load, b_get, b_dup, b_findtype, b_swap, b_invoke, b_ifn, b_dup2, b_invoke2, b_if, b_invoke3, b_ret}),
 	   b_load : EMFTVM!Load,								-- [element]
 	   b_get : EMFTVM!Get,									-- [values]
