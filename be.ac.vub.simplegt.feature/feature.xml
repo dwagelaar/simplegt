@@ -31,7 +31,6 @@
       <import plugin="org.eclipse.emf.ecore.edit"/>
       <import plugin="org.eclipse.emf.validation"/>
       <import plugin="org.eclipse.emf.workspace"/>
-      <import plugin="be.ac.vub.emftvm" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.jface.text"/>
@@ -39,6 +38,8 @@
       <import plugin="org.eclipse.ui.editors"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.m2m.atl.emftvm" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.m2m.atl.common" version="3.1.2" match="greaterOrEqual"/>
    </requires>
 
    <plugin

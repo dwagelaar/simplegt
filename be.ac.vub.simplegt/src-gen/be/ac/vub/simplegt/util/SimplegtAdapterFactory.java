@@ -5,14 +5,40 @@
  */
 package be.ac.vub.simplegt.util;
 
-import be.ac.vub.simplegt.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import be.ac.vub.simplegt.Binding;
+import be.ac.vub.simplegt.BooleanLiteralExp;
+import be.ac.vub.simplegt.CharLiteralExp;
+import be.ac.vub.simplegt.DoubleLiteralExp;
+import be.ac.vub.simplegt.ElementExp;
+import be.ac.vub.simplegt.EnumLiteralExp;
+import be.ac.vub.simplegt.Expression;
+import be.ac.vub.simplegt.InPattern;
+import be.ac.vub.simplegt.InputBinding;
+import be.ac.vub.simplegt.InputElement;
+import be.ac.vub.simplegt.InputElementPattern;
+import be.ac.vub.simplegt.InstanceModel;
+import be.ac.vub.simplegt.IntegerLiteralExp;
+import be.ac.vub.simplegt.LiteralExp;
+import be.ac.vub.simplegt.LocatedElement;
+import be.ac.vub.simplegt.Metamodel;
+import be.ac.vub.simplegt.Model;
+import be.ac.vub.simplegt.Module;
+import be.ac.vub.simplegt.NacPattern;
+import be.ac.vub.simplegt.NamedElement;
+import be.ac.vub.simplegt.OutPattern;
+import be.ac.vub.simplegt.OutputBinding;
+import be.ac.vub.simplegt.OutputElement;
+import be.ac.vub.simplegt.Rule;
+import be.ac.vub.simplegt.RuleElement;
+import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simplegt.StringLiteralExp;
+import be.ac.vub.simplegt.Type;
+import be.ac.vub.simplegt.TypedElement;
 
 /**
  * <!-- begin-user-doc -->

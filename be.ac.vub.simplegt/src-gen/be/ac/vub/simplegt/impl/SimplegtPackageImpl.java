@@ -5,6 +5,12 @@
  */
 package be.ac.vub.simplegt.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import be.ac.vub.simplegt.Binding;
 import be.ac.vub.simplegt.BooleanLiteralExp;
 import be.ac.vub.simplegt.CharLiteralExp;
@@ -35,13 +41,6 @@ import be.ac.vub.simplegt.SimplegtPackage;
 import be.ac.vub.simplegt.StringLiteralExp;
 import be.ac.vub.simplegt.Type;
 import be.ac.vub.simplegt.TypedElement;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -8,7 +8,12 @@ transform M : EMFTVM;
 -- Inline INVOKE_CB stage
 -- ======================================================================
 
-rule RetargetInvoke_cbLocalVariableStart {
+abstract rule LocalVariable {
+	from lv : EMFTVM!LocalVariable
+	to lv : EMFTVM!LocalVariable
+}
+
+rule RetargetInvoke_cbLocalVariableStart extends LocalVariable {
 	from lv : EMFTVM!LocalVariable (startInstruction =~ invoke_cb),
 		invoke_cb : EMFTVM!Invoke_cb (codeBlock =~ nestedCb),
 		nestedCb : EMFTVM!CodeBlock (code =~ first),
@@ -19,7 +24,7 @@ rule RetargetInvoke_cbLocalVariableStart {
 		first : EMFTVM!Instruction
 }
 
-rule RetargetInvoke_cbLocalVariableEnd {
+rule RetargetInvoke_cbLocalVariableEnd extends LocalVariable {
 	from lv : EMFTVM!LocalVariable (endInstruction =~ invoke_cb),
 		invoke_cb : EMFTVM!Invoke_cb (codeBlock =~ nestedCb),
 		nestedCb : EMFTVM!CodeBlock (code =~| last),
@@ -84,7 +89,7 @@ rule EmptyLineNumber {
 -- Inline INVOKE_ALL_CBS stage
 -- ======================================================================
 
-rule RetargetInvoke_all_cbsLocalVariableStart {
+rule RetargetInvoke_all_cbsLocalVariableStart extends LocalVariable {
 	from lv : EMFTVM!LocalVariable (startInstruction =~ invoke_all_cbs),
 		invoke_all_cbs : EMFTVM!Invoke_all_cbs (owningBlock =~ cb),
 		cb : EMFTVM!CodeBlock (nested =~ nestedCb),
@@ -97,7 +102,7 @@ rule RetargetInvoke_all_cbsLocalVariableStart {
 		first : EMFTVM!Instruction
 }
 
-rule RetargetInvoke_all_cbsLocalVariableEnd {
+rule RetargetInvoke_all_cbsLocalVariableEnd extends LocalVariable {
 	from lv : EMFTVM!LocalVariable (endInstruction =~ invoke_all_cbs),
 		invoke_all_cbs : EMFTVM!Invoke_all_cbs (owningBlock =~ cb),
 		cb : EMFTVM!CodeBlock (nested =~| nestedCb),

@@ -5,22 +5,15 @@
  */
 package be.ac.vub.simplegt.impl;
 
-import be.ac.vub.simplegt.Binding;
-import be.ac.vub.simplegt.Expression;
-import be.ac.vub.simplegt.InputElement;
-import be.ac.vub.simplegt.OutputBinding;
-import be.ac.vub.simplegt.SimplegtPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import be.ac.vub.simplegt.Binding;
+import be.ac.vub.simplegt.Expression;
+import be.ac.vub.simplegt.SimplegtPackage;
 
 /**
  * <!-- begin-user-doc -->

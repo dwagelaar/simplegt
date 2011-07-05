@@ -29,20 +29,20 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EPackage.Registry;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.m2m.atl.common.ATLLogger;
+import org.eclipse.m2m.atl.emftvm.EmftvmFactory;
+import org.eclipse.m2m.atl.emftvm.ExecEnv;
+import org.eclipse.m2m.atl.emftvm.Metamodel;
+import org.eclipse.m2m.atl.emftvm.Model;
+import org.eclipse.m2m.atl.emftvm.util.DefaultModuleResolver;
+import org.eclipse.m2m.atl.emftvm.util.ModuleResolver;
+import org.eclipse.m2m.atl.emftvm.util.TimingData;
 
-import be.ac.vub.emftvm.EmftvmFactory;
-import be.ac.vub.emftvm.ExecEnv;
-import be.ac.vub.emftvm.Metamodel;
-import be.ac.vub.emftvm.Model;
-import be.ac.vub.emftvm.util.DefaultModuleResolver;
-import be.ac.vub.emftvm.util.EMFTVMLogger;
-import be.ac.vub.emftvm.util.ModuleResolver;
-import be.ac.vub.emftvm.util.TimingData;
 import be.ac.vub.simplegt.SimplegtPackage;
 import be.ac.vub.simplegt.resource.simplegt.ISimplegtProblem;
 import be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic;
@@ -100,6 +100,7 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 	 * (non-Javadoc)
 	 * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder#build(be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource, org.eclipse.core.runtime.IProgressMonitor)
 	 */
+	@SuppressWarnings("deprecation")
 	public org.eclipse.core.runtime.IStatus build(final SimplegtResource resource, final IProgressMonitor monitor) {
 		IStatus status = Status.OK_STATUS;
 		final List<EObject> pbs = new ArrayList<EObject>();
@@ -153,10 +154,10 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 			}
 
 		} catch (CoreException e) {
-			EMFTVMLogger.log(Level.SEVERE, e.getMessage(), e);
+			ATLLogger.log(Level.SEVERE, e.getMessage(), e);
 			status = e.getStatus();
 		} catch (Exception e) {
-			EMFTVMLogger.log(Level.SEVERE, e.getMessage(), e);
+			ATLLogger.log(Level.SEVERE, e.getMessage(), e);
 			status = new Status(IStatus.ERROR, SimplegtPlugin.PLUGIN_ID, 0, e.getMessage(), e);
 		} finally {
 			rs.getResources().remove(pr); // unload

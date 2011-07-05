@@ -5,7 +5,6 @@
  */
 package be.ac.vub.simplegt;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

@@ -5,23 +5,18 @@
  */
 package be.ac.vub.simplegt.impl;
 
-import be.ac.vub.simplegt.InputElement;
-import be.ac.vub.simplegt.InputElementPattern;
-import be.ac.vub.simplegt.SimplegtPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import be.ac.vub.simplegt.InputElement;
+import be.ac.vub.simplegt.InputElementPattern;
+import be.ac.vub.simplegt.SimplegtPackage;
 
 /**
  * <!-- begin-user-doc -->

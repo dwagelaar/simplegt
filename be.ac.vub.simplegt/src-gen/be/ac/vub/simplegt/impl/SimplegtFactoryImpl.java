@@ -5,15 +5,33 @@
  */
 package be.ac.vub.simplegt.impl;
 
-import be.ac.vub.simplegt.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import be.ac.vub.simplegt.BooleanLiteralExp;
+import be.ac.vub.simplegt.CharLiteralExp;
+import be.ac.vub.simplegt.DoubleLiteralExp;
+import be.ac.vub.simplegt.ElementExp;
+import be.ac.vub.simplegt.EnumLiteralExp;
+import be.ac.vub.simplegt.InPattern;
+import be.ac.vub.simplegt.InputBinding;
+import be.ac.vub.simplegt.InputElement;
+import be.ac.vub.simplegt.InstanceModel;
+import be.ac.vub.simplegt.IntegerLiteralExp;
+import be.ac.vub.simplegt.Metamodel;
+import be.ac.vub.simplegt.Module;
+import be.ac.vub.simplegt.NacPattern;
+import be.ac.vub.simplegt.OutPattern;
+import be.ac.vub.simplegt.OutputBinding;
+import be.ac.vub.simplegt.OutputElement;
+import be.ac.vub.simplegt.Rule;
+import be.ac.vub.simplegt.SimplegtFactory;
+import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simplegt.StringLiteralExp;
+import be.ac.vub.simplegt.Type;
 
 /**
  * <!-- begin-user-doc -->

@@ -5,27 +5,16 @@
  */
 package be.ac.vub.simplegt.impl;
 
-import be.ac.vub.simplegt.InPattern;
-import be.ac.vub.simplegt.InputElement;
-import be.ac.vub.simplegt.Rule;
-import be.ac.vub.simplegt.SimplegtPackage;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
+
+import be.ac.vub.simplegt.InPattern;
+import be.ac.vub.simplegt.Rule;
+import be.ac.vub.simplegt.SimplegtPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,7 +95,6 @@ public class InPatternImpl extends InputElementPatternImpl implements InPattern 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -165,7 +153,6 @@ public class InPatternImpl extends InputElementPatternImpl implements InPattern 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

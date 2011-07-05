@@ -5,14 +5,12 @@
  */
 package be.ac.vub.simplegt.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import be.ac.vub.simplegt.EnumLiteralExp;
 import be.ac.vub.simplegt.SimplegtPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

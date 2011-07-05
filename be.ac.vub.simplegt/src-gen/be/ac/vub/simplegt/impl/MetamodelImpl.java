@@ -5,10 +5,10 @@
  */
 package be.ac.vub.simplegt.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import be.ac.vub.simplegt.Metamodel;
 import be.ac.vub.simplegt.SimplegtPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
