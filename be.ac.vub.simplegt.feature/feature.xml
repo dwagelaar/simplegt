@@ -18,7 +18,7 @@
    </license>
 
    <url>
-      <update label="%updateSiteName" url="http://soft.vub.ac.be/eclipse/update-3.5"/>
+      <update label="%updateSiteName" url="http://soft.vub.ac.be/eclipse/update-3.6"/>
       <discovery label="EMFText update site" url="http://emftext.org/update"/>
    </url>
 
