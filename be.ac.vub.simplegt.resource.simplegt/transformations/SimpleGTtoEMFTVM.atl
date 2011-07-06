@@ -12,12 +12,12 @@ create OUT : EMFTVM, PBS : Problem from IN : SimpleGT;
 -- helpers begin
 -- ======================================================================
 
-helper def : CollectionType : String= 'be.ac.vub.emftvm.util.LazyCollection';
+helper def : CollectionType : String= 'org.eclipse.m2m.atl.emftvm.util.LazyCollection';
 
-helper def : SetType : String		= 'be.ac.vub.emftvm.util.LazySet';
-helper def : BagType : String		= 'be.ac.vub.emftvm.util.LazyBag';
-helper def : SequenceType : String	= 'be.ac.vub.emftvm.util.LazyList';
-helper def : OrderedSetType : String= 'be.ac.vub.emftvm.util.LazyOrderedSet';
+helper def : SetType : String		= 'org.eclipse.m2m.atl.emftvm.util.LazySet';
+helper def : BagType : String		= 'org.eclipse.m2m.atl.emftvm.util.LazyBag';
+helper def : SequenceType : String	= 'org.eclipse.m2m.atl.emftvm.util.LazyList';
+helper def : OrderedSetType : String= 'org.eclipse.m2m.atl.emftvm.util.LazyOrderedSet';
 
 helper context SimpleGT!InputElementPattern def : patternFor : SimpleGT!Rule =
 	OclUndefined;
