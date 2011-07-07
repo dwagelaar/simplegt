@@ -152,7 +152,7 @@ helper context SimpleGT!Rule def : deletedElements : Sequence(SimpleGT!InputElem
 helper context SimpleGT!OutputElement def : outModelName : String =
 	if self.inModel.oclIsUndefined() then
 		self.pattern.outputFor."module".models
-		->select(m|self.type.model = m.metamodel)
+		->select(m|self.type.model = m.metaModel)
 		->first().name
 	else
 		self.model.name
@@ -1636,7 +1636,7 @@ rule OutputElement {
 		typeModel <- s.type.model.name,
 		models <- Sequence{s.outModelName}),
 	   ov : EMFTVM!LocalVariable (
-	   	name <- s.varName,
+	   	name <- s.name,
 		type <- s.type.name,
 		typeModel <- s.type.model.name)
 }
