@@ -1,7 +1,7 @@
 -- @atlcompiler emftvm
 -- @nsURI Problem=http://soft.vub.ac.be/simplegt/2011/Problem
 -- @nsURI SimpleGT=http://soft.vub.ac.be/simplegt/2011/SimpleGT
--- @nsURI EMFTVM=http://soft.vub.ac.be/emftvm/2011/EMFTVM
+-- @nsURI EMFTVM=http://www.eclipse.org/m2m/atl/2011/EMFTVM
 -- Translates SimpleGT transformations to EMFTVM
 -- $Id$
 module SimpleGTtoEMFTVM;
@@ -155,7 +155,7 @@ helper context SimpleGT!OutputElement def : outModelName : String =
 		->select(m|self.type.model = m.metaModel)
 		->first().name
 	else
-		self.model.name
+		self.inModel.name
 	endif;
 
 helper context SimpleGT!Rule def : removedBindings : Sequence(SimpleGT!InputBinding) =
@@ -421,7 +421,12 @@ rule InputElement {
 	to re : EMFTVM!InputRuleElement (
 		name <- s.name,
 		type <- s.type.name,
-		typeModel <- s.type.model.name),
+		typeModel <- s.type.model.name,
+		models <- if s.inModel.oclIsUndefined() then
+				Sequence{}
+			else
+				Sequence{s.inModel.name}
+			endif),
 	   ov : EMFTVM!LocalVariable (
 	   	name <- s.name,
 		type <- s.type.name,
