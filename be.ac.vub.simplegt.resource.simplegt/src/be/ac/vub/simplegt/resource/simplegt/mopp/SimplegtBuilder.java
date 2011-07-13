@@ -130,14 +130,14 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 			env.getOutputModels().put("OUT", emftvmm);
 			env.getOutputModels().put("PBS", pbm);
 			env.loadModule(mr, "SimpleGTtoEMFTVM");
-			env.run(new TimingData());
+			env.run(new TimingData(), null);
 			
 			if (getProblems(pbm, pbs) == 0) {
 				env = EmftvmFactory.eINSTANCE.createExecEnv();
 				env.getInputModels().put("IN", emftvmm);
 				env.getOutputModels().put("OUT", emftvmmi);
 				env.loadModule(mr, "InlineCodeblocks");
-				env.run(new TimingData());
+				env.run(new TimingData(), null);
 					
 				ri.save(Collections.emptyMap());
 				if (ri.getURI().isPlatformResource()) {
