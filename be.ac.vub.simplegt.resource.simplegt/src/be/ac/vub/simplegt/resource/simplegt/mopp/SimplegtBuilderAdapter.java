@@ -66,6 +66,14 @@ public class SimplegtBuilderAdapter extends IncrementalProjectBuilder {
 	 */
 	public IProject[] build(int kind, java.util.Map<?,?> args, final IProgressMonitor monitor, 
 			final ISimplegtBuilder builder, final IProject project) throws CoreException {
+		if (kind == CLEAN_BUILD || kind == FULL_BUILD) {
+			project.accept(new IResourceVisitor() {
+				public boolean visit(final IResource resource) throws CoreException {
+					return buildResource(monitor, resource, builder);
+				}
+			});
+			return null;
+		}
 		final IResourceDelta delta = getDelta(project);
 		if (delta == null) {
 			return null;
@@ -75,27 +83,37 @@ public class SimplegtBuilderAdapter extends IncrementalProjectBuilder {
 				if (delta.getKind() == IResourceDelta.REMOVED) {
 					return false;
 				}
-				if (monitor.isCanceled()) {
-					return false;
-				}
-				final IResource resource = delta.getResource();
-				if (resource instanceof IFile && "simplegt".equals(resource.getFileExtension())) {
-					final URI uri = URI.createPlatformResourceURI(resource.getFullPath().toString(), true);
-					if (builder.isBuildingNeeded(uri)) {
-						final SimplegtResource customResource = (SimplegtResource) new ResourceSetImpl().getResource(uri, true);
-						SimplegtMarkerHelper.unmark(customResource, SimplegtEProblemType.BUILDER_ERROR);
-						final IStatus status = builder.build(customResource, monitor);
-						if (!status.isOK()) {
-							SimplegtPlugin.getDefault().getLog().log(status);
-						}
-					}
-					return false;
-				}
-				
-				return true;
+				return buildResource(monitor, delta.getResource(), builder);
 			}
 		});
 		return null;
+	}
+
+	/**
+	 * Builds <code>resource</code> using <code>builder</code>, if necessary.
+	 * @param monitor the progress monitor
+	 * @param resource the resource to build
+	 * @param builder the builder
+	 * @return <code>true</code> if the resource's members should be visited; <code>false</code> if they should be skipped
+	 */
+	public boolean buildResource(final IProgressMonitor monitor, final IResource resource,
+			final ISimplegtBuilder builder) {
+		if (monitor.isCanceled()) {
+			return false;
+		}
+		if (resource instanceof IFile && "simplegt".equals(resource.getFileExtension())) {
+			final URI uri = URI.createPlatformResourceURI(resource.getFullPath().toString(), true);
+			if (builder.isBuildingNeeded(uri)) {
+				final SimplegtResource customResource = (SimplegtResource) new ResourceSetImpl().getResource(uri, true);
+				SimplegtMarkerHelper.unmark(customResource, SimplegtEProblemType.BUILDER_ERROR);
+				final IStatus status = builder.build(customResource, monitor);
+				if (!status.isOK()) {
+					SimplegtPlugin.getDefault().getLog().log(status);
+				}
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/* (non-Javadoc)
@@ -122,7 +140,7 @@ public class SimplegtBuilderAdapter extends IncrementalProjectBuilder {
 					if (resource instanceof IFile && "simplegt".equals(resource.getFileExtension())) {
 						final String name = resource.getName();
 						final IFile emftvmFile = resource.getParent().getFile(
-								new Path(name.substring(0, name.lastIndexOf('.'))));
+								new Path(name.substring(0, name.lastIndexOf('.')).concat(".emftvm")));
 						if (emftvmFile.exists()) {
 							emftvmFile.delete(true, monitor);
 						}
