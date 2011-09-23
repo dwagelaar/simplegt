@@ -23,8 +23,8 @@ public class SimplegtNewFileWizardPage extends org.eclipse.jface.wizard.WizardPa
 	 */
 	public SimplegtNewFileWizardPage(org.eclipse.jface.viewers.ISelection selection, String fileExtension) {
 		super("wizardPage");
-		setTitle("Create new simplegt file");
-		setDescription("This wizard creates a new file with *." + fileExtension + " extension that can be opened with the EMFText editor.");
+		setTitle("Create new SimpleGT file");
+		setDescription("Create a new SimpleGT file (*." + fileExtension + ").");
 		this.selection = selection;
 		this.fileExtension = fileExtension;
 	}

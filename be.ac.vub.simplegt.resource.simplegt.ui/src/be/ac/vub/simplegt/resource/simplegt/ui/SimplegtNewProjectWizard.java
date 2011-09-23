@@ -1,16 +1,26 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2011 Dennis Wagelaar, Vrije Universiteit Brussel.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * 
- */
+ * Contributors:
+ *     Dennis Wagelaar, Vrije Universiteit Brussel
+ *******************************************************************************/
 package be.ac.vub.simplegt.resource.simplegt.ui;
 
+import java.net.URL;
+
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+
 /**
+ * Wizard for creating new SimpleGT projects.
  * This class is based on:
  * <i>org.eclipse.gef.examples.ui.pde.internal.wizards.ProjectUnzipperNewWizard</i>
  * .
  * It is responsible for offering an example project via the new dialog of Eclipse.
+ * @author <a href="mailto:dennis.wagelaar@vub.ac.be">Dennis Wagelaar</a>
  */
 public class SimplegtNewProjectWizard extends org.eclipse.jface.wizard.Wizard implements org.eclipse.ui.INewWizard, org.eclipse.core.runtime.IExecutableExtension {
 	
@@ -23,7 +33,7 @@ public class SimplegtNewProjectWizard extends org.eclipse.jface.wizard.Wizard im
 	/**
 	 * The name of the project creation page
 	 */
-	private String pageName = "New " + new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation().getSyntaxName() + " Project";
+	private String pageName = "New SimpleGT Project";
 	
 	/**
 	 * The title of the project creation page
@@ -33,7 +43,7 @@ public class SimplegtNewProjectWizard extends org.eclipse.jface.wizard.Wizard im
 	/**
 	 * The description of the project creation page
 	 */
-	private String pageDescription = "";
+	private String pageDescription = "Create a new SimpleGT project.";
 	
 	/**
 	 *  The name of the project in the project creation page
@@ -299,7 +309,10 @@ public class SimplegtNewProjectWizard extends org.eclipse.jface.wizard.Wizard im
 	 * dNewProjectCreationPage(String)
 	 */
 	public void init(org.eclipse.ui.IWorkbench workbench, org.eclipse.jface.viewers.IStructuredSelection selection) {
-		
+		setWindowTitle("New");
+		final URL wizbanUrl = SimplegtUIPlugin.getDefault().getBundle().getResource("icons/simplegt_newprj_wiz.png");
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(wizbanUrl));
+
 		wizardNewProjectCreationPage = new org.eclipse.ui.dialogs.WizardNewProjectCreationPage(pageName);
 		wizardNewProjectCreationPage.setTitle(pageTitle);
 		wizardNewProjectCreationPage.setDescription(pageDescription);

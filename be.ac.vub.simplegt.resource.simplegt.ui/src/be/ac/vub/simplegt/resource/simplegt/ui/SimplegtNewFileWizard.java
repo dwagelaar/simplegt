@@ -1,11 +1,23 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2011 Dennis Wagelaar, Vrije Universiteit Brussel.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * 
- */
+ * Contributors:
+ *     Dennis Wagelaar, Vrije Universiteit Brussel
+ *******************************************************************************/
 package be.ac.vub.simplegt.resource.simplegt.ui;
 
+import java.net.URL;
+
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+
+/**
+ * Wizard for creating new SimpleGT files.
+ * @author <a href="mailto:dennis.wagelaar@vub.ac.be">Dennis Wagelaar</a>
+ */
 public class SimplegtNewFileWizard extends org.eclipse.jface.wizard.Wizard implements org.eclipse.ui.INewWizard {
 	
 	private String categoryId = null;
@@ -152,6 +164,10 @@ public class SimplegtNewFileWizard extends org.eclipse.jface.wizard.Wizard imple
 	 * org.eclipse.jface.viewers.IStructuredSelection)
 	 */
 	public void init(org.eclipse.ui.IWorkbench workbench, org.eclipse.jface.viewers.IStructuredSelection selection) {
+		setWindowTitle("New");
+		final URL wizbanUrl = SimplegtUIPlugin.getDefault().getBundle().getResource("icons/simplegt_newfile_wiz.png");
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(wizbanUrl));
+
 		this.selection = selection;
 	}
 	

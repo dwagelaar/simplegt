@@ -13,6 +13,9 @@ OPTIONS {
 	overrideLineBreakpoint = "false";
 	overrideLineBreakpointAdapter = "false";
 	overrideUIManifest = "false";
+	overrideNewFileWizard = "false";
+	overrideNewFileWizardPage = "false";
+	overrideNewProjectWizard = "false";
 }
 
 TOKENS {

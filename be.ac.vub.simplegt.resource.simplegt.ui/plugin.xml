@@ -7,7 +7,7 @@
 	</extension>
 	
 	<extension point="org.eclipse.ui.editors">
-		<editor class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="simplegt" icon="icons/editor_icon.gif" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor" name="EMFText simplegt Editor">
+		<editor class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="simplegt" icon="icons/simplegt_editor_icon.gif" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor" name="SimpleGT Editor">
 			<contentTypeBinding contentTypeId="be.ac.vub.simplegt.resource.simplegt">
 			</contentTypeBinding>
 		</editor>
@@ -28,13 +28,28 @@
 	</extension>
 	
 	<extension point="org.eclipse.ui.newWizards">
-		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		<category id="be.ac.vub.simplegt.resource.simplegt.ui.NewWizCategory" name="SimpleGT">
 		</category>
-		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewFileWizard" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewFileWizard" name="EMFText .simplegt file">
+		<wizard
+        category="be.ac.vub.simplegt.resource.simplegt.ui.NewWizCategory"
+        class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewFileWizard"
+        icon="/icons/simplegt_new_icon.gif"
+        id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewFileWizard"
+        name="New SimpleGT file">
+     <description>
+        Create a new SimpleGT file.
+     </description>
 		</wizard>
-		<category id="org.emftext.runtime.ui.EMFTextProjectCategory" name="EMFText Project">
-		</category>
-		<wizard category="org.emftext.runtime.ui.EMFTextProjectCategory" icon="/icons/default_new_icon.gif" class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewProjectWizard" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewProjectWizard" name="EMFText simplegt project" project="true">
+		<wizard
+        category="be.ac.vub.simplegt.resource.simplegt.ui.NewWizCategory"
+        class="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewProjectWizard"
+        icon="icons/simplegt_newprj_wiz.gif"
+        id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewProjectWizard"
+        name="New SimpleGT project"
+        project="true">
+     <description>
+        Create a new SimpleGT project.
+     </description>
 		</wizard>
 	</extension>
 	
