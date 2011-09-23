@@ -34,7 +34,7 @@
       <import plugin="org.eclipse.m2m.atl.emftvm" version="3.3.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.m2m.atl.common" version="3.1.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.core" version="3.7.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.m2m.atl.debug.core" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.m2m.atl.debug.core" version="3.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.expressions"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
