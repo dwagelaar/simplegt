@@ -13,7 +13,7 @@ public class SimplegtPreferencePage extends org.eclipse.jface.preference.Prefere
 	
 	public void init(org.eclipse.ui.IWorkbench workbench) {
 		setPreferenceStore(be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIPlugin.getDefault().getPreferenceStore());
-		setDescription(" Simplegt Text Editor Preferences");
+		setDescription("Simplegt Text Editor Preferences");
 	}
 	
 	@Override	

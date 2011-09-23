@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EMFText Parser Plugin: simplegt
 Bundle-SymbolicName: be.ac.vub.simplegt.resource.simplegt;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.1.0.qualifier
 Bundle-Vendor: Vrije Universiteit Brussel
 Require-Bundle: org.eclipse.core.resources,
  org.eclipse.emf,
@@ -12,15 +12,19 @@ Require-Bundle: org.eclipse.core.resources,
  org.eclipse.emf.validation,
  org.eclipse.emf.workspace,
  org.emftext.access;resolution:=optional,
- org.emftext.commons.antlr3_2_0,
  be.ac.vub.simplegt,
  org.eclipse.m2m.atl.emftvm;bundle-version="3.3.0",
- org.eclipse.m2m.atl.common;bundle-version="3.1.2"
+ org.eclipse.m2m.atl.common;bundle-version="3.1.2",
+ org.eclipse.debug.core;bundle-version="3.7.0",
+ org.emftext.commons.antlr3_3_0,
+ org.eclipse.m2m.atl.debug.core;bundle-version="3.3.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: be.ac.vub.simplegt.resource.simplegt,
-  be.ac.vub.simplegt.resource.simplegt.analysis,
-  be.ac.vub.simplegt.resource.simplegt.mopp,
-  be.ac.vub.simplegt.resource.simplegt.grammar,
-  be.ac.vub.simplegt.resource.simplegt.util
+ be.ac.vub.simplegt.resource.simplegt.analysis,
+ be.ac.vub.simplegt.resource.simplegt.debug,
+ be.ac.vub.simplegt.resource.simplegt.grammar,
+ be.ac.vub.simplegt.resource.simplegt.launch,
+ be.ac.vub.simplegt.resource.simplegt.mopp,
+ be.ac.vub.simplegt.resource.simplegt.util
 Bundle-Activator: be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin

@@ -9,7 +9,7 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
 /**
  * A text editor for 'simplegt' models.
  */
-public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor implements org.eclipse.emf.edit.domain.IEditingDomainProvider {
+public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor implements org.eclipse.emf.edit.domain.IEditingDomainProvider, org.eclipse.jface.viewers.ISelectionProvider, org.eclipse.jface.viewers.ISelectionChangedListener, org.eclipse.emf.common.ui.viewer.IViewerProvider, be.ac.vub.simplegt.resource.simplegt.ISimplegtResourceProvider, be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtBracketHandlerProvider, be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtAnnotationModelProvider {
 	
 	private be.ac.vub.simplegt.resource.simplegt.ui.SimplegtHighlighting highlighting;
 	private org.eclipse.jface.text.source.projection.ProjectionSupport projectionSupport;
@@ -24,12 +24,15 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 	private org.eclipse.emf.edit.domain.EditingDomain editingDomain;
 	private org.eclipse.emf.edit.provider.ComposedAdapterFactory adapterFactory;
 	private be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtBracketHandler bracketHandler;
+	private java.util.List<org.eclipse.jface.viewers.ISelectionChangedListener> selectionChangedListeners = new java.util.LinkedList<org.eclipse.jface.viewers.ISelectionChangedListener>();
+	private org.eclipse.jface.viewers.ISelection editorSelection;
 	
 	public SimplegtEditor() {
 		super();
-		setSourceViewerConfiguration(new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditorConfiguration(this, colorManager));
+		setSourceViewerConfiguration(new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditorConfiguration(this, this, this, colorManager));
 		initializeEditingDomain();
 		org.eclipse.core.resources.ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, org.eclipse.core.resources.IResourceChangeEvent.POST_CHANGE);
+		addSelectionChangedListener(this);
 	}
 	
 	/**
@@ -98,6 +101,7 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 	public void initializeEditor() {
 		super.initializeEditor();
 		setEditorContextMenuId("be.ac.vub.simplegt.resource.simplegt.EditorContext");
+		setRulerContextMenuId("be.ac.vub.simplegt.resource.simplegt.EditorRuler");
 	}
 	
 	public Object getAdapter(@SuppressWarnings("rawtypes") Class required) {
@@ -199,6 +203,9 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 	public void setFocus() {
 		super.setFocus();
 		this.invalidateTextRepresentation();
+		// Parse the document again to remove errors that stem from unresolvable proxy
+		// objects
+		bgParsingStrategy.parse(getSourceViewer().getDocument(), resource, this, 10);
 	}
 	
 	protected void performSaveAs(org.eclipse.core.runtime.IProgressMonitor progressMonitor) {
@@ -241,7 +248,6 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 	}
 	
 	public be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource getResource() {
-		assert resource != null;
 		return resource;
 	}
 	
@@ -328,6 +334,9 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 						break;
 					}
 					token = lexer.getNextToken();
+					if (token == null) {
+						break;
+					}
 					tokenText = token.getText();
 				}
 			} catch (org.eclipse.jface.text.BadLocationException e) {
@@ -343,7 +352,15 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 	}
 	
 	protected org.eclipse.jface.text.source.ISourceViewer createSourceViewer(org.eclipse.swt.widgets.Composite parent, org.eclipse.jface.text.source.IVerticalRuler ruler, int styles) {
-		org.eclipse.jface.text.source.ISourceViewer viewer = new org.eclipse.jface.text.source.projection.ProjectionViewer(parent, ruler, getOverviewRuler(), isOverviewRulerVisible(), styles);
+		org.eclipse.jface.text.source.ISourceViewer viewer = new org.eclipse.jface.text.source.projection.ProjectionViewer(parent, ruler, getOverviewRuler(), isOverviewRulerVisible(), styles) {
+			
+			public void setSelection(org.eclipse.jface.viewers.ISelection selection, boolean reveal) {
+				if (!SimplegtEditor.this.setSelection(selection, reveal)) {
+					super.setSelection(selection, reveal);
+				}
+			}
+			
+		};
 		// ensure decoration support has been created and configured.
 		getSourceViewerDecorationSupport(viewer);
 		return viewer;
@@ -406,17 +423,25 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 				org.eclipse.jface.text.source.IAnnotationAccessExtension  annotationAccess = getAnnotationAccessExtension();
 				
 				org.eclipse.jface.text.IDocument document = getDocument();
-				if (model == null)				return null;
+				if (model == null) {
+					return null;
+				}
 				
 				java.util.Iterator<?> iter = model.getAnnotationIterator();
 				int layer = Integer.MIN_VALUE;
 				
 				while (iter.hasNext()) {
 					org.eclipse.jface.text.source.Annotation annotation = (org.eclipse.jface.text.source.Annotation) iter.next();
-					if (annotation.isMarkedDeleted())					continue;
+					if (annotation.isMarkedDeleted()) {
+						continue;
+					}
 					
 					int annotationLayer = annotationAccess.getLayer(annotation);
-					if (annotationAccess != null)					if (annotationLayer < layer)					continue;
+					if (annotationAccess != null) {
+						if (annotationLayer < layer) {
+							continue;
+						}
+					}
 					
 					org.eclipse.jface.text.Position position = model.getPosition(annotation);
 					if (!includesRulerLine(position, document)) {
@@ -429,6 +454,60 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 			}
 			
 		});
+	}
+	
+	public org.eclipse.jface.text.source.IAnnotationModel getAnnotationModel() {
+		return getDocumentProvider().getAnnotationModel(getEditorInput());
+	}
+	
+	public void addSelectionChangedListener(org.eclipse.jface.viewers.ISelectionChangedListener listener) {
+		selectionChangedListeners.add(listener);
+	}
+	
+	public org.eclipse.jface.viewers.ISelection getSelection() {
+		return editorSelection;
+	}
+	
+	public void removeSelectionChangedListener(org.eclipse.jface.viewers.ISelectionChangedListener listener) {
+		selectionChangedListeners.remove(listener);
+	}
+	
+	public void selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent event) {
+		org.eclipse.jface.viewers.ISelection selection = event.getSelection();
+		setSelection(selection, true);
+	}
+	
+	public void setSelection(org.eclipse.jface.viewers.ISelection selection) {
+		editorSelection = selection;
+		for (org.eclipse.jface.viewers.ISelectionChangedListener listener : selectionChangedListeners) {
+			listener.selectionChanged(new org.eclipse.jface.viewers.SelectionChangedEvent(this, selection));
+		}
+	}
+	
+	private boolean setSelection(org.eclipse.jface.viewers.ISelection selection, boolean reveal) {
+		if (selection instanceof org.eclipse.jface.viewers.IStructuredSelection) {
+			org.eclipse.jface.viewers.IStructuredSelection structuredSelection = (org.eclipse.jface.viewers.IStructuredSelection) selection;
+			Object object = structuredSelection.getFirstElement();
+			if (object instanceof org.eclipse.emf.ecore.EObject) {
+				org.eclipse.emf.ecore.EObject element = (org.eclipse.emf.ecore.EObject) object;
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource textResource = (be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource) element.eResource();
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtLocationMap locationMap = textResource.getLocationMap();
+				int destination = locationMap.getCharStart(element);
+				if (destination < 0) {
+					destination = 0;
+				}
+				selectAndReveal(destination, 0);
+				int length = locationMap.getCharEnd(element) - destination + 1;
+				getSourceViewer().setRangeIndication(destination, length, true);
+				getSourceViewer().setSelectedRange(destination, length);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public org.eclipse.jface.viewers.Viewer getViewer() {
+		return (org.eclipse.jface.text.source.projection.ProjectionViewer) getSourceViewer();
 	}
 	
 }

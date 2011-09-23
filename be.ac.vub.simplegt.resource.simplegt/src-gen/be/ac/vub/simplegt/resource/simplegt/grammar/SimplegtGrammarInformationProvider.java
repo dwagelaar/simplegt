@@ -13,23 +13,9 @@ public class SimplegtGrammarInformationProvider {
 		ANONYMOUS_FEATURE.setName("_");
 	}
 	
-	public static class Rule extends be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSyntaxElement {
-		
-		private final org.eclipse.emf.ecore.EClass metaclass;
-		
-		public Rule(org.eclipse.emf.ecore.EClass metaclass, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice choice, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality cardinality) {
-			super(cardinality, new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSyntaxElement[] {choice});
-			this.metaclass = metaclass;
-		}
-		
-		public org.eclipse.emf.ecore.EClass getMetaclass() {
-			return metaclass;
-		}
-		
-		public be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice getDefinition() {
-			return (be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice) getChildren()[0];
-		}
-	}
+	public final static SimplegtGrammarInformationProvider INSTANCE = new SimplegtGrammarInformationProvider();
+	
+	private java.util.Set<String> keywords;
 	
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_0_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("module", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_0_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getModule().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.MODULE__NAME), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
@@ -54,17 +40,17 @@ public class SimplegtGrammarInformationProvider {
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment SIMPLEGT_0_0_0_10 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getModule().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.MODULE__RULES), be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.STAR, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_0_0_0_0, SIMPLEGT_0_0_0_1, SIMPLEGT_0_0_0_2, SIMPLEGT_0_0_0_3, SIMPLEGT_0_0_0_4, SIMPLEGT_0_0_0_5, SIMPLEGT_0_0_0_6, SIMPLEGT_0_0_0_7, SIMPLEGT_0_0_0_8, SIMPLEGT_0_0_0_9, SIMPLEGT_0_0_0_10);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_0_0_0);
-	public final static Rule SIMPLEGT_0 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getModule(), SIMPLEGT_0_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getModule(), SIMPLEGT_0_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_1_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInstanceModel().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INSTANCE_MODEL__NAME), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_1_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword(":", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment SIMPLEGT_1_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInstanceModel().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INSTANCE_MODEL__META_MODEL), be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_1_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_1_0_0_0, SIMPLEGT_1_0_0_1, SIMPLEGT_1_0_0_2);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_1_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_1_0_0);
-	public final static Rule SIMPLEGT_1 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInstanceModel(), SIMPLEGT_1_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInstanceModel(), SIMPLEGT_1_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_2_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getMetamodel().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.METAMODEL__NAME), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_2_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_2_0_0_0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_2_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_2_0_0);
-	public final static Rule SIMPLEGT_2 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getMetamodel(), SIMPLEGT_2_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getMetamodel(), SIMPLEGT_2_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtLineBreak SIMPLEGT_3_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtLineBreak(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtLineBreak SIMPLEGT_3_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtLineBreak(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtBooleanTerminal SIMPLEGT_3_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtBooleanTerminal(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getRule().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.RULE__ABSTRACT), "abstract", "", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
@@ -88,7 +74,7 @@ public class SimplegtGrammarInformationProvider {
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_3_0_0_11 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("}", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_3_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_3_0_0_0, SIMPLEGT_3_0_0_1, SIMPLEGT_3_0_0_2, SIMPLEGT_3_0_0_3, SIMPLEGT_3_0_0_4, SIMPLEGT_3_0_0_5, SIMPLEGT_3_0_0_6, SIMPLEGT_3_0_0_7, SIMPLEGT_3_0_0_8, SIMPLEGT_3_0_0_9, SIMPLEGT_3_0_0_10, SIMPLEGT_3_0_0_11);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_3_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_3_0_0);
-	public final static Rule SIMPLEGT_3 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getRule(), SIMPLEGT_3_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_3 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getRule(), SIMPLEGT_3_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_4_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("from", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment SIMPLEGT_4_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInPattern().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.IN_PATTERN__ELEMENTS), be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_4_0_0_2_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword(",", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
@@ -99,13 +85,13 @@ public class SimplegtGrammarInformationProvider {
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound SIMPLEGT_4_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound(SIMPLEGT_4_0_0_2_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.STAR);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_4_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_4_0_0_0, SIMPLEGT_4_0_0_1, SIMPLEGT_4_0_0_2);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_4_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_4_0_0);
-	public final static Rule SIMPLEGT_4 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInPattern(), SIMPLEGT_4_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_4 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInPattern(), SIMPLEGT_4_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_5_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getType().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.TYPE__MODEL), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_5_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("!", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_5_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getType().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.TYPE__NAME), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_5_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_5_0_0_0, SIMPLEGT_5_0_0_1, SIMPLEGT_5_0_0_2);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_5_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_5_0_0);
-	public final static Rule SIMPLEGT_5 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getType(), SIMPLEGT_5_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_5 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getType(), SIMPLEGT_5_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_6_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputElement().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_ELEMENT__NAME), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_6_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword(":", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment SIMPLEGT_6_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputElement().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_ELEMENT__TYPE), be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
@@ -128,13 +114,13 @@ public class SimplegtGrammarInformationProvider {
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound SIMPLEGT_6_0_0_4 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound(SIMPLEGT_6_0_0_4_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.QUESTIONMARK);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_6_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_6_0_0_0, SIMPLEGT_6_0_0_1, SIMPLEGT_6_0_0_2, SIMPLEGT_6_0_0_3, SIMPLEGT_6_0_0_4);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_6_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_6_0_0);
-	public final static Rule SIMPLEGT_6 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputElement(), SIMPLEGT_6_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_6 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputElement(), SIMPLEGT_6_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_7_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputBinding().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__PROPERTY), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtBooleanTerminal SIMPLEGT_7_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtBooleanTerminal(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputBinding().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__LAST), "=~|", "=~", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment SIMPLEGT_7_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputBinding().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INPUT_BINDING__EXPR), be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_7_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_7_0_0_0, SIMPLEGT_7_0_0_1, SIMPLEGT_7_0_0_2);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_7_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_7_0_0);
-	public final static Rule SIMPLEGT_7 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputBinding(), SIMPLEGT_7_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_7 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInputBinding(), SIMPLEGT_7_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_8_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getElementExp().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ELEMENT_EXP__ELEMENT), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_8_0_0_1_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword(".", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_8_0_0_1_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getElementExp().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ELEMENT_EXP__PROPERTY), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
@@ -143,36 +129,36 @@ public class SimplegtGrammarInformationProvider {
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound SIMPLEGT_8_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound(SIMPLEGT_8_0_0_1_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.QUESTIONMARK);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_8_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_8_0_0_0, SIMPLEGT_8_0_0_1);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_8_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_8_0_0);
-	public final static Rule SIMPLEGT_8 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getElementExp(), SIMPLEGT_8_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_8 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getElementExp(), SIMPLEGT_8_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_9_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("\"", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_9_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getStringLiteralExp().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.STRING_LITERAL_EXP__LITERAL), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_9_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("\"", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_9_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_9_0_0_0, SIMPLEGT_9_0_0_1, SIMPLEGT_9_0_0_2);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_9_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_9_0_0);
-	public final static Rule SIMPLEGT_9 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getStringLiteralExp(), SIMPLEGT_9_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_9 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getStringLiteralExp(), SIMPLEGT_9_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_10_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getIntegerLiteralExp().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.INTEGER_LITERAL_EXP__LITERAL), "INTEGER", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_10_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_10_0_0_0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_10_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_10_0_0);
-	public final static Rule SIMPLEGT_10 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getIntegerLiteralExp(), SIMPLEGT_10_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_10 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getIntegerLiteralExp(), SIMPLEGT_10_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_11_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getDoubleLiteralExp().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.DOUBLE_LITERAL_EXP__LITERAL), "FLOAT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_11_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_11_0_0_0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_11_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_11_0_0);
-	public final static Rule SIMPLEGT_11 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getDoubleLiteralExp(), SIMPLEGT_11_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_11 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getDoubleLiteralExp(), SIMPLEGT_11_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_12_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("'", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_12_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getCharLiteralExp().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.CHAR_LITERAL_EXP__LITERAL), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_12_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("'", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_12_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_12_0_0_0, SIMPLEGT_12_0_0_1, SIMPLEGT_12_0_0_2);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_12_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_12_0_0);
-	public final static Rule SIMPLEGT_12 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getCharLiteralExp(), SIMPLEGT_12_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_12 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getCharLiteralExp(), SIMPLEGT_12_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtBooleanTerminal SIMPLEGT_13_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtBooleanTerminal(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getBooleanLiteralExp().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.BOOLEAN_LITERAL_EXP__LITERAL), "true", "false", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_13_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_13_0_0_0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_13_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_13_0_0);
-	public final static Rule SIMPLEGT_13 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getBooleanLiteralExp(), SIMPLEGT_13_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_13 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getBooleanLiteralExp(), SIMPLEGT_13_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_14_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("#", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_14_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getEnumLiteralExp().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.ENUM_LITERAL_EXP__LITERAL), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_14_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_14_0_0_0, SIMPLEGT_14_0_0_1);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_14_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_14_0_0);
-	public final static Rule SIMPLEGT_14 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getEnumLiteralExp(), SIMPLEGT_14_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_14 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getEnumLiteralExp(), SIMPLEGT_14_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_15_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("not", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment SIMPLEGT_15_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getNacPattern().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.NAC_PATTERN__ELEMENTS), be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_15_0_0_2_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword(",", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
@@ -183,7 +169,7 @@ public class SimplegtGrammarInformationProvider {
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound SIMPLEGT_15_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound(SIMPLEGT_15_0_0_2_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.STAR);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_15_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_15_0_0_0, SIMPLEGT_15_0_0_1, SIMPLEGT_15_0_0_2);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_15_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_15_0_0);
-	public final static Rule SIMPLEGT_15 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getNacPattern(), SIMPLEGT_15_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_15 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getNacPattern(), SIMPLEGT_15_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_16_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("to", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment SIMPLEGT_16_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutPattern().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUT_PATTERN__ELEMENTS), be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_16_0_0_2_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword(",", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
@@ -194,7 +180,7 @@ public class SimplegtGrammarInformationProvider {
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound SIMPLEGT_16_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound(SIMPLEGT_16_0_0_2_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.STAR);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_16_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_16_0_0_0, SIMPLEGT_16_0_0_1, SIMPLEGT_16_0_0_2);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_16_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_16_0_0);
-	public final static Rule SIMPLEGT_16 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutPattern(), SIMPLEGT_16_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_16 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutPattern(), SIMPLEGT_16_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_17_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputElement().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_ELEMENT__NAME), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_17_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword(":", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment SIMPLEGT_17_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputElement().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_ELEMENT__TYPE), be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
@@ -217,7 +203,7 @@ public class SimplegtGrammarInformationProvider {
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound SIMPLEGT_17_0_0_4 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound(SIMPLEGT_17_0_0_4_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.QUESTIONMARK);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_17_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_17_0_0_0, SIMPLEGT_17_0_0_1, SIMPLEGT_17_0_0_2, SIMPLEGT_17_0_0_3, SIMPLEGT_17_0_0_4);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_17_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_17_0_0);
-	public final static Rule SIMPLEGT_17 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputElement(), SIMPLEGT_17_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_17 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputElement(), SIMPLEGT_17_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder SIMPLEGT_18_0_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtPlaceholder(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__PROPERTY), "TEXT", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword SIMPLEGT_18_0_0_1 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword("=~", be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment SIMPLEGT_18_0_0_2 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtContainment(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.OUTPUT_BINDING__EXPR), be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, 0);
@@ -228,5 +214,63 @@ public class SimplegtGrammarInformationProvider {
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound SIMPLEGT_18_0_0_3 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCompound(SIMPLEGT_18_0_0_3_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.QUESTIONMARK);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence SIMPLEGT_18_0_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSequence(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_18_0_0_0, SIMPLEGT_18_0_0_1, SIMPLEGT_18_0_0_2, SIMPLEGT_18_0_0_3);
 	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice SIMPLEGT_18_0 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtChoice(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE, SIMPLEGT_18_0_0);
-	public final static Rule SIMPLEGT_18 = new Rule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding(), SIMPLEGT_18_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule SIMPLEGT_18 = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding(), SIMPLEGT_18_0, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtCardinality.ONE);
+	
+	public final static be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule[] RULES = new be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule[] {
+		SIMPLEGT_0,
+		SIMPLEGT_1,
+		SIMPLEGT_2,
+		SIMPLEGT_3,
+		SIMPLEGT_4,
+		SIMPLEGT_5,
+		SIMPLEGT_6,
+		SIMPLEGT_7,
+		SIMPLEGT_8,
+		SIMPLEGT_9,
+		SIMPLEGT_10,
+		SIMPLEGT_11,
+		SIMPLEGT_12,
+		SIMPLEGT_13,
+		SIMPLEGT_14,
+		SIMPLEGT_15,
+		SIMPLEGT_16,
+		SIMPLEGT_17,
+		SIMPLEGT_18,
+	};
+	
+	/**
+	 * Returns all keywords of the grammar. This includes all literals for boolean and
+	 * enumeration terminals.
+	 */
+	public java.util.Set<String> getKeywords() {
+		if (this.keywords == null) {
+			this.keywords = new java.util.LinkedHashSet<String>();
+			for (be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtRule rule : RULES) {
+				findKeywords(rule, this.keywords);
+			}
+		}
+		return keywords;
+	}
+	
+	/**
+	 * Finds all keywords in the given element and its children and adds them to the
+	 * set. This includes all literals for boolean and enumeration terminals.
+	 */
+	private void findKeywords(be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSyntaxElement element, java.util.Set<String> keywords) {
+		if (element instanceof be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword) {
+			keywords.add(((be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtKeyword) element).getValue());
+		} else if (element instanceof be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtBooleanTerminal) {
+			keywords.add(((be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtBooleanTerminal) element).getTrueLiteral());
+			keywords.add(((be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtBooleanTerminal) element).getFalseLiteral());
+		} else if (element instanceof be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtEnumerationTerminal) {
+			be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtEnumerationTerminal terminal = (be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtEnumerationTerminal) element;
+			for (String key : terminal.getLiteralMapping().keySet()) {
+				keywords.add(key);
+			}
+		}
+		for (be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSyntaxElement child : element.getChildren()) {
+			findKeywords(child, this.keywords);
+		}
+	}
+	
 }

@@ -8,11 +8,13 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
 
 public class SimplegtQuickAssistProcessor implements org.eclipse.jface.text.quickassist.IQuickAssistProcessor {
 	
-	private be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor editor;
+	private be.ac.vub.simplegt.resource.simplegt.ISimplegtResourceProvider resourceProvider;
+	private be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtAnnotationModelProvider annotationModelProvider;
 	
-	public SimplegtQuickAssistProcessor(be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor editor) {
+	public SimplegtQuickAssistProcessor(be.ac.vub.simplegt.resource.simplegt.ISimplegtResourceProvider resourceProvider, be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtAnnotationModelProvider annotationModelProvider) {
 		super();
-		this.editor = editor;
+		this.resourceProvider = resourceProvider;
+		this.annotationModelProvider = annotationModelProvider;
 	}
 	
 	public boolean canAssist(org.eclipse.jface.text.quickassist.IQuickAssistInvocationContext invocationContext) {
@@ -76,7 +78,7 @@ public class SimplegtQuickAssistProcessor implements org.eclipse.jface.text.quic
 	
 	private java.util.List<be.ac.vub.simplegt.resource.simplegt.ISimplegtQuickFix> getQuickFixes(org.eclipse.jface.text.source.ISourceViewer sourceViewer, int offset, int length) {
 		java.util.List<be.ac.vub.simplegt.resource.simplegt.ISimplegtQuickFix> foundFixes = new java.util.ArrayList<be.ac.vub.simplegt.resource.simplegt.ISimplegtQuickFix>();
-		org.eclipse.jface.text.source.IAnnotationModel model = getAnnotationModel();
+		org.eclipse.jface.text.source.IAnnotationModel model = annotationModelProvider.getAnnotationModel();
 		
 		if (model == null) {
 			return foundFixes;
@@ -109,13 +111,9 @@ public class SimplegtQuickAssistProcessor implements org.eclipse.jface.text.quic
 		if (annotation instanceof be.ac.vub.simplegt.resource.simplegt.ui.SimplegtMarkerAnnotation) {
 			be.ac.vub.simplegt.resource.simplegt.ui.SimplegtMarkerAnnotation markerAnnotation = (be.ac.vub.simplegt.resource.simplegt.ui.SimplegtMarkerAnnotation) annotation;
 			org.eclipse.core.resources.IMarker marker = markerAnnotation.getMarker();
-			foundQuickFixes.addAll(new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtMarkerResolutionGenerator().getQuickFixes(editor.getResource(), marker));
+			foundQuickFixes.addAll(new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtMarkerResolutionGenerator().getQuickFixes(resourceProvider.getResource(), marker));
 		}
 		return foundQuickFixes;
-	}
-	
-	private org.eclipse.jface.text.source.IAnnotationModel getAnnotationModel() {
-		return editor.getDocumentProvider().getAnnotationModel(editor.getEditorInput());
 	}
 	
 	public String getErrorMessage() {

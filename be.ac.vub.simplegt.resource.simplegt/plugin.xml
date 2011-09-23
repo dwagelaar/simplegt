@@ -54,24 +54,43 @@
 	
 	<extension id="be.ac.vub.simplegt.resource.simplegt.nature" name="simplegt nature" point="org.eclipse.core.resources.natures">
 		<runtime>
-			<run class="be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtNature" />
+			<run class="be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtNature">
+			</run>
 		</runtime>
-		<builder id="be.ac.vub.simplegt.resource.simplegt.builder" />
+		<builder id="be.ac.vub.simplegt.resource.simplegt.builder">
+		</builder>
 	</extension>
 	
 	<extension point="org.eclipse.core.resources.builders" id="be.ac.vub.simplegt.resource.simplegt.builder" name="simplegt Builder">
 		<builder hasNature="true">
-			<run class="be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtBuilderAdapter" />
+			<run class="be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtBuilderAdapter">
+			</run>
 		</builder>
 	</extension>
 	
-	<extension-point id="be.ac.vub.simplegt.resource.simplegt.default_load_options" name="Default Load Options" schema="schema/default_load_options.exsd"/>
+	<extension-point id="be.ac.vub.simplegt.resource.simplegt.default_load_options" name="Default Load Options" schema="schema/default_load_options.exsd">
+	</extension-point>
 	
 	<extension point="org.eclipse.emf.ecore.extension_parser">
 		<parser class="be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResourceFactoryDelegator" type="simplegt">
 		</parser>
 	</extension>
 	
-	<extension-point id="be.ac.vub.simplegt.resource.simplegt.additional_extension_parser" name="Additional Extension Parser" schema="schema/additional_extension_parser.exsd"/>
+	<extension-point id="be.ac.vub.simplegt.resource.simplegt.additional_extension_parser" name="Additional Extension Parser" schema="schema/additional_extension_parser.exsd">
+	</extension-point>
+	
+	<extension point="org.eclipse.debug.core.breakpoints">
+		<breakpoint class="be.ac.vub.simplegt.resource.simplegt.debug.SimplegtLineBreakpoint" id="be.ac.vub.simplegt.resource.simplegt.debug.breakpoint" markerType="be.ac.vub.simplegt.resource.simplegt.debug.lineBreakpoint.marker" name="simplegt Breakpoint">
+		</breakpoint>
+	</extension>
+	
+	<extension id="be.ac.vub.simplegt.resource.simplegt.debug.lineBreakpoint.marker" point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.debug.core.lineBreakpointMarker">
+		</super>
+		<super type="org.eclipse.core.resources.textmarker">
+		</super>
+		<persistent value="true">
+		</persistent>
+	</extension>
 	
 </plugin>

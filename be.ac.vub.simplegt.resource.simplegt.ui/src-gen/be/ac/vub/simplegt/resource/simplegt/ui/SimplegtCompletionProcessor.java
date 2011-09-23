@@ -8,16 +8,16 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
 
 public class SimplegtCompletionProcessor implements org.eclipse.jface.text.contentassist.IContentAssistProcessor {
 	
-	private be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor editor;
+	private be.ac.vub.simplegt.resource.simplegt.ISimplegtResourceProvider resourceProvider;
+	private be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtBracketHandlerProvider bracketHandlerProvider;
 	
-	public SimplegtCompletionProcessor(be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor editor) {
-		this.editor = editor;
+	public SimplegtCompletionProcessor(be.ac.vub.simplegt.resource.simplegt.ISimplegtResourceProvider resourceProvider, be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtBracketHandlerProvider bracketHandlerProvider) {
+		this.resourceProvider = resourceProvider;
+		this.bracketHandlerProvider = bracketHandlerProvider;
 	}
 	
 	public org.eclipse.jface.text.contentassist.ICompletionProposal[] computeCompletionProposals(org.eclipse.jface.text.ITextViewer viewer, int offset) {
-		
-		org.eclipse.emf.ecore.resource.Resource resource = editor.getResource();
-		be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource textResource = (be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource) resource;
+		be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource textResource = resourceProvider.getResource();
 		String content = viewer.getDocument().get();
 		be.ac.vub.simplegt.resource.simplegt.ui.SimplegtCodeCompletionHelper helper = new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtCodeCompletionHelper();
 		be.ac.vub.simplegt.resource.simplegt.ui.SimplegtCompletionProposal[] computedProposals = helper.computeCompletionProposals(textResource, content, offset);
@@ -48,7 +48,7 @@ public class SimplegtCompletionProcessor implements org.eclipse.jface.text.conte
 			int replacementLength = prefix.length();
 			// if a closing bracket was automatically inserted right before, we enlarge the
 			// replacement length in order to overwrite the bracket.
-			be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtBracketHandler bracketHandler = editor.getBracketHandler();
+			be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtBracketHandler bracketHandler = bracketHandlerProvider.getBracketHandler();
 			String closingBracket = bracketHandler.getClosingBracket();
 			if (bracketHandler.addedClosingBracket() && proposalString.endsWith(closingBracket)) {
 				replacementLength += closingBracket.length();

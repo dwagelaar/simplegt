@@ -55,7 +55,7 @@ public class SimplegtPreferenceInitializer extends org.eclipse.core.runtime.pref
 			return;
 		}
 		for (int i = 0; i < tokenNames.length; i++) {
-			if (!tokenHelper.canBeUsedForSyntaxColoring(i)) {
+			if (!tokenHelper.canBeUsedForSyntaxHighlighting(i)) {
 				continue;
 			}
 			

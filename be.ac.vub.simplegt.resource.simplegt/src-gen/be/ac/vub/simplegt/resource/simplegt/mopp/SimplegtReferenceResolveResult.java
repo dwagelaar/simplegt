@@ -73,7 +73,7 @@ public class SimplegtReferenceResolveResult<ReferenceType> implements be.ac.vub.
 	
 	public void addMapping(String identifier, ReferenceType target, String warning) {
 		if (mappings == null) {
-			mappings = new java.util.ArrayList<be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceMapping<ReferenceType>>();
+			mappings = new java.util.ArrayList<be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceMapping<ReferenceType>>(1);
 		}
 		mappings.add(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtElementMapping<ReferenceType>(identifier, target, warning));
 		errorMessage = null;
@@ -85,7 +85,7 @@ public class SimplegtReferenceResolveResult<ReferenceType> implements be.ac.vub.
 	
 	public void addMapping(String identifier, org.eclipse.emf.common.util.URI uri, String warning) {
 		if (mappings == null) {
-			mappings = new java.util.ArrayList<be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceMapping<ReferenceType>>();
+			mappings = new java.util.ArrayList<be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceMapping<ReferenceType>>(1);
 		}
 		mappings.add(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtURIMapping<ReferenceType>(identifier, uri, warning));
 	}

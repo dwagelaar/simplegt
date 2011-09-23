@@ -8,7 +8,6 @@ package be.ac.vub.simplegt.resource.simplegt.util;
 
 public class SimplegtCopiedEList<E> implements org.eclipse.emf.common.util.EList<E> {
 	
-	private static final long serialVersionUID = 604726114003869602L;
 	private org.eclipse.emf.common.util.EList<E> original;
 	private org.eclipse.emf.common.util.EList<E> copy;
 	

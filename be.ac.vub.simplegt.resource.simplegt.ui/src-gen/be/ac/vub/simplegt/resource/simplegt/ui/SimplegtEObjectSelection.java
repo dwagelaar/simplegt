@@ -65,4 +65,5 @@ public class SimplegtEObjectSelection implements org.eclipse.jface.viewers.IStru
 		list.add(selectedObject);
 		return list;
 	}
+	
 }

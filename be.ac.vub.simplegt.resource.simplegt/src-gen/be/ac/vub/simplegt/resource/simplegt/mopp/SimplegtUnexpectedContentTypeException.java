@@ -11,7 +11,7 @@ package be.ac.vub.simplegt.resource.simplegt.mopp;
  * 
  * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.RESOURCE_CONTENT_TYPE
  */
-public class SimplegtUnexpectedContentTypeException extends org.antlr.runtime3_2_0.RecognitionException{
+public class SimplegtUnexpectedContentTypeException extends org.antlr.runtime3_3_0.RecognitionException {
 	
 	private static final long serialVersionUID = 4791359811519433999L;
 	

@@ -13,8 +13,37 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
 public class SimplegtSyntaxColoringPreferencePage extends org.eclipse.jface.preference.PreferencePage implements org.eclipse.ui.IWorkbenchPreferencePage {
 	
 	private final static be.ac.vub.simplegt.resource.simplegt.ui.SimplegtAntlrTokenHelper tokenHelper = new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtAntlrTokenHelper();
-	private static final java.util.Map<String, java.util.List<HighlightingColorListItem>> content = new java.util.LinkedHashMap<String, java.util.List<HighlightingColorListItem>>();
-	private static final java.util.Collection<IChangedPreference> changedPreferences = new java.util.ArrayList<IChangedPreference>();
+	private final static java.util.Map<String, java.util.List<HighlightingColorListItem>> content = new java.util.LinkedHashMap<String, java.util.List<HighlightingColorListItem>>();
+	private final static java.util.Collection<IChangedPreference> changedPreferences = new java.util.ArrayList<IChangedPreference>();
+	
+	public SimplegtSyntaxColoringPreferencePage() {
+		super();
+		
+		be.ac.vub.simplegt.resource.simplegt.ISimplegtMetaInformation syntaxPlugin = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation();
+		
+		String languageId = syntaxPlugin.getSyntaxName();
+		
+		java.util.List<HighlightingColorListItem> terminals = new java.util.ArrayList<HighlightingColorListItem>();
+		String[] tokenNames = syntaxPlugin.getTokenNames();
+		
+		for (int i = 0; i < tokenNames.length; i++) {
+			if (!tokenHelper.canBeUsedForSyntaxHighlighting(i)) {
+				continue;
+			}
+			
+			String tokenName = tokenHelper.getTokenName(tokenNames, i);
+			if (tokenName == null) {
+				continue;
+			}
+			HighlightingColorListItem item = new HighlightingColorListItem(languageId, tokenName);
+			terminals.add(item);
+		}
+		java.util.Collections.sort(terminals);
+		content.put(languageId, terminals);
+		
+		setPreferenceStore(be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIPlugin.getDefault().getPreferenceStore());
+		setDescription("Configure syntax coloring for ." + languageId + " files.");
+	}
 	
 	private interface IChangedPreference {
 		public void apply(org.eclipse.jface.preference.IPreferenceStore store);
@@ -269,10 +298,10 @@ public class SimplegtSyntaxColoringPreferencePage extends org.eclipse.jface.pref
 		}
 		org.eclipse.swt.graphics.RGB rgb = org.eclipse.jface.preference.PreferenceConverter.getColor(getPreferenceStore(), item.getColorKey());
 		fSyntaxForegroundColorEditor.setColorValue(rgb);
-		fBoldCheckBox.setSelection(getPreferenceStore().getBoolean(		item.getBoldKey()));
-		fItalicCheckBox.setSelection(getPreferenceStore().getBoolean(		item.getItalicKey()));
-		fStrikethroughCheckBox.setSelection(getPreferenceStore().getBoolean(		item.getStrikethroughKey()));
-		fUnderlineCheckBox.setSelection(getPreferenceStore().getBoolean(		item.getUnderlineKey()));
+		fBoldCheckBox.setSelection(getPreferenceStore().getBoolean(item.getBoldKey()));
+		fItalicCheckBox.setSelection(getPreferenceStore().getBoolean(item.getItalicKey()));
+		fStrikethroughCheckBox.setSelection(getPreferenceStore().getBoolean(item.getStrikethroughKey()));
+		fUnderlineCheckBox.setSelection(getPreferenceStore().getBoolean(item.getUnderlineKey()));
 		
 		fEnableCheckbox.setEnabled(true);
 		boolean enable = getPreferenceStore().getBoolean(item.getEnableKey());
@@ -331,7 +360,7 @@ public class SimplegtSyntaxColoringPreferencePage extends org.eclipse.jface.pref
 		org.eclipse.swt.layout.GridData gd = new org.eclipse.swt.layout.GridData(org.eclipse.swt.layout.GridData.FILL, org.eclipse.swt.layout.GridData.FILL, true, true);
 		gd.heightHint = convertHeightInCharsToPixels(26);
 		int maxWidth = 0;
-		for (java.util.Iterator<java.util.List<HighlightingColorListItem>> it = content.values()		.iterator(); it.hasNext();) {
+		for (java.util.Iterator<java.util.List<HighlightingColorListItem>> it = content.values().iterator(); it.hasNext();) {
 			for (java.util.Iterator<HighlightingColorListItem> j = it.next().iterator(); j.hasNext();) {
 				HighlightingColorListItem item = j.next();
 				maxWidth = Math.max(maxWidth, convertWidthInCharsToPixels(item.getDisplayName().length()));
@@ -517,35 +546,6 @@ public class SimplegtSyntaxColoringPreferencePage extends org.eclipse.jface.pref
 		return (HighlightingColorListItem) element;
 	}
 	
-	public SimplegtSyntaxColoringPreferencePage() {
-		super();
-		
-		be.ac.vub.simplegt.resource.simplegt.ISimplegtMetaInformation syntaxPlugin = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation();
-		
-		String languageId = syntaxPlugin.getSyntaxName();
-		
-		java.util.List<HighlightingColorListItem> terminals = new java.util.ArrayList<HighlightingColorListItem>();
-		String[] tokenNames = syntaxPlugin.getTokenNames();
-		
-		for (int i = 0; i < tokenNames.length; i++) {
-			if (!tokenHelper.canBeUsedForSyntaxColoring(i)) {
-				continue;
-			}
-			
-			String tokenName = tokenHelper.getTokenName(tokenNames, i);
-			if (tokenName == null) {
-				continue;
-			}
-			HighlightingColorListItem item = new HighlightingColorListItem(languageId, tokenName);
-			terminals.add(item);
-		}
-		java.util.Collections.sort(terminals);
-		content.put(languageId, terminals);
-		
-		setPreferenceStore(be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIPlugin.getDefault().getPreferenceStore());
-		setDescription("Configure syntax coloring for ." + languageId + " files.");
-	}
-	
 	public void init(org.eclipse.ui.IWorkbench workbench) {
 	}
 	
@@ -609,10 +609,11 @@ public class SimplegtSyntaxColoringPreferencePage extends org.eclipse.jface.pref
 	
 	private void updateActiveEditor() {
 		org.eclipse.ui.IWorkbench workbench = org.eclipse.ui.PlatformUI.getWorkbench();
-		org.eclipse.ui.IEditorPart editor = workbench.getActiveWorkbenchWindow()		.getActivePage().getActiveEditor();
+		org.eclipse.ui.IEditorPart editor = workbench.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		if (editor != null && editor instanceof be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor) {
 			be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor emfTextEditor = (be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor) editor;
 			emfTextEditor.invalidateTextRepresentation();
 		}
 	}
+	
 }

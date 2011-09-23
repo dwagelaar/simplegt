@@ -9,7 +9,7 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
 /**
  * The BracketHandler is responsible for handling the input of brackets. It
  * automatically adds closing brackets, if the opening counterpart is entered in
- * editors. It does alos ignore the input of closing brackets, if these were
+ * editors. It does also ignore the input of closing brackets, if these were
  * automatically inserted right before.
  */
 public interface ISimplegtBracketHandler {

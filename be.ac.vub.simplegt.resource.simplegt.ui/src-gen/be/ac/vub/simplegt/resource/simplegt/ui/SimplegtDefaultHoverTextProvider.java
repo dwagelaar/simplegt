@@ -8,6 +8,10 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
 
 public class SimplegtDefaultHoverTextProvider implements be.ac.vub.simplegt.resource.simplegt.ISimplegtHoverTextProvider {
 	
+	public String getHoverText(org.eclipse.emf.ecore.EObject container, org.eclipse.emf.ecore.EObject referencedObject) {
+		return getHoverText(referencedObject);
+	}
+	
 	public String getHoverText(org.eclipse.emf.ecore.EObject object) {
 		if (object == null) {
 			return null;

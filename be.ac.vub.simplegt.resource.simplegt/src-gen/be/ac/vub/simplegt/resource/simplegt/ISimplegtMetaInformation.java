@@ -58,7 +58,7 @@ public interface ISimplegtMetaInformation {
 	 * 
 	 * @return a new instance of the printer class
 	 */
-	public be.ac.vub.simplegt.resource.simplegt.ISimplegtTextPrinter createPrinter(java.io.OutputStream ouputStream, be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource resource);
+	public be.ac.vub.simplegt.resource.simplegt.ISimplegtTextPrinter createPrinter(java.io.OutputStream outputStream, be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource resource);
 	
 	/**
 	 * Returns all meta classes for which syntax was defined. This information is used

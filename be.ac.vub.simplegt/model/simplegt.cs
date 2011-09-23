@@ -9,6 +9,10 @@ OPTIONS {
 	overrideBuilder = "false";
 	overrideBuilderAdapter = "false";
 	overrideManifest = "false";
+	disableLaunchSupport = "true";
+	overrideLineBreakpoint = "false";
+	overrideLineBreakpointAdapter = "false";
+	overrideUIManifest = "false";
 }
 
 TOKENS {

@@ -16,12 +16,12 @@ public interface ISimplegtOptions {
 	/**
 	 * The key for the option to provide a stream pre-processor.
 	 */
-	public String INPUT_STREAM_PREPROCESSOR_PROVIDER = "INPUT_STREAM_PREPROCESSOR_PROVIDER";
+	public String INPUT_STREAM_PREPROCESSOR_PROVIDER = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation().getInputStreamPreprocessorProviderOptionKey();
 	
 	/**
 	 * The key for the option to provide a resource post-processor.
 	 */
-	public String RESOURCE_POSTPROCESSOR_PROVIDER = "RESOURCE_POSTPROCESSOR_PROVIDER";
+	public String RESOURCE_POSTPROCESSOR_PROVIDER = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation().getResourcePostProcessorProviderOptionKey();
 	
 	/**
 	 * The key for the option to specify an expected content type in text resources

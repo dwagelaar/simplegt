@@ -11,9 +11,10 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
  */
 public class SimplegtHighlighting implements org.eclipse.jface.viewers.ISelectionProvider, org.eclipse.jface.viewers.ISelectionChangedListener {
 	
+	private final static be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPositionHelper positionHelper = new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPositionHelper();
+	
 	private java.util.List<org.eclipse.jface.viewers.ISelectionChangedListener> selectionChangedListeners = new java.util.ArrayList<org.eclipse.jface.viewers.ISelectionChangedListener>();
 	private org.eclipse.jface.viewers.ISelection selection = null;
-	private final static be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPositionHelper positionHelper = new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPositionHelper();
 	private boolean isHighlightBrackets = true;
 	private be.ac.vub.simplegt.resource.simplegt.ui.SimplegtTokenScanner scanner;
 	private be.ac.vub.simplegt.resource.simplegt.ui.SimplegtColorManager colorManager;
@@ -21,6 +22,7 @@ public class SimplegtHighlighting implements org.eclipse.jface.viewers.ISelectio
 	private org.eclipse.swt.graphics.Color black;
 	private org.eclipse.swt.custom.StyledText textWidget;
 	private org.eclipse.jface.preference.IPreferenceStore preferenceStore;
+	private be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor editor;
 	private org.eclipse.jface.text.source.projection.ProjectionViewer projectionViewer;
 	private be.ac.vub.simplegt.resource.simplegt.ui.SimplegtOccurrence occurrence;
 	private be.ac.vub.simplegt.resource.simplegt.ui.SimplegtBracketSet bracketSet;
@@ -49,6 +51,9 @@ public class SimplegtHighlighting implements org.eclipse.jface.viewers.ISelectio
 		}
 		
 		private void refreshHighlighting() {
+			if (textWidget.isDisposed()) {
+				return;
+			}
 			int textCaret = textWidget.getCaretOffset();
 			if (textCaret < 0 || textCaret > textWidget.getCharCount()) {
 				return;
@@ -105,6 +110,7 @@ public class SimplegtHighlighting implements org.eclipse.jface.viewers.ISelectio
 		this.display = org.eclipse.swt.widgets.Display.getCurrent();
 		sourceviewer.getSelectionProvider();
 		preferenceStore = be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIPlugin.getDefault().getPreferenceStore();
+		this.editor = editor;
 		textWidget = sourceviewer.getTextWidget();
 		projectionViewer = sourceviewer;
 		scanner = new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtTokenScanner(textResource, colorManager);
@@ -250,19 +256,7 @@ public class SimplegtHighlighting implements org.eclipse.jface.viewers.ISelectio
 	
 	private void handleContentOutlineSelection(org.eclipse.jface.viewers.ISelection selection) {
 		if (!selection.isEmpty()) {
-			Object selectedElement = ((org.eclipse.jface.viewers.IStructuredSelection) selection).getFirstElement();
-			if (selectedElement instanceof org.eclipse.emf.ecore.EObject) {
-				org.eclipse.emf.ecore.EObject selectedEObject = (org.eclipse.emf.ecore.EObject) selectedElement;
-				org.eclipse.emf.ecore.resource.Resource resource = selectedEObject.eResource();
-				if (resource instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource) {
-					be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource textResource = (be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource) resource;
-					be.ac.vub.simplegt.resource.simplegt.ISimplegtLocationMap locationMap = textResource.getLocationMap();
-					int elementCharStart = locationMap.getCharStart(selectedEObject);
-					int elementCharEnd = locationMap.getCharEnd(selectedEObject);
-					org.eclipse.jface.text.TextSelection textEditorSelection = new org.eclipse.jface.text.TextSelection(elementCharStart, elementCharEnd - elementCharStart + 1);
-					projectionViewer.getSelectionProvider().setSelection(textEditorSelection);
-				}
-			}
+			editor.setSelection(selection);
 		}
 	}
 	

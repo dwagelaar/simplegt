@@ -7,27 +7,31 @@
 package be.ac.vub.simplegt.resource.simplegt.util;
 
 /**
- * Class TextResourceUtil can be used to perform common tasks on text resources,
- * such as loading and saving resources, as well as, checking them for errors.
+ * Class SimplegtTextResourceUtil can be used to perform common tasks on text
+ * resources, such as loading and saving resources, as well as, checking them for
+ * errors. This class is deprecated and has been replaced by
+ * be.ac.vub.simplegt.resource.simplegt.util.SimplegtResourceUtil.
  */
 public class SimplegtTextResourceUtil {
 	
+	@Deprecated	
 	public static be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource getResource(org.eclipse.core.resources.IFile file) {
-		org.eclipse.emf.ecore.resource.ResourceSet rs = new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl();
-		org.eclipse.emf.ecore.resource.Resource csResource = rs.getResource(org.eclipse.emf.common.util.URI.createPlatformResourceURI(file.getFullPath().toString(),true), true);
-		return (be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource) csResource;
+		return be.ac.vub.simplegt.resource.simplegt.util.SimplegtResourceUtil.getResource(file);
 	}
 	
-	public static be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource getResource(java.io.File file) {
-		return getResource(file, null);
-	}
-	
+	@Deprecated	
 	public static be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource getResource(java.io.File file, java.util.Map<?,?> options) {
-		org.eclipse.emf.ecore.resource.ResourceSet rs = new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl();
-		if (options != null) {
-			rs.getLoadOptions().putAll(options);
-		}
-		org.eclipse.emf.ecore.resource.Resource csResource = rs.getResource(org.eclipse.emf.common.util.URI.createFileURI(file.getAbsolutePath()), true);
-		return (be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource) csResource;
+		return be.ac.vub.simplegt.resource.simplegt.util.SimplegtResourceUtil.getResource(file, options);
 	}
+	
+	@Deprecated	
+	public static be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource getResource(org.eclipse.emf.common.util.URI uri) {
+		return be.ac.vub.simplegt.resource.simplegt.util.SimplegtResourceUtil.getResource(uri);
+	}
+	
+	@Deprecated	
+	public static be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource getResource(org.eclipse.emf.common.util.URI uri, java.util.Map<?,?> options) {
+		return be.ac.vub.simplegt.resource.simplegt.util.SimplegtResourceUtil.getResource(uri, options);
+	}
+	
 }
