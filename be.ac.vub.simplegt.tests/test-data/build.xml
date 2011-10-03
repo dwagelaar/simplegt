@@ -20,8 +20,8 @@
 	</target>
 
 	<target name="saveModels-xmi" depends="copy-xmi">
-		<emftvm.saveModel name="Test-XMI" derived="true"/>
-		<emftvm.saveModel name="InlineCodeblocks-XMI" derived="true"/>
+		<emftvm.saveModel name="Test-XMI" derived="false"/>
+		<emftvm.saveModel name="InlineCodeblocks-XMI" derived="false"/>
 	</target>
 
 </project>
