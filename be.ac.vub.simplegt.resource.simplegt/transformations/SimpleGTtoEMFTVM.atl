@@ -373,7 +373,8 @@ rule RuleWithMatcher extends Rule {
 		startColumn <- s.input.column,
 		startChar <- s.input.charStart,
 		endChar <- s.input.charEnd,
-	   	instructions <- Sequence{invokeCb}),
+	   	instructions <- rps->collect(b|thisModule.resolveTemp(b, 'and_'))
+			->prepend(invokeCb)),
 	   invokeCb : EMFTVM!InvokeCb  (codeBlock <- fp)					-- [bool]
 }
 
