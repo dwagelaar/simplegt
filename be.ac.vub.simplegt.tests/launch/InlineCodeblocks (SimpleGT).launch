@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.emftvm.launcher.EMFTVMTransformation">
+<stringAttribute key="ATL File Name" value="//be.ac.vub.simplegt.tests/test-data/InlineCodeblocks.atl"/>
+<booleanAttribute key="Display Timing Data" value="true"/>
+<mapAttribute key="Inout Model Options">
+<mapEntry key="M" value="derivedFile"/>
+</mapAttribute>
+<mapAttribute key="Inout Models">
+<mapEntry key="M" value="platform:/resource/be.ac.vub.simplegt.tests/inline-codeblocks/InlineCodeblocks-noinline.emftvm"/>
+</mapAttribute>
+<mapAttribute key="Inout Models Output Locations">
+<mapEntry key="M" value="platform:/resource/be.ac.vub.simplegt.tests/inline-codeblocks/InlineCodeblocks.emftvm"/>
+</mapAttribute>
+<mapAttribute key="Input Model Options"/>
+<mapAttribute key="Input Models"/>
+<mapAttribute key="Metamodel Options"/>
+<mapAttribute key="Metamodels">
+<mapEntry key="EMFTVM" value="http://www.eclipse.org/m2m/atl/2011/EMFTVM"/>
+</mapAttribute>
+<stringAttribute key="Module Name" value="InlineCodeblocks"/>
+<stringAttribute key="Module Path" value="/be.ac.vub.simplegt.tests/test-data/"/>
+<mapAttribute key="Output Model Options"/>
+<mapAttribute key="Output Models"/>
+<listAttribute key="Superimpose"/>
+</launchConfiguration>

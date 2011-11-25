@@ -8,12 +8,14 @@ transform M : EMFTVM;
 -- Inline INVOKE_CB stage
 -- ======================================================================
 
-abstract rule LocalVariable {
-	from lv : EMFTVM!LocalVariable
-	to lv : EMFTVM!LocalVariable
+rule LocalVariableInstructionWithoutSlot {
+	from lv : EMFTVM!LocalVariable,
+		lvi : EMFTVM!LocalVariableInstruction (localVariable =~ lv, slot =~ -1)
+	to lv : EMFTVM!LocalVariable,
+		lvi : EMFTVM!LocalVariableInstruction (localVariable =~ lv)
 }
 
-rule RetargetInvokeCbLocalVariableStart extends LocalVariable {
+rule RetargetInvokeCbLocalVariableStart {
 	from lv : EMFTVM!LocalVariable (startInstruction =~ invokeCb),
 		invokeCb : EMFTVM!InvokeCb (codeBlock =~ nestedCb),
 		nestedCb : EMFTVM!CodeBlock (code =~ first),
@@ -24,7 +26,7 @@ rule RetargetInvokeCbLocalVariableStart extends LocalVariable {
 		first : EMFTVM!Instruction
 }
 
-rule RetargetInvokeCbLocalVariableEnd extends LocalVariable {
+rule RetargetInvokeCbLocalVariableEnd {
 	from lv : EMFTVM!LocalVariable (endInstruction =~ invokeCb),
 		invokeCb : EMFTVM!InvokeCb (codeBlock =~ nestedCb),
 		nestedCb : EMFTVM!CodeBlock (code =~| last),
@@ -43,26 +45,23 @@ abstract rule InvokeCb {
 }
 
 rule InvokeCb_InlineLocals extends InvokeCb {
-	from cb : EMFTVM!CodeBlock (code =~ invokeCb),
+	from cb : EMFTVM!CodeBlock,
 		invokeCb : EMFTVM!InvokeCb (codeBlock =~ nestedCb),
 		nestedCb : EMFTVM!CodeBlock (localVariables =~ lv),
 		lv : EMFTVM!LocalVariable (slot =~ lv.slot)
-	to cb : EMFTVM!CodeBlock (
-		code =~ invokeCb,
-		localVariables =~ lv),
+	to cb : EMFTVM!CodeBlock (localVariables =~ lv),
 	   invokeCb : EMFTVM!InvokeCb (codeBlock =~ nestedCb),
 	   nestedCb : EMFTVM!CodeBlock,
 	   lv : EMFTVM!LocalVariable
 }
 
 rule InvokeCb_Inline extends InvokeCb {
-	from cb : EMFTVM!CodeBlock (code =~ invokeCb),
+	from cb : EMFTVM!CodeBlock,
 		invokeCb : EMFTVM!InvokeCb (codeBlock =~ nestedCb),
 		nestedCb : EMFTVM!CodeBlock
 	not nestedCb : EMFTVM!CodeBlock (localVariables =~ lv),
 		lv : EMFTVM!LocalVariable
 	to cb : EMFTVM!CodeBlock (
-		code =~ invokeCb,
 		code =~ nestedCb.code before invokeCb,
 		lineNumbers =~ nestedCb.lineNumbers,
 		nested =~ nestedCb.nested before nestedCb),
@@ -71,7 +70,6 @@ rule InvokeCb_Inline extends InvokeCb {
 
 rule InvokeCb_ResetMax extends InvokeCb {
 	from cb : EMFTVM!CodeBlock (
-			code =~ invokeCb,
 			maxLocals =~ cb.maxLocals,
 			maxStack =~ cb.maxStack),
 		invokeCb : EMFTVM!InvokeCb
@@ -89,74 +87,67 @@ rule EmptyLineNumber {
 -- Inline INVOKE_ALL_CBS stage
 -- ======================================================================
 
-rule RetargetInvokeAllCbsLocalVariableStart extends LocalVariable {
-	from lv : EMFTVM!LocalVariable (startInstruction =~ invokeAllCbs),
-		invokeAllCbs : EMFTVM!InvokeAllCbs (owningBlock =~ cb),
-		cb : EMFTVM!CodeBlock (nested =~ nestedCb),
-		nestedCb : EMFTVM!CodeBlock (code =~ first),
-		first : EMFTVM!Instruction
-	to lv : EMFTVM!LocalVariable (startInstruction =~ first),
-		invokeAllCbs : EMFTVM!InvokeAllCbs (owningBlock =~ cb),
-		cb : EMFTVM!CodeBlock (nested =~ nestedCb),
-		nestedCb : EMFTVM!CodeBlock (code =~ first),
-		first : EMFTVM!Instruction
-}
-
-rule RetargetInvokeAllCbsLocalVariableEnd extends LocalVariable {
-	from lv : EMFTVM!LocalVariable (endInstruction =~ invokeAllCbs),
-		invokeAllCbs : EMFTVM!InvokeAllCbs (owningBlock =~ cb),
-		cb : EMFTVM!CodeBlock (nested =~| nestedCb),
-		nestedCb : EMFTVM!CodeBlock (code =~| last),
-		last : EMFTVM!Instruction
-	to lv : EMFTVM!LocalVariable (endInstruction =~ last),
-		invokeAllCbs : EMFTVM!InvokeAllCbs (owningBlock =~ cb),
-		cb : EMFTVM!CodeBlock (nested =~ nestedCb),
-		nestedCb : EMFTVM!CodeBlock (code =~ last),
-		last : EMFTVM!Instruction
-}
-
 abstract rule InvokeAllCbs {
 	from cb : EMFTVM!CodeBlock (code =~ invokeAllCbs),
 		invokeAllCbs : EMFTVM!InvokeAllCbs
 	to cb : EMFTVM!CodeBlock (code =~ invokeAllCbs),
-     invokeAllCbs : EMFTVM!InvokeAllCbs
+		invokeAllCbs : EMFTVM!InvokeAllCbs
+}
+
+rule RetargetInvokeAllCbsLocalVariableStart extends InvokeAllCbs {
+	from cb : EMFTVM!CodeBlock (nested =~ nestedCb),
+		invokeAllCbs : EMFTVM!InvokeAllCbs,
+		lv : EMFTVM!LocalVariable (startInstruction =~ invokeAllCbs),
+		nestedCb : EMFTVM!CodeBlock (code =~ first),
+		first : EMFTVM!Instruction
+	to cb : EMFTVM!CodeBlock (nested =~ nestedCb),
+		invokeAllCbs : EMFTVM!InvokeAllCbs,
+		lv : EMFTVM!LocalVariable (startInstruction =~ first),
+		nestedCb : EMFTVM!CodeBlock (code =~ first),
+		first : EMFTVM!Instruction
+}
+
+rule RetargetInvokeAllCbsLocalVariableEnd extends InvokeAllCbs {
+	from cb : EMFTVM!CodeBlock (nested =~| nestedCb),
+		invokeAllCbs : EMFTVM!InvokeAllCbs,
+		lv : EMFTVM!LocalVariable (endInstruction =~ invokeAllCbs),
+		nestedCb : EMFTVM!CodeBlock (code =~| last),
+		last : EMFTVM!Instruction
+	to cb : EMFTVM!CodeBlock (nested =~ nestedCb),
+		invokeAllCbs : EMFTVM!InvokeAllCbs,
+		lv : EMFTVM!LocalVariable (endInstruction =~ last),
+		nestedCb : EMFTVM!CodeBlock (code =~ last),
+		last : EMFTVM!Instruction
 }
 
 rule InvokeAllCbs_inline_locals extends InvokeAllCbs {
-	from cb : EMFTVM!CodeBlock (
-			code =~ invokeAllCbs,
-			nested =~ nestedCb),
+	from cb : EMFTVM!CodeBlock (nested =~ nestedCb),
 		invokeAllCbs : EMFTVM!InvokeAllCbs,
 		nestedCb : EMFTVM!CodeBlock (localVariables =~ lv),
 		lv : EMFTVM!LocalVariable (slot =~ lv.slot)
 	to cb : EMFTVM!CodeBlock (
-		code =~ invokeAllCbs,
-		nested =~ nestedCb,
-		localVariables =~ lv),
-       invokeAllCbs : EMFTVM!InvokeAllCbs,
-       nestedCb : EMFTVM!CodeBlock,
-	   lv : EMFTVM!LocalVariable
+			nested =~ nestedCb,
+			localVariables =~ lv),
+		invokeAllCbs : EMFTVM!InvokeAllCbs,
+		nestedCb : EMFTVM!CodeBlock,
+		lv : EMFTVM!LocalVariable
 }
 
 rule InvokeAllCbs_inline extends InvokeAllCbs {
-	from cb : EMFTVM!CodeBlock (
-			code =~ invokeAllCbs,
-			nested =~ nestedCb),
+	from cb : EMFTVM!CodeBlock (nested =~ nestedCb),
 		invokeAllCbs : EMFTVM!InvokeAllCbs,
 		nestedCb : EMFTVM!CodeBlock
 	not nestedCb : EMFTVM!CodeBlock (localVariables =~ lv),
-		lv : EMFTVM!LocalVariable (slot =~ lv.slot)
+		lv : EMFTVM!LocalVariable
 	to cb : EMFTVM!CodeBlock (
-		code =~ invokeAllCbs,
-		code =~ nestedCb.code before invokeAllCbs,
-		lineNumbers =~ nestedCb.lineNumbers,
-		nested =~ nestedCb.nested before nestedCb),
-     invokeAllCbs : EMFTVM!InvokeAllCbs
+			code =~ nestedCb.code before invokeAllCbs,
+			lineNumbers =~ nestedCb.lineNumbers,
+			nested =~ nestedCb.nested before nestedCb),
+		invokeAllCbs : EMFTVM!InvokeAllCbs
 }
 
 rule InvokeAllCbs_maxreset extends InvokeAllCbs {
 	from cb : EMFTVM!CodeBlock (
-			code =~ invokeAllCbs,
 			maxStack =~ cb.maxStack,
 			maxLocals =~ cb.maxLocals),
 		invokeAllCbs : EMFTVM!InvokeAllCbs
@@ -166,12 +157,12 @@ rule InvokeAllCbs_maxreset extends InvokeAllCbs {
 }
 
 abstract rule EmptyCodeBlock {
-	from cb : EMFTVM!CodeBlock (applierFor =~ r),
-		r : EMFTVM!Rule
+	from r : EMFTVM!Rule (applier =~ cb), 
+		cb : EMFTVM!CodeBlock
 	not cb : EMFTVM!CodeBlock (code =~ instr),
 		instr : EMFTVM!Instruction
-	to cb : EMFTVM!CodeBlock (applierFor =~ r),
-		r : EMFTVM!Rule
+	to r : EMFTVM!Rule (applier =~ cb), 
+		cb : EMFTVM!CodeBlock
 }
 
 rule EmptyCodeBlockWithLocals extends EmptyCodeBlock {
