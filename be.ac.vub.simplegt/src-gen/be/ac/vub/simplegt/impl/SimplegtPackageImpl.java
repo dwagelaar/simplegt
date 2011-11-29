@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import be.ac.vub.simplegt.Binding;
 import be.ac.vub.simplegt.BooleanLiteralExp;
-import be.ac.vub.simplegt.CharLiteralExp;
 import be.ac.vub.simplegt.DoubleLiteralExp;
 import be.ac.vub.simplegt.ElementExp;
 import be.ac.vub.simplegt.EnumLiteralExp;
@@ -202,13 +201,6 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * @generated
 	 */
 	private EClass doubleLiteralExpEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass charLiteralExpEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -869,24 +861,6 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCharLiteralExp() {
-		return charLiteralExpEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCharLiteralExp_Literal() {
-		return (EAttribute)charLiteralExpEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBooleanLiteralExp() {
 		return booleanLiteralExpEClass;
 	}
@@ -1075,9 +1049,6 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		doubleLiteralExpEClass = createEClass(DOUBLE_LITERAL_EXP);
 		createEAttribute(doubleLiteralExpEClass, DOUBLE_LITERAL_EXP__LITERAL);
 
-		charLiteralExpEClass = createEClass(CHAR_LITERAL_EXP);
-		createEAttribute(charLiteralExpEClass, CHAR_LITERAL_EXP__LITERAL);
-
 		booleanLiteralExpEClass = createEClass(BOOLEAN_LITERAL_EXP);
 		createEAttribute(booleanLiteralExpEClass, BOOLEAN_LITERAL_EXP__LITERAL);
 
@@ -1142,7 +1113,6 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		stringLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
 		integerLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
 		doubleLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
-		charLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
 		booleanLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
 		enumLiteralExpEClass.getESuperTypes().add(this.getLiteralExp());
 		modelEClass.getESuperTypes().add(this.getNamedElement());
@@ -1233,9 +1203,6 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 
 		initEClass(doubleLiteralExpEClass, DoubleLiteralExp.class, "DoubleLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDoubleLiteralExp_Literal(), ecorePackage.getEDouble(), "literal", null, 1, 1, DoubleLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(charLiteralExpEClass, CharLiteralExp.class, "CharLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCharLiteralExp_Literal(), ecorePackage.getEChar(), "literal", null, 1, 1, CharLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanLiteralExpEClass, BooleanLiteralExp.class, "BooleanLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanLiteralExp_Literal(), ecorePackage.getEBoolean(), "literal", null, 1, 1, BooleanLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

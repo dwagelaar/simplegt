@@ -1800,79 +1800,6 @@ public interface SimplegtPackage extends EPackage {
 	int DOUBLE_LITERAL_EXP_FEATURE_COUNT = LITERAL_EXP_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link be.ac.vub.simplegt.impl.CharLiteralExpImpl <em>Char Literal Exp</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.ac.vub.simplegt.impl.CharLiteralExpImpl
-	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getCharLiteralExp()
-	 * @generated
-	 */
-	int CHAR_LITERAL_EXP = 22;
-
-	/**
-	 * The feature id for the '<em><b>Line</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_LITERAL_EXP__LINE = LITERAL_EXP__LINE;
-
-	/**
-	 * The feature id for the '<em><b>Column</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_LITERAL_EXP__COLUMN = LITERAL_EXP__COLUMN;
-
-	/**
-	 * The feature id for the '<em><b>Char Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_LITERAL_EXP__CHAR_START = LITERAL_EXP__CHAR_START;
-
-	/**
-	 * The feature id for the '<em><b>Char End</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_LITERAL_EXP__CHAR_END = LITERAL_EXP__CHAR_END;
-
-	/**
-	 * The feature id for the '<em><b>Binding</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_LITERAL_EXP__BINDING = LITERAL_EXP__BINDING;
-
-	/**
-	 * The feature id for the '<em><b>Literal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_LITERAL_EXP__LITERAL = LITERAL_EXP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Char Literal Exp</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_LITERAL_EXP_FEATURE_COUNT = LITERAL_EXP_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link be.ac.vub.simplegt.impl.BooleanLiteralExpImpl <em>Boolean Literal Exp</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1880,7 +1807,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getBooleanLiteralExp()
 	 * @generated
 	 */
-	int BOOLEAN_LITERAL_EXP = 23;
+	int BOOLEAN_LITERAL_EXP = 22;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -1953,7 +1880,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getEnumLiteralExp()
 	 * @generated
 	 */
-	int ENUM_LITERAL_EXP = 24;
+	int ENUM_LITERAL_EXP = 23;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2026,7 +1953,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getModel()
 	 * @generated
 	 */
-	int MODEL = 25;
+	int MODEL = 24;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2090,7 +2017,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getMetamodel()
 	 * @generated
 	 */
-	int METAMODEL = 26;
+	int METAMODEL = 25;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2154,7 +2081,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getInstanceModel()
 	 * @generated
 	 */
-	int INSTANCE_MODEL = 27;
+	int INSTANCE_MODEL = 26;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -2890,27 +2817,6 @@ public interface SimplegtPackage extends EPackage {
 	EAttribute getDoubleLiteralExp_Literal();
 
 	/**
-	 * Returns the meta object for class '{@link be.ac.vub.simplegt.CharLiteralExp <em>Char Literal Exp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Char Literal Exp</em>'.
-	 * @see be.ac.vub.simplegt.CharLiteralExp
-	 * @generated
-	 */
-	EClass getCharLiteralExp();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.ac.vub.simplegt.CharLiteralExp#getLiteral <em>Literal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Literal</em>'.
-	 * @see be.ac.vub.simplegt.CharLiteralExp#getLiteral()
-	 * @see #getCharLiteralExp()
-	 * @generated
-	 */
-	EAttribute getCharLiteralExp_Literal();
-
-	/**
 	 * Returns the meta object for class '{@link be.ac.vub.simplegt.BooleanLiteralExp <em>Boolean Literal Exp</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3565,24 +3471,6 @@ public interface SimplegtPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOUBLE_LITERAL_EXP__LITERAL = eINSTANCE.getDoubleLiteralExp_Literal();
-
-		/**
-		 * The meta object literal for the '{@link be.ac.vub.simplegt.impl.CharLiteralExpImpl <em>Char Literal Exp</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.ac.vub.simplegt.impl.CharLiteralExpImpl
-		 * @see be.ac.vub.simplegt.impl.SimplegtPackageImpl#getCharLiteralExp()
-		 * @generated
-		 */
-		EClass CHAR_LITERAL_EXP = eINSTANCE.getCharLiteralExp();
-
-		/**
-		 * The meta object literal for the '<em><b>Literal</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHAR_LITERAL_EXP__LITERAL = eINSTANCE.getCharLiteralExp_Literal();
 
 		/**
 		 * The meta object literal for the '{@link be.ac.vub.simplegt.impl.BooleanLiteralExpImpl <em>Boolean Literal Exp</em>}' class.

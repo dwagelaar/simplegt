@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import be.ac.vub.simplegt.Binding;
 import be.ac.vub.simplegt.BooleanLiteralExp;
-import be.ac.vub.simplegt.CharLiteralExp;
 import be.ac.vub.simplegt.DoubleLiteralExp;
 import be.ac.vub.simplegt.ElementExp;
 import be.ac.vub.simplegt.EnumLiteralExp;
@@ -183,10 +182,6 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDoubleLiteralExp(DoubleLiteralExp object) {
 				return createDoubleLiteralExpAdapter();
-			}
-			@Override
-			public Adapter caseCharLiteralExp(CharLiteralExp object) {
-				return createCharLiteralExpAdapter();
 			}
 			@Override
 			public Adapter caseBooleanLiteralExp(BooleanLiteralExp object) {
@@ -533,20 +528,6 @@ public class SimplegtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDoubleLiteralExpAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.ac.vub.simplegt.CharLiteralExp <em>Char Literal Exp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.ac.vub.simplegt.CharLiteralExp
-	 * @generated
-	 */
-	public Adapter createCharLiteralExpAdapter() {
 		return null;
 	}
 

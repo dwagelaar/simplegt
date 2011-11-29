@@ -1,475 +1,1611 @@
 <?xml version="1.0" encoding="ASCII"?>
-<trace:TraceLinkSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http://soft.vub.ac.be/emftvm/2011/Trace">
-  <rules rule="Invoke_cb">
+<trace:TraceLinkSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http://www.eclipse.org/m2m/atl/emftvm/2011/Trace">
+  <rules rule="RetargetInvokeCbLocalVariableStart">
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@code.0"/>
+      </sourceElements>
+    </links>
+  </rules>
+  <rules rule="RetargetInvokeCbLocalVariableEnd">
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@code.3"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher/@code.3"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@code.4"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@code.4"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@code.4"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher/@code.4"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@code.21"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@code.21"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@code.21"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher/@code.13"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@code.4"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@code.4"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@code.4"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher/@code.4"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@code.21"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@code.21"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@code.21"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@code.21"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last"/>
+    </links>
+    <links>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@code.21"/>
+      </sourceElements>
+    </links>
+  </rules>
+  <rules rule="InvokeCb_InlineLocals">
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@nested.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@nested.1/@localVariables.0"/>
+      </sourceElements>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher/@localVariables.1"/>
+      </sourceElements>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@nested.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@nested.1/@localVariables.0"/>
+      </sourceElements>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.2"/>
+      </sourceElements>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
-      <sourceElements name="nestedCb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_cb"/>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher/@localVariables.2"/>
+      </sourceElements>
       <sourceElements name="nestedCb"/>
     </links>
   </rules>
-  <rules rule="Invoke_all_cbs_nested">
+  <rules rule="InvokeCb_Inline">
     <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@nested.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@nested.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+      <sourceElements name="nestedCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
       <sourceElements name="nestedCb"/>
     </links>
   </rules>
-  <rules rule="Invoke_all_cbs_no_nested">
+  <rules rule="InvokeCb_ResetMax">
     <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="invoke_all_cbs"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@matcher/@nested.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@nested.0"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@matcher/@nested.1"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14/@matcher"/>
+      </sourceElements>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeCb"/>
     </links>
   </rules>
   <rules rule="EmptyLineNumber">
@@ -575,489 +1711,1993 @@
     <links>
       <sourceElements name="ln"/>
     </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
-    </links>
-    <links>
-      <sourceElements name="ln"/>
+  </rules>
+  <rules rule="RetargetInvokeAllCbsLocalVariableStart">
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.5"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.5"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+      <sourceElements name="first">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier/@code.0"/>
+      </sourceElements>
+    </links>
+  </rules>
+  <rules rule="RetargetInvokeAllCbsLocalVariableEnd">
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@code.2"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@code.2"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@code.2"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@code.26"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@code.26"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@code.26"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@code.26"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier/@code.1"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier/@code.1"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier/@localVariables.5"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@code.5"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier/@localVariables.5"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier/@localVariables.4"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@code.26"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@code.26"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@code.26"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@code.26"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier/@localVariables.3"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@code.9"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@code.4"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@code.4"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@code.4"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@code.4"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@code.4"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@code.4"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier/@localVariables.2"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier/@code.1"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier/@localVariables.0"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier"/>
+      </sourceElements>
+      <sourceElements name="last">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier/@code.1"/>
+      </sourceElements>
+      <sourceElements name="lv">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier/@localVariables.1"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+  </rules>
+  <rules rule="InvokeAllCbs_inline">
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier"/>
+      </sourceElements>
+      <sourceElements name="nestedCb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+  </rules>
+  <rules rule="InvokeAllCbs_maxreset">
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.0/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.1/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.2/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.4/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.5/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.6/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.7/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.9/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.10/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.11/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.12/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.13/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb"/>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.15/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.16/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
+    </links>
+    <links>
+      <sourceElements name="cb">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.17/@applier"/>
+      </sourceElements>
+      <sourceElements name="invokeAllCbs"/>
     </links>
   </rules>
   <rules rule="EmptyCodeBlockWithLocals">
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.3"/>
+      </sourceElements>
       <sourceElements name="lv"/>
     </links>
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.3"/>
+      </sourceElements>
       <sourceElements name="lv"/>
     </links>
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.3"/>
+      </sourceElements>
       <sourceElements name="lv"/>
     </links>
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.8"/>
+      </sourceElements>
       <sourceElements name="lv"/>
     </links>
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.8"/>
+      </sourceElements>
       <sourceElements name="lv"/>
     </links>
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.8"/>
+      </sourceElements>
       <sourceElements name="lv"/>
     </links>
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14"/>
+      </sourceElements>
       <sourceElements name="lv"/>
     </links>
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14"/>
+      </sourceElements>
       <sourceElements name="lv"/>
     </links>
     <links>
       <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-      <sourceElements name="lv"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14"/>
+      </sourceElements>
       <sourceElements name="lv"/>
     </links>
   </rules>
   <rules rule="EmptyCodeBlockWithoutAnything">
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.3"/>
+      </sourceElements>
     </links>
     <links>
       <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.8"/>
+      </sourceElements>
     </links>
     <links>
       <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
-    </links>
-    <links>
-      <sourceElements name="cb"/>
+      <sourceElements name="r">
+        <object href="InlineCodeblocks-noinline.emftvm#//@rules.14"/>
+      </sourceElements>
     </links>
   </rules>
 </trace:TraceLinkSet>

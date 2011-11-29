@@ -16,6 +16,9 @@ OPTIONS {
 	overrideNewFileWizard = "false";
 	overrideNewFileWizardPage = "false";
 	overrideNewProjectWizard = "false";
+	overrideUIPluginXML = "false";
+	overrideProjectFile = "false";
+	overrideBuildProperties = "false";
 }
 
 TOKENS {
@@ -31,6 +34,12 @@ TOKENS {
 
 TOKENSTYLES {
 	"COMMENT" COLOR #53876D;
+	"INTEGER" COLOR #2A00FF;
+	"FLOAT" COLOR #2A00FF;
+	"abstract" COLOR #800040, BOLD;
+	"debug" COLOR #800040, BOLD;
+	"true" COLOR #00D0FF;
+	"false" COLOR #00D0FF;
 }
 
 RULES {
@@ -39,16 +48,15 @@ RULES {
 	Metamodel ::= name[];
 	@Foldable Rule ::= !0!0 abstract["abstract" : ""] "rule" name[] ("extends" extends[] ("," extends[])*)? "{" !1 input? nac* output? "}";
 	@Foldable InPattern ::= "from" elements ("," !1 elements)*;
-	Type ::= model[] "!" name[];
+	Type ::= model[] "!" (name[]|name['"', '"', '\\']);
 	InputElement ::= name[] ":" type ("in" inModel[])? ("(" !1 bindings ("," bindings)* ")")?;
 	InputBinding ::= property[] last["=~|" : "=~"] expr;
 	ElementExp ::= element[] ("." property[])?;
-	StringLiteralExp ::= "\"" literal[] "\"";
+	StringLiteralExp ::= literal['\'', '\'', '\\'];
 	IntegerLiteralExp ::= literal[INTEGER];
 	DoubleLiteralExp ::= literal[FLOAT];
-	CharLiteralExp ::= "'" literal[] "'";
 	BooleanLiteralExp ::= literal["true" : "false"];
-	EnumLiteralExp ::= "#" literal[];
+	EnumLiteralExp ::= "#" (literal[]|literal['"', '"', '\\']);
 	@Foldable NacPattern ::= "not" elements ("," !1 elements)*;
 	@Foldable OutPattern ::= "to" elements ("," !1 elements)*;
 	OutputElement ::= name[] ":" type ("in" inModel[])? ("(" !1 bindings ("," bindings)* ")")?;

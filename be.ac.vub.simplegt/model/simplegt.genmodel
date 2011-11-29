@@ -92,9 +92,6 @@
     <genClasses ecoreClass="simplegt.ecore#//DoubleLiteralExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//DoubleLiteralExp/literal"/>
     </genClasses>
-    <genClasses ecoreClass="simplegt.ecore#//CharLiteralExp">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//CharLiteralExp/literal"/>
-    </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//BooleanLiteralExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//BooleanLiteralExp/literal"/>
     </genClasses>

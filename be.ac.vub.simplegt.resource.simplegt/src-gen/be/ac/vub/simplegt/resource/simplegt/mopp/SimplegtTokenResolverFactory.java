@@ -26,6 +26,8 @@ public class SimplegtTokenResolverFactory implements be.ac.vub.simplegt.resource
 		registerTokenResolver("FLOAT", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtFLOATTokenResolver());
 		registerTokenResolver("INTEGER", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtINTEGERTokenResolver());
 		registerTokenResolver("TEXT", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtTEXTTokenResolver());
+		registerTokenResolver("QUOTED_34_34_92", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtQUOTED_34_34_92TokenResolver());
+		registerTokenResolver("QUOTED_39_39_92", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtQUOTED_39_39_92TokenResolver());
 	}
 	
 	public be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver createTokenResolver(String tokenName) {

@@ -124,10 +124,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CharLiteralExp" eSuperTypes="#//LiteralExp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanLiteralExp" eSuperTypes="#//LiteralExp">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

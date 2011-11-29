@@ -5,10 +5,9 @@
  */
 package be.ac.vub.simplegt.tests;
 
+import junit.textui.TestRunner;
 import be.ac.vub.simplegt.Module;
 import be.ac.vub.simplegt.SimplegtFactory;
-
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->

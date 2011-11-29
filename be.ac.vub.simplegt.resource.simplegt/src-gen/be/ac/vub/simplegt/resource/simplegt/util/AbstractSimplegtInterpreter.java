@@ -88,12 +88,6 @@ public class AbstractSimplegtInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof be.ac.vub.simplegt.CharLiteralExp) {
-			result = interprete_be_ac_vub_simplegt_CharLiteralExp((be.ac.vub.simplegt.CharLiteralExp) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof be.ac.vub.simplegt.DoubleLiteralExp) {
 			result = interprete_be_ac_vub_simplegt_DoubleLiteralExp((be.ac.vub.simplegt.DoubleLiteralExp) object, context);
 		}
@@ -314,10 +308,6 @@ public class AbstractSimplegtInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_be_ac_vub_simplegt_DoubleLiteralExp(be.ac.vub.simplegt.DoubleLiteralExp object, ContextType context) {
-		return null;
-	}
-	
-	public ResultType interprete_be_ac_vub_simplegt_CharLiteralExp(be.ac.vub.simplegt.CharLiteralExp object, ContextType context) {
 		return null;
 	}
 	

@@ -38,8 +38,8 @@ public class SimplegtBracketInformationProvider {
 		java.util.Collection<be.ac.vub.simplegt.resource.simplegt.ISimplegtBracketPair> result = new java.util.ArrayList<be.ac.vub.simplegt.resource.simplegt.ISimplegtBracketPair>();
 		result.add(new BracketPair("{", "}", true));
 		result.add(new BracketPair("(", ")", true));
-		result.add(new BracketPair("\"", "\"", true));
-		result.add(new BracketPair("'", "'", true));
+		result.add(new BracketPair("\"", "\"", false));
+		result.add(new BracketPair("'", "'", false));
 		return result;
 	}
 	

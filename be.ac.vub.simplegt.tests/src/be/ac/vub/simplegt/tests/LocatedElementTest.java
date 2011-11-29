@@ -5,9 +5,8 @@
  */
 package be.ac.vub.simplegt.tests;
 
-import be.ac.vub.simplegt.LocatedElement;
-
 import junit.framework.TestCase;
+import be.ac.vub.simplegt.LocatedElement;
 
 /**
  * <!-- begin-user-doc -->

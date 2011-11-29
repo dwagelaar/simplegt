@@ -12,6 +12,24 @@ public class SimplegtTokenStyleInformationProvider {
 		if ("COMMENT".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x53, 0x87, 0x6D}, null, false, false, false, false);
 		}
+		if ("INTEGER".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x2A, 0x00, 0xFF}, null, false, false, false, false);
+		}
+		if ("FLOAT".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x2A, 0x00, 0xFF}, null, false, false, false, false);
+		}
+		if ("abstract".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x40}, null, true, false, false, false);
+		}
+		if ("debug".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x40}, null, true, false, false, false);
+		}
+		if ("true".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x00, 0xD0, 0xFF}, null, false, false, false, false);
+		}
+		if ("false".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x00, 0xD0, 0xFF}, null, false, false, false, false);
+		}
 		if ("module".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
@@ -41,6 +59,12 @@ public class SimplegtTokenStyleInformationProvider {
 		}
 		if ("before".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
+		if ("QUOTED_34_34_92".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x2A, 0x00, 0xFF}, null, false, false, false, false);
+		}
+		if ("QUOTED_39_39_92".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x2A, 0x00, 0xFF}, null, false, false, false, false);
 		}
 		return null;
 	}

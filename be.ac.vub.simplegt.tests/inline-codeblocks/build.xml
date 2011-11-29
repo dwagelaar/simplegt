@@ -16,11 +16,18 @@
 			<inputmodel name="InlineCodeblocks" as="IN"/>
 			<outputmodel name="InlineCodeblocks-OUT" as="OUT" wspath="${ant.project.name}/InlineCodeblocks-noinline.emftvm"/>
 			<outputmodel name="InlineCodeblocks-problems" as="PBS" wspath="${ant.project.name}/InlineCodeblocks-problems.xmi"/>
+			<outputmodel name="InlineCodeblocks-OUT-trace" as="trace" wspath="${ant.project.name}/InlineCodeblocks-noinline.trace"/>
+		</emftvm.run>
+		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.resource.simplegt/transformations/" module="EMFTVMCopy">
+			<inputmodel name="InlineCodeblocks-OUT" as="IN"/>
+			<outputmodel name="InlineCodeblocks-OUT-XMI" as="OUT" wspath="${ant.project.name}/InlineCodeblocks-noinline.emftvm.xmi"/>
 		</emftvm.run>
 	</target>
 
 	<target name="saveCompiledModel" depends="compile">
 		<emftvm.saveModel name="InlineCodeblocks-OUT" derived="true"/>
+		<emftvm.saveModel name="InlineCodeblocks-OUT-trace" derived="true"/>
+		<emftvm.saveModel name="InlineCodeblocks-OUT-XMI" derived="true"/>
 	</target>
 
 	<target name="inline" depends="saveCompiledModel">

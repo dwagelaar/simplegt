@@ -22,7 +22,6 @@ public class SimplegtSyntaxCoverageInformationProvider {
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getStringLiteralExp(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getIntegerLiteralExp(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getDoubleLiteralExp(),
-			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getCharLiteralExp(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getBooleanLiteralExp(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getEnumLiteralExp(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getNacPattern(),

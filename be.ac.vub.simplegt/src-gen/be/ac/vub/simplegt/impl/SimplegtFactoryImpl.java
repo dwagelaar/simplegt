@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import be.ac.vub.simplegt.BooleanLiteralExp;
-import be.ac.vub.simplegt.CharLiteralExp;
 import be.ac.vub.simplegt.DoubleLiteralExp;
 import be.ac.vub.simplegt.ElementExp;
 import be.ac.vub.simplegt.EnumLiteralExp;
@@ -91,7 +90,6 @@ public class SimplegtFactoryImpl extends EFactoryImpl implements SimplegtFactory
 			case SimplegtPackage.STRING_LITERAL_EXP: return createStringLiteralExp();
 			case SimplegtPackage.INTEGER_LITERAL_EXP: return createIntegerLiteralExp();
 			case SimplegtPackage.DOUBLE_LITERAL_EXP: return createDoubleLiteralExp();
-			case SimplegtPackage.CHAR_LITERAL_EXP: return createCharLiteralExp();
 			case SimplegtPackage.BOOLEAN_LITERAL_EXP: return createBooleanLiteralExp();
 			case SimplegtPackage.ENUM_LITERAL_EXP: return createEnumLiteralExp();
 			case SimplegtPackage.METAMODEL: return createMetamodel();
@@ -239,16 +237,6 @@ public class SimplegtFactoryImpl extends EFactoryImpl implements SimplegtFactory
 	public DoubleLiteralExp createDoubleLiteralExp() {
 		DoubleLiteralExpImpl doubleLiteralExp = new DoubleLiteralExpImpl();
 		return doubleLiteralExp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CharLiteralExp createCharLiteralExp() {
-		CharLiteralExpImpl charLiteralExp = new CharLiteralExpImpl();
-		return charLiteralExp;
 	}
 
 	/**

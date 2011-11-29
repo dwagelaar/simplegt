@@ -7,7 +7,6 @@ package be.ac.vub.simplegt.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
 
 /**
@@ -48,7 +47,6 @@ public class SimplegtTests extends TestSuite {
 		suite.addTestSuite(StringLiteralExpTest.class);
 		suite.addTestSuite(IntegerLiteralExpTest.class);
 		suite.addTestSuite(DoubleLiteralExpTest.class);
-		suite.addTestSuite(CharLiteralExpTest.class);
 		suite.addTestSuite(BooleanLiteralExpTest.class);
 		suite.addTestSuite(EnumLiteralExpTest.class);
 		suite.addTestSuite(MetamodelTest.class);

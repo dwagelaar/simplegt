@@ -151,15 +151,6 @@ public interface SimplegtFactory extends EFactory {
 	DoubleLiteralExp createDoubleLiteralExp();
 
 	/**
-	 * Returns a new object of class '<em>Char Literal Exp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Char Literal Exp</em>'.
-	 * @generated
-	 */
-	CharLiteralExp createCharLiteralExp();
-
-	/**
 	 * Returns a new object of class '<em>Boolean Literal Exp</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
