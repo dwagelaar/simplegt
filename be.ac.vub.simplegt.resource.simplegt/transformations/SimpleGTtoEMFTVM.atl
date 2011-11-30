@@ -208,9 +208,6 @@ helper context SimpleGT!DoubleLiteralExp def : sameAs(other : SimpleGT!DoubleLit
 helper context SimpleGT!BooleanLiteralExp def : sameAs(other : SimpleGT!BooleanLiteralExp) : Boolean =
 	self.literal = other.literal;
 
-helper context SimpleGT!CharLiteralExp def : sameAs(other : SimpleGT!CharLiteralExp) : Boolean =
-	self.literal = other.literal;
-
 helper context SimpleGT!EnumLiteralExp def : sameAs(other : SimpleGT!EnumLiteralExp) : Boolean =
 	self.literal = other.literal;
 
@@ -337,8 +334,7 @@ rule Rule {
 
 rule RuleWithDebug extends Rule {
 	from s : SimpleGT!Rule in IN (
-		s."module".debug and
-		s.matcherPatterns->isEmpty())
+		s."module".debug)
 	to t : EMFTVM!Rule,
 	   a : EMFTVM!CodeBlock (
 	   	code <- Sequence{a_invokeAllCbs, a_push, a_load, a_invoke, a_pop}),
@@ -378,20 +374,10 @@ rule RuleWithMatcher extends Rule {
 	   invokeCb : EMFTVM!InvokeCb  (codeBlock <- fp)					-- [bool]
 }
 
-rule RuleWithMatcherWithDebug extends RuleWithMatcher {
-	from s : SimpleGT!Rule in IN (
-		s."module".debug)
-	to t : EMFTVM!Rule,
-	   a : EMFTVM!CodeBlock (
-	   	code <- Sequence{a_invokeAllCbs, a_push, a_load, a_invoke, a_pop}),
-	   a_ln : EMFTVM!LineNumber (
-		instructions <- Sequence{a_invokeAllCbs, a_push, a_load, a_invoke, a_pop}),
-	   a_trace : EMFTVM!LocalVariable,
-	   a_invokeAllCbs : EMFTVM!InvokeAllCbs,							-- [null] * nestedCb_size
-	   a_push : EMFTVM!Push (stringValue <- 'Applied ' + s.name + ' to'),	-- ['Applied...', null * nestedCb_size]
-	   a_load : EMFTVM!Load (localVariable <- a_trace),						-- [trace, 'Applied...', null * nestedCb_size]
-	   a_invoke : EMFTVM!Invoke (opname <- 'debug', argcount <- 1),			-- [rule name, null * nestedCb_size]
-	   a_pop : EMFTVM!Pop													-- [null] * nestedCb_size
+-- @extends RuleWithMatcher, RuleWithDebug
+rule RuleWithMatcherWithDebug {
+	from s : SimpleGT!Rule in IN
+	to t : EMFTVM!Rule
 }
 
 rule InPattern {
@@ -493,8 +479,6 @@ rule LastBoundInputElement extends BoundInputElement {
 
 rule DeletedInputElement extends InputElement {
 	from s : SimpleGT!InputElement in IN (
-		not s.isBound and
-		s.pattern.patternFor.matcherPatterns->isEmpty() and
 		s.pattern.patternFor.deletedElements->includes(s))
 	to re : EMFTVM!InputRuleElement,
 	   ov : EMFTVM!LocalVariable,
@@ -511,48 +495,20 @@ rule DeletedInputElement extends InputElement {
 	   del : EMFTVM!Delete								-- []
 }
 
-rule DeletedBoundInputElement extends BoundInputElement {
-	from s : SimpleGT!InputElement in IN (
-		s.pattern.patternFor.matcherPatterns->isEmpty() and
-		s.pattern.patternFor.deletedElements->includes(s) and
-		not s.bindingExp.binding.last)
-	to re : EMFTVM!InputRuleElement,
-	   ov : EMFTVM!LocalVariable,
-	   cb : EMFTVM!CodeBlock (
-		lineNumbers <- Sequence{ln},
-		code <- Sequence{load, del}),
-	   ln : EMFTVM!LineNumber (
-	   	startLine <- s.line,
-		startColumn <- s.column,
-		startChar <- s.charStart,
-		endChar <- s.charEnd,
-		instructions <- Sequence{load, del}),
-	   load : EMFTVM!Load (localVariable <- ov),		-- [element]
-	   del : EMFTVM!Delete								-- []
+-- @extends DeletedInputElement, BoundInputElement
+rule DeletedBoundInputElement {
+	from s : SimpleGT!InputElement in IN
+	to re : EMFTVM!InputRuleElement
 }
 
-rule DeletedLastBoundInputElement extends LastBoundInputElement {
-	from s : SimpleGT!InputElement in IN (
-		s.pattern.patternFor.matcherPatterns->isEmpty() and
-		s.pattern.patternFor.deletedElements->includes(s))
-	to re : EMFTVM!InputRuleElement,
-	   ov : EMFTVM!LocalVariable,
-	   cb : EMFTVM!CodeBlock (
-		lineNumbers <- Sequence{ln},
-		code <- Sequence{load, del}),
-	   ln : EMFTVM!LineNumber (
-	   	startLine <- s.line,
-		startColumn <- s.column,
-		startChar <- s.charStart,
-		endChar <- s.charEnd,
-		instructions <- Sequence{load, del}),
-	   load : EMFTVM!Load (localVariable <- ov),		-- [element]
-	   del : EMFTVM!Delete								-- []
+-- @extends DeletedBoundInputElement, LastBoundInputElement
+rule DeletedLastBoundInputElement {
+	from s : SimpleGT!InputElement in IN
+	to re : EMFTVM!InputRuleElement
 }
 
 rule InputElementWithMatcher extends InputElement {
 	from s : SimpleGT!InputElement in IN (
-		not s.isBound and
 		s.pattern.patternFor.matcherPatterns->notEmpty()) -- no matcher => no lv
 	to re : EMFTVM!InputRuleElement,
 	   lv : EMFTVM!LocalVariable (
@@ -561,79 +517,34 @@ rule InputElementWithMatcher extends InputElement {
 		typeModel <- s.type.model.name)
 }
 
-rule DeletedInputElementWithMatcher extends InputElementWithMatcher {
-	from s : SimpleGT!InputElement in IN (
-		s.pattern.patternFor.deletedElements->includes(s))
-	to re : EMFTVM!InputRuleElement,
-	   ov : EMFTVM!LocalVariable,
-	   cb : EMFTVM!CodeBlock (
-		lineNumbers <- Sequence{ln},
-		code <- Sequence{load, del}),
-	   ln : EMFTVM!LineNumber (
-	   	startLine <- s.line,
-		startColumn <- s.column,
-		startChar <- s.charStart,
-		endChar <- s.charEnd,
-		instructions <- Sequence{load, del}),
-	   load : EMFTVM!Load (localVariable <- ov),		-- [element]
-	   del : EMFTVM!Delete								-- []
+-- @extends DeletedInputElement, InputElementWithMatcher
+rule DeletedInputElementWithMatcher {
+	from s : SimpleGT!InputElement in IN
+	to re : EMFTVM!InputRuleElement
 }
 
-rule BoundInputElementWithMatcher extends BoundInputElement {
-	from s : SimpleGT!InputElement in IN (
-		not s.bindingExp.binding.last and
-		s.pattern.patternFor.matcherPatterns->notEmpty()) -- no matcher => no lv
-	to re : EMFTVM!InputRuleElement,
-	   lv : EMFTVM!LocalVariable (
-	   	name <- s.name,
-		type <- s.type.name,
-		typeModel <- s.type.model.name)
+-- @extends BoundInputElement, InputElementWithMatcher
+rule BoundInputElementWithMatcher {
+	from s : SimpleGT!InputElement in IN
+	to re : EMFTVM!InputRuleElement
 }
 
-rule DeletedBoundInputElementWithMatcher extends BoundInputElementWithMatcher {
-	from s : SimpleGT!InputElement in IN (
-		s.pattern.patternFor.deletedElements->includes(s))
-	to re : EMFTVM!InputRuleElement,
-	   ov : EMFTVM!LocalVariable,
-	   cb : EMFTVM!CodeBlock (
-		lineNumbers <- Sequence{ln},
-		code <- Sequence{load, del}),
-	   ln : EMFTVM!LineNumber (
-	   	startLine <- s.line,
-		startColumn <- s.column,
-		startChar <- s.charStart,
-		endChar <- s.charEnd,
-		instructions <- Sequence{load, del}),
-	   load : EMFTVM!Load (localVariable <- ov),		-- [element]
-	   del : EMFTVM!Delete								-- []
+-- @extends DeletedInputElementWithMatcher, BoundInputElementWithMatcher, DeletedBoundInputElement
+rule DeletedBoundInputElementWithMatcher {
+	from s : SimpleGT!InputElement in IN
+	to re : EMFTVM!InputRuleElement
 }
 
-rule LastBoundInputElementWithMatcher extends LastBoundInputElement {
-	from s : SimpleGT!InputElement in IN (
-		s.pattern.patternFor.matcherPatterns->notEmpty()) -- no matcher => no lv
-	to re : EMFTVM!InputRuleElement,
-	   lv : EMFTVM!LocalVariable (
-	   	name <- s.name,
-		type <- s.type.name,
-		typeModel <- s.type.model.name)
+-- @extends LastBoundInputElement, BoundInputElementWithMatcher
+rule LastBoundInputElementWithMatcher {
+	from s : SimpleGT!InputElement in IN
+	to re : EMFTVM!InputRuleElement
 }
 
-rule DeletedLastBoundInputElementWithMatcher extends LastBoundInputElementWithMatcher {
-	from s : SimpleGT!InputElement in IN (
-		s.pattern.patternFor.deletedElements->includes(s))
-	to re : EMFTVM!InputRuleElement,
-	   ov : EMFTVM!LocalVariable,
-	   cb : EMFTVM!CodeBlock (
-		lineNumbers <- Sequence{ln},
-		code <- Sequence{load, del}),
-	   ln : EMFTVM!LineNumber (
-	   	startLine <- s.line,
-		startColumn <- s.column,
-		startChar <- s.charStart,
-		endChar <- s.charEnd,
-		instructions <- Sequence{load, del}),
-	   load : EMFTVM!Load (localVariable <- ov),		-- [element]
-	   del : EMFTVM!Delete								-- []
+-- @extends DeletedBoundInputElementWithMatcher, LastBoundInputElementWithMatcher
+rule DeletedLastBoundInputElementWithMatcher {
+	from s : SimpleGT!InputElement in IN
+	to re : EMFTVM!InputRuleElement
 }
 
 abstract rule NacPattern {
@@ -1670,7 +1581,6 @@ rule InputBinding {
 
 rule NonFirstInputBinding extends InputBinding {
 	from s : SimpleGT!InputBinding in IN (
-		s.element.pattern.patternFor.removedBindings->excludes(s) and
 		s <> s.element.pattern.matcherBindings->first())
 	to cb : EMFTVM!CodeBlock,
 	   and_ : EMFTVM!And (codeBlock <- cb)	-- AND instruction for parent code block
@@ -1697,11 +1607,10 @@ rule RemovedInputBinding extends InputBinding {
 	   remove2 : EMFTVM!Remove (fieldname <- s.property)			-- []
 }
 
-rule NonFirstRemovedInputBinding extends RemovedInputBinding {
-	from s : SimpleGT!InputBinding in IN (
-		s <> s.element.pattern.matcherBindings->first())
-	to cb : EMFTVM!CodeBlock,
-	   and_ : EMFTVM!And (codeBlock <- cb)	-- AND instruction for parent code block
+-- @extends NonFirstInputBinding, RemovedInputBinding
+rule NonFirstRemovedInputBinding {
+	from s : SimpleGT!InputBinding in IN
+	to cb : EMFTVM!CodeBlock
 }
 
 rule RemovedInputElementBinding { -- only used in applier
@@ -1784,23 +1693,9 @@ abstract rule Expression {
 		endChar <- s.charEnd)
 }
 
-abstract rule ExpressionWithApply extends Expression {
+abstract rule ExpressionWithApply {
 	from s : SimpleGT!Expression in IN (
 		s.isUsedTwice)
-	to cb : EMFTVM!CodeBlock,
-	   ln : EMFTVM!LineNumber,
-	   cb2 : EMFTVM!CodeBlock (
-		lineNumbers <- Sequence{ln2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	startLine <- s.line,
-		startColumn <- s.column,
-		startChar <- s.charStart,
-		endChar <- s.charEnd)
-}
-
-abstract rule ExpressionWithOnlyApply {
-	from s : SimpleGT!Expression in IN (
-		not s.isUsed and s.isUsedTwice)
 	to cb2 : EMFTVM!CodeBlock (
 		lineNumbers <- Sequence{ln2}),
 	   ln2 : EMFTVM!LineNumber (
@@ -1811,8 +1706,7 @@ abstract rule ExpressionWithOnlyApply {
 }
 
 rule ElementExp extends Expression {
-	from s : SimpleGT!ElementExp in IN (
-		not s.isUsedTwice)
+	from s : SimpleGT!ElementExp in IN
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{load}),
 	   ln : EMFTVM!LineNumber (
@@ -1826,25 +1720,6 @@ rule ElementExp extends Expression {
 
 rule ElementExpWithApply extends ExpressionWithApply {
 	from s : SimpleGT!ElementExp in IN
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{load}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load}),
-	   load : EMFTVM!Load (										-- [element]
-	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 
-	   		if s.binding.oclIsKindOf(SimpleGT!OutputBinding) 
-			then 'ov' 
-			else 'lv' endif)),
-	   cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{load2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load2}),
-	   load2 : EMFTVM!Load (									-- [element]
-	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 'ov'))
-}
-
-rule ElementExpWithOnlyApply extends ExpressionWithOnlyApply {
-	from s : SimpleGT!ElementExp in IN
 	to cb2 : EMFTVM!CodeBlock (
 		code <- Sequence{load2}),
 	   ln2 : EMFTVM!LineNumber (
@@ -1853,9 +1728,14 @@ rule ElementExpWithOnlyApply extends ExpressionWithOnlyApply {
 	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 'ov'))
 }
 
+-- @extends ElementExp, ElementExpWithApply
+rule ElementExpWithBoth {
+	from s : SimpleGT!ElementExp in IN
+	to cb : EMFTVM!CodeBlock
+}
+
 rule ElementExpWithProperty extends ElementExp {
 	from s : SimpleGT!ElementExp in IN (
-		not s.isUsedTwice and
 		not s.property.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{load, get}),
@@ -1868,23 +1748,6 @@ rule ElementExpWithProperty extends ElementExp {
 rule ElementExpWithApplyWithProperty extends ElementExpWithApply {
 	from s : SimpleGT!ElementExp in IN (
 		not s.property.oclIsUndefined())
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{load, get}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get}),
-	   load : EMFTVM!Load,										-- [element]
-	   get : EMFTVM!Get (fieldname <- s.property),				-- [propval]
-	   cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{load2, get2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load2, get2}),
-	   load2 : EMFTVM!Load,										-- [element]
-	   get2 : EMFTVM!Get (fieldname <- s.property)				-- [propval]
-}
-
-rule ElementExpWithOnlyApplyWithProperty extends ElementExpWithOnlyApply {
-	from s : SimpleGT!ElementExp in IN (
-		not s.property.oclIsUndefined())
 	to cb2 : EMFTVM!CodeBlock (
 		code <- Sequence{load2, get2}),
 	   ln2 : EMFTVM!LineNumber (
@@ -1893,9 +1756,14 @@ rule ElementExpWithOnlyApplyWithProperty extends ElementExpWithOnlyApply {
 	   get2 : EMFTVM!Get (fieldname <- s.property)				-- [propval]
 }
 
+-- @extends ElementExpWithBoth, ElementExpWithProperty, ElementExpWithApplyWithProperty
+rule ElementExpWithBothWithProperty {
+	from s : SimpleGT!ElementExp in IN
+	to cb : EMFTVM!CodeBlock
+}
+
 abstract rule LiteralExp extends Expression {
 	from s : SimpleGT!LiteralExp in IN (
-		not s.isUsedTwice and
 		not s.oclIsKindOf(SimpleGT!BooleanLiteralExp))
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{push}),
@@ -1907,21 +1775,6 @@ abstract rule LiteralExp extends Expression {
 abstract rule LiteralExpWithApply extends ExpressionWithApply {
 	from s : SimpleGT!LiteralExp in IN (
 		not s.oclIsKindOf(SimpleGT!BooleanLiteralExp))
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{push}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push}),
-	   push : EMFTVM!Push,
-	   cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{push2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push2}),
-	   push2 : EMFTVM!Push
-}
-
-abstract rule LiteralExpWithOnlyApply extends ExpressionWithOnlyApply {
-	from s : SimpleGT!LiteralExp in IN (
-		not s.oclIsKindOf(SimpleGT!BooleanLiteralExp))
 	to cb2 : EMFTVM!CodeBlock (
 		code <- Sequence{push2}),
 	   ln2 : EMFTVM!LineNumber (
@@ -1930,84 +1783,61 @@ abstract rule LiteralExpWithOnlyApply extends ExpressionWithOnlyApply {
 }
 
 rule StringLiteralExp extends LiteralExp {
-	from s : SimpleGT!StringLiteralExp in IN (not s.isUsedTwice)
+	from s : SimpleGT!StringLiteralExp in IN
 	to cb : EMFTVM!CodeBlock,
 	   push : EMFTVM!Push (stringValue <- s.literal)			-- [string]
 }
 
 rule StringLiteralExpWithApply extends LiteralExpWithApply {
 	from s : SimpleGT!StringLiteralExp in IN
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (stringValue <- s.literal),			-- [string]
-	   push2 : EMFTVM!Push (stringValue <- s.literal)			-- [string]
-}
-
-rule StringLiteralExpWithOnlyApply extends LiteralExpWithOnlyApply {
-	from s : SimpleGT!StringLiteralExp in IN
 	to cb2 : EMFTVM!CodeBlock,
 	   push2 : EMFTVM!Push (stringValue <- s.literal)			-- [string]
 }
 
+-- @extends StringLiteralExp, StringLiteralExpWithApply
+rule StringLiteralExpWithBoth {
+	from s : SimpleGT!StringLiteralExp in IN
+	to cb : EMFTVM!CodeBlock
+}
+
 rule IntegerLiteralExp extends LiteralExp {
-	from s : SimpleGT!IntegerLiteralExp in IN (not s.isUsedTwice)
+	from s : SimpleGT!IntegerLiteralExp in IN
 	to cb : EMFTVM!CodeBlock,
 	   push : EMFTVM!Push (intValue <- s.literal)				-- [int]
 }
 
 rule IntegerLiteralExpWithApply extends LiteralExpWithApply {
 	from s : SimpleGT!IntegerLiteralExp in IN
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (intValue <- s.literal),				-- [int]
-	   push2 : EMFTVM!Push (intValue <- s.literal)				-- [int]
-}
-
-rule IntegerLiteralExpWithOnlyApply extends LiteralExpWithOnlyApply {
-	from s : SimpleGT!IntegerLiteralExp in IN
 	to cb2 : EMFTVM!CodeBlock,
 	   push2 : EMFTVM!Push (intValue <- s.literal)				-- [int]
 }
 
+-- @extends IntegerLiteralExp, IntegerLiteralExpWithApply
+rule IntegerLiteralExpWithBoth {
+	from s : SimpleGT!IntegerLiteralExp in IN
+	to cb : EMFTVM!CodeBlock
+}
+
 rule DoubleLiteralExp extends LiteralExp {
-	from s : SimpleGT!DoubleLiteralExp in IN (not s.isUsedTwice)
+	from s : SimpleGT!DoubleLiteralExp in IN
 	to cb : EMFTVM!CodeBlock,
 	   push : EMFTVM!Push (doubleValue <- s.literal)			-- [double]
 }
 
 rule DoubleLiteralExpWithApply extends LiteralExpWithApply {
 	from s : SimpleGT!DoubleLiteralExp in IN
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (doubleValue <- s.literal),			-- [double]
+	to cb2 : EMFTVM!CodeBlock,
 	   push2 : EMFTVM!Push (doubleValue <- s.literal)			-- [double]
 }
 
-rule DoubleLiteralExpWithOnlyApply extends LiteralExpWithOnlyApply {
+-- @extends DoubleLiteralExp, DoubleLiteralExpWithApply
+rule DoubleLiteralExpWithBoth {
 	from s : SimpleGT!DoubleLiteralExp in IN
-	to cb2 : EMFTVM!CodeBlock,
-	   push2 : EMFTVM!Push (doubleValue <- s.literal)			-- [double]
-}
-
-rule CharLiteralExp extends LiteralExp {
-	from s : SimpleGT!CharLiteralExp in IN (not s.isUsedTwice)
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (charValue <- s.literal)				-- [char]
-}
-
-rule CharLiteralExpWithApply extends LiteralExpWithApply {
-	from s : SimpleGT!CharLiteralExp in IN
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (charValue <- s.literal),				-- [char]
-	   push2 : EMFTVM!Push (charValue <- s.literal)				-- [char]
-}
-
-rule CharLiteralExpWithOnlyApply extends LiteralExpWithOnlyApply {
-	from s : SimpleGT!CharLiteralExp in IN
-	to cb2 : EMFTVM!CodeBlock,
-	   push2 : EMFTVM!Push (charValue <- s.literal)				-- [char]
+	to cb : EMFTVM!CodeBlock
 }
 
 rule TrueBooleanLiteralExp extends Expression {
-	from s : SimpleGT!BooleanLiteralExp in IN (
-		s.literal and not s.isUsedTwice)
+	from s : SimpleGT!BooleanLiteralExp in IN (s.literal)
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{push}),
 	   ln : EMFTVM!LineNumber (
@@ -2017,20 +1847,6 @@ rule TrueBooleanLiteralExp extends Expression {
 
 rule TrueBooleanLiteralExpWithApply extends ExpressionWithApply {
 	from s : SimpleGT!BooleanLiteralExp in IN (s.literal)
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{push}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push}),
-	   push : EMFTVM!Pusht,
-	   cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{push2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push2}),
-	   push2 : EMFTVM!Pusht
-}
-
-rule TrueBooleanLiteralExpWithOnlyApply extends ExpressionWithOnlyApply {
-	from s : SimpleGT!BooleanLiteralExp in IN (s.literal)
 	to cb2 : EMFTVM!CodeBlock (
 		code <- Sequence{push2}),
 	   ln2 : EMFTVM!LineNumber (
@@ -2038,9 +1854,14 @@ rule TrueBooleanLiteralExpWithOnlyApply extends ExpressionWithOnlyApply {
 	   push2 : EMFTVM!Pusht
 }
 
+-- @extends TrueBooleanLiteralExp, TrueBooleanLiteralExpWithApply
+rule TrueBooleanLiteralExpWithBoth {
+	from s : SimpleGT!BooleanLiteralExp in IN
+	to cb : EMFTVM!CodeBlock
+}
+
 rule FalseBooleanLiteralExp extends Expression {
-	from s : SimpleGT!BooleanLiteralExp in IN (
-		not s.literal and not s.isUsedTwice)
+	from s : SimpleGT!BooleanLiteralExp in IN (not s.literal)
 	to cb : EMFTVM!CodeBlock (
 		code <- Sequence{push}),
 	   ln : EMFTVM!LineNumber (
@@ -2050,25 +1871,17 @@ rule FalseBooleanLiteralExp extends Expression {
 
 rule FalseBooleanLiteralExpWithApply extends ExpressionWithApply {
 	from s : SimpleGT!BooleanLiteralExp in IN (not s.literal)
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{push}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push}),
-	   push : EMFTVM!Pushf,
-	   cb2 : EMFTVM!CodeBlock (
+	to cb2 : EMFTVM!CodeBlock (
 		code <- Sequence{push2}),
 	   ln2 : EMFTVM!LineNumber (
 	   	instructions <- Sequence{push2}),
 	   push2 : EMFTVM!Pushf
 }
 
-rule FalseBooleanLiteralExpWithOnlyApply extends ExpressionWithOnlyApply {
-	from s : SimpleGT!BooleanLiteralExp in IN (not s.literal)
-	to cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{push2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push2}),
-	   push2 : EMFTVM!Pushf
+-- @extends FalseBooleanLiteralExp, FalseBooleanLiteralExpWithApply
+rule FalseBooleanLiteralExpWithBoth {
+	from s : SimpleGT!BooleanLiteralExp in IN
+	to cb : EMFTVM!CodeBlock
 }
 
 rule EnumLiteralExp extends LiteralExp {
@@ -2079,15 +1892,14 @@ rule EnumLiteralExp extends LiteralExp {
 
 rule EnumLiteralExpWithApply extends LiteralExpWithApply {
 	from s : SimpleGT!EnumLiteralExp in IN
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (enumValue <- s.literal),				-- [enumliteral]
+	to cb2 : EMFTVM!CodeBlock,
 	   push2 : EMFTVM!Push (enumValue <- s.literal)				-- [enumliteral]
 }
 
-rule EnumLiteralExpWithOnlyApply extends LiteralExpWithOnlyApply {
+-- @extends EnumLiteralExp, EnumLiteralExpWithApply
+rule EnumLiteralExpWithBoth {
 	from s : SimpleGT!EnumLiteralExp in IN
-	to cb2 : EMFTVM!CodeBlock,
-	   push2 : EMFTVM!Push (enumValue <- s.literal)				-- [enumliteral]
+	to cb : EMFTVM!CodeBlock
 }
 
 -- ======================================================================
