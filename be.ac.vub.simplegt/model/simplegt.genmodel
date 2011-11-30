@@ -18,12 +18,13 @@
     <genClasses image="false" ecoreClass="simplegt.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="simplegt.ecore#//Type">
+    <genClasses ecoreClass="simplegt.ecore#//Type">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//Type/typeOf"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//Type/model"/>
     </genClasses>
     <genClasses image="false" ecoreClass="simplegt.ecore#//TypedElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplegt.ecore#//TypedElement/type"/>
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference simplegt.ecore#//TypedElement/type"/>
     </genClasses>
     <genClasses ecoreClass="simplegt.ecore#//Module">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Module/models"/>
