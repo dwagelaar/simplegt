@@ -3,7 +3,8 @@
       id="be.ac.vub.simplegt"
       label="SimpleGT Feature"
       version="1.1.0.qualifier"
-      provider-name="Vrije Universiteit Brussel">
+      provider-name="Vrije Universiteit Brussel"
+      plugin="be.ac.vub.simplegt">
 
    <description url="about.html">
       %description
@@ -18,7 +19,7 @@
    </license>
 
    <url>
-      <update label="%updateSiteName" url="http://soft.vub.ac.be/eclipse/update-3.6"/>
+      <update label="%updateSiteName" url="http://soft.vub.ac.be/eclipse/update-3.7"/>
       <discovery label="EMFText update site" url="http://emftext.org/update"/>
    </url>
 
