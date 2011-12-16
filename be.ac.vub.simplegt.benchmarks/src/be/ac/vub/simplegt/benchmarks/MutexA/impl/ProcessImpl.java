@@ -3,18 +3,16 @@
  */
 package be.ac.vub.simplegt.benchmarks.MutexA.impl;
 
-import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
-import be.ac.vub.simplegt.benchmarks.MutexA.Resource;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
+import be.ac.vub.simplegt.benchmarks.MutexA.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -108,12 +106,16 @@ public class ProcessImpl extends EObjectImpl implements be.ac.vub.simplegt.bench
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public int getCount() {
-		// TODO: implement this method to return the 'Count' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		int count = 0;
+		for (EObject o : eResource().getContents()) {
+			if (o instanceof be.ac.vub.simplegt.benchmarks.MutexA.Process) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	/**

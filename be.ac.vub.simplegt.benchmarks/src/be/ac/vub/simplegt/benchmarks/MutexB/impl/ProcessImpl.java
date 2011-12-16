@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -141,12 +142,16 @@ public class ProcessImpl extends EObjectImpl implements be.ac.vub.simplegt.bench
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public int getCount() {
-		// TODO: implement this method to return the 'Count' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		int count = 0;
+		for (EObject o : eResource().getContents()) {
+			if (o instanceof be.ac.vub.simplegt.benchmarks.MutexB.Process) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	/**
