@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.emftvm.launcher.EMFTVMTransformation">
+<stringAttribute key="ATL File Name" value="//be.ac.vub.simplegt.benchmarks/STS.atl"/>
+<booleanAttribute key="Display Timing Data" value="true"/>
+<mapAttribute key="Inout Model Options">
+<mapEntry key="M" value="allowIntermodelReferences derivedFile"/>
+<mapEntry key="T" value="derivedFile createNewModel allowIntermodelReferences"/>
+</mapAttribute>
+<mapAttribute key="Inout Models">
+<mapEntry key="M" value="platform:/resource/be.ac.vub.simplegt.benchmarks/models/STSMutexBstart.xmi"/>
+<mapEntry key="T" value="platform:/resource/be.ac.vub.simplegt.benchmarks/models/STS-trace.xmi"/>
+</mapAttribute>
+<mapAttribute key="Inout Models Output Locations">
+<mapEntry key="M" value="platform:/resource/be.ac.vub.simplegt.benchmarks/models/STSMutexB.xmi"/>
+<mapEntry key="T" value="platform:/resource/be.ac.vub.simplegt.benchmarks/models/STSMutexB-trace.xmi"/>
+</mapAttribute>
+<mapAttribute key="Input Model Options"/>
+<mapAttribute key="Input Models"/>
+<mapAttribute key="Metamodel Options"/>
+<mapAttribute key="Metamodels">
+<mapEntry key="Mutex" value="http://soft.vub.ac.be/simplegt/2011/MutexB"/>
+<mapEntry key="TRACE" value="http://www.eclipse.org/m2m/atl/emftvm/2011/Trace"/>
+</mapAttribute>
+<stringAttribute key="Module Name" value="STS"/>
+<stringAttribute key="Module Path" value="/be.ac.vub.simplegt.benchmarks/"/>
+<mapAttribute key="Output Model Options"/>
+<mapAttribute key="Output Models"/>
+<listAttribute key="Superimpose"/>
+</launchConfiguration>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:MutexA="http://soft.vub.ac.be/simplegt/2011/MutexA">
+  <MutexA:Process next="/1"/>
+  <MutexA:Process next="/0"/>
+</xmi:XMI>

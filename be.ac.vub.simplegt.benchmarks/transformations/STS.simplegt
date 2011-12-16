@@ -1,0 +1,79 @@
+-- Short Transformation Sequences
+-- see http://www.cs.bme.hu/~gervarro/publication/TUB-TR-05-EE17.pdf
+-- @nsUri Mutex=http://soft.vub.ac.be/simplegt/2011/MutexA
+-- $Id$
+module STS;
+
+transform M : Mutex, T : TRACE;
+
+---------- PHASE 1 ----------
+
+abstract rule phase1 {
+	not t : TRACE!TraceLink in T
+}
+
+rule newRule extends phase1 {
+	from p : Mutex!Process in M (next =~ p2),
+		p2 : Mutex!Process in M
+	not p : Mutex!Process in M (count =~ 1000)
+	to p : Mutex!Process (next =~ p1),
+		p1 : Mutex!Process (next =~ p2),
+		p2 : Mutex!Process
+}
+
+rule mountRule extends phase1 {
+	from p : Mutex!Process in M
+	not r : Mutex!Resource in M
+	to p : Mutex!Process,
+		r : Mutex!Resource (token =~ p)
+}
+
+rule requestRule extends phase1 {
+	from p : Mutex!Process in M,
+		r : Mutex!Resource in M
+	not p : Mutex!Process in M (request =~ m),
+		m : Mutex!Resource in M
+	not r : Mutex!Resource in M (held_by =~ p)
+	to p : Mutex!Process (request =~ r),
+		r : Mutex!Resource
+}
+
+rule endPhase1 extends phase1 {
+	from p : Mutex!Process in M
+	to p : Mutex!Process,
+		t : TRACE!TraceLink
+}
+
+---------- PHASE 2 ----------
+
+abstract rule phase2 {
+	from t : TRACE!TraceLink in T,
+		r : Mutex!Resource in M
+	to t : TRACE!TraceLink,
+		r : Mutex!Resource
+}
+
+rule takeRule extends phase2 {
+	from r : Mutex!Resource in M (token =~ p), 
+		p : Mutex!Process in M (request =~ r)
+	to r : Mutex!Resource (held_by =~ p),
+		p : Mutex!Process
+}
+
+rule releaseRule extends phase2 {
+	from r : Mutex!Resource in M (held_by =~ p),
+		p : Mutex!Process in M
+	not p : Mutex!Process in M (request =~ m),
+		m : Mutex!Resource in M
+	to r : Mutex!Resource (release =~ p),
+		p : Mutex!Process
+}
+
+rule giveRule extends phase2 {
+	from r : Mutex!Resource in M (release =~ p1),
+		p1 : Mutex!Process in M (next =~ p2),
+		p2 : Mutex!Process in M
+	to r : Mutex!Resource (token =~ p2),
+		p1 : Mutex!Process (next =~ p2),
+		p2 : Mutex!Process
+}

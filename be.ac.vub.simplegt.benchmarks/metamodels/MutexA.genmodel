@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="(C) 2011, Dennis Wagelaar, Vrije Universiteit Brussel"
+    modelDirectory="/be.ac.vub.simplegt.benchmarks/src" editDirectory="/be.ac.vub.simplegt.benchmarks.edit/src"
+    editorDirectory="/be.ac.vub.simplegt.benchmarks.editor/src" modelPluginID="be.ac.vub.simplegt.benchmarks"
+    modelName="MutexA" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" editPluginID="be.ac.vub.simplegt.benchmarks.edit" editorPluginID="be.ac.vub.simplegt.benchmarks.editor">
+  <foreignModel>MutexA.ecore</foreignModel>
+  <genPackages prefix="MutexA" basePackage="be.ac.vub.simplegt.benchmarks" disposableProviderFactory="true"
+      ecorePackage="MutexA.ecore#/">
+    <genClasses ecoreClass="MutexA.ecore#//Process">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MutexA.ecore#//Process/next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MutexA.ecore#//Process/request"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute MutexA.ecore#//Process/count"/>
+    </genClasses>
+    <genClasses ecoreClass="MutexA.ecore#//Resource">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MutexA.ecore#//Resource/blocked"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MutexA.ecore#//Resource/held_by"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MutexA.ecore#//Resource/token"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MutexA.ecore#//Resource/release"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
