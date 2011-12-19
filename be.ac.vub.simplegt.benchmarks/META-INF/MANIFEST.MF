@@ -7,7 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.m2m.atl.emftvm;bundle-version="3.3.0";visibility:=reexport,
+ org.junit;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Export-Package: be.ac.vub.simplegt.benchmarks.MutexA,
@@ -16,3 +18,4 @@ Export-Package: be.ac.vub.simplegt.benchmarks.MutexA,
  be.ac.vub.simplegt.benchmarks.MutexB,
  be.ac.vub.simplegt.benchmarks.MutexB.impl,
  be.ac.vub.simplegt.benchmarks.MutexB.util
+Bundle-Activator: be.ac.vub.simplegt.benchmarks.Activator

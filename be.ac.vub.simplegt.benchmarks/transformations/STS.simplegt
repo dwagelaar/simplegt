@@ -15,7 +15,7 @@ abstract rule phase1 {
 rule newRule extends phase1 {
 	from p : Mutex!Process in M (next =~ p2),
 		p2 : Mutex!Process in M
-	not p : Mutex!Process in M (count =~ 1000)
+	not p : Mutex!Process in M (count =~ 10)
 	to p : Mutex!Process (next =~ p1),
 		p1 : Mutex!Process (next =~ p2),
 		p2 : Mutex!Process
