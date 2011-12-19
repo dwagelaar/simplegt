@@ -97,7 +97,7 @@ public class STSBenchmark extends TestCase {
 			times[i] = td.getFinished();
 		}
 
-		System.out.println(String.format(label + ":%d:%d", average(times), count));
+		System.out.println(String.format(label + ":%f:%d", average(times), count));
 	}
 
 	/**
@@ -105,13 +105,28 @@ public class STSBenchmark extends TestCase {
 	 * @param times the times in ns
 	 * @return average time in ms.
 	 */
-	protected long average(final long[] times) {
-		long average = 0;
+	protected double average(final long[] times) {
+		double average = 0;
 		for (int i = 0; i < times.length; i++) {
-			average += times[i] / 1000;
+			average += times[i] / 1E6;
 		}
 		average = average / times.length;
 		return average;
+	}
+
+	/**
+	 * JIT warmup.
+	 */
+	public void testWarmup() {
+		System.out.println("JIT warmup");
+		runBenchmark(
+				"STSmany10 warmup average (ms,iterations)", 
+				"STS", 
+				mutexA, 
+				URI.createURI(uriPrefix + "/models/STSMutexAstart.xmi"), 
+				URI.createURI(uriPrefix + "/models/STSMutexA-trace.xmi"), 
+				5000);
+		System.out.println("JIT warmup finished");
 	}
 
 	/**
@@ -125,7 +140,7 @@ public class STSBenchmark extends TestCase {
 					mutexA, 
 					URI.createURI(uriPrefix + "/models/STSMutexAstart.xmi"), 
 					URI.createURI(uriPrefix + "/models/STSMutexA-trace.xmi"), 
-					1000);
+					5000);
 		}
 	}
 
@@ -140,7 +155,7 @@ public class STSBenchmark extends TestCase {
 					mutexA, 
 					URI.createURI(uriPrefix + "/models/STSMutexAstart.xmi"), 
 					URI.createURI(uriPrefix + "/models/STSMutexA-trace.xmi"), 
-					500);
+					1000);
 		}
 	}
 
@@ -155,7 +170,7 @@ public class STSBenchmark extends TestCase {
 					mutexA, 
 					URI.createURI(uriPrefix + "/models/STSMutexAstart.xmi"), 
 					URI.createURI(uriPrefix + "/models/STSMutexA-trace.xmi"), 
-					100);
+					500);
 		}
 	}
 
@@ -185,7 +200,7 @@ public class STSBenchmark extends TestCase {
 					mutexA, 
 					URI.createURI(uriPrefix + "/models/STSMutexAstart.xmi"), 
 					URI.createURI(uriPrefix + "/models/STSMutexA-trace.xmi"), 
-					50);
+					100);
 		}
 	}
 
@@ -200,7 +215,7 @@ public class STSBenchmark extends TestCase {
 					mutexA, 
 					URI.createURI(uriPrefix + "/models/STSMutexAstart.xmi"), 
 					URI.createURI(uriPrefix + "/models/STSMutexA-trace.xmi"), 
-					10);
+					50);
 		}
 	}
 
@@ -215,7 +230,7 @@ public class STSBenchmark extends TestCase {
 					mutexA, 
 					URI.createURI(uriPrefix + "/models/STSMutexAstart.xmi"), 
 					URI.createURI(uriPrefix + "/models/STSMutexA-trace.xmi"), 
-					10);
+					20);
 		}
 	}
 
@@ -223,39 +238,105 @@ public class STSBenchmark extends TestCase {
 	 * Runs the STSone10 benchmark.
 	 */
 	public void testSTSone10() {
-		runBenchmark(
-				"STSone10 average (ms,iterations)", 
-				"STS", 
-				mutexB, 
-				URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
-				URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
-				1000);
+		for (int i = 0; i < 2; i++) {
+			runBenchmark(
+					"STSone10 average (ms,iterations)", 
+					"STS", 
+					mutexB, 
+					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
+					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
+					5000);
+		}
+	}
+
+	/**
+	 * Runs the STSone50 benchmark.
+	 */
+	public void testSTSone50() {
+		for (int i = 0; i < 2; i++) {
+			runBenchmark(
+					"STSone50 average (ms,iterations)", 
+					"STS50", 
+					mutexB, 
+					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
+					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
+					1000);
+		}
 	}
 
 	/**
 	 * Runs the STSone100 benchmark.
 	 */
 	public void testSTSone100() {
-		runBenchmark(
-				"STSone100 average (ms,iterations)", 
-				"STS100", 
-				mutexB, 
-				URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
-				URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
-				100);
+		for (int i = 0; i < 2; i++) {
+			runBenchmark(
+					"STSone100 average (ms,iterations)", 
+					"STS100", 
+					mutexB, 
+					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
+					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
+					500);
+		}
+	}
+
+	/**
+	 * Runs the STSone250 benchmark.
+	 */
+	public void testSTSone250() {
+		for (int i = 0; i < 2; i++) {
+			runBenchmark(
+					"STSone250 average (ms,iterations)", 
+					"STS250", 
+					mutexB, 
+					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
+					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
+					100);
+		}
+	}
+
+	/**
+	 * Runs the STSone500 benchmark.
+	 */
+	public void testSTSone500() {
+		for (int i = 0; i < 2; i++) {
+			runBenchmark(
+					"STSone500 average (ms,iterations)", 
+					"STS500", 
+					mutexB, 
+					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
+					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
+					100);
+		}
+	}
+
+	/**
+	 * Runs the STSone750 benchmark.
+	 */
+	public void testSTSone750() {
+		for (int i = 0; i < 2; i++) {
+			runBenchmark(
+					"STSone750 average (ms,iterations)", 
+					"STS750", 
+					mutexB, 
+					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
+					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
+					50);
+		}
 	}
 
 	/**
 	 * Runs the STSone1000 benchmark.
 	 */
 	public void testSTSone1000() {
-		runBenchmark(
-				"STSone1000 average (ms,iterations)", 
-				"STS1000", 
-				mutexB, 
-				URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
-				URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
-				10);
+		for (int i = 0; i < 2; i++) {
+			runBenchmark(
+					"STSone1000 average (ms,iterations)", 
+					"STS1000", 
+					mutexB, 
+					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
+					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
+					20);
+		}
 	}
 
 }
