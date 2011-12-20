@@ -1,0 +1,148 @@
+!SESSION 2011-12-19 16:22:50.592 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -version 3 -port 38614 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames be.ac.vub.simplegt.benchmarks.STSBenchmark -application org.eclipse.pde.junit.runtime.coretestapplication -testpluginname be.ac.vub.simplegt.benchmarks
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog -version 3 -port 38614 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames be.ac.vub.simplegt.benchmarks.STSBenchmark -application org.eclipse.pde.junit.runtime.coretestapplication -data /home/dwagelaa/workspace/../junit-workspace -dev file:/home/dwagelaa/workspace/.metadata/.plugins/org.eclipse.pde.core/pde-junit/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog -testpluginname be.ac.vub.simplegt.benchmarks
+
+!ENTRY org.eclipse.osgi 2 0 2011-12-19 16:22:54.648
+!MESSAGE One or more bundles are not resolved because the following root constraints are not resolved:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.648
+!MESSAGE Bundle reference:file:/home/dwagelaa/Documents/Werk/Projects/m2m/ATL3/org.eclipse.m2m.atl.dsls/ was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.dsls 2 0 2011-12-19 16:22:54.648
+!MESSAGE Missing required bundle org.antlr.runtime_[3.0.0,3.1.0).
+
+!ENTRY org.eclipse.osgi 2 0 2011-12-19 16:22:54.668
+!MESSAGE The following is a complete list of bundles which are not resolved, see the prior log entry for the root cause if it exists:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.668
+!MESSAGE Bundle org.eclipse.m2m.atl.adt_3.3.0.qualifier [331] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.adt 2 0 2011-12-19 16:22:54.668
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.669
+!MESSAGE Bundle org.eclipse.m2m.atl.adt.debug_3.3.0.qualifier [332] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.adt.debug 2 0 2011-12-19 16:22:54.669
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.adt.debug 2 0 2011-12-19 16:22:54.669
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.adt.editor_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.669
+!MESSAGE Bundle org.eclipse.m2m.atl.adt.editor_3.3.0.qualifier [333] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.adt.editor 2 0 2011-12-19 16:22:54.669
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.670
+!MESSAGE Bundle org.eclipse.m2m.atl.adt.ui_3.3.0.qualifier [334] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.adt.ui 2 0 2011-12-19 16:22:54.670
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.adt_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.adt.ui 2 0 2011-12-19 16:22:54.670
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.670
+!MESSAGE Bundle org.eclipse.m2m.atl.core.ui_3.3.0.qualifier [339] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.core.ui 2 0 2011-12-19 16:22:54.670
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.core.ui 2 0 2011-12-19 16:22:54.670
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.adt.ui_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.671
+!MESSAGE Bundle org.eclipse.m2m.atl.core.ui.vm_3.3.0.qualifier [340] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.core.ui.vm 2 0 2011-12-19 16:22:54.671
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.drivers.emf4atl_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.core.ui.vm 2 0 2011-12-19 16:22:54.671
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.adt.debug_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.671
+!MESSAGE Bundle org.eclipse.m2m.atl.drivers.emf4atl_3.3.0.qualifier [343] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.drivers.emf4atl 2 0 2011-12-19 16:22:54.671
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.dsls_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.671
+!MESSAGE Bundle org.eclipse.m2m.atl.drivers.uml24atl_3.3.0.qualifier [345] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.drivers.uml24atl 2 0 2011-12-19 16:22:54.672
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.drivers.emf4atl_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.672
+!MESSAGE Bundle org.eclipse.m2m.atl.dsls_3.3.0.qualifier [346] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.dsls 2 0 2011-12-19 16:22:54.672
+!MESSAGE Missing required bundle org.antlr.runtime_[3.0.0,3.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.672
+!MESSAGE Bundle org.eclipse.m2m.atl.emftvm.compiler_3.3.0.qualifier [349] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.emftvm.compiler 2 0 2011-12-19 16:22:54.672
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_3.1.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.emftvm.compiler 2 0 2011-12-19 16:22:54.672
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.adt_3.1.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.673
+!MESSAGE Bundle org.eclipse.m2m.atl.emftvm.launcher_3.3.0.qualifier [352] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.emftvm.launcher 2 0 2011-12-19 16:22:54.673
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.core.ui_3.1.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.emftvm.launcher 2 0 2011-12-19 16:22:54.673
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.adt.ui_3.1.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.673
+!MESSAGE Bundle org.eclipse.m2m.atl.engine_3.3.0.qualifier [356] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.engine 2 0 2011-12-19 16:22:54.673
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.dsls_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.673
+!MESSAGE Bundle org.eclipse.m2m.atl.profiler.core_3.3.0.qualifier [363] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.profiler.core 2 0 2011-12-19 16:22:54.674
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.adt.editor_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.674
+!MESSAGE Bundle org.eclipse.m2m.atl.profiler.emfvm_3.3.0.qualifier [364] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.profiler.emfvm 2 0 2011-12-19 16:22:54.674
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.profiler.core_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.profiler.emfvm 2 0 2011-12-19 16:22:54.674
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.674
+!MESSAGE Bundle org.eclipse.m2m.atl.profiler.ui_3.3.0.qualifier [368] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.profiler.ui 2 0 2011-12-19 16:22:54.675
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.profiler.core_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.profiler.ui 2 0 2011-12-19 16:22:54.675
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.adt.editor_3.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.675
+!MESSAGE Bundle org.eclipse.m2m.atl.profiler.vm_3.3.0.qualifier [369] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.profiler.vm 2 0 2011-12-19 16:22:54.675
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.profiler.core_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.profiler.vm 2 0 2011-12-19 16:22:54.675
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.core.ui.vm_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.profiler.vm 2 0 2011-12-19 16:22:54.675
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.676
+!MESSAGE Bundle org.eclipse.m2m.atl.service.core_3.1.0.qualifier [370] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.service.core 2 0 2011-12-19 16:22:54.676
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.service.core 2 0 2011-12-19 16:22:54.676
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.drivers.emf4atl_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.service.core 2 0 2011-12-19 16:22:54.676
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.dsls_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 16:22:54.676
+!MESSAGE Bundle org.eclipse.m2m.atl.tests_3.3.0.qualifier [371] was not resolved.
+!SUBENTRY 2 org.eclipse.m2m.atl.tests 2 0 2011-12-19 16:22:54.676
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.engine_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.tests 2 0 2011-12-19 16:22:54.677
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.drivers.emf4atl_0.0.0.
+!SUBENTRY 2 org.eclipse.m2m.atl.tests 2 0 2011-12-19 16:22:54.677
+!MESSAGE Missing required bundle org.eclipse.m2m.atl.adt.editor_0.0.0.
+JIT warmup
+STSmany10 warmup average (ms,iterations):5.002183:5000
+JIT warmup finished
+STSmany10 average (ms,iterations):4.523422:5000
+STSmany10 average (ms,iterations):4.453311:5000
+STSmany50 average (ms,iterations):39.385119:1000
+STSmany50 average (ms,iterations):39.304167:1000
+STSmany100 average (ms,iterations):182.547468:500
+STSmany100 average (ms,iterations):183.487627:500
+STSmany250 average (ms,iterations):2017.941446:100
+STSmany250 average (ms,iterations):2019.615116:100
+STSmany500 average (ms,iterations):13665.166969:100
+STSmany500 average (ms,iterations):13719.396757:100
+STSmany750 average (ms,iterations):44249.190230:50
+STSmany750 average (ms,iterations):44265.841516:50
+STSmany1000 average (ms,iterations):102384.338306:20
+STSmany1000 average (ms,iterations):102398.474936:20
+STSone10 average (ms,iterations):4.445267:5000
+STSone10 average (ms,iterations):4.276524:5000
+STSone50 average (ms,iterations):37.487881:1000
+STSone50 average (ms,iterations):37.459207:1000
+STSone100 average (ms,iterations):174.385746:500
+STSone100 average (ms,iterations):173.889074:500
+STSone250 average (ms,iterations):1882.588016:100
+STSone250 average (ms,iterations):1886.106131:100
+STSone500 average (ms,iterations):13236.146373:100
+STSone500 average (ms,iterations):13254.730042:100
+STSone750 average (ms,iterations):42847.077152:50
+STSone750 average (ms,iterations):42957.186285:50
+STSone1000 average (ms,iterations):100164.251657:20
+STSone1000 average (ms,iterations):99888.777042:20

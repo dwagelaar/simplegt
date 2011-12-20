@@ -1,0 +1,296 @@
+!SESSION 2011-12-19 21:13:31.095 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.5.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=nl_BE
+Framework arguments:  -version 3 -port 33248 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames be.ac.vub.simplegt.benchmarks.STSBenchmark -application org.eclipse.pde.junit.runtime.coretestapplication -testpluginname be.ac.vub.simplegt.benchmarks
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog -version 3 -port 33248 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames be.ac.vub.simplegt.benchmarks.STSBenchmark -application org.eclipse.pde.junit.runtime.coretestapplication -data /home/dennis/eclipse/workspace/../junit-workspace -dev file:/home/dennis/eclipse/workspace/.metadata/.plugins/org.eclipse.pde.core/pde-junit/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog -testpluginname be.ac.vub.simplegt.benchmarks
+
+!ENTRY org.eclipse.osgi 2 0 2011-12-19 21:13:35.482
+!MESSAGE One or more bundles are not resolved because the following root constraints are not resolved:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.482
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-3.7/plugins/org.eclipse.wst.css.core_1.1.500.v201104191926.jar was not resolved.
+!SUBENTRY 2 org.eclipse.wst.css.core 2 0 2011-12-19 21:13:35.482
+!MESSAGE Missing required bundle org.apache.xerces_[2.9.0,3.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.482
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-3.7/plugins/org.eclipse.wst.xml.core_1.1.601.v201108302147.jar was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xml.core 2 0 2011-12-19 21:13:35.483
+!MESSAGE Missing required bundle org.apache.xerces_[2.9.0,3.0.0).
+
+!ENTRY org.eclipse.osgi 2 0 2011-12-19 21:13:35.576
+!MESSAGE The following is a complete list of bundles which are not resolved, see the prior log entry for the root cause if it exists:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.576
+!MESSAGE Bundle org.eclipse.jdt.apt.pluggable.core_1.0.400.v20110305-1450 [365] was not resolved.
+!SUBENTRY 2 org.eclipse.jdt.apt.pluggable.core 2 0 2011-12-19 21:13:35.576
+!MESSAGE Missing imported package org.eclipse.jdt.internal.compiler.tool_0.0.0.
+!SUBENTRY 2 org.eclipse.jdt.apt.pluggable.core 2 0 2011-12-19 21:13:35.577
+!MESSAGE Missing imported package org.eclipse.jdt.internal.compiler.apt.dispatch_0.0.0.
+!SUBENTRY 2 org.eclipse.jdt.apt.pluggable.core 2 0 2011-12-19 21:13:35.577
+!MESSAGE Missing imported package org.eclipse.jdt.internal.compiler.apt.model_0.0.0.
+!SUBENTRY 2 org.eclipse.jdt.apt.pluggable.core 2 0 2011-12-19 21:13:35.577
+!MESSAGE Missing imported package org.eclipse.jdt.internal.compiler.apt.util_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.577
+!MESSAGE Bundle org.eclipse.jdt.compiler.apt_1.0.400.v0110816-0800 [367] was not resolved.
+!SUBENTRY 2 org.eclipse.jdt.compiler.apt 2 0 2011-12-19 21:13:35.577
+!MESSAGE Missing optionally imported package org.eclipse.jdt.internal.compiler.tool_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.577
+!MESSAGE Bundle org.eclipse.jdt.compiler.tool_1.0.100.v_B76_R37x [368] was not resolved.
+!SUBENTRY 2 org.eclipse.jdt.compiler.tool 2 0 2011-12-19 21:13:35.577
+!MESSAGE Missing Constraint: Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.577
+!MESSAGE Bundle org.eclipse.jst.j2ee_1.1.501.v201108231845 [395] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee 2 0 2011-12-19 21:13:35.578
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee 2 0 2011-12-19 21:13:35.578
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.578
+!MESSAGE Bundle org.eclipse.jst.j2ee.core_1.2.101.v201108110300 [396] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.core 2 0 2011-12-19 21:13:35.578
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.578
+!MESSAGE Bundle org.eclipse.jst.j2ee.jca_1.1.500.v201108102200 [397] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.jca 2 0 2011-12-19 21:13:35.578
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.501,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.jca 2 0 2011-12-19 21:13:35.578
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.578
+!MESSAGE Bundle org.eclipse.jst.j2ee.web_1.1.501.v201108231500 [398] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.web 2 0 2011-12-19 21:13:35.579
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.501,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.web 2 0 2011-12-19 21:13:35.579
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.web 2 0 2011-12-19 21:13:35.579
+!MESSAGE Missing required bundle org.eclipse.jst.jee_[1.0.100,1.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.579
+!MESSAGE Bundle org.eclipse.jst.jee_1.0.401.v201105122000 [399] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jee 2 0 2011-12-19 21:13:35.579
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee 2 0 2011-12-19 21:13:35.579
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.jee 2 0 2011-12-19 21:13:35.579
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.jca_[1.1.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.579
+!MESSAGE Bundle org.eclipse.jst.jsf.common_1.2.3.v201104061039 [400] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jsf.common 2 0 2011-12-19 21:13:35.580
+!MESSAGE Missing required bundle org.eclipse.jst.jsp.core_[1.1.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.common 2 0 2011-12-19 21:13:35.580
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.common 2 0 2011-12-19 21:13:35.580
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_0.0.0.
+!SUBENTRY 2 org.eclipse.jst.jsf.common 2 0 2011-12-19 21:13:35.580
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_0.0.0.
+!SUBENTRY 2 org.eclipse.jst.jsf.common 2 0 2011-12-19 21:13:35.580
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_0.0.0.
+!SUBENTRY 2 org.eclipse.jst.jsf.common 2 0 2011-12-19 21:13:35.580
+!MESSAGE Missing imported package org.eclipse.jst.javaee.web.internal.impl_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.580
+!MESSAGE Bundle org.eclipse.jst.jsf.common.ui_1.2.100.v201104061711 [402] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jsf.common.ui 2 0 2011-12-19 21:13:35.580
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.common.ui 2 0 2011-12-19 21:13:35.581
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.common_[1.0.1,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.581
+!MESSAGE Bundle org.eclipse.jst.jsf.core_1.3.105.v201108261005 [403] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jsf.core 2 0 2011-12-19 21:13:35.581
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.core 2 0 2011-12-19 21:13:35.581
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.facesconfig_[1.0.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.core 2 0 2011-12-19 21:13:35.581
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.core 2 0 2011-12-19 21:13:35.581
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.core 2 0 2011-12-19 21:13:35.581
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.core 2 0 2011-12-19 21:13:35.581
+!MESSAGE Missing required bundle org.eclipse.jst.jsp.core_[1.1.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.core 2 0 2011-12-19 21:13:35.582
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.common_[1.0.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.core 2 0 2011-12-19 21:13:35.582
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.core 2 0 2011-12-19 21:13:35.582
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.200,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.582
+!MESSAGE Bundle org.eclipse.jst.jsf.facesconfig_1.2.2.v201105031140 [404] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jsf.facesconfig 2 0 2011-12-19 21:13:35.582
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsf.facesconfig 2 0 2011-12-19 21:13:35.582
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.582
+!MESSAGE Bundle org.eclipse.jst.jsp.core_1.2.401.v201108302147 [405] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jsp.core 2 0 2011-12-19 21:13:35.583
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsp.core 2 0 2011-12-19 21:13:35.583
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.300,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsp.core 2 0 2011-12-19 21:13:35.583
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.400,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.583
+!MESSAGE Bundle org.eclipse.jst.jsp.ui_1.1.601.v201108151912 [406] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jsp.ui 2 0 2011-12-19 21:13:35.583
+!MESSAGE Missing required bundle org.eclipse.wst.html.ui_[1.0.500,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.jsp.ui 2 0 2011-12-19 21:13:35.583
+!MESSAGE Missing required bundle org.eclipse.wst.css.ui_[1.0.500,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.jsp.ui 2 0 2011-12-19 21:13:35.584
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.1.100,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsp.ui 2 0 2011-12-19 21:13:35.584
+!MESSAGE Missing required bundle org.eclipse.jst.jsp.core_[1.2.300,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.jsp.ui 2 0 2011-12-19 21:13:35.584
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.400,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsp.ui 2 0 2011-12-19 21:13:35.584
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.300,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jsp.ui 2 0 2011-12-19 21:13:35.584
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.584
+!MESSAGE Bundle org.eclipse.jst.pagedesigner_1.3.103.v201109010833 [407] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.584
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.585
+!MESSAGE Missing required bundle org.eclipse.jst.jsp.core_[1.1.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.585
+!MESSAGE Missing required bundle org.eclipse.jst.jsp.ui_[1.1.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.585
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.585
+!MESSAGE Missing required bundle org.eclipse.jst.pagedesigner.jsp.core_[1.0.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.585
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.common.ui_[1.0.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.585
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.common_[1.0.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.586
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.core_[1.0.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.586
+!MESSAGE Missing required bundle org.eclipse.wst.html.ui_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.586
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.586
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.586
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.0.100,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner 2 0 2011-12-19 21:13:35.586
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.586
+!MESSAGE Bundle org.eclipse.jst.pagedesigner.jsf.ui_1.2.100.v201104061711 [408] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsf.ui 2 0 2011-12-19 21:13:35.587
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.facesconfig_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsf.ui 2 0 2011-12-19 21:13:35.587
+!MESSAGE Missing required bundle org.eclipse.jst.pagedesigner_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsf.ui 2 0 2011-12-19 21:13:35.587
+!MESSAGE Missing required bundle org.eclipse.jst.pagedesigner.jsp.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsf.ui 2 0 2011-12-19 21:13:35.587
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.common.ui_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsf.ui 2 0 2011-12-19 21:13:35.587
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsf.ui 2 0 2011-12-19 21:13:35.587
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.common_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsf.ui 2 0 2011-12-19 21:13:35.587
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.588
+!MESSAGE Bundle org.eclipse.jst.pagedesigner.jsp.core_1.2.0.v20100308 [409] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsp.core 2 0 2011-12-19 21:13:35.588
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsp.core 2 0 2011-12-19 21:13:35.588
+!MESSAGE Missing required bundle org.eclipse.jst.jsp.core_[1.1.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsp.core 2 0 2011-12-19 21:13:35.588
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.pagedesigner.jsp.core 2 0 2011-12-19 21:13:35.588
+!MESSAGE Missing required bundle org.eclipse.jst.jsf.common_[1.0.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.588
+!MESSAGE Bundle org.eclipse.wst.css.core_1.1.500.v201104191926 [604] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.css.core 2 0 2011-12-19 21:13:35.588
+!MESSAGE Missing required bundle org.apache.xerces_[2.9.0,3.0.0).
+!SUBENTRY 2 org.eclipse.wst.css.core 2 0 2011-12-19 21:13:35.589
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.589
+!MESSAGE Bundle org.eclipse.wst.css.ui_1.0.600.v201103022054 [605] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.css.ui 2 0 2011-12-19 21:13:35.589
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.1.100,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.css.ui 2 0 2011-12-19 21:13:35.589
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.300,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.css.ui 2 0 2011-12-19 21:13:35.589
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.400,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.css.ui 2 0 2011-12-19 21:13:35.589
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.590
+!MESSAGE Bundle org.eclipse.wst.dtd.core_1.1.501.v201107252021 [606] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.dtd.core 2 0 2011-12-19 21:13:35.590
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.300,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.590
+!MESSAGE Bundle org.eclipse.wst.dtd.ui_1.0.600.v201103171359 [607] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.dtd.ui 2 0 2011-12-19 21:13:35.590
+!MESSAGE Missing required bundle org.eclipse.wst.dtd.core_[1.1.200,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.dtd.ui 2 0 2011-12-19 21:13:35.590
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.300,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.dtd.ui 2 0 2011-12-19 21:13:35.590
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.0.400,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.590
+!MESSAGE Bundle org.eclipse.wst.html.core_1.1.501.v201109080146 [610] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.html.core 2 0 2011-12-19 21:13:35.591
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.html.core 2 0 2011-12-19 21:13:35.591
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.400,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.591
+!MESSAGE Bundle org.eclipse.wst.html.ui_1.0.601.v201108152113 [611] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2011-12-19 21:13:35.591
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.1.100,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2011-12-19 21:13:35.591
+!MESSAGE Missing required bundle org.eclipse.wst.css.ui_[1.0.500,1.1.0).
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2011-12-19 21:13:35.591
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.400,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2011-12-19 21:13:35.591
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.400,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2011-12-19 21:13:35.592
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.592
+!MESSAGE Bundle org.eclipse.wst.standard.schemas_1.0.401.v201108151912 [618] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.standard.schemas 2 0 2011-12-19 21:13:35.592
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.592
+!MESSAGE Bundle org.eclipse.wst.xml.core_1.1.601.v201108302147 [623] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xml.core 2 0 2011-12-19 21:13:35.592
+!MESSAGE Missing required bundle org.apache.xerces_[2.9.0,3.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.593
+!MESSAGE Bundle org.eclipse.wst.xml.ui_1.1.201.v201108151912 [624] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xml.ui 2 0 2011-12-19 21:13:35.594
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.594
+!MESSAGE Bundle org.eclipse.wst.xsd.core_1.1.600.v201104070312 [627] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xsd.core 2 0 2011-12-19 21:13:35.594
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2011-12-19 21:13:35.594
+!MESSAGE Bundle org.eclipse.wst.xsd.ui_1.2.404.v201105050216 [628] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xsd.ui 2 0 2011-12-19 21:13:35.594
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.300,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.xsd.ui 2 0 2011-12-19 21:13:35.594
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.0.400,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.xsd.ui 2 0 2011-12-19 21:13:35.594
+!MESSAGE Missing required bundle org.eclipse.wst.xsd.core_[1.1.300,1.2.0).
+JIT warmup
+STSmany10 warmup average (ms,iterations):4,000610:5000
+JIT warmup finished
+STSmany10 average (ms,iterations):3,610572:5000
+STSmany10 average (ms,iterations):3,562464:5000
+STSmany50 average (ms,iterations):30,220593:1000
+STSmany50 average (ms,iterations):29,966904:1000
+STSmany100 average (ms,iterations):124,297172:500
+STSmany100 average (ms,iterations):123,541574:500
+STSmany250 average (ms,iterations):1163,686840:100
+STSmany250 average (ms,iterations):1144,400900:100
+STSmany500 average (ms,iterations):7410,112410:100
+STSmany500 average (ms,iterations):7419,891540:100
+STSmany750 average (ms,iterations):23242,766860:50
+STSmany750 average (ms,iterations):23280,379280:50
+STSmany1000 average (ms,iterations):52771,662000:20
+STSmany1000 average (ms,iterations):53048,407250:20
+STSone10 average (ms,iterations):3,619404:5000
+STSone10 average (ms,iterations):3,423888:5000
+STSone50 average (ms,iterations):27,980447:1000
+STSone50 average (ms,iterations):27,892843:1000
+STSone100 average (ms,iterations):112,795042:500
+STSone100 average (ms,iterations):113,347550:500
+STSone250 average (ms,iterations):1035,012230:100
+STSone250 average (ms,iterations):1031,220960:100
+STSone500 average (ms,iterations):6663,293970:100
+STSone500 average (ms,iterations):6678,351590:100
+STSone750 average (ms,iterations):20847,956920:50
+STSone750 average (ms,iterations):20867,748160:50
+STSone1000 average (ms,iterations):47411,334100:20
+STSone1000 average (ms,iterations):47518,731900:20
