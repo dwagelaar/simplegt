@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import be.ac.vub.simplegt.Module;
 import be.ac.vub.simplegt.SimplegtFactory;
 import be.ac.vub.simplegt.SimplegtPackage;
-import be.ac.vub.simplegt.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,7 +58,7 @@ public class SimplegtExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.simplegt"));
-				Type root = SimplegtFactory.eINSTANCE.createType();
+				Module root = SimplegtFactory.eINSTANCE.createModule();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}
@@ -75,7 +75,7 @@ public class SimplegtExample {
 				// Otherwise, it's directly treated as a URL.
 				//
 				File file = new File(args[i]);
-				URI uri = file.isFile() ? URI.createFileURI(file.getAbsolutePath()): URI.createURI(args[0]);
+				URI uri = file.isFile() ? URI.createFileURI(file.getAbsolutePath()): URI.createURI(args[i]);
 
 				try {
 					// Demand load resource for this file.

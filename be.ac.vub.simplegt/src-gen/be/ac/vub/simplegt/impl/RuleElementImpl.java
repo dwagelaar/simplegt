@@ -10,9 +10,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import be.ac.vub.simplegt.InstanceModel;
 import be.ac.vub.simplegt.RuleElement;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simpleocl.OclInstanceModel;
+import be.ac.vub.simpleocl.impl.VariableDeclarationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,7 @@ import be.ac.vub.simplegt.SimplegtPackage;
  *
  * @generated
  */
-public abstract class RuleElementImpl extends TypedElementImpl implements RuleElement {
+public abstract class RuleElementImpl extends VariableDeclarationImpl implements RuleElement {
 	/**
 	 * The cached value of the '{@link #getInModel() <em>In Model</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -36,7 +37,7 @@ public abstract class RuleElementImpl extends TypedElementImpl implements RuleEl
 	 * @generated
 	 * @ordered
 	 */
-	protected InstanceModel inModel;
+	protected OclInstanceModel inModel;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,10 +63,10 @@ public abstract class RuleElementImpl extends TypedElementImpl implements RuleEl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstanceModel getInModel() {
+	public OclInstanceModel getInModel() {
 		if (inModel != null && inModel.eIsProxy()) {
 			InternalEObject oldInModel = (InternalEObject)inModel;
-			inModel = (InstanceModel)eResolveProxy(oldInModel);
+			inModel = (OclInstanceModel)eResolveProxy(oldInModel);
 			if (inModel != oldInModel) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimplegtPackage.RULE_ELEMENT__IN_MODEL, oldInModel, inModel));
@@ -79,7 +80,7 @@ public abstract class RuleElementImpl extends TypedElementImpl implements RuleEl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstanceModel basicGetInModel() {
+	public OclInstanceModel basicGetInModel() {
 		return inModel;
 	}
 
@@ -88,8 +89,8 @@ public abstract class RuleElementImpl extends TypedElementImpl implements RuleEl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInModel(InstanceModel newInModel) {
-		InstanceModel oldInModel = inModel;
+	public void setInModel(OclInstanceModel newInModel) {
+		OclInstanceModel oldInModel = inModel;
 		inModel = newInModel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE_ELEMENT__IN_MODEL, oldInModel, inModel));
@@ -119,7 +120,7 @@ public abstract class RuleElementImpl extends TypedElementImpl implements RuleEl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SimplegtPackage.RULE_ELEMENT__IN_MODEL:
-				setInModel((InstanceModel)newValue);
+				setInModel((OclInstanceModel)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -134,7 +135,7 @@ public abstract class RuleElementImpl extends TypedElementImpl implements RuleEl
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case SimplegtPackage.RULE_ELEMENT__IN_MODEL:
-				setInModel((InstanceModel)null);
+				setInModel((OclInstanceModel)null);
 				return;
 		}
 		super.eUnset(featureID);

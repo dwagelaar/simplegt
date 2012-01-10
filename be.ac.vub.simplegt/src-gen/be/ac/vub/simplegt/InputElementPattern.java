@@ -7,6 +7,8 @@ package be.ac.vub.simplegt;
 
 import org.eclipse.emf.common.util.EList;
 
+import be.ac.vub.simpleocl.LocatedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Input Element Pattern</b></em>'.

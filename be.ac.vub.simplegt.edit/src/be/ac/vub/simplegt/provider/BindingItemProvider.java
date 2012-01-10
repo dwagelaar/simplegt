@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -21,8 +22,9 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import be.ac.vub.simplegt.Binding;
-import be.ac.vub.simplegt.SimplegtFactory;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simpleocl.SimpleoclFactory;
+import be.ac.vub.simpleocl.provider.LocatedElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link be.ac.vub.simplegt.Binding} object.
@@ -175,32 +177,163 @@ public class BindingItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SimplegtPackage.Literals.BINDING__EXPR,
-				 SimplegtFactory.eINSTANCE.createElementExp()));
+				 SimpleoclFactory.eINSTANCE.createVariableExp()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SimplegtPackage.Literals.BINDING__EXPR,
-				 SimplegtFactory.eINSTANCE.createStringLiteralExp()));
+				 SimpleoclFactory.eINSTANCE.createSuperExp()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SimplegtPackage.Literals.BINDING__EXPR,
-				 SimplegtFactory.eINSTANCE.createIntegerLiteralExp()));
+				 SimpleoclFactory.eINSTANCE.createSelfExp()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SimplegtPackage.Literals.BINDING__EXPR,
-				 SimplegtFactory.eINSTANCE.createDoubleLiteralExp()));
+				 SimpleoclFactory.eINSTANCE.createEnvExp()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SimplegtPackage.Literals.BINDING__EXPR,
-				 SimplegtFactory.eINSTANCE.createBooleanLiteralExp()));
+				 SimpleoclFactory.eINSTANCE.createStringExp()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SimplegtPackage.Literals.BINDING__EXPR,
-				 SimplegtFactory.eINSTANCE.createEnumLiteralExp()));
+				 SimpleoclFactory.eINSTANCE.createBooleanExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createRealExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createIntegerExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createBagExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createOrderedSetExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createSequenceExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createSetExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createTupleExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createMapExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createEnumLiteralExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createOclUndefinedExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createStaticPropertyCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createPropertyCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createOperatorCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createNotOpCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createRelOpCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createEqOpCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createAddOpCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createIntOpCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createMulOpCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createLambdaCallExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createBraceExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createLetExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createIfExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplegtPackage.Literals.BINDING__EXPR,
+				 SimpleoclFactory.eINSTANCE.createOclModelElementExp()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return SimplegtEditPlugin.INSTANCE;
 	}
 
 }

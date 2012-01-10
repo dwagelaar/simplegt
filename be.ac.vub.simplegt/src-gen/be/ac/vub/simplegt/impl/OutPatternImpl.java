@@ -21,6 +21,7 @@ import be.ac.vub.simplegt.OutPattern;
 import be.ac.vub.simplegt.OutputElement;
 import be.ac.vub.simplegt.Rule;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simpleocl.impl.LocatedElementImpl;
 
 /**
  * <!-- begin-user-doc -->

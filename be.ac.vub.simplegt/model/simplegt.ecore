@@ -3,44 +3,13 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="simplegt"
     nsURI="http://soft.vub.ac.be/simplegt/2011/SimpleGT" nsPrefix="simplegt">
-  <eClassifiers xsi:type="ecore:EClass" name="LocatedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="line" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" defaultValueLiteral="-1"
-        derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="column" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" changeable="false"
-        volatile="true" transient="true" defaultValueLiteral="-1" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="charStart" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" changeable="false"
-        volatile="true" transient="true" defaultValueLiteral="-1" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="charEnd" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" changeable="false"
-        volatile="true" transient="true" defaultValueLiteral="-1" derived="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//LocatedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typeOf" lowerBound="1"
-        eType="#//TypedElement" eOpposite="#//TypedElement/type"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Metamodel"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypedElement" abstract="true" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Type"
-        containment="true" eOpposite="#//Type/typeOf"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//Module">
     <eStructuralFeatures xsi:type="ecore:EReference" name="models" lowerBound="1"
-        upperBound="-1" eType="#//InstanceModel" containment="true" eOpposite="#//InstanceModel/module"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
-        eType="#//Rule" containment="true" eOpposite="#//Rule/module"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imports" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        upperBound="-1" eType="ecore:EClass platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//OclInstanceModel"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="debug" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
-        eType="#//Module" eOpposite="#//Module/rules"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//NamedElement platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//ModuleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//InPattern"
@@ -53,7 +22,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputElementPattern" abstract="true"
-      eSuperTypes="#//LocatedElement">
+      eSuperTypes="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//LocatedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
         upperBound="-1" eType="#//InputElement" containment="true" eOpposite="#//InputElement/pattern"/>
   </eClassifiers>
@@ -65,14 +34,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nacFor" eType="#//Rule"
         eOpposite="#//Rule/nac"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutPattern" eSuperTypes="#//LocatedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="OutPattern" eSuperTypes="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//LocatedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputFor" eType="#//Rule"
         eOpposite="#//Rule/output"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
         upperBound="-1" eType="#//OutputElement" containment="true" eOpposite="#//OutputElement/pattern"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleElement" abstract="true" eSuperTypes="#//TypedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inModel" eType="#//InstanceModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RuleElement" abstract="true" eSuperTypes="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//VariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inModel" eType="ecore:EClass platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//OclInstanceModel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//RuleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
@@ -86,11 +55,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//OutPattern"
         eOpposite="#//OutPattern/elements"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Binding" abstract="true" eSuperTypes="#//LocatedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Binding" abstract="true" eSuperTypes="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//LocatedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" lowerBound="1" eType="#//Expression"
-        containment="true" eOpposite="#//Expression/binding"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" lowerBound="1" eType="ecore:EClass platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//OclExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputBinding" eSuperTypes="#//Binding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//InputElement"
@@ -101,43 +70,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//OutputElement"
         eOpposite="#//OutputElement/bindings"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="beforeElement" eType="#//RuleElement"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="#//LocatedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//Binding"
-        eOpposite="#//Binding/expr"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ElementExp" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
-        eType="#//RuleElement"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LiteralExp" abstract="true" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StringLiteralExp" eSuperTypes="#//LiteralExp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerLiteralExp" eSuperTypes="#//LiteralExp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DoubleLiteralExp" eSuperTypes="#//LiteralExp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanLiteralExp" eSuperTypes="#//LiteralExp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnumLiteralExp" eSuperTypes="#//LiteralExp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Model" abstract="true" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Metamodel" eSuperTypes="#//Model"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InstanceModel" eSuperTypes="#//Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="metaModel" lowerBound="1"
-        eType="#//Metamodel" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="module" eType="#//Module"
-        eOpposite="#//Module/models"/>
   </eClassifiers>
 </ecore:EPackage>

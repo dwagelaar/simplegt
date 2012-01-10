@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import be.ac.vub.simplegt.InputElement;
 import be.ac.vub.simplegt.InputElementPattern;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simpleocl.impl.LocatedElementImpl;
 
 /**
  * <!-- begin-user-doc -->

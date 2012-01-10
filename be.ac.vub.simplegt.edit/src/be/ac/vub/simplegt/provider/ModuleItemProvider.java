@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -23,6 +24,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import be.ac.vub.simplegt.Module;
 import be.ac.vub.simplegt.SimplegtFactory;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simpleocl.SimpleoclFactory;
+import be.ac.vub.simpleocl.SimpleoclPackage;
 
 /**
  * This is the item provider adapter for a {@link be.ac.vub.simplegt.Module} object.
@@ -31,7 +34,7 @@ import be.ac.vub.simplegt.SimplegtPackage;
  * @generated
  */
 public class ModuleItemProvider
-	extends NamedElementItemProvider
+	extends be.ac.vub.simpleocl.provider.ModuleItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -59,32 +62,9 @@ public class ModuleItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addImportsPropertyDescriptor(object);
 			addDebugPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Imports feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addImportsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Module_imports_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Module_imports_feature", "_UI_Module_type"),
-				 SimplegtPackage.Literals.MODULE__IMPORTS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -115,14 +95,13 @@ public class ModuleItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SimplegtPackage.Literals.MODULE__MODELS);
-			childrenFeatures.add(SimplegtPackage.Literals.MODULE__RULES);
+			childrenFeatures.add(1, SimplegtPackage.Literals.MODULE__MODELS);
 		}
 		return childrenFeatures;
 	}
@@ -177,12 +156,10 @@ public class ModuleItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Module.class)) {
-			case SimplegtPackage.MODULE__IMPORTS:
 			case SimplegtPackage.MODULE__DEBUG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SimplegtPackage.MODULE__MODELS:
-			case SimplegtPackage.MODULE__RULES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -202,13 +179,24 @@ public class ModuleItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SimplegtPackage.Literals.MODULE__MODELS,
-				 SimplegtFactory.eINSTANCE.createInstanceModel()));
+				(SimpleoclPackage.Literals.MODULE__ELEMENTS,
+				 SimplegtFactory.eINSTANCE.createRule()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SimplegtPackage.Literals.MODULE__RULES,
-				 SimplegtFactory.eINSTANCE.createRule()));
+				(SimplegtPackage.Literals.MODULE__MODELS,
+				 SimpleoclFactory.eINSTANCE.createOclInstanceModel()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return SimplegtEditPlugin.INSTANCE;
 	}
 
 }

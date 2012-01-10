@@ -11,16 +11,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import be.ac.vub.simplegt.BooleanLiteralExp;
-import be.ac.vub.simplegt.DoubleLiteralExp;
-import be.ac.vub.simplegt.ElementExp;
-import be.ac.vub.simplegt.EnumLiteralExp;
 import be.ac.vub.simplegt.InPattern;
 import be.ac.vub.simplegt.InputBinding;
 import be.ac.vub.simplegt.InputElement;
-import be.ac.vub.simplegt.InstanceModel;
-import be.ac.vub.simplegt.IntegerLiteralExp;
-import be.ac.vub.simplegt.Metamodel;
 import be.ac.vub.simplegt.Module;
 import be.ac.vub.simplegt.NacPattern;
 import be.ac.vub.simplegt.OutPattern;
@@ -29,8 +22,6 @@ import be.ac.vub.simplegt.OutputElement;
 import be.ac.vub.simplegt.Rule;
 import be.ac.vub.simplegt.SimplegtFactory;
 import be.ac.vub.simplegt.SimplegtPackage;
-import be.ac.vub.simplegt.StringLiteralExp;
-import be.ac.vub.simplegt.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,7 +67,6 @@ public class SimplegtFactoryImpl extends EFactoryImpl implements SimplegtFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SimplegtPackage.TYPE: return createType();
 			case SimplegtPackage.MODULE: return createModule();
 			case SimplegtPackage.RULE: return createRule();
 			case SimplegtPackage.IN_PATTERN: return createInPattern();
@@ -86,27 +76,9 @@ public class SimplegtFactoryImpl extends EFactoryImpl implements SimplegtFactory
 			case SimplegtPackage.OUTPUT_ELEMENT: return createOutputElement();
 			case SimplegtPackage.INPUT_BINDING: return createInputBinding();
 			case SimplegtPackage.OUTPUT_BINDING: return createOutputBinding();
-			case SimplegtPackage.ELEMENT_EXP: return createElementExp();
-			case SimplegtPackage.STRING_LITERAL_EXP: return createStringLiteralExp();
-			case SimplegtPackage.INTEGER_LITERAL_EXP: return createIntegerLiteralExp();
-			case SimplegtPackage.DOUBLE_LITERAL_EXP: return createDoubleLiteralExp();
-			case SimplegtPackage.BOOLEAN_LITERAL_EXP: return createBooleanLiteralExp();
-			case SimplegtPackage.ENUM_LITERAL_EXP: return createEnumLiteralExp();
-			case SimplegtPackage.METAMODEL: return createMetamodel();
-			case SimplegtPackage.INSTANCE_MODEL: return createInstanceModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type createType() {
-		TypeImpl type = new TypeImpl();
-		return type;
 	}
 
 	/**
@@ -197,86 +169,6 @@ public class SimplegtFactoryImpl extends EFactoryImpl implements SimplegtFactory
 	public OutputBinding createOutputBinding() {
 		OutputBindingImpl outputBinding = new OutputBindingImpl();
 		return outputBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ElementExp createElementExp() {
-		ElementExpImpl elementExp = new ElementExpImpl();
-		return elementExp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StringLiteralExp createStringLiteralExp() {
-		StringLiteralExpImpl stringLiteralExp = new StringLiteralExpImpl();
-		return stringLiteralExp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IntegerLiteralExp createIntegerLiteralExp() {
-		IntegerLiteralExpImpl integerLiteralExp = new IntegerLiteralExpImpl();
-		return integerLiteralExp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DoubleLiteralExp createDoubleLiteralExp() {
-		DoubleLiteralExpImpl doubleLiteralExp = new DoubleLiteralExpImpl();
-		return doubleLiteralExp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BooleanLiteralExp createBooleanLiteralExp() {
-		BooleanLiteralExpImpl booleanLiteralExp = new BooleanLiteralExpImpl();
-		return booleanLiteralExp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EnumLiteralExp createEnumLiteralExp() {
-		EnumLiteralExpImpl enumLiteralExp = new EnumLiteralExpImpl();
-		return enumLiteralExp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Metamodel createMetamodel() {
-		MetamodelImpl metamodel = new MetamodelImpl();
-		return metamodel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InstanceModel createInstanceModel() {
-		InstanceModelImpl instanceModel = new InstanceModelImpl();
-		return instanceModel;
 	}
 
 	/**

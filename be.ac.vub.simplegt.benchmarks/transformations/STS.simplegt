@@ -1,9 +1,10 @@
 -- Short Transformation Sequences
 -- see http://www.cs.bme.hu/~gervarro/publication/TUB-TR-05-EE17.pdf
--- @nsUri Mutex=http://soft.vub.ac.be/simplegt/2011/MutexA
 -- $Id$
 module STS;
 
+metamodel TRACE : 'http://www.eclipse.org/m2m/atl/emftvm/2011/Trace';
+metamodel Mutex : 'http://soft.vub.ac.be/simplegt/2011/MutexA';
 transform M : Mutex, T : TRACE;
 
 ---------- PHASE 1 ----------

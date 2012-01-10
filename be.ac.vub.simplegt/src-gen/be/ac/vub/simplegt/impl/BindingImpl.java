@@ -12,8 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import be.ac.vub.simplegt.Binding;
-import be.ac.vub.simplegt.Expression;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simpleocl.OclExpression;
+import be.ac.vub.simpleocl.impl.LocatedElementImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,7 +57,7 @@ public abstract class BindingImpl extends LocatedElementImpl implements Binding 
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression expr;
+	protected OclExpression expr;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,7 +104,7 @@ public abstract class BindingImpl extends LocatedElementImpl implements Binding 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression getExpr() {
+	public OclExpression getExpr() {
 		return expr;
 	}
 
@@ -112,8 +113,8 @@ public abstract class BindingImpl extends LocatedElementImpl implements Binding 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs) {
-		Expression oldExpr = expr;
+	public NotificationChain basicSetExpr(OclExpression newExpr, NotificationChain msgs) {
+		OclExpression oldExpr = expr;
 		expr = newExpr;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplegtPackage.BINDING__EXPR, oldExpr, newExpr);
@@ -127,34 +128,18 @@ public abstract class BindingImpl extends LocatedElementImpl implements Binding 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExpr(Expression newExpr) {
+	public void setExpr(OclExpression newExpr) {
 		if (newExpr != expr) {
 			NotificationChain msgs = null;
 			if (expr != null)
-				msgs = ((InternalEObject)expr).eInverseRemove(this, SimplegtPackage.EXPRESSION__BINDING, Expression.class, msgs);
+				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimplegtPackage.BINDING__EXPR, null, msgs);
 			if (newExpr != null)
-				msgs = ((InternalEObject)newExpr).eInverseAdd(this, SimplegtPackage.EXPRESSION__BINDING, Expression.class, msgs);
+				msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimplegtPackage.BINDING__EXPR, null, msgs);
 			msgs = basicSetExpr(newExpr, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.BINDING__EXPR, newExpr, newExpr));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SimplegtPackage.BINDING__EXPR:
-				if (expr != null)
-					msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimplegtPackage.BINDING__EXPR, null, msgs);
-				return basicSetExpr((Expression)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -199,7 +184,7 @@ public abstract class BindingImpl extends LocatedElementImpl implements Binding 
 				setProperty((String)newValue);
 				return;
 			case SimplegtPackage.BINDING__EXPR:
-				setExpr((Expression)newValue);
+				setExpr((OclExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,7 +202,7 @@ public abstract class BindingImpl extends LocatedElementImpl implements Binding 
 				setProperty(PROPERTY_EDEFAULT);
 				return;
 			case SimplegtPackage.BINDING__EXPR:
-				setExpr((Expression)null);
+				setExpr((OclExpression)null);
 				return;
 		}
 		super.eUnset(featureID);

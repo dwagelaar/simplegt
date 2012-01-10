@@ -6,6 +6,8 @@ package be.ac.vub.simplegt.provider;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import be.ac.vub.simpleocl.provider.simpleoclEditPlugin;
+
 /**
  * This is the central singleton for the Simplegt edit plugin.
  * <!-- begin-user-doc -->
@@ -38,6 +40,7 @@ public final class SimplegtEditPlugin extends EMFPlugin {
 	public SimplegtEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     simpleoclEditPlugin.INSTANCE,
 		   });
 	}
 

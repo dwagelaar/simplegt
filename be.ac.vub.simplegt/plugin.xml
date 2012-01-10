@@ -16,12 +16,5 @@
             class="be.ac.vub.simplegt.SimplegtPackage"
             genModel="model/simplegt.genmodel"/>
    </extension>
-   <extension
-         point="org.eclipse.emf.ecore.dynamic_package">
-      <resource
-            location="model/problem.ecore"
-            uri="http://soft.vub.ac.be/simplegt/2011/Problem">
-      </resource>
-   </extension>
 
 </plugin>

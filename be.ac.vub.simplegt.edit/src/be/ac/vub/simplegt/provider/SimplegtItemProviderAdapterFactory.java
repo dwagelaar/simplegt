@@ -72,29 +72,6 @@ public class SimplegtItemProviderAdapterFactory extends SimplegtAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.Type} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TypeItemProvider typeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.ac.vub.simplegt.Type}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTypeAdapter() {
-		if (typeItemProvider == null) {
-			typeItemProvider = new TypeItemProvider(this);
-		}
-
-		return typeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.Module} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -302,190 +279,6 @@ public class SimplegtItemProviderAdapterFactory extends SimplegtAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.ElementExp} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ElementExpItemProvider elementExpItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.ac.vub.simplegt.ElementExp}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createElementExpAdapter() {
-		if (elementExpItemProvider == null) {
-			elementExpItemProvider = new ElementExpItemProvider(this);
-		}
-
-		return elementExpItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.StringLiteralExp} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StringLiteralExpItemProvider stringLiteralExpItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.ac.vub.simplegt.StringLiteralExp}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStringLiteralExpAdapter() {
-		if (stringLiteralExpItemProvider == null) {
-			stringLiteralExpItemProvider = new StringLiteralExpItemProvider(this);
-		}
-
-		return stringLiteralExpItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.IntegerLiteralExp} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IntegerLiteralExpItemProvider integerLiteralExpItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.ac.vub.simplegt.IntegerLiteralExp}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIntegerLiteralExpAdapter() {
-		if (integerLiteralExpItemProvider == null) {
-			integerLiteralExpItemProvider = new IntegerLiteralExpItemProvider(this);
-		}
-
-		return integerLiteralExpItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.DoubleLiteralExp} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DoubleLiteralExpItemProvider doubleLiteralExpItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.ac.vub.simplegt.DoubleLiteralExp}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDoubleLiteralExpAdapter() {
-		if (doubleLiteralExpItemProvider == null) {
-			doubleLiteralExpItemProvider = new DoubleLiteralExpItemProvider(this);
-		}
-
-		return doubleLiteralExpItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.BooleanLiteralExp} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BooleanLiteralExpItemProvider booleanLiteralExpItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.ac.vub.simplegt.BooleanLiteralExp}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBooleanLiteralExpAdapter() {
-		if (booleanLiteralExpItemProvider == null) {
-			booleanLiteralExpItemProvider = new BooleanLiteralExpItemProvider(this);
-		}
-
-		return booleanLiteralExpItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.EnumLiteralExp} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EnumLiteralExpItemProvider enumLiteralExpItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.ac.vub.simplegt.EnumLiteralExp}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEnumLiteralExpAdapter() {
-		if (enumLiteralExpItemProvider == null) {
-			enumLiteralExpItemProvider = new EnumLiteralExpItemProvider(this);
-		}
-
-		return enumLiteralExpItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.Metamodel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MetamodelItemProvider metamodelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.ac.vub.simplegt.Metamodel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMetamodelAdapter() {
-		if (metamodelItemProvider == null) {
-			metamodelItemProvider = new MetamodelItemProvider(this);
-		}
-
-		return metamodelItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.ac.vub.simplegt.InstanceModel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InstanceModelItemProvider instanceModelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.ac.vub.simplegt.InstanceModel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInstanceModelAdapter() {
-		if (instanceModelItemProvider == null) {
-			instanceModelItemProvider = new InstanceModelItemProvider(this);
-		}
-
-		return instanceModelItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -584,7 +377,6 @@ public class SimplegtItemProviderAdapterFactory extends SimplegtAdapterFactory i
 	 * @generated
 	 */
 	public void dispose() {
-		if (typeItemProvider != null) typeItemProvider.dispose();
 		if (moduleItemProvider != null) moduleItemProvider.dispose();
 		if (ruleItemProvider != null) ruleItemProvider.dispose();
 		if (inPatternItemProvider != null) inPatternItemProvider.dispose();
@@ -594,14 +386,6 @@ public class SimplegtItemProviderAdapterFactory extends SimplegtAdapterFactory i
 		if (outputElementItemProvider != null) outputElementItemProvider.dispose();
 		if (inputBindingItemProvider != null) inputBindingItemProvider.dispose();
 		if (outputBindingItemProvider != null) outputBindingItemProvider.dispose();
-		if (elementExpItemProvider != null) elementExpItemProvider.dispose();
-		if (stringLiteralExpItemProvider != null) stringLiteralExpItemProvider.dispose();
-		if (integerLiteralExpItemProvider != null) integerLiteralExpItemProvider.dispose();
-		if (doubleLiteralExpItemProvider != null) doubleLiteralExpItemProvider.dispose();
-		if (booleanLiteralExpItemProvider != null) booleanLiteralExpItemProvider.dispose();
-		if (enumLiteralExpItemProvider != null) enumLiteralExpItemProvider.dispose();
-		if (metamodelItemProvider != null) metamodelItemProvider.dispose();
-		if (instanceModelItemProvider != null) instanceModelItemProvider.dispose();
 	}
 
 }

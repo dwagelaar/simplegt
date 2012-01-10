@@ -5,6 +5,7 @@
  */
 package be.ac.vub.simplegt.tests;
 
+import junit.framework.TestCase;
 import be.ac.vub.simplegt.InputElementPattern;
 
 /**
@@ -13,7 +14,15 @@ import be.ac.vub.simplegt.InputElementPattern;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class InputElementPatternTest extends LocatedElementTest {
+public abstract class InputElementPatternTest extends TestCase {
+
+	/**
+	 * The fixture for this Input Element Pattern test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputElementPattern fixture = null;
 
 	/**
 	 * Constructs a new Input Element Pattern test case with the given name.
@@ -26,14 +35,23 @@ public abstract class InputElementPatternTest extends LocatedElementTest {
 	}
 
 	/**
+	 * Sets the fixture for this Input Element Pattern test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(InputElementPattern fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Input Element Pattern test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected InputElementPattern getFixture() {
-		return (InputElementPattern)fixture;
+		return fixture;
 	}
 
 } //InputElementPatternTest

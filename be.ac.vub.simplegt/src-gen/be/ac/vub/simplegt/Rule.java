@@ -7,6 +7,9 @@ package be.ac.vub.simplegt;
 
 import org.eclipse.emf.common.util.EList;
 
+import be.ac.vub.simpleocl.ModuleElement;
+import be.ac.vub.simpleocl.NamedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Rule</b></em>'.
@@ -15,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link be.ac.vub.simplegt.Rule#getModule <em>Module</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.Rule#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.Rule#getInput <em>Input</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.Rule#getNac <em>Nac</em>}</li>
@@ -28,35 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Rule extends NamedElement {
-	/**
-	 * Returns the value of the '<em><b>Module</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.Module#getRules <em>Rules</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Module</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Module</em>' container reference.
-	 * @see #setModule(Module)
-	 * @see be.ac.vub.simplegt.SimplegtPackage#getRule_Module()
-	 * @see be.ac.vub.simplegt.Module#getRules
-	 * @model opposite="rules" required="true" transient="false"
-	 * @generated
-	 */
-	Module getModule();
-
-	/**
-	 * Sets the value of the '{@link be.ac.vub.simplegt.Rule#getModule <em>Module</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Module</em>' container reference.
-	 * @see #getModule()
-	 * @generated
-	 */
-	void setModule(Module value);
-
+public interface Rule extends NamedElement, ModuleElement {
 	/**
 	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
 	 * <!-- begin-user-doc -->

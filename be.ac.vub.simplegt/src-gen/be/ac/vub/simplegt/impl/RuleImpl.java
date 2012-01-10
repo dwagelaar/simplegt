@@ -19,11 +19,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import be.ac.vub.simplegt.InPattern;
-import be.ac.vub.simplegt.Module;
 import be.ac.vub.simplegt.NacPattern;
 import be.ac.vub.simplegt.OutPattern;
 import be.ac.vub.simplegt.Rule;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simpleocl.Module;
+import be.ac.vub.simpleocl.ModuleElement;
+import be.ac.vub.simpleocl.SimpleoclPackage;
+import be.ac.vub.simpleocl.impl.NamedElementImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -156,7 +159,7 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newModule != null)
-				msgs = ((InternalEObject)newModule).eInverseAdd(this, SimplegtPackage.MODULE__RULES, Module.class, msgs);
+				msgs = ((InternalEObject)newModule).eInverseAdd(this, SimpleoclPackage.MODULE__ELEMENTS, Module.class, msgs);
 			msgs = basicSetModule(newModule, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -351,7 +354,7 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case SimplegtPackage.RULE__MODULE:
-				return eInternalContainer().eInverseRemove(this, SimplegtPackage.MODULE__RULES, Module.class, msgs);
+				return eInternalContainer().eInverseRemove(this, SimpleoclPackage.MODULE__ELEMENTS, Module.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -465,6 +468,38 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 				return extends_ != null && !extends_.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ModuleElement.class) {
+			switch (derivedFeatureID) {
+				case SimplegtPackage.RULE__MODULE: return SimpleoclPackage.MODULE_ELEMENT__MODULE;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ModuleElement.class) {
+			switch (baseFeatureID) {
+				case SimpleoclPackage.MODULE_ELEMENT__MODULE: return SimplegtPackage.RULE__MODULE;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

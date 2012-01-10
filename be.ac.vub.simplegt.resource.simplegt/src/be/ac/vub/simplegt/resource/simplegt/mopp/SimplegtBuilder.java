@@ -24,6 +24,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnumLiteral;
@@ -40,7 +41,6 @@ import org.eclipse.m2m.atl.emftvm.ExecEnv;
 import org.eclipse.m2m.atl.emftvm.Metamodel;
 import org.eclipse.m2m.atl.emftvm.Model;
 import org.eclipse.m2m.atl.emftvm.util.DefaultModuleResolver;
-import org.eclipse.m2m.atl.emftvm.util.ModuleResolver;
 import org.eclipse.m2m.atl.emftvm.util.TimingData;
 
 import be.ac.vub.simplegt.SimplegtPackage;
@@ -48,6 +48,8 @@ import be.ac.vub.simplegt.resource.simplegt.ISimplegtProblem;
 import be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic;
 import be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemSeverity;
 import be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType;
+import be.ac.vub.simpleocl.SimpleoclPackage;
+import be.ac.vub.simpleocl.resource.simpleocl.mopp.SimpleoclPlugin;
 
 /**
  * Compiles SimpleGT files to EMFTVM
@@ -55,12 +57,14 @@ import be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType;
  */
 public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder {
 
-	protected static final String PBMM_URI = "http://soft.vub.ac.be/simplegt/2011/Problem";
+	protected static final String PBMM_URI = "http://soft.vub.ac.be/simpleocl/2011/Problem";
 
 	protected final ResourceSet rs = new ResourceSetImpl();
+	protected final Metamodel simpleoclmm = EmftvmFactory.eINSTANCE.createMetamodel();
 	protected final Metamodel simplegtmm = EmftvmFactory.eINSTANCE.createMetamodel();
 	protected final Metamodel pbmm = EmftvmFactory.eINSTANCE.createMetamodel();
-	protected final ModuleResolver mr = new DefaultModuleResolver("platform:/plugin/" + SimplegtPlugin.PLUGIN_ID + "/transformations/", rs);
+	protected final DefaultModuleResolver mr = new DefaultModuleResolver(
+			"platform:/plugin/" + SimplegtPlugin.PLUGIN_ID + "/transformations/", rs);
 
 	/**
 	 * Creates a new {@link SimplegtBuilder}.
@@ -68,6 +72,8 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 	 */
 	public SimplegtBuilder() throws CoreException {
 		super();
+		mr.addUriPrefix("platform:/plugin/" + SimpleoclPlugin.PLUGIN_ID + "/transformations/");
+		simpleoclmm.setResource(SimpleoclPackage.eINSTANCE.eResource());
 		simplegtmm.setResource(SimplegtPackage.eINSTANCE.eResource());
 		EPackage pack = Registry.INSTANCE.getEPackage(PBMM_URI);
 		if (pack != null) {
@@ -100,7 +106,6 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 	 * (non-Javadoc)
 	 * @see be.ac.vub.simplegt.resource.simplegt.ISimplegtBuilder#build(be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResource, org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	@SuppressWarnings("deprecation")
 	public org.eclipse.core.runtime.IStatus build(final SimplegtResource resource, final IProgressMonitor monitor) {
 		IStatus status = Status.OK_STATUS;
 		final List<EObject> pbs = new ArrayList<EObject>();
@@ -111,6 +116,10 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 		final Resource pr = rs.createResource(URI.createFileURI("problems.xmi"));
 		final Model pbm = EmftvmFactory.eINSTANCE.createModel();
 		pbm.setResource(pr);
+		
+		final Resource pr2 = rs.createResource(URI.createFileURI("problems2.xmi"));
+		final Model pbm2 = EmftvmFactory.eINSTANCE.createModel();
+		pbm2.setResource(pr2);
 		
 		final Resource r = rs.createResource(URI.createFileURI("out.emftvm"), "be.ac.vub.emftvm");
 		final Model emftvmm = EmftvmFactory.eINSTANCE.createModel();
@@ -125,25 +134,37 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 
 			ExecEnv env = EmftvmFactory.eINSTANCE.createExecEnv();
 			env.getMetaModels().put("SimpleGT", simplegtmm);
+			env.getMetaModels().put("OCL", simpleoclmm);
 			env.getMetaModels().put("Problem", pbmm);
 			env.getInputModels().put("IN", simplegtm);
-			env.getOutputModels().put("OUT", emftvmm);
 			env.getOutputModels().put("PBS", pbm);
-			env.loadModule(mr, "SimpleGTtoEMFTVM");
+			env.loadModule(mr, "SimpleGTWFR");
 			env.run(new TimingData(), null);
 			
 			if (getProblems(pbm, pbs) == 0) {
 				env = EmftvmFactory.eINSTANCE.createExecEnv();
-				env.getInputModels().put("IN", emftvmm);
-				env.getOutputModels().put("OUT", emftvmmi);
-				env.loadModule(mr, "InlineCodeblocks");
+				env.getMetaModels().put("SimpleGT", simplegtmm);
+				env.getMetaModels().put("OCL", simpleoclmm);
+				env.getMetaModels().put("Problem", pbmm);
+				env.getInputModels().put("IN", simplegtm);
+				env.getOutputModels().put("OUT", emftvmm);
+				env.getOutputModels().put("PBS", pbm2);
+				env.loadModule(mr, "SimpleGTtoEMFTVM");
 				env.run(new TimingData(), null);
 					
-				ri.save(Collections.emptyMap());
-				if (ri.getURI().isPlatformResource()) {
-					final IPath riPath = new Path(ri.getURI().toPlatformString(true));
-					final IFile riFile = ResourcesPlugin.getWorkspace().getRoot().getFile(riPath);
-					riFile.setDerived(true);
+				if (getProblems(pbm2, pbs) == 0) {
+					env = EmftvmFactory.eINSTANCE.createExecEnv();
+					env.getInputModels().put("IN", emftvmm);
+					env.getOutputModels().put("OUT", emftvmmi);
+					env.loadModule(mr, "InlineCodeblocks");
+					env.run(new TimingData(), null);
+						
+					ri.save(Collections.emptyMap());
+					if (ri.getURI().isPlatformResource()) {
+						final IPath riPath = new Path(ri.getURI().toPlatformString(true));
+						final IFile riFile = ResourcesPlugin.getWorkspace().getRoot().getFile(riPath);
+						riFile.setDerived(true, new SubProgressMonitor(monitor, 0));
+					}
 				}
 			}
 

@@ -5,6 +5,7 @@
  */
 package be.ac.vub.simplegt.tests;
 
+import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import be.ac.vub.simplegt.OutPattern;
 import be.ac.vub.simplegt.SimplegtFactory;
@@ -15,7 +16,15 @@ import be.ac.vub.simplegt.SimplegtFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OutPatternTest extends LocatedElementTest {
+public class OutPatternTest extends TestCase {
+
+	/**
+	 * The fixture for this Out Pattern test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OutPattern fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -37,14 +46,23 @@ public class OutPatternTest extends LocatedElementTest {
 	}
 
 	/**
+	 * Sets the fixture for this Out Pattern test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(OutPattern fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Out Pattern test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected OutPattern getFixture() {
-		return (OutPattern)fixture;
+		return fixture;
 	}
 
 	/**

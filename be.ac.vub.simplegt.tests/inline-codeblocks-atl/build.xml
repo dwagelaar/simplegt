@@ -6,12 +6,16 @@
 	<target name="loadModels">
 		<emftvm.loadModel name="InlineCodeblocks" wspath="be.ac.vub.simplegt.tests/test-data/InlineCodeblocks.simplegt"/>
 		<emftvm.loadMetamodel name="SimpleGT" uri="http://soft.vub.ac.be/simplegt/2011/SimpleGT"/>
-		<emftvm.loadMetamodel name="Problem" uri="http://soft.vub.ac.be/simplegt/2011/Problem"/>
+		<emftvm.loadMetamodel name="OCL" uri="http://soft.vub.ac.be/simpleocl/2011/SimpleOCL"/>
+		<emftvm.loadMetamodel name="Problem" uri="http://soft.vub.ac.be/simpleocl/2011/Problem"/>
 	</target>
 
 	<target name="compile" depends="loadModels">
-		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.resource.simplegt/transformations/" module="SimpleGTtoEMFTVM">
+		<emftvm.run 
+				modulepath="platform:/plugin/be.ac.vub.simplegt.resource.simplegt/transformations/,platform:/plugin/be.ac.vub.simpleocl.resource.simpleocl/transformations/" 
+				module="SimpleGTtoEMFTVM">
 			<metamodel name="SimpleGT"/>
+			<metamodel name="OCL"/>
 			<metamodel name="Problem"/>
 			<inputmodel name="InlineCodeblocks" as="IN"/>
 			<outputmodel name="InlineCodeblocks-OUT" as="OUT" wspath="${ant.project.name}/InlineCodeblocks-noinline.emftvm"/>

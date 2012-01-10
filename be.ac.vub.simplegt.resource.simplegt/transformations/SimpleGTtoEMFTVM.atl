@@ -1,23 +1,22 @@
 -- @atlcompiler emftvm
--- @nsURI Problem=http://soft.vub.ac.be/simplegt/2011/Problem
--- @nsURI SimpleGT=http://soft.vub.ac.be/simplegt/2011/SimpleGT
 -- @nsURI EMFTVM=http://www.eclipse.org/m2m/atl/2011/EMFTVM
+-- @nsURI OCL=http://soft.vub.ac.be/simpleocl/2011/SimpleOCL
+-- @nsURI Problem=http://soft.vub.ac.be/simpleocl/2011/Problem
+-- @path SimpleGT=/be.ac.vub.simplegt/model/simplegt.ecore
 -- Translates SimpleGT transformations to EMFTVM
 -- $Id$
 module SimpleGTtoEMFTVM;
 
 create OUT : EMFTVM, PBS : Problem from IN : SimpleGT;
 
+uses SimpleOCLLib;
+uses SimpleOCLtoEMFTVM;
+
 -- ======================================================================
 -- helpers begin
 -- ======================================================================
 
 helper def : CollectionType : String= 'Collection';
-
-helper def : SetType : String		= 'Set';
-helper def : BagType : String		= 'Bag';
-helper def : SequenceType : String	= 'Sequence';
-helper def : OrderedSetType : String= 'OrderedSet';
 
 helper context SimpleGT!InputElementPattern def : patternFor : SimpleGT!Rule =
 	OclUndefined;
@@ -82,12 +81,16 @@ helper context SimpleGT!Rule def : allInputElements : Sequence(SimpleGT!InputEle
 	-- name as an input element simply refer to the input element.
 	self.nac->collect(p|p.elements)->flatten()
 		->iterate(e; acc : Sequence(SimpleGT!InputElement) = self.inputElements |
-			if self.inputElements->exists(i|i.name = e.name) then acc
+			if self.inputElements->exists(i|i.varName = e.varName) then acc
 			else acc->including(e) endif);
 
 -- Returns all input element patterns that are relevant for the matcher operation.
 helper context SimpleGT!Rule def : matcherPatterns : Sequence(SimpleGT!InputElementPattern) =
 	self.allInputPatterns->select(p|p.hasMatcherBindings or p.hasNewElements); 
+
+-- Returns self.
+helper context OCL!VariableDeclaration def : refersTo : OCL!VariableDeclaration =
+	self;
 
 -- Returns the original rule input element that any input element refers to.
 -- Applies to NAC and output elements that are aliases/repeats of input pattern elements.
@@ -97,13 +100,17 @@ helper context SimpleGT!RuleElement def : refersTo : SimpleGT!RuleElement =
 	else
 		let inputElements : Sequence(SimpleGT!InputElement) = 
 			self.pattern.patternFor.inputElements
-			->select(e|e.name = self.name) in
+			->select(e|e.varName = self.varName) in
 		if inputElements->isEmpty() then
 			self
 		else
 			inputElements->first()
 		endif
 	endif;
+
+-- Returns true if both rule elements refer to the same element.
+helper context SimpleGT!RuleElement def : sameAs(other : SimpleGT!RuleElement) : Boolean =
+	self.refersTo = other.refersTo;
 
 helper context SimpleGT!InPattern def : hasNewElements : Boolean = false;
 
@@ -123,7 +130,7 @@ helper context SimpleGT!NacPattern def : newElements : Sequence(SimpleGT!InputEl
 		if input.oclIsUndefined() then
 			self.elements
 		else
-			self.elements->reject(e|input.elements->exists(i|i.name = e.name))
+			self.elements->reject(e|input.elements->exists(i|i.varName = e.varName))
 		endif
 	in
 	elements->reject(e|e.isBound)->union(elements->select(e|e.isBound));
@@ -134,7 +141,7 @@ helper context SimpleGT!OutPattern def : newElements : Sequence(SimpleGT!OutputE
 	if input.oclIsUndefined() then
 		self.elements
 	else
-		self.elements->reject(e|input.elements->exists(i|i.name = e.name))
+		self.elements->reject(e|input.elements->exists(i|i.varName = e.varName))
 	endif;
 
 -- Returns the rule elements that occur in the input pattern, but not in the output pattern.
@@ -146,13 +153,13 @@ helper context SimpleGT!Rule def : deletedElements : Sequence(SimpleGT!InputElem
 	else if output.oclIsUndefined() then
 		input.elements
 	else
-		input.elements->reject(e|output.elements->exists(i|i.name = e.name))
+		input.elements->reject(e|output.elements->exists(i|i.varName = e.varName))
 	endif endif;
 
 helper context SimpleGT!OutputElement def : outModelName : String =
 	if self.inModel.oclIsUndefined() then
 		self.pattern.outputFor."module".models
-		->select(m|self.type.model = m.metaModel)
+		->select(m|self.type.model = m.metamodel)
 		->first().name
 	else
 		self.inModel.name
@@ -167,7 +174,7 @@ helper context SimpleGT!Rule def : removedBindings : Sequence(SimpleGT!InputBind
 		input.bindings
 	else
 		input.bindings->reject(ib|output.bindings->exists(ob|
-			ob.element.name = ib.element.name and
+			ob.element.varName = ib.element.varName and
 			ob.property = ib.property and
 			ob.expr.sameAs(ib.expr)))
 	endif endif;
@@ -181,52 +188,35 @@ helper context SimpleGT!Rule def : addedBindings : Sequence(SimpleGT!OutputBindi
 		output.bindings
 	else
 		output.bindings->reject(ob|input.bindings->exists(ib|
-			ob.element.name = ib.element.name and 
+			ob.element.varName = ib.element.varName and 
 			ob.property = ib.property and
 			ob.expr.sameAs(ib.expr)))
 	endif endif;
 
-helper context OclAny def : sameAs(other : OclAny) : Boolean =
-	if (self.oclIsUndefined()) then
-		other.oclIsUndefined()
-	else
-		false
-	endif;
+--- Returns false
+helper context OclAny def : isUsed : Boolean =
+	false;
 
-helper context SimpleGT!ElementExp def : sameAs(other : SimpleGT!ElementExp) : Boolean =
-	self.property = other.property and self.element.name = other.element.name;
-
-helper context SimpleGT!StringLiteralExp def : sameAs(other : SimpleGT!StringLiteralExp) : Boolean =
-	self.literal = other.literal;
-
-helper context SimpleGT!IntegerLiteralExp def : sameAs(other : SimpleGT!IntegerLiteralExp) : Boolean =
-	self.literal = other.literal;
-
-helper context SimpleGT!DoubleLiteralExp def : sameAs(other : SimpleGT!DoubleLiteralExp) : Boolean =
-	self.literal = other.literal;
-
-helper context SimpleGT!BooleanLiteralExp def : sameAs(other : SimpleGT!BooleanLiteralExp) : Boolean =
-	self.literal = other.literal;
-
-helper context SimpleGT!EnumLiteralExp def : sameAs(other : SimpleGT!EnumLiteralExp) : Boolean =
-	self.literal = other.literal;
-
-helper context SimpleGT!Expression def : isUsed : Boolean =
-	let parent : SimpleGT!Binding = self.binding in
+--- Returns whether an OclExpression is used somewhere, and needs to be compiled.
+helper context OCL!LocatedElement def : isUsed : Boolean =
+	let parent : OclAny = self.refImmediateComposite() in
+	parent.oclIsKindOf(OCL!OclFeature) or
 	if parent.oclIsKindOf(SimpleGT!InputBinding) then
 		not parent.isElementBinding
 	else if parent.oclIsKindOf(SimpleGT!OutputBinding) then
 		parent.element.pattern.patternFor.addedBindings->includes(parent)
 	else
-		false
+		parent.isUsed
 	endif endif;
 
-helper context SimpleGT!Expression def : isUsedTwice : Boolean =
-	let parent : SimpleGT!Binding = self.binding in
+--- Returns whether an OclExpression is used in a rule's applier block, and needs to be
+--- compiled "twice" (i.e. as a secondary set of elements).
+helper context OCL!LocatedElement def : isUsedTwice : Boolean =
+	let parent : OclAny = self.refImmediateComposite() in
 	if parent.oclIsKindOf(SimpleGT!InputBinding) then
 		parent.element.pattern.patternFor.removedBindings->includes(parent)
 	else
-		false
+		parent.isUsedTwice
 	endif;
 
 helper context SimpleGT!InputElementPattern def : accessibleBindings : Sequence(SimpleGT!InputBinding) =
@@ -240,26 +230,37 @@ helper context SimpleGT!NacPattern def : accessibleBindings : Sequence(SimpleGT!
 	endif;
 
 helper context SimpleGT!InputElement def : isBound : Boolean =
-	self.pattern.accessibleBindings
-		->select(b|b.element <> self and b.expr.oclIsKindOf(SimpleGT!ElementExp))
-		->collect(eb|eb.expr)
-		->exists(e|e.element = self and e.property.oclIsUndefined()) and
-	-- If all input pattern elements are bound, the first one must become unbound!
-	(self.pattern.oclIsKindOf(SimpleGT!NacPattern) or 
-		self.pattern.elements->first() <> self or 
-		self.pattern.elements->exists(e|e <> self and not e.isBound));
+	let pattern : SimpleGT!InputElementPattern = self.pattern in
+	pattern.accessibleBindings->exists(b |
+		b.element <> self and
+		b.expr.oclIsKindOf(OCL!VariableExp) and
+		b.expr.referredVariable = self
+	) and (
+		-- If all input pattern elements are bound, the first one must become unbound!
+		pattern.oclIsKindOf(SimpleGT!NacPattern) or 
+		pattern.elements->first() <> self or 
+		pattern.elements->exists(e | e <> self and not e.isBound)
+	);
 
-helper context SimpleGT!InputElement def : bindingExp : SimpleGT!ElementExp =
-	self.pattern.accessibleBindings
-		->select(b|b.element <> self and b.expr.oclIsKindOf(SimpleGT!ElementExp))
-		->collect(eb|eb.expr)
-		->select(e|e.element = self and e.property.oclIsUndefined())
-		->first();
+helper context SimpleGT!InputElement def : bindingExp : OCL!VariableExp =
+	self.pattern.accessibleBindings->any(b | 
+		b.element <> self and
+		b.expr.oclIsKindOf(OCL!VariableExp) and
+		b.expr.referredVariable = self
+	).expr;
+
+helper context OCL!VariableExp def : binding : SimpleGT!Binding =
+	let parent : OclAny = self.refImmediateComposite() in
+	if parent.oclIsKindOf(SimpleGT!Binding) then
+		parent
+	else
+		OclUndefined
+	endif;
 
 -- Whether self binds the value of another input element
 helper context SimpleGT!InputBinding def : isElementBinding : Boolean =
 	self.element.pattern.patternFor.allInputElements
-		->exists(e|e.isBound and e.bindingExp.binding = self);
+		->exists(e|e.isBound and e.bindingExp.refImmediateComposite() = self);
 
 helper context SimpleGT!InputElement def : matcherBindings : Sequence(SimpleGT!InputBinding) =
 	self.bindings->reject(b|b.isElementBinding);
@@ -272,6 +273,22 @@ helper context SimpleGT!InputElementPattern def : hasMatcherBindings : Boolean =
 helper context SimpleGT!InputElementPattern def : matcherBindings : Sequence(SimpleGT!InputBinding) =
 	self.elements->collect(e|e.matcherBindings)->flatten();
 
+helper context OCL!VariableExp def : localVariable() : EMFTVM!LocalVariable =
+	if self.isInApply then
+		thisModule.resolveTemp(self.referredVariable.refersTo, 'ov')
+	else
+		thisModule.resolveTemp(self.referredVariable.refersTo, 'lv')
+	endif;
+
+helper context OclAny def : isInApply : Boolean =
+	let parent : OclAny = self.refImmediateComposite() in
+	not parent.oclIsUndefined() and
+	(parent.oclIsKindOf(SimpleGT!OutputBinding) or
+	parent.isInApply);
+
+helper context OCL!VariableExp def : localVariable2() : EMFTVM!LocalVariable =
+	thisModule.resolveTemp(self.referredVariable.refersTo, 'ov');
+
 -- ======================================================================
 -- helpers end
 -- ======================================================================
@@ -281,28 +298,30 @@ helper context SimpleGT!InputElementPattern def : matcherBindings : Sequence(Sim
 -- ======================================================================
 
 rule Module {
-	from s : SimpleGT!Module in IN
+	from s : SimpleGT!"simplegt::Module" in IN
 	to t : EMFTVM!Module (
 		name <- s.name,
 		sourceName <- s.name + '.simplegt',
-		imports <- s.imports,
+		imports <- s.imports->collect(i | i.name),
 		inoutModels <- s.models,
-		rules <- s.rules,
-		features <- Sequence{main}),
+		rules <- s.elements->select(e | e.oclIsKindOf(SimpleGT!Rule)),
+		features <- s.elements->select(e | e.oclIsKindOf(OCL!OclFeatureDefinition)))
+}
+
+rule ModuleWithoutMain extends Module {
+	from s : OCL!Module in IN (
+		not s.elements->exists(f | f.isStatic and f.feature.oclIsKindOf(OCL!Operation) and f.feature.name = 'main'))
+	to t : EMFTVM!Module (
+		features <- s.elements
+			->select(e | e.oclIsKindOf(OCL!OclFeatureDefinition))
+			->including(main)),
 	   main : EMFTVM!Operation (
 	   	name <- 'main',
 		static <- true,
+		type <- 'Object',
+		typeModel <- '#native',
 		"context" <- 'ExecEnv',
-		contextModel <- 'EMFTVM',
-		type <- 'java.lang.Object',
-		typeModel <- '#native')
-}
-
-rule InstanceModel {
-	from s : SimpleGT!InstanceModel in IN
-	to t : EMFTVM!ModelDeclaration (
-		modelName <- s.name,
-		metaModelName <- s.metaModel.name)
+		contextModel <- 'EMFTVM')
 }
 
 rule Rule {
@@ -414,18 +433,18 @@ rule InputElement {
 	from s : SimpleGT!InputElement in IN (
 		s.pattern.oclIsKindOf(SimpleGT!InPattern))
 	to re : EMFTVM!InputRuleElement (
-		name <- s.name,
-		type <- s.type.name,
-		typeModel <- s.type.model.name,
+		name <- s.varName,
+		type <- s.type.typeName,
+		typeModel <- s.type.typeModelName,
 		models <- if s.inModel.oclIsUndefined() then
 				Sequence{}
 			else
 				Sequence{s.inModel.name}
 			endif),
 	   ov : EMFTVM!LocalVariable (
-	   	name <- s.name,
-		type <- s.type.name,
-		typeModel <- s.type.model.name)
+	   	name <- s.varName,
+		type <- s.type.typeName,
+		typeModel <- s.type.typeModelName)
 }
 
 rule BoundInputElement extends InputElement {
@@ -520,9 +539,9 @@ rule InputElementWithMatcher extends InputElement {
 		s.pattern.patternFor.matcherPatterns->notEmpty()) -- no matcher => no lv
 	to re : EMFTVM!InputRuleElement,
 	   lv : EMFTVM!LocalVariable (
-	   	name <- s.name,
-		type <- s.type.name,
-		typeModel <- s.type.model.name)
+	   	name <- s.varName,
+		type <- s.type.typeName,
+		typeModel <- s.type.typeModelName)
 }
 
 -- @extends DeletedInputElement, InputElementWithMatcher
@@ -633,9 +652,9 @@ abstract rule NacInputElement {
 		localVariables <- Sequence{lv},
 	   	lineNumbers <- Sequence{ln}),
 	   lv : EMFTVM!LocalVariable (
-	   	name <- s.name,
-		type <- s.type.name,				-- NAC input elements have 'forall' semantics
-		typeModel <- s.type.model.name),	-- NAC elements are not available after matching(!)
+	   	name <- s.varName,
+		type <- s.type.typeName,			-- NAC input elements have 'forall' semantics
+		typeModel <- s.type.typeModelName),		-- NAC elements are not available after matching(!)
 	   ln : EMFTVM!LineNumber (
 	   	startLine <- s.line,
 		startColumn <- s.column,
@@ -648,8 +667,8 @@ abstract rule UnboundNacInputElement extends NacInputElement {
 		not s.isBound)
 	to cb : EMFTVM!CodeBlock,
 	   findtype : EMFTVM!Findtype (
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name)									-- [type]
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName)									-- [type]
 }
 
 abstract rule BoundNacInputElement extends NacInputElement {
@@ -757,8 +776,8 @@ rule BoundTerminatingNacInputElement extends BoundLastNacInputElement {
 	-- value is a collection
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -771,8 +790,8 @@ rule BoundTerminatingNacInputElement extends BoundLastNacInputElement {
 	   goto2 : EMFTVM!Goto (target <- invoke3),						-- [true]
 	-- value is single
 	   findtype3 : EMFTVM!Findtype (								-- [type, value]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap3 : EMFTVM!Swap,											-- [value, type]
 	   invoke3 : EMFTVM!Invoke (									-- [bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -799,8 +818,8 @@ rule BoundTerminatingNacInputElementIn extends BoundLastNacInputElement {
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -821,8 +840,8 @@ rule BoundTerminatingNacInputElementIn extends BoundLastNacInputElement {
 	-- value is single
 	   dup3 : EMFTVM!Dup,											-- [value, value]
 	   findtype3 : EMFTVM!Findtype (								-- [type, value, value]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap3 : EMFTVM!Swap,											-- [value, type, value]
 	   invoke3 : EMFTVM!Invoke (									-- [bool, value]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -864,8 +883,8 @@ rule LastBoundTerminatingNacInputElement extends BoundLastNacInputElement {
 	-- value is a collection
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -878,8 +897,8 @@ rule LastBoundTerminatingNacInputElement extends BoundLastNacInputElement {
 	   goto2 : EMFTVM!Goto (target <- invoke3),						-- [true]
 	-- value is single
 	   findtype3 : EMFTVM!Findtype (								-- [type, value]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap3 : EMFTVM!Swap,											-- [value, type]
 	   invoke3 : EMFTVM!Invoke (									-- [bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -914,8 +933,8 @@ rule LastBoundTerminatingNacInputElementIn extends BoundLastNacInputElement {
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -936,8 +955,8 @@ rule LastBoundTerminatingNacInputElementIn extends BoundLastNacInputElement {
 	-- value is single
 	   dup3 : EMFTVM!Dup,											-- [value, value]
 	   findtype3 : EMFTVM!Findtype (								-- [type, value, value]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap3 : EMFTVM!Swap,											-- [value, type, value]
 	   invoke3 : EMFTVM!Invoke (									-- [bool, value]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1052,8 +1071,8 @@ rule BoundLastNacInputElementWithBindings extends BoundLastNacInputElement {
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1108,8 +1127,8 @@ rule BoundLastNacInputElementWithBindingsIn extends BoundLastNacInputElement {
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1176,8 +1195,8 @@ rule LastBoundLastNacInputElementWithBindings extends LastBoundLastNacInputEleme
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1238,8 +1257,8 @@ rule LastBoundLastNacInputElementWithBindingsIn extends LastBoundLastNacInputEle
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1351,8 +1370,8 @@ rule BoundNacInputElementWithNextElement extends BoundNacInputElement {
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeMame),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1403,8 +1422,8 @@ rule BoundNacInputElementWithNextElementIn extends BoundNacInputElement {
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1467,8 +1486,8 @@ rule LastBoundNacInputElementWithNextElement extends LastBoundNacInputElement {
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1525,8 +1544,8 @@ rule LastBoundNacInputElementWithNextElementIn extends LastBoundNacInputElement 
 	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
-	   	modelname <- s.type.model.name,
-		typename <- s.type.name),
+	   	modelname <- s.type.typeModelName,
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1555,14 +1574,14 @@ rule OutputElement {
 	from s : SimpleGT!OutputElement in IN (
 		s.pattern.newElements->includes(s)) -- Only elements that should be newly created
 	to re : EMFTVM!OutputRuleElement (
-		name <- s.name,
-		type <- s.type.name,
-		typeModel <- s.type.model.name,
+		name <- s.varName,
+		type <- s.type.typeName,
+		typeModel <- s.type.typeModelName,
 		models <- Sequence{s.outModelName}),
 	   ov : EMFTVM!LocalVariable (
-	   	name <- s.name,
-		type <- s.type.name,
-		typeModel <- s.type.model.name)
+	   	name <- s.varName,
+		type <- s.type.typeName,
+		typeModel <- s.type.typeModelName)
 }
 
 rule InputBinding {
@@ -1683,231 +1702,8 @@ rule OutputBindingBeforeElement extends OutputBinding {
 	   get : EMFTVM!Get (fieldname <- s.property),					-- [oldValue, before, element]
 	   invoke : EMFTVM!Invoke (opname <- 'indexOf', argcount <- 1),	-- [index, element]
 	   invokeCb : EMFTVM!InvokeCb (codeBlock <- s.expr),			-- [value, index, element]
-	   swapX1 : EMFTVM!SwapX1,									-- [element, value, index]
+	   swapX1 : EMFTVM!SwapX1,										-- [element, value, index]
 	   insert : EMFTVM!Insert (fieldname <- s.property)				-- []
-}
-
--------------- Expressions -----------------
-
-abstract rule Expression {
-	from s : SimpleGT!Expression in IN (
-		s.isUsed)
-	to cb : EMFTVM!CodeBlock (
-		lineNumbers <- Sequence{ln}),
-	   ln : EMFTVM!LineNumber (
-	   	startLine <- s.line,
-		startColumn <- s.column,
-		startChar <- s.charStart,
-		endChar <- s.charEnd)
-}
-
-abstract rule ExpressionWithApply {
-	from s : SimpleGT!Expression in IN (
-		s.isUsedTwice)
-	to cb2 : EMFTVM!CodeBlock (
-		lineNumbers <- Sequence{ln2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	startLine <- s.line,
-		startColumn <- s.column,
-		startChar <- s.charStart,
-		endChar <- s.charEnd)
-}
-
-rule ElementExp extends Expression {
-	from s : SimpleGT!ElementExp in IN
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{load}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load}),
-	   load : EMFTVM!Load (										-- [element]
-	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 
-	   		if s.binding.oclIsKindOf(SimpleGT!OutputBinding) 
-			then 'ov' 
-			else 'lv' endif))
-}
-
-rule ElementExpWithApply extends ExpressionWithApply {
-	from s : SimpleGT!ElementExp in IN
-	to cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{load2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load2}),
-	   load2 : EMFTVM!Load (									-- [element]
-	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 'ov'))
-}
-
--- @extends ElementExp, ElementExpWithApply
-rule ElementExpWithBoth {
-	from s : SimpleGT!ElementExp in IN
-	to cb : EMFTVM!CodeBlock
-}
-
-rule ElementExpWithProperty extends ElementExp {
-	from s : SimpleGT!ElementExp in IN (
-		not s.property.oclIsUndefined())
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{load, get}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get}),
-	   load : EMFTVM!Load,										-- [element]
-	   get : EMFTVM!Get (fieldname <- s.property)				-- [propval]
-}
-
-rule ElementExpWithApplyWithProperty extends ElementExpWithApply {
-	from s : SimpleGT!ElementExp in IN (
-		not s.property.oclIsUndefined())
-	to cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{load2, get2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load2, get2}),
-	   load2 : EMFTVM!Load,										-- [element]
-	   get2 : EMFTVM!Get (fieldname <- s.property)				-- [propval]
-}
-
--- @extends ElementExpWithBoth, ElementExpWithProperty, ElementExpWithApplyWithProperty
-rule ElementExpWithBothWithProperty {
-	from s : SimpleGT!ElementExp in IN
-	to cb : EMFTVM!CodeBlock
-}
-
-abstract rule LiteralExp extends Expression {
-	from s : SimpleGT!LiteralExp in IN (
-		not s.oclIsKindOf(SimpleGT!BooleanLiteralExp))
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{push}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push}),
-	   push : EMFTVM!Push
-}
-
-abstract rule LiteralExpWithApply extends ExpressionWithApply {
-	from s : SimpleGT!LiteralExp in IN (
-		not s.oclIsKindOf(SimpleGT!BooleanLiteralExp))
-	to cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{push2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push2}),
-	   push2 : EMFTVM!Push
-}
-
-rule StringLiteralExp extends LiteralExp {
-	from s : SimpleGT!StringLiteralExp in IN
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (stringValue <- s.literal)			-- [string]
-}
-
-rule StringLiteralExpWithApply extends LiteralExpWithApply {
-	from s : SimpleGT!StringLiteralExp in IN
-	to cb2 : EMFTVM!CodeBlock,
-	   push2 : EMFTVM!Push (stringValue <- s.literal)			-- [string]
-}
-
--- @extends StringLiteralExp, StringLiteralExpWithApply
-rule StringLiteralExpWithBoth {
-	from s : SimpleGT!StringLiteralExp in IN
-	to cb : EMFTVM!CodeBlock
-}
-
-rule IntegerLiteralExp extends LiteralExp {
-	from s : SimpleGT!IntegerLiteralExp in IN
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (intValue <- s.literal)				-- [int]
-}
-
-rule IntegerLiteralExpWithApply extends LiteralExpWithApply {
-	from s : SimpleGT!IntegerLiteralExp in IN
-	to cb2 : EMFTVM!CodeBlock,
-	   push2 : EMFTVM!Push (intValue <- s.literal)				-- [int]
-}
-
--- @extends IntegerLiteralExp, IntegerLiteralExpWithApply
-rule IntegerLiteralExpWithBoth {
-	from s : SimpleGT!IntegerLiteralExp in IN
-	to cb : EMFTVM!CodeBlock
-}
-
-rule DoubleLiteralExp extends LiteralExp {
-	from s : SimpleGT!DoubleLiteralExp in IN
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (doubleValue <- s.literal)			-- [double]
-}
-
-rule DoubleLiteralExpWithApply extends LiteralExpWithApply {
-	from s : SimpleGT!DoubleLiteralExp in IN
-	to cb2 : EMFTVM!CodeBlock,
-	   push2 : EMFTVM!Push (doubleValue <- s.literal)			-- [double]
-}
-
--- @extends DoubleLiteralExp, DoubleLiteralExpWithApply
-rule DoubleLiteralExpWithBoth {
-	from s : SimpleGT!DoubleLiteralExp in IN
-	to cb : EMFTVM!CodeBlock
-}
-
-rule TrueBooleanLiteralExp extends Expression {
-	from s : SimpleGT!BooleanLiteralExp in IN (s.literal)
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{push}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push}),
-	   push : EMFTVM!Pusht
-}
-
-rule TrueBooleanLiteralExpWithApply extends ExpressionWithApply {
-	from s : SimpleGT!BooleanLiteralExp in IN (s.literal)
-	to cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{push2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push2}),
-	   push2 : EMFTVM!Pusht
-}
-
--- @extends TrueBooleanLiteralExp, TrueBooleanLiteralExpWithApply
-rule TrueBooleanLiteralExpWithBoth {
-	from s : SimpleGT!BooleanLiteralExp in IN
-	to cb : EMFTVM!CodeBlock
-}
-
-rule FalseBooleanLiteralExp extends Expression {
-	from s : SimpleGT!BooleanLiteralExp in IN (not s.literal)
-	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{push}),
-	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push}),
-	   push : EMFTVM!Pushf
-}
-
-rule FalseBooleanLiteralExpWithApply extends ExpressionWithApply {
-	from s : SimpleGT!BooleanLiteralExp in IN (not s.literal)
-	to cb2 : EMFTVM!CodeBlock (
-		code <- Sequence{push2}),
-	   ln2 : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push2}),
-	   push2 : EMFTVM!Pushf
-}
-
--- @extends FalseBooleanLiteralExp, FalseBooleanLiteralExpWithApply
-rule FalseBooleanLiteralExpWithBoth {
-	from s : SimpleGT!BooleanLiteralExp in IN
-	to cb : EMFTVM!CodeBlock
-}
-
-rule EnumLiteralExp extends LiteralExp {
-	from s : SimpleGT!EnumLiteralExp in IN (not s.isUsedTwice)
-	to cb : EMFTVM!CodeBlock,
-	   push : EMFTVM!Push (enumValue <- s.literal)				-- [enumliteral]
-}
-
-rule EnumLiteralExpWithApply extends LiteralExpWithApply {
-	from s : SimpleGT!EnumLiteralExp in IN
-	to cb2 : EMFTVM!CodeBlock,
-	   push2 : EMFTVM!Push (enumValue <- s.literal)				-- [enumliteral]
-}
-
--- @extends EnumLiteralExp, EnumLiteralExpWithApply
-rule EnumLiteralExpWithBoth {
-	from s : SimpleGT!EnumLiteralExp in IN
-	to cb : EMFTVM!CodeBlock
 }
 
 -- ======================================================================
@@ -1921,9 +1717,9 @@ rule EnumLiteralExpWithBoth {
 lazy rule CreateLocal {
 	from s : SimpleGT!InputElement
 	to lv : EMFTVM!LocalVariable (
-		name <- s.name,
-		type <- s.type.name,
-		typeModel <- s.type.model.name)
+		name <- s.varName,
+		type <- s.type.typeName,
+		typeModel <- s.type.typeModelName)
 	do {
 		lv;
 	}

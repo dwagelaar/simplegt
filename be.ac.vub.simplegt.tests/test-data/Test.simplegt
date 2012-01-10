@@ -2,6 +2,7 @@
 -- $Id$
 module Test;
 
+metamodel EMFTVM;
 transform M : EMFTVM;
 
 rule Test {

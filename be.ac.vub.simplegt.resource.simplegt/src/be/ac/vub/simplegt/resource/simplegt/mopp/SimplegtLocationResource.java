@@ -13,7 +13,7 @@ package be.ac.vub.simplegt.resource.simplegt.mopp;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
-import be.ac.vub.simplegt.util.LocationResource;
+import be.ac.vub.simpleocl.util.LocationResource;
 
 /**
  * Adds {@link LocationResource} methods to {@link SimplegtResource}.

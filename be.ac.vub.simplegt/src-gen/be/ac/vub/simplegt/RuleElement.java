@@ -5,6 +5,9 @@
  */
 package be.ac.vub.simplegt;
 
+import be.ac.vub.simpleocl.OclInstanceModel;
+import be.ac.vub.simpleocl.VariableDeclaration;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +25,7 @@ package be.ac.vub.simplegt;
  * @model abstract="true"
  * @generated
  */
-public interface RuleElement extends TypedElement {
+public interface RuleElement extends VariableDeclaration {
 
 	/**
 	 * Returns the value of the '<em><b>In Model</b></em>' reference.
@@ -33,12 +36,12 @@ public interface RuleElement extends TypedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>In Model</em>' reference.
-	 * @see #setInModel(InstanceModel)
+	 * @see #setInModel(OclInstanceModel)
 	 * @see be.ac.vub.simplegt.SimplegtPackage#getRuleElement_InModel()
 	 * @model
 	 * @generated
 	 */
-	InstanceModel getInModel();
+	OclInstanceModel getInModel();
 
 	/**
 	 * Sets the value of the '{@link be.ac.vub.simplegt.RuleElement#getInModel <em>In Model</em>}' reference.
@@ -48,5 +51,5 @@ public interface RuleElement extends TypedElement {
 	 * @see #getInModel()
 	 * @generated
 	 */
-	void setInModel(InstanceModel value);
+	void setInModel(OclInstanceModel value);
 } // RuleElement

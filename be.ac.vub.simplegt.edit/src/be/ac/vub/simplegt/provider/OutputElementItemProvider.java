@@ -110,7 +110,7 @@ public class OutputElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((OutputElement)object).getName();
+		String label = ((OutputElement)object).getVarName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_OutputElement_type") :
 			getString("_UI_OutputElement_type") + " " + label;

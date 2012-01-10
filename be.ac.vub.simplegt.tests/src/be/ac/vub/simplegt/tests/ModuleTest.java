@@ -5,6 +5,7 @@
  */
 package be.ac.vub.simplegt.tests;
 
+import junit.framework.TestCase;
 import junit.textui.TestRunner;
 import be.ac.vub.simplegt.Module;
 import be.ac.vub.simplegt.SimplegtFactory;
@@ -15,7 +16,15 @@ import be.ac.vub.simplegt.SimplegtFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModuleTest extends NamedElementTest {
+public class ModuleTest extends TestCase {
+
+	/**
+	 * The fixture for this Module test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Module fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -37,14 +46,23 @@ public class ModuleTest extends NamedElementTest {
 	}
 
 	/**
+	 * Sets the fixture for this Module test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Module fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Module test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Module getFixture() {
-		return (Module)fixture;
+		return fixture;
 	}
 
 	/**

@@ -113,72 +113,300 @@ public class SimplegtPrinter2 implements be.ac.vub.simplegt.resource.simplegt.IS
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_0, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.InstanceModel) {
+		if (element instanceof be.ac.vub.simplegt.Rule) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_1, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.Metamodel) {
+		if (element instanceof be.ac.vub.simplegt.InPattern) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_2, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.Rule) {
+		if (element instanceof be.ac.vub.simplegt.InputElement) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_3, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.InPattern) {
+		if (element instanceof be.ac.vub.simplegt.InputBinding) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_4, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.Type) {
+		if (element instanceof be.ac.vub.simplegt.NacPattern) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_5, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.InputElement) {
+		if (element instanceof be.ac.vub.simplegt.OutPattern) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_6, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.InputBinding) {
+		if (element instanceof be.ac.vub.simplegt.OutputElement) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_7, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.ElementExp) {
+		if (element instanceof be.ac.vub.simplegt.OutputBinding) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_8, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.StringLiteralExp) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_9, foundFormattingElements);
+		if (element instanceof be.ac.vub.simpleocl.Module) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_0, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.IntegerLiteralExp) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_10, foundFormattingElements);
+		if (element instanceof be.ac.vub.simpleocl.Import) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_1, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.DoubleLiteralExp) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_11, foundFormattingElements);
+		if (element instanceof be.ac.vub.simpleocl.OclFeatureDefinition) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_2, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.BooleanLiteralExp) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_12, foundFormattingElements);
+		if (element instanceof be.ac.vub.simpleocl.OclContextDefinition) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_3, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.EnumLiteralExp) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_13, foundFormattingElements);
+		if (element instanceof be.ac.vub.simpleocl.OclMetamodel) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_4, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.NacPattern) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_14, foundFormattingElements);
+		if (element instanceof be.ac.vub.simpleocl.OclInstanceModel) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_5, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.OutPattern) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_15, foundFormattingElements);
+		if (element instanceof be.ac.vub.simpleocl.Attribute) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_7, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.OutputElement) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_16, foundFormattingElements);
+		if (element instanceof be.ac.vub.simpleocl.Operation) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_8, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simplegt.OutputBinding) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEGT_17, foundFormattingElements);
+		if (element instanceof be.ac.vub.simpleocl.Parameter) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_9, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.OclModelElementExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_10, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.LambdaCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_11, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.VariableExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_12, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.SuperExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_13, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.SelfExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_14, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.EnvExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_15, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.StringExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_16, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.BooleanExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_17, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.RealExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_18, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.IntegerExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_19, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.BagExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_20, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.OrderedSetExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_21, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.SequenceExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_22, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.SetExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_23, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.TupleExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_24, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.TuplePart) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_25, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.MapExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_26, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.MapElement) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_27, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.EnumLiteralExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_28, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.OclUndefinedExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_29, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.LetExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_30, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.IfExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_31, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.BraceExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_32, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.EqOpCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_34, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.RelOpCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_35, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.AddOpCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_36, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.IntOpCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_37, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.MulOpCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_38, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.NotOpCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_39, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.StaticPropertyCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_40, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.StaticOperationCall) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_41, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.StaticNavigationOrAttributeCall) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_42, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.NavigationOrAttributeCall) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_45, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.IterateExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_46, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.IteratorExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_47, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.Iterator) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_48, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.CollectionOperationCall) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_49, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.StringType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_51, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.BooleanType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_52, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.IntegerType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_53, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.RealType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_54, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.BagType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_55, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.OrderedSetType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_56, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.SequenceType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_57, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.SetType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_58, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.OclAnyType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_59, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.TupleType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_60, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.TupleTypeAttribute) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_61, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.OclModelElement) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_62, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.MapType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_63, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.LambdaType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_64, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.EnvType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_65, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.LocalVariable) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_6, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.OperatorCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_33, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.PropertyCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_43, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.OperationCall) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_44, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.CollectionType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_50, foundFormattingElements);
 			return;
 		}
 		

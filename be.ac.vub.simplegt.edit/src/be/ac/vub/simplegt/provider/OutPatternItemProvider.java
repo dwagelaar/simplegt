@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,6 +22,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import be.ac.vub.simplegt.OutPattern;
 import be.ac.vub.simplegt.SimplegtFactory;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simpleocl.provider.LocatedElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link be.ac.vub.simplegt.OutPattern} object.
@@ -148,6 +150,17 @@ public class OutPatternItemProvider
 			(createChildParameter
 				(SimplegtPackage.Literals.OUT_PATTERN__ELEMENTS,
 				 SimplegtFactory.eINSTANCE.createOutputElement()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return SimplegtEditPlugin.INSTANCE;
 	}
 
 }

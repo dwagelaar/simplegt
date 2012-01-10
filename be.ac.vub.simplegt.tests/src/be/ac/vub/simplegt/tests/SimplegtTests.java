@@ -33,7 +33,6 @@ public class SimplegtTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new SimplegtTests("simplegt Tests");
-		suite.addTestSuite(TypeTest.class);
 		suite.addTestSuite(ModuleTest.class);
 		suite.addTestSuite(RuleTest.class);
 		suite.addTestSuite(InPatternTest.class);
@@ -43,14 +42,6 @@ public class SimplegtTests extends TestSuite {
 		suite.addTestSuite(OutputElementTest.class);
 		suite.addTestSuite(InputBindingTest.class);
 		suite.addTestSuite(OutputBindingTest.class);
-		suite.addTestSuite(ElementExpTest.class);
-		suite.addTestSuite(StringLiteralExpTest.class);
-		suite.addTestSuite(IntegerLiteralExpTest.class);
-		suite.addTestSuite(DoubleLiteralExpTest.class);
-		suite.addTestSuite(BooleanLiteralExpTest.class);
-		suite.addTestSuite(EnumLiteralExpTest.class);
-		suite.addTestSuite(MetamodelTest.class);
-		suite.addTestSuite(InstanceModelTest.class);
 		return suite;
 	}
 

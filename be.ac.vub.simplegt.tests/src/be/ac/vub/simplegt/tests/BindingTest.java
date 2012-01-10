@@ -5,6 +5,7 @@
  */
 package be.ac.vub.simplegt.tests;
 
+import junit.framework.TestCase;
 import be.ac.vub.simplegt.Binding;
 
 /**
@@ -13,7 +14,15 @@ import be.ac.vub.simplegt.Binding;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class BindingTest extends LocatedElementTest {
+public abstract class BindingTest extends TestCase {
+
+	/**
+	 * The fixture for this Binding test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Binding fixture = null;
 
 	/**
 	 * Constructs a new Binding test case with the given name.
@@ -26,14 +35,23 @@ public abstract class BindingTest extends LocatedElementTest {
 	}
 
 	/**
+	 * Sets the fixture for this Binding test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Binding fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Binding test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Binding getFixture() {
-		return (Binding)fixture;
+		return fixture;
 	}
 
 } //BindingTest

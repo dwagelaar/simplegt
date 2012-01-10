@@ -14,6 +14,7 @@ public class SimplegtFoldingInformationProvider {
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getInPattern(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getNacPattern(),
 			be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutPattern(),
+			be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclFeatureDefinition(),
 		};
 	}
 	

@@ -110,7 +110,7 @@ public class InputElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InputElement)object).getName();
+		String label = ((InputElement)object).getVarName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_InputElement_type") :
 			getString("_UI_InputElement_type") + " " + label;

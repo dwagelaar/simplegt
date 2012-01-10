@@ -13,14 +13,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import be.ac.vub.simplegt.InstanceModel;
 import be.ac.vub.simplegt.Module;
-import be.ac.vub.simplegt.Rule;
 import be.ac.vub.simplegt.SimplegtPackage;
+import be.ac.vub.simpleocl.OclInstanceModel;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,15 +28,13 @@ import be.ac.vub.simplegt.SimplegtPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link be.ac.vub.simplegt.impl.ModuleImpl#getModels <em>Models</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.impl.ModuleImpl#getRules <em>Rules</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.impl.ModuleImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.impl.ModuleImpl#isDebug <em>Debug</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ModuleImpl extends NamedElementImpl implements Module {
+public class ModuleImpl extends be.ac.vub.simpleocl.impl.ModuleImpl implements Module {
 	/**
 	 * The cached value of the '{@link #getModels() <em>Models</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -47,27 +43,7 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<InstanceModel> models;
-
-	/**
-	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRules()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Rule> rules;
-
-	/**
-	 * The cached value of the '{@link #getImports() <em>Imports</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImports()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> imports;
+	protected EList<OclInstanceModel> models;
 
 	/**
 	 * The default value of the '{@link #isDebug() <em>Debug</em>}' attribute.
@@ -113,35 +89,11 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InstanceModel> getModels() {
+	public EList<OclInstanceModel> getModels() {
 		if (models == null) {
-			models = new EObjectContainmentWithInverseEList<InstanceModel>(InstanceModel.class, this, SimplegtPackage.MODULE__MODELS, SimplegtPackage.INSTANCE_MODEL__MODULE);
+			models = new EObjectContainmentEList<OclInstanceModel>(OclInstanceModel.class, this, SimplegtPackage.MODULE__MODELS);
 		}
 		return models;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Rule> getRules() {
-		if (rules == null) {
-			rules = new EObjectContainmentWithInverseEList<Rule>(Rule.class, this, SimplegtPackage.MODULE__RULES, SimplegtPackage.RULE__MODULE);
-		}
-		return rules;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<String> getImports() {
-		if (imports == null) {
-			imports = new EDataTypeUniqueEList<String>(String.class, this, SimplegtPackage.MODULE__IMPORTS);
-		}
-		return imports;
 	}
 
 	/**
@@ -170,30 +122,11 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SimplegtPackage.MODULE__MODELS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getModels()).basicAdd(otherEnd, msgs);
-			case SimplegtPackage.MODULE__RULES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRules()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SimplegtPackage.MODULE__MODELS:
 				return ((InternalEList<?>)getModels()).basicRemove(otherEnd, msgs);
-			case SimplegtPackage.MODULE__RULES:
-				return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -208,10 +141,6 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 		switch (featureID) {
 			case SimplegtPackage.MODULE__MODELS:
 				return getModels();
-			case SimplegtPackage.MODULE__RULES:
-				return getRules();
-			case SimplegtPackage.MODULE__IMPORTS:
-				return getImports();
 			case SimplegtPackage.MODULE__DEBUG:
 				return isDebug();
 		}
@@ -229,15 +158,7 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 		switch (featureID) {
 			case SimplegtPackage.MODULE__MODELS:
 				getModels().clear();
-				getModels().addAll((Collection<? extends InstanceModel>)newValue);
-				return;
-			case SimplegtPackage.MODULE__RULES:
-				getRules().clear();
-				getRules().addAll((Collection<? extends Rule>)newValue);
-				return;
-			case SimplegtPackage.MODULE__IMPORTS:
-				getImports().clear();
-				getImports().addAll((Collection<? extends String>)newValue);
+				getModels().addAll((Collection<? extends OclInstanceModel>)newValue);
 				return;
 			case SimplegtPackage.MODULE__DEBUG:
 				setDebug((Boolean)newValue);
@@ -257,12 +178,6 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 			case SimplegtPackage.MODULE__MODELS:
 				getModels().clear();
 				return;
-			case SimplegtPackage.MODULE__RULES:
-				getRules().clear();
-				return;
-			case SimplegtPackage.MODULE__IMPORTS:
-				getImports().clear();
-				return;
 			case SimplegtPackage.MODULE__DEBUG:
 				setDebug(DEBUG_EDEFAULT);
 				return;
@@ -280,10 +195,6 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 		switch (featureID) {
 			case SimplegtPackage.MODULE__MODELS:
 				return models != null && !models.isEmpty();
-			case SimplegtPackage.MODULE__RULES:
-				return rules != null && !rules.isEmpty();
-			case SimplegtPackage.MODULE__IMPORTS:
-				return imports != null && !imports.isEmpty();
 			case SimplegtPackage.MODULE__DEBUG:
 				return debug != DEBUG_EDEFAULT;
 		}
@@ -300,9 +211,7 @@ public class ModuleImpl extends NamedElementImpl implements Module {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (imports: ");
-		result.append(imports);
-		result.append(", debug: ");
+		result.append(" (debug: ");
 		result.append(debug);
 		result.append(')');
 		return result.toString();

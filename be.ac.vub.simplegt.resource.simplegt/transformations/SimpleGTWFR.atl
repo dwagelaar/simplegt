@@ -1,0 +1,34 @@
+-- @atlcompiler emftvm
+-- @path OCL=/be.ac.vub.simpleocl/metamodel/simpleocl.ecore
+-- @path SimpleGT=/be.ac.vub.simplegt/model/simplegt.ecore
+-- @path Problem=/be.ac.vub.simpleocl/metamodel/problem.ecore
+-- SimpleOCL Well-formedness rules.
+-- $Id: SimpleOCLWFR.atl 8846 2012-01-05 14:02:58Z dwagelaa $
+module SimpleGTWFR;
+
+create PBS : Problem from IN : SimpleGT;
+
+uses SimpleOCLLib;
+uses SimpleOCLWFR;
+
+-------------------------------------------------------------------------------
+-- RULES ----------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+-- This rule generates an 'error' Problem when there exists multiple rules with
+-- the same name.
+nodefault rule RuleNameIsUnique {
+	from
+		s : SimpleGT!Rule (
+			SimpleGT!Rule.allInstances()->exists(e | e.name = s.name and e <> s)
+		)
+	to
+		t : Problem!Problem (
+			severity <- #error,
+			line <- s.line,
+			column <- s.column,
+			charStart <- s.charStart,
+			charEnd <- s.charEnd,
+			description <- 'rule \'' + s.name + '\' already defined'
+		)
+}

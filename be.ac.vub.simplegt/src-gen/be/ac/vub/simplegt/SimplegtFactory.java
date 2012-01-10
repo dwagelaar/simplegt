@@ -25,15 +25,6 @@ public interface SimplegtFactory extends EFactory {
 	SimplegtFactory eINSTANCE = be.ac.vub.simplegt.impl.SimplegtFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Type</em>'.
-	 * @generated
-	 */
-	Type createType();
-
-	/**
 	 * Returns a new object of class '<em>Module</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,78 +104,6 @@ public interface SimplegtFactory extends EFactory {
 	 * @generated
 	 */
 	OutputBinding createOutputBinding();
-
-	/**
-	 * Returns a new object of class '<em>Element Exp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Exp</em>'.
-	 * @generated
-	 */
-	ElementExp createElementExp();
-
-	/**
-	 * Returns a new object of class '<em>String Literal Exp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>String Literal Exp</em>'.
-	 * @generated
-	 */
-	StringLiteralExp createStringLiteralExp();
-
-	/**
-	 * Returns a new object of class '<em>Integer Literal Exp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Integer Literal Exp</em>'.
-	 * @generated
-	 */
-	IntegerLiteralExp createIntegerLiteralExp();
-
-	/**
-	 * Returns a new object of class '<em>Double Literal Exp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Double Literal Exp</em>'.
-	 * @generated
-	 */
-	DoubleLiteralExp createDoubleLiteralExp();
-
-	/**
-	 * Returns a new object of class '<em>Boolean Literal Exp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean Literal Exp</em>'.
-	 * @generated
-	 */
-	BooleanLiteralExp createBooleanLiteralExp();
-
-	/**
-	 * Returns a new object of class '<em>Enum Literal Exp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enum Literal Exp</em>'.
-	 * @generated
-	 */
-	EnumLiteralExp createEnumLiteralExp();
-
-	/**
-	 * Returns a new object of class '<em>Metamodel</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Metamodel</em>'.
-	 * @generated
-	 */
-	Metamodel createMetamodel();
-
-	/**
-	 * Returns a new object of class '<em>Instance Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Instance Model</em>'.
-	 * @generated
-	 */
-	InstanceModel createInstanceModel();
 
 	/**
 	 * Returns the package supported by this factory.

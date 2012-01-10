@@ -23,11 +23,33 @@ public class SimplegtTokenResolverFactory implements be.ac.vub.simplegt.resource
 	public SimplegtTokenResolverFactory() {
 		tokenName2TokenResolver = new java.util.LinkedHashMap<String, be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver>();
 		featureName2CollectInTokenResolver = new java.util.LinkedHashMap<String, be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver>();
-		registerTokenResolver("FLOAT", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtFLOATTokenResolver());
-		registerTokenResolver("INTEGER", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtINTEGERTokenResolver());
-		registerTokenResolver("TEXT", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtTEXTTokenResolver());
-		registerTokenResolver("QUOTED_34_34_92", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtQUOTED_34_34_92TokenResolver());
-		registerTokenResolver("QUOTED_39_39_92", new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtQUOTED_39_39_92TokenResolver());
+		registerTokenResolver("NOTOP", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclNOTOPTokenResolver());
+		registerTokenResolver("BOOLOP", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclBOOLOPTokenResolver());
+		registerTokenResolver("INTOP", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclINTOPTokenResolver());
+		registerTokenResolver("RELOP", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclRELOPTokenResolver());
+		registerTokenResolver("EQ", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclEQTokenResolver());
+		registerTokenResolver("NEQ", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclNEQTokenResolver());
+		registerTokenResolver("ADDOP", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclADDOPTokenResolver());
+		registerTokenResolver("MULOP", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclMULOPTokenResolver());
+		registerTokenResolver("FLOAT", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclFLOATTokenResolver());
+		registerTokenResolver("INTEGER", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclINTEGERTokenResolver());
+		registerTokenResolver("STRINGTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclSTRINGTYPETokenResolver());
+		registerTokenResolver("BOOLEANTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclBOOLEANTYPETokenResolver());
+		registerTokenResolver("INTEGERTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclINTEGERTYPETokenResolver());
+		registerTokenResolver("REALTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclREALTYPETokenResolver());
+		registerTokenResolver("COLLECTIONTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclCOLLECTIONTYPETokenResolver());
+		registerTokenResolver("BAGTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclBAGTYPETokenResolver());
+		registerTokenResolver("ORDEREDSETTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclORDEREDSETTYPETokenResolver());
+		registerTokenResolver("SEQUENCETYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclSEQUENCETYPETokenResolver());
+		registerTokenResolver("SETTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclSETTYPETokenResolver());
+		registerTokenResolver("OCLANYTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclOCLANYTYPETokenResolver());
+		registerTokenResolver("TUPLETYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclTUPLETYPETokenResolver());
+		registerTokenResolver("MAPTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclMAPTYPETokenResolver());
+		registerTokenResolver("LAMBDATYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclLAMBDATYPETokenResolver());
+		registerTokenResolver("ENVTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclENVTYPETokenResolver());
+		registerTokenResolver("TEXT", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclTEXTTokenResolver());
+		registerTokenResolver("QUOTED_34_34_92", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclQUOTED_34_34_92TokenResolver());
+		registerTokenResolver("QUOTED_39_39_92", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclQUOTED_39_39_92TokenResolver());
 	}
 	
 	public be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenResolver createTokenResolver(String tokenName) {

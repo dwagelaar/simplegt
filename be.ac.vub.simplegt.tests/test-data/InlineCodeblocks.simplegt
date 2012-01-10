@@ -2,6 +2,7 @@
 -- $Id$
 module InlineCodeblocks;
 
+metamodel EMFTVM;
 transform M : EMFTVM;
 
 -- ======================================================================

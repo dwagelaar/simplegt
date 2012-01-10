@@ -5,6 +5,9 @@
  */
 package be.ac.vub.simplegt;
 
+import be.ac.vub.simpleocl.LocatedElement;
+import be.ac.vub.simpleocl.OclExpression;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -52,7 +55,6 @@ public interface Binding extends LocatedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Expr</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link be.ac.vub.simplegt.Expression#getBinding <em>Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
@@ -60,13 +62,12 @@ public interface Binding extends LocatedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expr</em>' containment reference.
-	 * @see #setExpr(Expression)
+	 * @see #setExpr(OclExpression)
 	 * @see be.ac.vub.simplegt.SimplegtPackage#getBinding_Expr()
-	 * @see be.ac.vub.simplegt.Expression#getBinding
-	 * @model opposite="binding" containment="true" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Expression getExpr();
+	OclExpression getExpr();
 
 	/**
 	 * Sets the value of the '{@link be.ac.vub.simplegt.Binding#getExpr <em>Expr</em>}' containment reference.
@@ -76,6 +77,6 @@ public interface Binding extends LocatedElement {
 	 * @see #getExpr()
 	 * @generated
 	 */
-	void setExpr(Expression value);
+	void setExpr(OclExpression value);
 
 } // Binding
