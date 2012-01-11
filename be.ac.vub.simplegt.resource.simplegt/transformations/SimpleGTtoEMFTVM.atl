@@ -308,22 +308,6 @@ rule Module {
 		features <- s.elements->select(e | e.oclIsKindOf(OCL!OclFeatureDefinition)))
 }
 
-rule ModuleWithoutMain extends Module {
-	from s : OCL!Module in IN (
-		not s.elements->exists(f | f.isStatic and f.feature.oclIsKindOf(OCL!Operation) and f.feature.name = 'main'))
-	to t : EMFTVM!Module (
-		features <- s.elements
-			->select(e | e.oclIsKindOf(OCL!OclFeatureDefinition))
-			->including(main)),
-	   main : EMFTVM!Operation (
-	   	name <- 'main',
-		static <- true,
-		type <- 'Object',
-		typeModel <- '#native',
-		"context" <- 'ExecEnv',
-		contextModel <- 'EMFTVM')
-}
-
 rule Rule {
 	from s : SimpleGT!Rule in IN
 	to t : EMFTVM!Rule (
