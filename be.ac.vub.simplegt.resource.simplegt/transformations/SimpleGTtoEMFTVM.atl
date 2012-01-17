@@ -1166,7 +1166,7 @@ rule LastBoundLastNacInputElementWithBindings extends LastBoundLastNacInputEleme
 	   findtype_s : EMFTVM!Findtype,								-- [type, values, values]
 	   swap_s : EMFTVM!Swap,										-- [values, type, values]
 	   invoke_s : EMFTVM!Invoke,									-- [bool, values]
-	   ifn_s : EMFTVM!Ifn (target <- invoke_c),							-- [values]
+	   ifn_s : EMFTVM!Ifn (target <- invoke_c),						-- [values]
 	   invoke_last : EMFTVM!Invoke,									-- [value]
 	-- value is single; wrap in collection
 	   findtype_c : EMFTVM!Findtype (								-- [type, value]
@@ -1342,7 +1342,7 @@ rule BoundNacInputElementWithNextElement extends BoundNacInputElement {
 	   findtype : EMFTVM!Findtype,									-- [type, values, values]
 	   swap : EMFTVM!Swap,											-- [values, type, values]
 	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   if_c : EMFTVM!Ifn (target <- invoke_c),						-- [values]
+	   if_c : EMFTVM!If (target <- invoke_c),						-- [values]
 	-- value is single; wrap in collection
 	   findtype_c : EMFTVM!Findtype (								-- [type, value]
 	   	modelname <- '#native',
@@ -1355,7 +1355,7 @@ rule BoundNacInputElementWithNextElement extends BoundNacInputElement {
 	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
 	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
 	   	modelname <- s.type.typeModelName,
-		typename <- s.type.typeMame),
+		typename <- s.type.typeName),
 	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
 	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
@@ -1394,7 +1394,7 @@ rule BoundNacInputElementWithNextElementIn extends BoundNacInputElement {
 	   findtype : EMFTVM!Findtype,									-- [type, values, values]
 	   swap : EMFTVM!Swap,											-- [values, type, values]
 	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   if_c : EMFTVM!Ifn (target <- invoke_c),						-- [values]
+	   if_c : EMFTVM!If (target <- invoke_c),						-- [values]
 	-- value is single; wrap in collection
 	   findtype_c : EMFTVM!Findtype (								-- [type, value]
 	   	modelname <- '#native',
