@@ -1313,8 +1313,8 @@ rule NacInputElementWithNextElementIn extends UnboundNacInputElement {
 	   allinst : EMFTVM!AllinstIn,								-- [coll]
 	   it : EMFTVM!Iterate (target <- endit),					-- [inst, it(coll)]
 	   store : EMFTVM!Store (localVariable <- lv),				-- [it(coll)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),		-- [bool, it(coll)]
-	   if_ : EMFTVM!If (target <- ret),						-- [it(coll)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),			-- [bool, it(coll)]
+	   if_ : EMFTVM!If (target <- ret),							-- [it(coll)]
 	   pop : EMFTVM!Pop,										-- []			-- invokeCb returned 'false';
 	   pushf : EMFTVM!Pushf,									-- [false]
 	   ret : EMFTVM!Return,										-- false, []
@@ -1332,10 +1332,10 @@ rule BoundNacInputElementWithNextElement extends BoundNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- Sequence{next},
-		code <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, ifn3, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_}),
+		code <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, ifn3, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_}),
+	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   load : EMFTVM!Load,											-- [element]
 	   get : EMFTVM!Get,											-- [values]
 	   dup : EMFTVM!Dup,											-- [values, values]
@@ -1362,16 +1362,14 @@ rule BoundNacInputElementWithNextElement extends BoundNacInputElement {
 	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
 	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
 	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [bool, it(values)]
-	   ifn3 : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]
+	   if_next : EMFTVM!If (target <- ret),							-- [it(values)]
+	   pop : EMFTVM!Pop,											-- []			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,										-- [false]
+	   ret : EMFTVM!Return,											-- false, []
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]	-- invokeCb returned 'true';
 	   pop_endit : EMFTVM!Pop,										-- [it(values)]
 	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pusht),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
-	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   pusht : EMFTVM!Pusht											-- [true]
 }
 
 rule BoundNacInputElementWithNextElementIn extends BoundNacInputElement {
@@ -1384,10 +1382,10 @@ rule BoundNacInputElementWithNextElementIn extends BoundNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- Sequence{next},
-		code <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, ifn4, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_}),
+		code <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, ifn4, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_}),
+	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   load : EMFTVM!Load,											-- [element]
 	   get : EMFTVM!Get,											-- [values]
 	   dup : EMFTVM!Dup,											-- [values, values]
@@ -1420,16 +1418,14 @@ rule BoundNacInputElementWithNextElementIn extends BoundNacInputElement {
 	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
 	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
 	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [bool, it(values)]
-	   ifn4 : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]
+	   if_next : EMFTVM!If (target <- ret),							-- [it(values)]
+	   pop : EMFTVM!Pop,											-- []			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,										-- [false]
+	   ret : EMFTVM!Return,											-- false, []
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]	-- invokeCb returned 'true';
 	   pop_endit : EMFTVM!Pop,										-- [it(values)]
 	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pusht),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
-	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   pusht : EMFTVM!Pusht											-- [true]
 }
 
 rule LastBoundNacInputElementWithNextElement extends LastBoundNacInputElement {
@@ -1442,10 +1438,10 @@ rule LastBoundNacInputElementWithNextElement extends LastBoundNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- Sequence{next},
-		code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, ifn3, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_}),
+		code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, ifn3, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_}),
+	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   load : EMFTVM!Load,											-- [element]
 	   get : EMFTVM!Get,											-- [values]
 	   dup : EMFTVM!Dup,											-- [values, values]
@@ -1478,16 +1474,14 @@ rule LastBoundNacInputElementWithNextElement extends LastBoundNacInputElement {
 	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
 	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
 	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [bool, it(values)]
-	   ifn3 : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]
+	   if_next : EMFTVM!If (target <- ret),							-- [it(values)]
+	   pop : EMFTVM!Pop,											-- []			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,										-- [false]
+	   ret : EMFTVM!Return,											-- false, []
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]	-- invokeCb returned 'true';
 	   pop_endit : EMFTVM!Pop,										-- [it(values)]
 	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pusht),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
-	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   pusht : EMFTVM!Pusht											-- [true]
 }
 
 rule LastBoundNacInputElementWithNextElementIn extends LastBoundNacInputElement {
@@ -1500,10 +1494,10 @@ rule LastBoundNacInputElementWithNextElementIn extends LastBoundNacInputElement 
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- Sequence{next},
-		code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, ifn4, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_}),
+		code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, ifn4, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_}),
+	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   load : EMFTVM!Load,											-- [element]
 	   get : EMFTVM!Get,											-- [values]
 	   dup : EMFTVM!Dup,											-- [values, values]
@@ -1542,16 +1536,14 @@ rule LastBoundNacInputElementWithNextElementIn extends LastBoundNacInputElement 
 	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
 	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
 	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [bool, it(values)]
-	   ifn4 : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]
+	   if_next : EMFTVM!If (target <- ret),							-- [it(values)]
+	   pop : EMFTVM!Pop,											-- []			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,										-- [false]
+	   ret : EMFTVM!Return,											-- false, []
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]	-- invokeCb returned 'true';
 	   pop_endit : EMFTVM!Pop,										-- [it(values)]
 	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pusht),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
-	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   pusht : EMFTVM!Pusht											-- [true]
 }
 
 rule OutputElement {
