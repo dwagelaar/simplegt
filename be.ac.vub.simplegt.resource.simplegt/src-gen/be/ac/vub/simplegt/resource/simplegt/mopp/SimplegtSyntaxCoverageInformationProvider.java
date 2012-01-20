@@ -79,6 +79,7 @@ public class SimplegtSyntaxCoverageInformationProvider {
 			be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getSequenceType(),
 			be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getSetType(),
 			be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclAnyType(),
+			be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclType(),
 			be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getTupleType(),
 			be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getTupleTypeAttribute(),
 			be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclModelElement(),

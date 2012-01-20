@@ -7,7 +7,6 @@ import org.antlr.runtime3_3_0.*;
 
 public class SimplegtLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
     public static final int T__37=37;
@@ -49,6 +48,7 @@ public class SimplegtLexer extends Lexer {
     public static final int T__73=73;
     public static final int T__74=74;
     public static final int T__75=75;
+    public static final int T__76=76;
     public static final int TEXT=4;
     public static final int QUOTED_34_34_92=5;
     public static final int QUOTED_39_39_92=6;
@@ -63,22 +63,23 @@ public class SimplegtLexer extends Lexer {
     public static final int SEQUENCETYPE=15;
     public static final int SETTYPE=16;
     public static final int OCLANYTYPE=17;
-    public static final int TUPLETYPE=18;
-    public static final int MAPTYPE=19;
-    public static final int LAMBDATYPE=20;
-    public static final int ENVTYPE=21;
-    public static final int BOOLOP=22;
-    public static final int NEQ=23;
-    public static final int RELOP=24;
-    public static final int ADDOP=25;
-    public static final int INTOP=26;
-    public static final int MULOP=27;
-    public static final int NOTOP=28;
-    public static final int FLOAT=29;
-    public static final int INTEGER=30;
-    public static final int COMMENT=31;
-    public static final int LINEBREAK=32;
-    public static final int WHITESPACE=33;
+    public static final int OCLTYPE=18;
+    public static final int TUPLETYPE=19;
+    public static final int MAPTYPE=20;
+    public static final int LAMBDATYPE=21;
+    public static final int ENVTYPE=22;
+    public static final int BOOLOP=23;
+    public static final int NEQ=24;
+    public static final int RELOP=25;
+    public static final int ADDOP=26;
+    public static final int INTOP=27;
+    public static final int MULOP=28;
+    public static final int NOTOP=29;
+    public static final int FLOAT=30;
+    public static final int INTEGER=31;
+    public static final int COMMENT=32;
+    public static final int LINEBREAK=33;
+    public static final int WHITESPACE=34;
 
     	public java.util.List<org.antlr.runtime3_3_0.RecognitionException> lexerExceptions  = new java.util.ArrayList<org.antlr.runtime3_3_0.RecognitionException>();
     	public java.util.List<Integer> lexerExceptionsPosition = new java.util.ArrayList<Integer>();
@@ -102,36 +103,15 @@ public class SimplegtLexer extends Lexer {
     }
     public String getGrammarFileName() { return "Simplegt.g"; }
 
-    // $ANTLR start "T__34"
-    public final void mT__34() throws RecognitionException {
-        try {
-            int _type = T__34;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:16:7: ( 'module' )
-            // Simplegt.g:16:9: 'module'
-            {
-            match("module"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__34"
-
     // $ANTLR start "T__35"
     public final void mT__35() throws RecognitionException {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:17:7: ( 'debug' )
-            // Simplegt.g:17:9: 'debug'
+            // Simplegt.g:16:7: ( 'module' )
+            // Simplegt.g:16:9: 'module'
             {
-            match("debug"); 
+            match("module"); 
 
 
             }
@@ -149,10 +129,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:18:7: ( ';' )
-            // Simplegt.g:18:9: ';'
+            // Simplegt.g:17:7: ( 'debug' )
+            // Simplegt.g:17:9: 'debug'
             {
-            match(';'); 
+            match("debug"); 
+
 
             }
 
@@ -169,11 +150,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:19:7: ( 'transform' )
-            // Simplegt.g:19:9: 'transform'
+            // Simplegt.g:18:7: ( ';' )
+            // Simplegt.g:18:9: ';'
             {
-            match("transform"); 
-
+            match(';'); 
 
             }
 
@@ -190,10 +170,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:20:7: ( ',' )
-            // Simplegt.g:20:9: ','
+            // Simplegt.g:19:7: ( 'transform' )
+            // Simplegt.g:19:9: 'transform'
             {
-            match(','); 
+            match("transform"); 
+
 
             }
 
@@ -210,11 +191,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:21:7: ( 'abstract' )
-            // Simplegt.g:21:9: 'abstract'
+            // Simplegt.g:20:7: ( ',' )
+            // Simplegt.g:20:9: ','
             {
-            match("abstract"); 
-
+            match(','); 
 
             }
 
@@ -231,10 +211,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:22:7: ( 'rule' )
-            // Simplegt.g:22:9: 'rule'
+            // Simplegt.g:21:7: ( 'abstract' )
+            // Simplegt.g:21:9: 'abstract'
             {
-            match("rule"); 
+            match("abstract"); 
 
 
             }
@@ -252,10 +232,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:23:7: ( 'extends' )
-            // Simplegt.g:23:9: 'extends'
+            // Simplegt.g:22:7: ( 'rule' )
+            // Simplegt.g:22:9: 'rule'
             {
-            match("extends"); 
+            match("rule"); 
 
 
             }
@@ -273,10 +253,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:24:7: ( '{' )
-            // Simplegt.g:24:9: '{'
+            // Simplegt.g:23:7: ( 'extends' )
+            // Simplegt.g:23:9: 'extends'
             {
-            match('{'); 
+            match("extends"); 
+
 
             }
 
@@ -293,10 +274,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:25:7: ( '}' )
-            // Simplegt.g:25:9: '}'
+            // Simplegt.g:24:7: ( '{' )
+            // Simplegt.g:24:9: '{'
             {
-            match('}'); 
+            match('{'); 
 
             }
 
@@ -313,11 +294,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:26:7: ( 'from' )
-            // Simplegt.g:26:9: 'from'
+            // Simplegt.g:25:7: ( '}' )
+            // Simplegt.g:25:9: '}'
             {
-            match("from"); 
-
+            match('}'); 
 
             }
 
@@ -334,10 +314,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:27:7: ( ':' )
-            // Simplegt.g:27:9: ':'
+            // Simplegt.g:26:7: ( 'from' )
+            // Simplegt.g:26:9: 'from'
             {
-            match(':'); 
+            match("from"); 
+
 
             }
 
@@ -354,11 +335,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:28:7: ( 'in' )
-            // Simplegt.g:28:9: 'in'
+            // Simplegt.g:27:7: ( ':' )
+            // Simplegt.g:27:9: ':'
             {
-            match("in"); 
-
+            match(':'); 
 
             }
 
@@ -375,10 +355,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:29:7: ( '(' )
-            // Simplegt.g:29:9: '('
+            // Simplegt.g:28:7: ( 'in' )
+            // Simplegt.g:28:9: 'in'
             {
-            match('('); 
+            match("in"); 
+
 
             }
 
@@ -395,10 +376,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:30:7: ( ')' )
-            // Simplegt.g:30:9: ')'
+            // Simplegt.g:29:7: ( '(' )
+            // Simplegt.g:29:9: '('
             {
-            match(')'); 
+            match('('); 
 
             }
 
@@ -415,11 +396,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:31:7: ( '=~|' )
-            // Simplegt.g:31:9: '=~|'
+            // Simplegt.g:30:7: ( ')' )
+            // Simplegt.g:30:9: ')'
             {
-            match("=~|"); 
-
+            match(')'); 
 
             }
 
@@ -436,10 +416,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:32:7: ( '=~' )
-            // Simplegt.g:32:9: '=~'
+            // Simplegt.g:31:7: ( '=~|' )
+            // Simplegt.g:31:9: '=~|'
             {
-            match("=~"); 
+            match("=~|"); 
 
 
             }
@@ -457,10 +437,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:33:7: ( 'to' )
-            // Simplegt.g:33:9: 'to'
+            // Simplegt.g:32:7: ( '=~' )
+            // Simplegt.g:32:9: '=~'
             {
-            match("to"); 
+            match("=~"); 
 
 
             }
@@ -478,10 +458,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:34:7: ( 'before' )
-            // Simplegt.g:34:9: 'before'
+            // Simplegt.g:33:7: ( 'to' )
+            // Simplegt.g:33:9: 'to'
             {
-            match("before"); 
+            match("to"); 
 
 
             }
@@ -499,10 +479,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:35:7: ( 'import' )
-            // Simplegt.g:35:9: 'import'
+            // Simplegt.g:34:7: ( 'before' )
+            // Simplegt.g:34:9: 'before'
             {
-            match("import"); 
+            match("before"); 
 
 
             }
@@ -520,10 +500,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:36:7: ( 'static' )
-            // Simplegt.g:36:9: 'static'
+            // Simplegt.g:35:7: ( 'import' )
+            // Simplegt.g:35:9: 'import'
             {
-            match("static"); 
+            match("import"); 
 
 
             }
@@ -541,10 +521,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:37:7: ( 'def' )
-            // Simplegt.g:37:9: 'def'
+            // Simplegt.g:36:7: ( 'static' )
+            // Simplegt.g:36:9: 'static'
             {
-            match("def"); 
+            match("static"); 
 
 
             }
@@ -562,10 +542,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:38:7: ( 'context' )
-            // Simplegt.g:38:9: 'context'
+            // Simplegt.g:37:7: ( 'def' )
+            // Simplegt.g:37:9: 'def'
             {
-            match("context"); 
+            match("def"); 
 
 
             }
@@ -583,10 +563,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:39:7: ( 'metamodel' )
-            // Simplegt.g:39:9: 'metamodel'
+            // Simplegt.g:38:7: ( 'context' )
+            // Simplegt.g:38:9: 'context'
             {
-            match("metamodel"); 
+            match("context"); 
 
 
             }
@@ -604,10 +584,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:40:7: ( '::' )
-            // Simplegt.g:40:9: '::'
+            // Simplegt.g:39:7: ( 'metamodel' )
+            // Simplegt.g:39:9: 'metamodel'
             {
-            match("::"); 
+            match("metamodel"); 
 
 
             }
@@ -625,10 +605,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:41:7: ( '.' )
-            // Simplegt.g:41:9: '.'
+            // Simplegt.g:40:7: ( '::' )
+            // Simplegt.g:40:9: '::'
             {
-            match('.'); 
+            match("::"); 
+
 
             }
 
@@ -645,11 +626,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:42:7: ( '->' )
-            // Simplegt.g:42:9: '->'
+            // Simplegt.g:41:7: ( '.' )
+            // Simplegt.g:41:9: '.'
             {
-            match("->"); 
-
+            match('.'); 
 
             }
 
@@ -666,10 +646,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:43:7: ( 'iterate' )
-            // Simplegt.g:43:9: 'iterate'
+            // Simplegt.g:42:7: ( '->' )
+            // Simplegt.g:42:9: '->'
             {
-            match("iterate"); 
+            match("->"); 
 
 
             }
@@ -687,10 +667,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:44:7: ( '|' )
-            // Simplegt.g:44:9: '|'
+            // Simplegt.g:43:7: ( 'iterate' )
+            // Simplegt.g:43:9: 'iterate'
             {
-            match('|'); 
+            match("iterate"); 
+
 
             }
 
@@ -707,10 +688,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:45:7: ( '!' )
-            // Simplegt.g:45:9: '!'
+            // Simplegt.g:44:7: ( '|' )
+            // Simplegt.g:44:9: '|'
             {
-            match('!'); 
+            match('|'); 
 
             }
 
@@ -727,11 +708,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:46:7: ( 'super' )
-            // Simplegt.g:46:9: 'super'
+            // Simplegt.g:45:7: ( '!' )
+            // Simplegt.g:45:9: '!'
             {
-            match("super"); 
-
+            match('!'); 
 
             }
 
@@ -748,10 +728,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:47:7: ( 'self' )
-            // Simplegt.g:47:9: 'self'
+            // Simplegt.g:46:7: ( 'super' )
+            // Simplegt.g:46:9: 'super'
             {
-            match("self"); 
+            match("super"); 
 
 
             }
@@ -769,10 +749,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:48:7: ( 'env' )
-            // Simplegt.g:48:9: 'env'
+            // Simplegt.g:47:7: ( 'self' )
+            // Simplegt.g:47:9: 'self'
             {
-            match("env"); 
+            match("self"); 
 
 
             }
@@ -790,10 +770,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:49:7: ( 'true' )
-            // Simplegt.g:49:9: 'true'
+            // Simplegt.g:48:7: ( 'env' )
+            // Simplegt.g:48:9: 'env'
             {
-            match("true"); 
+            match("env"); 
 
 
             }
@@ -811,10 +791,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:50:7: ( 'false' )
-            // Simplegt.g:50:9: 'false'
+            // Simplegt.g:49:7: ( 'true' )
+            // Simplegt.g:49:9: 'true'
             {
-            match("false"); 
+            match("true"); 
 
 
             }
@@ -832,10 +812,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:51:7: ( '#' )
-            // Simplegt.g:51:9: '#'
+            // Simplegt.g:50:7: ( 'false' )
+            // Simplegt.g:50:9: 'false'
             {
-            match('#'); 
+            match("false"); 
+
 
             }
 
@@ -852,11 +833,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:52:7: ( 'OclUndefined' )
-            // Simplegt.g:52:9: 'OclUndefined'
+            // Simplegt.g:51:7: ( '#' )
+            // Simplegt.g:51:9: '#'
             {
-            match("OclUndefined"); 
-
+            match('#'); 
 
             }
 
@@ -873,10 +853,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:53:7: ( 'let' )
-            // Simplegt.g:53:9: 'let'
+            // Simplegt.g:52:7: ( 'OclUndefined' )
+            // Simplegt.g:52:9: 'OclUndefined'
             {
-            match("let"); 
+            match("OclUndefined"); 
 
 
             }
@@ -894,10 +874,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:54:7: ( 'if' )
-            // Simplegt.g:54:9: 'if'
+            // Simplegt.g:53:7: ( 'let' )
+            // Simplegt.g:53:9: 'let'
             {
-            match("if"); 
+            match("let"); 
 
 
             }
@@ -915,10 +895,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:55:7: ( 'then' )
-            // Simplegt.g:55:9: 'then'
+            // Simplegt.g:54:7: ( 'if' )
+            // Simplegt.g:54:9: 'if'
             {
-            match("then"); 
+            match("if"); 
 
 
             }
@@ -936,10 +916,10 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:56:7: ( 'else' )
-            // Simplegt.g:56:9: 'else'
+            // Simplegt.g:55:7: ( 'then' )
+            // Simplegt.g:55:9: 'then'
             {
-            match("else"); 
+            match("then"); 
 
 
             }
@@ -957,6 +937,27 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Simplegt.g:56:7: ( 'else' )
+            // Simplegt.g:56:9: 'else'
+            {
+            match("else"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__75"
+
+    // $ANTLR start "T__76"
+    public final void mT__76() throws RecognitionException {
+        try {
+            int _type = T__76;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // Simplegt.g:57:7: ( 'endif' )
             // Simplegt.g:57:9: 'endif'
             {
@@ -971,15 +972,15 @@ public class SimplegtLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__75"
+    // $ANTLR end "T__76"
 
     // $ANTLR start "NOTOP"
     public final void mNOTOP() throws RecognitionException {
         try {
             int _type = NOTOP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13816:6: ( 'not' )
-            // Simplegt.g:13817:1: 'not'
+            // Simplegt.g:13950:6: ( 'not' )
+            // Simplegt.g:13951:1: 'not'
             {
             match("not"); 
 
@@ -999,13 +1000,13 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = BOOLOP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13818:7: ( ( ( 'and' | 'or' | 'xor' | 'implies' ) ) )
-            // Simplegt.g:13819:1: ( ( 'and' | 'or' | 'xor' | 'implies' ) )
+            // Simplegt.g:13952:7: ( ( ( 'and' | 'or' | 'xor' | 'implies' ) ) )
+            // Simplegt.g:13953:1: ( ( 'and' | 'or' | 'xor' | 'implies' ) )
             {
-            // Simplegt.g:13819:1: ( ( 'and' | 'or' | 'xor' | 'implies' ) )
-            // Simplegt.g:13819:2: ( 'and' | 'or' | 'xor' | 'implies' )
+            // Simplegt.g:13953:1: ( ( 'and' | 'or' | 'xor' | 'implies' ) )
+            // Simplegt.g:13953:2: ( 'and' | 'or' | 'xor' | 'implies' )
             {
-            // Simplegt.g:13819:2: ( 'and' | 'or' | 'xor' | 'implies' )
+            // Simplegt.g:13953:2: ( 'and' | 'or' | 'xor' | 'implies' )
             int alt1=4;
             switch ( input.LA(1) ) {
             case 'a':
@@ -1037,7 +1038,7 @@ public class SimplegtLexer extends Lexer {
 
             switch (alt1) {
                 case 1 :
-                    // Simplegt.g:13819:3: 'and'
+                    // Simplegt.g:13953:3: 'and'
                     {
                     match("and"); 
 
@@ -1045,7 +1046,7 @@ public class SimplegtLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // Simplegt.g:13819:9: 'or'
+                    // Simplegt.g:13953:9: 'or'
                     {
                     match("or"); 
 
@@ -1053,7 +1054,7 @@ public class SimplegtLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // Simplegt.g:13819:14: 'xor'
+                    // Simplegt.g:13953:14: 'xor'
                     {
                     match("xor"); 
 
@@ -1061,7 +1062,7 @@ public class SimplegtLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // Simplegt.g:13819:20: 'implies'
+                    // Simplegt.g:13953:20: 'implies'
                     {
                     match("implies"); 
 
@@ -1090,13 +1091,13 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = INTOP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13821:6: ( ( ( 'div' | 'mod' ) ) )
-            // Simplegt.g:13822:1: ( ( 'div' | 'mod' ) )
+            // Simplegt.g:13955:6: ( ( ( 'div' | 'mod' ) ) )
+            // Simplegt.g:13956:1: ( ( 'div' | 'mod' ) )
             {
-            // Simplegt.g:13822:1: ( ( 'div' | 'mod' ) )
-            // Simplegt.g:13822:2: ( 'div' | 'mod' )
+            // Simplegt.g:13956:1: ( ( 'div' | 'mod' ) )
+            // Simplegt.g:13956:2: ( 'div' | 'mod' )
             {
-            // Simplegt.g:13822:2: ( 'div' | 'mod' )
+            // Simplegt.g:13956:2: ( 'div' | 'mod' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1114,7 +1115,7 @@ public class SimplegtLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // Simplegt.g:13822:3: 'div'
+                    // Simplegt.g:13956:3: 'div'
                     {
                     match("div"); 
 
@@ -1122,7 +1123,7 @@ public class SimplegtLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // Simplegt.g:13822:9: 'mod'
+                    // Simplegt.g:13956:9: 'mod'
                     {
                     match("mod"); 
 
@@ -1151,13 +1152,13 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = RELOP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13824:6: ( ( ( '>' | '<' | '>=' | '<=' ) ) )
-            // Simplegt.g:13825:1: ( ( '>' | '<' | '>=' | '<=' ) )
+            // Simplegt.g:13958:6: ( ( ( '>' | '<' | '>=' | '<=' ) ) )
+            // Simplegt.g:13959:1: ( ( '>' | '<' | '>=' | '<=' ) )
             {
-            // Simplegt.g:13825:1: ( ( '>' | '<' | '>=' | '<=' ) )
-            // Simplegt.g:13825:2: ( '>' | '<' | '>=' | '<=' )
+            // Simplegt.g:13959:1: ( ( '>' | '<' | '>=' | '<=' ) )
+            // Simplegt.g:13959:2: ( '>' | '<' | '>=' | '<=' )
             {
-            // Simplegt.g:13825:2: ( '>' | '<' | '>=' | '<=' )
+            // Simplegt.g:13959:2: ( '>' | '<' | '>=' | '<=' )
             int alt3=4;
             int LA3_0 = input.LA(1);
 
@@ -1187,21 +1188,21 @@ public class SimplegtLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // Simplegt.g:13825:3: '>'
+                    // Simplegt.g:13959:3: '>'
                     {
                     match('>'); 
 
                     }
                     break;
                 case 2 :
-                    // Simplegt.g:13825:7: '<'
+                    // Simplegt.g:13959:7: '<'
                     {
                     match('<'); 
 
                     }
                     break;
                 case 3 :
-                    // Simplegt.g:13825:11: '>='
+                    // Simplegt.g:13959:11: '>='
                     {
                     match(">="); 
 
@@ -1209,7 +1210,7 @@ public class SimplegtLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // Simplegt.g:13825:16: '<='
+                    // Simplegt.g:13959:16: '<='
                     {
                     match("<="); 
 
@@ -1238,11 +1239,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = EQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13827:3: ( ( '=' ) )
-            // Simplegt.g:13828:1: ( '=' )
+            // Simplegt.g:13961:3: ( ( '=' ) )
+            // Simplegt.g:13962:1: ( '=' )
             {
-            // Simplegt.g:13828:1: ( '=' )
-            // Simplegt.g:13828:2: '='
+            // Simplegt.g:13962:1: ( '=' )
+            // Simplegt.g:13962:2: '='
             {
             match('='); 
 
@@ -1264,11 +1265,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = NEQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13830:4: ( ( '<>' ) )
-            // Simplegt.g:13831:1: ( '<>' )
+            // Simplegt.g:13964:4: ( ( '<>' ) )
+            // Simplegt.g:13965:1: ( '<>' )
             {
-            // Simplegt.g:13831:1: ( '<>' )
-            // Simplegt.g:13831:2: '<>'
+            // Simplegt.g:13965:1: ( '<>' )
+            // Simplegt.g:13965:2: '<>'
             {
             match("<>"); 
 
@@ -1291,11 +1292,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = ADDOP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13833:6: ( ( ( '-' | '+' ) ) )
-            // Simplegt.g:13834:1: ( ( '-' | '+' ) )
+            // Simplegt.g:13967:6: ( ( ( '-' | '+' ) ) )
+            // Simplegt.g:13968:1: ( ( '-' | '+' ) )
             {
-            // Simplegt.g:13834:1: ( ( '-' | '+' ) )
-            // Simplegt.g:13834:2: ( '-' | '+' )
+            // Simplegt.g:13968:1: ( ( '-' | '+' ) )
+            // Simplegt.g:13968:2: ( '-' | '+' )
             {
             if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                 input.consume();
@@ -1325,11 +1326,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = MULOP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13836:6: ( ( ( '*' | '/' ) ) )
-            // Simplegt.g:13837:1: ( ( '*' | '/' ) )
+            // Simplegt.g:13970:6: ( ( ( '*' | '/' ) ) )
+            // Simplegt.g:13971:1: ( ( '*' | '/' ) )
             {
-            // Simplegt.g:13837:1: ( ( '*' | '/' ) )
-            // Simplegt.g:13837:2: ( '*' | '/' )
+            // Simplegt.g:13971:1: ( ( '*' | '/' ) )
+            // Simplegt.g:13971:2: ( '*' | '/' )
             {
             if ( input.LA(1)=='*'||input.LA(1)=='/' ) {
                 input.consume();
@@ -1359,15 +1360,15 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13839:8: ( ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* ) )
-            // Simplegt.g:13840:1: ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
+            // Simplegt.g:13973:8: ( ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* ) )
+            // Simplegt.g:13974:1: ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
             {
-            // Simplegt.g:13840:1: ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
-            // Simplegt.g:13840:2: '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )*
+            // Simplegt.g:13974:1: ( '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
+            // Simplegt.g:13974:2: '--' (~ ( '\\n' | '\\r' | '\\uffff' ) )*
             {
             match("--"); 
 
-            // Simplegt.g:13840:6: (~ ( '\\n' | '\\r' | '\\uffff' ) )*
+            // Simplegt.g:13974:6: (~ ( '\\n' | '\\r' | '\\uffff' ) )*
             loop4:
             do {
                 int alt4=2;
@@ -1380,7 +1381,7 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // Simplegt.g:13840:7: ~ ( '\\n' | '\\r' | '\\uffff' )
+            	    // Simplegt.g:13974:7: ~ ( '\\n' | '\\r' | '\\uffff' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1420,13 +1421,13 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13843:6: ( ( ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ ) )
-            // Simplegt.g:13844:1: ( ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ )
+            // Simplegt.g:13977:6: ( ( ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ ) )
+            // Simplegt.g:13978:1: ( ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ )
             {
-            // Simplegt.g:13844:1: ( ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ )
-            // Simplegt.g:13844:2: ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+
+            // Simplegt.g:13978:1: ( ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+ )
+            // Simplegt.g:13978:2: ( '-' )? ( ( '0' .. '9' ) )+ '.' ( ( '0' .. '9' ) )+
             {
-            // Simplegt.g:13844:2: ( '-' )?
+            // Simplegt.g:13978:2: ( '-' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1435,7 +1436,7 @@ public class SimplegtLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // Simplegt.g:13844:2: '-'
+                    // Simplegt.g:13978:2: '-'
                     {
                     match('-'); 
 
@@ -1444,7 +1445,7 @@ public class SimplegtLexer extends Lexer {
 
             }
 
-            // Simplegt.g:13844:6: ( ( '0' .. '9' ) )+
+            // Simplegt.g:13978:6: ( ( '0' .. '9' ) )+
             int cnt6=0;
             loop6:
             do {
@@ -1458,10 +1459,10 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // Simplegt.g:13844:7: ( '0' .. '9' )
+            	    // Simplegt.g:13978:7: ( '0' .. '9' )
             	    {
-            	    // Simplegt.g:13844:7: ( '0' .. '9' )
-            	    // Simplegt.g:13844:8: '0' .. '9'
+            	    // Simplegt.g:13978:7: ( '0' .. '9' )
+            	    // Simplegt.g:13978:8: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1481,7 +1482,7 @@ public class SimplegtLexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // Simplegt.g:13844:22: ( ( '0' .. '9' ) )+
+            // Simplegt.g:13978:22: ( ( '0' .. '9' ) )+
             int cnt7=0;
             loop7:
             do {
@@ -1495,10 +1496,10 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // Simplegt.g:13844:23: ( '0' .. '9' )
+            	    // Simplegt.g:13978:23: ( '0' .. '9' )
             	    {
-            	    // Simplegt.g:13844:23: ( '0' .. '9' )
-            	    // Simplegt.g:13844:24: '0' .. '9'
+            	    // Simplegt.g:13978:23: ( '0' .. '9' )
+            	    // Simplegt.g:13978:24: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1536,13 +1537,13 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = INTEGER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13846:8: ( ( ( '-' )? ( ( '0' .. '9' ) )+ ) )
-            // Simplegt.g:13847:1: ( ( '-' )? ( ( '0' .. '9' ) )+ )
+            // Simplegt.g:13980:8: ( ( ( '-' )? ( ( '0' .. '9' ) )+ ) )
+            // Simplegt.g:13981:1: ( ( '-' )? ( ( '0' .. '9' ) )+ )
             {
-            // Simplegt.g:13847:1: ( ( '-' )? ( ( '0' .. '9' ) )+ )
-            // Simplegt.g:13847:2: ( '-' )? ( ( '0' .. '9' ) )+
+            // Simplegt.g:13981:1: ( ( '-' )? ( ( '0' .. '9' ) )+ )
+            // Simplegt.g:13981:2: ( '-' )? ( ( '0' .. '9' ) )+
             {
-            // Simplegt.g:13847:2: ( '-' )?
+            // Simplegt.g:13981:2: ( '-' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1551,7 +1552,7 @@ public class SimplegtLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // Simplegt.g:13847:2: '-'
+                    // Simplegt.g:13981:2: '-'
                     {
                     match('-'); 
 
@@ -1560,7 +1561,7 @@ public class SimplegtLexer extends Lexer {
 
             }
 
-            // Simplegt.g:13847:6: ( ( '0' .. '9' ) )+
+            // Simplegt.g:13981:6: ( ( '0' .. '9' ) )+
             int cnt9=0;
             loop9:
             do {
@@ -1574,10 +1575,10 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // Simplegt.g:13847:7: ( '0' .. '9' )
+            	    // Simplegt.g:13981:7: ( '0' .. '9' )
             	    {
-            	    // Simplegt.g:13847:7: ( '0' .. '9' )
-            	    // Simplegt.g:13847:8: '0' .. '9'
+            	    // Simplegt.g:13981:7: ( '0' .. '9' )
+            	    // Simplegt.g:13981:8: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1615,11 +1616,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = STRINGTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13849:11: ( ( 'String' ) )
-            // Simplegt.g:13850:1: ( 'String' )
+            // Simplegt.g:13983:11: ( ( 'String' ) )
+            // Simplegt.g:13984:1: ( 'String' )
             {
-            // Simplegt.g:13850:1: ( 'String' )
-            // Simplegt.g:13850:2: 'String'
+            // Simplegt.g:13984:1: ( 'String' )
+            // Simplegt.g:13984:2: 'String'
             {
             match("String"); 
 
@@ -1642,11 +1643,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = BOOLEANTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13852:12: ( ( 'Boolean' ) )
-            // Simplegt.g:13853:1: ( 'Boolean' )
+            // Simplegt.g:13986:12: ( ( 'Boolean' ) )
+            // Simplegt.g:13987:1: ( 'Boolean' )
             {
-            // Simplegt.g:13853:1: ( 'Boolean' )
-            // Simplegt.g:13853:2: 'Boolean'
+            // Simplegt.g:13987:1: ( 'Boolean' )
+            // Simplegt.g:13987:2: 'Boolean'
             {
             match("Boolean"); 
 
@@ -1669,11 +1670,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = INTEGERTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13855:12: ( ( 'Integer' ) )
-            // Simplegt.g:13856:1: ( 'Integer' )
+            // Simplegt.g:13989:12: ( ( 'Integer' ) )
+            // Simplegt.g:13990:1: ( 'Integer' )
             {
-            // Simplegt.g:13856:1: ( 'Integer' )
-            // Simplegt.g:13856:2: 'Integer'
+            // Simplegt.g:13990:1: ( 'Integer' )
+            // Simplegt.g:13990:2: 'Integer'
             {
             match("Integer"); 
 
@@ -1696,11 +1697,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = REALTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13858:9: ( ( 'Real' ) )
-            // Simplegt.g:13859:1: ( 'Real' )
+            // Simplegt.g:13992:9: ( ( 'Real' ) )
+            // Simplegt.g:13993:1: ( 'Real' )
             {
-            // Simplegt.g:13859:1: ( 'Real' )
-            // Simplegt.g:13859:2: 'Real'
+            // Simplegt.g:13993:1: ( 'Real' )
+            // Simplegt.g:13993:2: 'Real'
             {
             match("Real"); 
 
@@ -1723,11 +1724,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = COLLECTIONTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13861:15: ( ( 'Collection' ) )
-            // Simplegt.g:13862:1: ( 'Collection' )
+            // Simplegt.g:13995:15: ( ( 'Collection' ) )
+            // Simplegt.g:13996:1: ( 'Collection' )
             {
-            // Simplegt.g:13862:1: ( 'Collection' )
-            // Simplegt.g:13862:2: 'Collection'
+            // Simplegt.g:13996:1: ( 'Collection' )
+            // Simplegt.g:13996:2: 'Collection'
             {
             match("Collection"); 
 
@@ -1750,8 +1751,8 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = BAGTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13864:8: ( 'Bag' )
-            // Simplegt.g:13865:1: 'Bag'
+            // Simplegt.g:13998:8: ( 'Bag' )
+            // Simplegt.g:13999:1: 'Bag'
             {
             match("Bag"); 
 
@@ -1771,8 +1772,8 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = ORDEREDSETTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13866:15: ( 'OrderedSet' )
-            // Simplegt.g:13867:1: 'OrderedSet'
+            // Simplegt.g:14000:15: ( 'OrderedSet' )
+            // Simplegt.g:14001:1: 'OrderedSet'
             {
             match("OrderedSet"); 
 
@@ -1792,8 +1793,8 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = SEQUENCETYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13868:13: ( 'Sequence' )
-            // Simplegt.g:13869:1: 'Sequence'
+            // Simplegt.g:14002:13: ( 'Sequence' )
+            // Simplegt.g:14003:1: 'Sequence'
             {
             match("Sequence"); 
 
@@ -1813,8 +1814,8 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = SETTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13870:8: ( 'Set' )
-            // Simplegt.g:13871:1: 'Set'
+            // Simplegt.g:14004:8: ( 'Set' )
+            // Simplegt.g:14005:1: 'Set'
             {
             match("Set"); 
 
@@ -1834,11 +1835,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = OCLANYTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13872:11: ( ( 'OclAny' ) )
-            // Simplegt.g:13873:1: ( 'OclAny' )
+            // Simplegt.g:14006:11: ( ( 'OclAny' ) )
+            // Simplegt.g:14007:1: ( 'OclAny' )
             {
-            // Simplegt.g:13873:1: ( 'OclAny' )
-            // Simplegt.g:13873:2: 'OclAny'
+            // Simplegt.g:14007:1: ( 'OclAny' )
+            // Simplegt.g:14007:2: 'OclAny'
             {
             match("OclAny"); 
 
@@ -1856,13 +1857,40 @@ public class SimplegtLexer extends Lexer {
     }
     // $ANTLR end "OCLANYTYPE"
 
+    // $ANTLR start "OCLTYPE"
+    public final void mOCLTYPE() throws RecognitionException {
+        try {
+            int _type = OCLTYPE;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Simplegt.g:14009:8: ( ( 'OclType' ) )
+            // Simplegt.g:14010:1: ( 'OclType' )
+            {
+            // Simplegt.g:14010:1: ( 'OclType' )
+            // Simplegt.g:14010:2: 'OclType'
+            {
+            match("OclType"); 
+
+
+            }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "OCLTYPE"
+
     // $ANTLR start "TUPLETYPE"
     public final void mTUPLETYPE() throws RecognitionException {
         try {
             int _type = TUPLETYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13875:10: ( 'Tuple' )
-            // Simplegt.g:13876:1: 'Tuple'
+            // Simplegt.g:14012:10: ( 'Tuple' )
+            // Simplegt.g:14013:1: 'Tuple'
             {
             match("Tuple"); 
 
@@ -1882,8 +1910,8 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = MAPTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13877:8: ( 'Map' )
-            // Simplegt.g:13878:1: 'Map'
+            // Simplegt.g:14014:8: ( 'Map' )
+            // Simplegt.g:14015:1: 'Map'
             {
             match("Map"); 
 
@@ -1903,11 +1931,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = LAMBDATYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13879:11: ( ( 'Lambda' ) )
-            // Simplegt.g:13880:1: ( 'Lambda' )
+            // Simplegt.g:14016:11: ( ( 'Lambda' ) )
+            // Simplegt.g:14017:1: ( 'Lambda' )
             {
-            // Simplegt.g:13880:1: ( 'Lambda' )
-            // Simplegt.g:13880:2: 'Lambda'
+            // Simplegt.g:14017:1: ( 'Lambda' )
+            // Simplegt.g:14017:2: 'Lambda'
             {
             match("Lambda"); 
 
@@ -1930,11 +1958,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = ENVTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13882:8: ( ( 'Env' ) )
-            // Simplegt.g:13883:1: ( 'Env' )
+            // Simplegt.g:14019:8: ( ( 'Env' ) )
+            // Simplegt.g:14020:1: ( 'Env' )
             {
-            // Simplegt.g:13883:1: ( 'Env' )
-            // Simplegt.g:13883:2: 'Env'
+            // Simplegt.g:14020:1: ( 'Env' )
+            // Simplegt.g:14020:2: 'Env'
             {
             match("Env"); 
 
@@ -1957,11 +1985,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13885:5: ( ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )* ) )
-            // Simplegt.g:13886:1: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )* )
+            // Simplegt.g:14022:5: ( ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )* ) )
+            // Simplegt.g:14023:1: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )* )
             {
-            // Simplegt.g:13886:1: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )* )
-            // Simplegt.g:13886:2: ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )*
+            // Simplegt.g:14023:1: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )* )
+            // Simplegt.g:14023:2: ( 'A' .. 'Z' | 'a' .. 'z' ) ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1972,7 +2000,7 @@ public class SimplegtLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // Simplegt.g:13886:21: ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )*
+            // Simplegt.g:14023:21: ( ( 'A' .. 'Z' | 'a' .. 'z' ) | ( '0' .. '9' ) | '_' )*
             loop10:
             do {
                 int alt10=4;
@@ -2057,7 +2085,7 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // Simplegt.g:13886:22: ( 'A' .. 'Z' | 'a' .. 'z' )
+            	    // Simplegt.g:14023:22: ( 'A' .. 'Z' | 'a' .. 'z' )
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -2072,10 +2100,10 @@ public class SimplegtLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // Simplegt.g:13886:42: ( '0' .. '9' )
+            	    // Simplegt.g:14023:42: ( '0' .. '9' )
             	    {
-            	    // Simplegt.g:13886:42: ( '0' .. '9' )
-            	    // Simplegt.g:13886:43: '0' .. '9'
+            	    // Simplegt.g:14023:42: ( '0' .. '9' )
+            	    // Simplegt.g:14023:43: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2085,7 +2113,7 @@ public class SimplegtLexer extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // Simplegt.g:13886:53: '_'
+            	    // Simplegt.g:14023:53: '_'
             	    {
             	    match('_'); 
 
@@ -2116,13 +2144,13 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = LINEBREAK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13888:10: ( ( ( '\\r\\n' | '\\'r' | '\\n' ) ) )
-            // Simplegt.g:13889:1: ( ( '\\r\\n' | '\\'r' | '\\n' ) )
+            // Simplegt.g:14025:10: ( ( ( '\\r\\n' | '\\'r' | '\\n' ) ) )
+            // Simplegt.g:14026:1: ( ( '\\r\\n' | '\\'r' | '\\n' ) )
             {
-            // Simplegt.g:13889:1: ( ( '\\r\\n' | '\\'r' | '\\n' ) )
-            // Simplegt.g:13889:2: ( '\\r\\n' | '\\'r' | '\\n' )
+            // Simplegt.g:14026:1: ( ( '\\r\\n' | '\\'r' | '\\n' ) )
+            // Simplegt.g:14026:2: ( '\\r\\n' | '\\'r' | '\\n' )
             {
-            // Simplegt.g:13889:2: ( '\\r\\n' | '\\'r' | '\\n' )
+            // Simplegt.g:14026:2: ( '\\r\\n' | '\\'r' | '\\n' )
             int alt11=3;
             switch ( input.LA(1) ) {
             case '\r':
@@ -2149,7 +2177,7 @@ public class SimplegtLexer extends Lexer {
 
             switch (alt11) {
                 case 1 :
-                    // Simplegt.g:13889:3: '\\r\\n'
+                    // Simplegt.g:14026:3: '\\r\\n'
                     {
                     match("\r\n"); 
 
@@ -2157,7 +2185,7 @@ public class SimplegtLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // Simplegt.g:13889:10: '\\'r'
+                    // Simplegt.g:14026:10: '\\'r'
                     {
                     match("'r"); 
 
@@ -2165,7 +2193,7 @@ public class SimplegtLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // Simplegt.g:13889:16: '\\n'
+                    // Simplegt.g:14026:16: '\\n'
                     {
                     match('\n'); 
 
@@ -2194,11 +2222,11 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13892:11: ( ( ( ' ' | '\\t' | '\\f' ) ) )
-            // Simplegt.g:13893:1: ( ( ' ' | '\\t' | '\\f' ) )
+            // Simplegt.g:14029:11: ( ( ( ' ' | '\\t' | '\\f' ) ) )
+            // Simplegt.g:14030:1: ( ( ' ' | '\\t' | '\\f' ) )
             {
-            // Simplegt.g:13893:1: ( ( ' ' | '\\t' | '\\f' ) )
-            // Simplegt.g:13893:2: ( ' ' | '\\t' | '\\f' )
+            // Simplegt.g:14030:1: ( ( ' ' | '\\t' | '\\f' ) )
+            // Simplegt.g:14030:2: ( ' ' | '\\t' | '\\f' )
             {
             if ( input.LA(1)=='\t'||input.LA(1)=='\f'||input.LA(1)==' ' ) {
                 input.consume();
@@ -2229,20 +2257,20 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = QUOTED_34_34_92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13896:16: ( ( ( '\"' ) ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )* ( '\"' ) ) )
-            // Simplegt.g:13897:1: ( ( '\"' ) ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )* ( '\"' ) )
+            // Simplegt.g:14033:16: ( ( ( '\"' ) ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )* ( '\"' ) ) )
+            // Simplegt.g:14034:1: ( ( '\"' ) ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )* ( '\"' ) )
             {
-            // Simplegt.g:13897:1: ( ( '\"' ) ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )* ( '\"' ) )
-            // Simplegt.g:13897:2: ( '\"' ) ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )* ( '\"' )
+            // Simplegt.g:14034:1: ( ( '\"' ) ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )* ( '\"' ) )
+            // Simplegt.g:14034:2: ( '\"' ) ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )* ( '\"' )
             {
-            // Simplegt.g:13897:2: ( '\"' )
-            // Simplegt.g:13897:3: '\"'
+            // Simplegt.g:14034:2: ( '\"' )
+            // Simplegt.g:14034:3: '\"'
             {
             match('\"'); 
 
             }
 
-            // Simplegt.g:13897:7: ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )*
+            // Simplegt.g:14034:7: ( ( '\\\\' '\"' ) | ( '\\\\' '\\\\' ) | ~ ( '\"' | '\\\\' ) )*
             loop12:
             do {
                 int alt12=4;
@@ -2267,10 +2295,10 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // Simplegt.g:13897:8: ( '\\\\' '\"' )
+            	    // Simplegt.g:14034:8: ( '\\\\' '\"' )
             	    {
-            	    // Simplegt.g:13897:8: ( '\\\\' '\"' )
-            	    // Simplegt.g:13897:9: '\\\\' '\"'
+            	    // Simplegt.g:14034:8: ( '\\\\' '\"' )
+            	    // Simplegt.g:14034:9: '\\\\' '\"'
             	    {
             	    match('\\'); 
             	    match('\"'); 
@@ -2281,10 +2309,10 @@ public class SimplegtLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // Simplegt.g:13897:18: ( '\\\\' '\\\\' )
+            	    // Simplegt.g:14034:18: ( '\\\\' '\\\\' )
             	    {
-            	    // Simplegt.g:13897:18: ( '\\\\' '\\\\' )
-            	    // Simplegt.g:13897:19: '\\\\' '\\\\'
+            	    // Simplegt.g:14034:18: ( '\\\\' '\\\\' )
+            	    // Simplegt.g:14034:19: '\\\\' '\\\\'
             	    {
             	    match('\\'); 
             	    match('\\'); 
@@ -2295,7 +2323,7 @@ public class SimplegtLexer extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // Simplegt.g:13897:29: ~ ( '\"' | '\\\\' )
+            	    // Simplegt.g:14034:29: ~ ( '\"' | '\\\\' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2315,8 +2343,8 @@ public class SimplegtLexer extends Lexer {
                 }
             } while (true);
 
-            // Simplegt.g:13897:42: ( '\"' )
-            // Simplegt.g:13897:43: '\"'
+            // Simplegt.g:14034:42: ( '\"' )
+            // Simplegt.g:14034:43: '\"'
             {
             match('\"'); 
 
@@ -2341,20 +2369,20 @@ public class SimplegtLexer extends Lexer {
         try {
             int _type = QUOTED_39_39_92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Simplegt.g:13899:16: ( ( ( '\\'' ) ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )* ( '\\'' ) ) )
-            // Simplegt.g:13900:1: ( ( '\\'' ) ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )* ( '\\'' ) )
+            // Simplegt.g:14036:16: ( ( ( '\\'' ) ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )* ( '\\'' ) ) )
+            // Simplegt.g:14037:1: ( ( '\\'' ) ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )* ( '\\'' ) )
             {
-            // Simplegt.g:13900:1: ( ( '\\'' ) ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )* ( '\\'' ) )
-            // Simplegt.g:13900:2: ( '\\'' ) ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )* ( '\\'' )
+            // Simplegt.g:14037:1: ( ( '\\'' ) ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )* ( '\\'' ) )
+            // Simplegt.g:14037:2: ( '\\'' ) ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )* ( '\\'' )
             {
-            // Simplegt.g:13900:2: ( '\\'' )
-            // Simplegt.g:13900:3: '\\''
+            // Simplegt.g:14037:2: ( '\\'' )
+            // Simplegt.g:14037:3: '\\''
             {
             match('\''); 
 
             }
 
-            // Simplegt.g:13900:8: ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )*
+            // Simplegt.g:14037:8: ( ( '\\\\' '\\'' ) | ( '\\\\' '\\\\' ) | ~ ( '\\'' | '\\\\' ) )*
             loop13:
             do {
                 int alt13=4;
@@ -2379,10 +2407,10 @@ public class SimplegtLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // Simplegt.g:13900:9: ( '\\\\' '\\'' )
+            	    // Simplegt.g:14037:9: ( '\\\\' '\\'' )
             	    {
-            	    // Simplegt.g:13900:9: ( '\\\\' '\\'' )
-            	    // Simplegt.g:13900:10: '\\\\' '\\''
+            	    // Simplegt.g:14037:9: ( '\\\\' '\\'' )
+            	    // Simplegt.g:14037:10: '\\\\' '\\''
             	    {
             	    match('\\'); 
             	    match('\''); 
@@ -2393,10 +2421,10 @@ public class SimplegtLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // Simplegt.g:13900:20: ( '\\\\' '\\\\' )
+            	    // Simplegt.g:14037:20: ( '\\\\' '\\\\' )
             	    {
-            	    // Simplegt.g:13900:20: ( '\\\\' '\\\\' )
-            	    // Simplegt.g:13900:21: '\\\\' '\\\\'
+            	    // Simplegt.g:14037:20: ( '\\\\' '\\\\' )
+            	    // Simplegt.g:14037:21: '\\\\' '\\\\'
             	    {
             	    match('\\'); 
             	    match('\\'); 
@@ -2407,7 +2435,7 @@ public class SimplegtLexer extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // Simplegt.g:13900:31: ~ ( '\\'' | '\\\\' )
+            	    // Simplegt.g:14037:31: ~ ( '\\'' | '\\\\' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2427,8 +2455,8 @@ public class SimplegtLexer extends Lexer {
                 }
             } while (true);
 
-            // Simplegt.g:13900:45: ( '\\'' )
-            // Simplegt.g:13900:46: '\\''
+            // Simplegt.g:14037:45: ( '\\'' )
+            // Simplegt.g:14037:46: '\\''
             {
             match('\''); 
 
@@ -2449,301 +2477,301 @@ public class SimplegtLexer extends Lexer {
     // $ANTLR end "QUOTED_39_39_92"
 
     public void mTokens() throws RecognitionException {
-        // Simplegt.g:1:8: ( T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | NOTOP | BOOLOP | INTOP | RELOP | EQ | NEQ | ADDOP | MULOP | COMMENT | FLOAT | INTEGER | STRINGTYPE | BOOLEANTYPE | INTEGERTYPE | REALTYPE | COLLECTIONTYPE | BAGTYPE | ORDEREDSETTYPE | SEQUENCETYPE | SETTYPE | OCLANYTYPE | TUPLETYPE | MAPTYPE | LAMBDATYPE | ENVTYPE | TEXT | LINEBREAK | WHITESPACE | QUOTED_34_34_92 | QUOTED_39_39_92 )
-        int alt14=72;
+        // Simplegt.g:1:8: ( T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | NOTOP | BOOLOP | INTOP | RELOP | EQ | NEQ | ADDOP | MULOP | COMMENT | FLOAT | INTEGER | STRINGTYPE | BOOLEANTYPE | INTEGERTYPE | REALTYPE | COLLECTIONTYPE | BAGTYPE | ORDEREDSETTYPE | SEQUENCETYPE | SETTYPE | OCLANYTYPE | OCLTYPE | TUPLETYPE | MAPTYPE | LAMBDATYPE | ENVTYPE | TEXT | LINEBREAK | WHITESPACE | QUOTED_34_34_92 | QUOTED_39_39_92 )
+        int alt14=73;
         alt14 = dfa14.predict(input);
         switch (alt14) {
             case 1 :
-                // Simplegt.g:1:10: T__34
-                {
-                mT__34(); 
-
-                }
-                break;
-            case 2 :
-                // Simplegt.g:1:16: T__35
+                // Simplegt.g:1:10: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
-            case 3 :
-                // Simplegt.g:1:22: T__36
+            case 2 :
+                // Simplegt.g:1:16: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
-            case 4 :
-                // Simplegt.g:1:28: T__37
+            case 3 :
+                // Simplegt.g:1:22: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
-            case 5 :
-                // Simplegt.g:1:34: T__38
+            case 4 :
+                // Simplegt.g:1:28: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
-            case 6 :
-                // Simplegt.g:1:40: T__39
+            case 5 :
+                // Simplegt.g:1:34: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
-            case 7 :
-                // Simplegt.g:1:46: T__40
+            case 6 :
+                // Simplegt.g:1:40: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
-            case 8 :
-                // Simplegt.g:1:52: T__41
+            case 7 :
+                // Simplegt.g:1:46: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
-            case 9 :
-                // Simplegt.g:1:58: T__42
+            case 8 :
+                // Simplegt.g:1:52: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
-            case 10 :
-                // Simplegt.g:1:64: T__43
+            case 9 :
+                // Simplegt.g:1:58: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
-            case 11 :
-                // Simplegt.g:1:70: T__44
+            case 10 :
+                // Simplegt.g:1:64: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
-            case 12 :
-                // Simplegt.g:1:76: T__45
+            case 11 :
+                // Simplegt.g:1:70: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
-            case 13 :
-                // Simplegt.g:1:82: T__46
+            case 12 :
+                // Simplegt.g:1:76: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
-            case 14 :
-                // Simplegt.g:1:88: T__47
+            case 13 :
+                // Simplegt.g:1:82: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
-            case 15 :
-                // Simplegt.g:1:94: T__48
+            case 14 :
+                // Simplegt.g:1:88: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
-            case 16 :
-                // Simplegt.g:1:100: T__49
+            case 15 :
+                // Simplegt.g:1:94: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
-            case 17 :
-                // Simplegt.g:1:106: T__50
+            case 16 :
+                // Simplegt.g:1:100: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
-            case 18 :
-                // Simplegt.g:1:112: T__51
+            case 17 :
+                // Simplegt.g:1:106: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
-            case 19 :
-                // Simplegt.g:1:118: T__52
+            case 18 :
+                // Simplegt.g:1:112: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
-            case 20 :
-                // Simplegt.g:1:124: T__53
+            case 19 :
+                // Simplegt.g:1:118: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
-            case 21 :
-                // Simplegt.g:1:130: T__54
+            case 20 :
+                // Simplegt.g:1:124: T__54
                 {
                 mT__54(); 
 
                 }
                 break;
-            case 22 :
-                // Simplegt.g:1:136: T__55
+            case 21 :
+                // Simplegt.g:1:130: T__55
                 {
                 mT__55(); 
 
                 }
                 break;
-            case 23 :
-                // Simplegt.g:1:142: T__56
+            case 22 :
+                // Simplegt.g:1:136: T__56
                 {
                 mT__56(); 
 
                 }
                 break;
-            case 24 :
-                // Simplegt.g:1:148: T__57
+            case 23 :
+                // Simplegt.g:1:142: T__57
                 {
                 mT__57(); 
 
                 }
                 break;
-            case 25 :
-                // Simplegt.g:1:154: T__58
+            case 24 :
+                // Simplegt.g:1:148: T__58
                 {
                 mT__58(); 
 
                 }
                 break;
-            case 26 :
-                // Simplegt.g:1:160: T__59
+            case 25 :
+                // Simplegt.g:1:154: T__59
                 {
                 mT__59(); 
 
                 }
                 break;
-            case 27 :
-                // Simplegt.g:1:166: T__60
+            case 26 :
+                // Simplegt.g:1:160: T__60
                 {
                 mT__60(); 
 
                 }
                 break;
-            case 28 :
-                // Simplegt.g:1:172: T__61
+            case 27 :
+                // Simplegt.g:1:166: T__61
                 {
                 mT__61(); 
 
                 }
                 break;
-            case 29 :
-                // Simplegt.g:1:178: T__62
+            case 28 :
+                // Simplegt.g:1:172: T__62
                 {
                 mT__62(); 
 
                 }
                 break;
-            case 30 :
-                // Simplegt.g:1:184: T__63
+            case 29 :
+                // Simplegt.g:1:178: T__63
                 {
                 mT__63(); 
 
                 }
                 break;
-            case 31 :
-                // Simplegt.g:1:190: T__64
+            case 30 :
+                // Simplegt.g:1:184: T__64
                 {
                 mT__64(); 
 
                 }
                 break;
-            case 32 :
-                // Simplegt.g:1:196: T__65
+            case 31 :
+                // Simplegt.g:1:190: T__65
                 {
                 mT__65(); 
 
                 }
                 break;
-            case 33 :
-                // Simplegt.g:1:202: T__66
+            case 32 :
+                // Simplegt.g:1:196: T__66
                 {
                 mT__66(); 
 
                 }
                 break;
-            case 34 :
-                // Simplegt.g:1:208: T__67
+            case 33 :
+                // Simplegt.g:1:202: T__67
                 {
                 mT__67(); 
 
                 }
                 break;
-            case 35 :
-                // Simplegt.g:1:214: T__68
+            case 34 :
+                // Simplegt.g:1:208: T__68
                 {
                 mT__68(); 
 
                 }
                 break;
-            case 36 :
-                // Simplegt.g:1:220: T__69
+            case 35 :
+                // Simplegt.g:1:214: T__69
                 {
                 mT__69(); 
 
                 }
                 break;
-            case 37 :
-                // Simplegt.g:1:226: T__70
+            case 36 :
+                // Simplegt.g:1:220: T__70
                 {
                 mT__70(); 
 
                 }
                 break;
-            case 38 :
-                // Simplegt.g:1:232: T__71
+            case 37 :
+                // Simplegt.g:1:226: T__71
                 {
                 mT__71(); 
 
                 }
                 break;
-            case 39 :
-                // Simplegt.g:1:238: T__72
+            case 38 :
+                // Simplegt.g:1:232: T__72
                 {
                 mT__72(); 
 
                 }
                 break;
-            case 40 :
-                // Simplegt.g:1:244: T__73
+            case 39 :
+                // Simplegt.g:1:238: T__73
                 {
                 mT__73(); 
 
                 }
                 break;
-            case 41 :
-                // Simplegt.g:1:250: T__74
+            case 40 :
+                // Simplegt.g:1:244: T__74
                 {
                 mT__74(); 
 
                 }
                 break;
-            case 42 :
-                // Simplegt.g:1:256: T__75
+            case 41 :
+                // Simplegt.g:1:250: T__75
                 {
                 mT__75(); 
+
+                }
+                break;
+            case 42 :
+                // Simplegt.g:1:256: T__76
+                {
+                mT__76(); 
 
                 }
                 break;
@@ -2895,63 +2923,70 @@ public class SimplegtLexer extends Lexer {
                 }
                 break;
             case 64 :
-                // Simplegt.g:1:442: TUPLETYPE
+                // Simplegt.g:1:442: OCLTYPE
+                {
+                mOCLTYPE(); 
+
+                }
+                break;
+            case 65 :
+                // Simplegt.g:1:450: TUPLETYPE
                 {
                 mTUPLETYPE(); 
 
                 }
                 break;
-            case 65 :
-                // Simplegt.g:1:452: MAPTYPE
+            case 66 :
+                // Simplegt.g:1:460: MAPTYPE
                 {
                 mMAPTYPE(); 
 
                 }
                 break;
-            case 66 :
-                // Simplegt.g:1:460: LAMBDATYPE
+            case 67 :
+                // Simplegt.g:1:468: LAMBDATYPE
                 {
                 mLAMBDATYPE(); 
 
                 }
                 break;
-            case 67 :
-                // Simplegt.g:1:471: ENVTYPE
+            case 68 :
+                // Simplegt.g:1:479: ENVTYPE
                 {
                 mENVTYPE(); 
 
                 }
                 break;
-            case 68 :
-                // Simplegt.g:1:479: TEXT
+            case 69 :
+                // Simplegt.g:1:487: TEXT
                 {
                 mTEXT(); 
 
                 }
                 break;
-            case 69 :
-                // Simplegt.g:1:484: LINEBREAK
+            case 70 :
+                // Simplegt.g:1:492: LINEBREAK
                 {
                 mLINEBREAK(); 
 
                 }
                 break;
-            case 70 :
-                // Simplegt.g:1:494: WHITESPACE
+            case 71 :
+                // Simplegt.g:1:502: WHITESPACE
                 {
                 mWHITESPACE(); 
 
                 }
                 break;
-            case 71 :
-                // Simplegt.g:1:505: QUOTED_34_34_92
+            case 72 :
+                // Simplegt.g:1:513: QUOTED_34_34_92
                 {
                 mQUOTED_34_34_92(); 
 
                 }
                 break;
-            case 72 :
-                // Simplegt.g:1:521: QUOTED_39_39_92
+            case 73 :
+                // Simplegt.g:1:529: QUOTED_39_39_92
                 {
                 mQUOTED_39_39_92(); 
 
@@ -2970,21 +3005,21 @@ public class SimplegtLexer extends Lexer {
         "\1\127\11\54\5\uffff\5\54\1\154\11\54\2\uffff\1\167\2\54\1\172\1"+
         "\174\1\uffff\5\54\2\uffff\4\54\1\u0086\1\54\3\uffff\13\54\1\55\1"+
         "\uffff\1\u0095\2\54\1\u0098\1\u0095\2\54\1\uffff\2\54\1\u0086\2"+
-        "\54\1\u009f\4\54\1\uffff\2\54\3\uffff\7\54\1\u00af\1\u00b0\1\uffff"+
-        "\1\u0086\2\54\1\u00b3\1\54\1\u00b5\4\54\1\u00ba\1\54\1\u00bc\1\54"+
-        "\1\uffff\2\54\1\uffff\1\54\1\u00c1\1\u00c2\1\54\1\u00c4\1\54\1\uffff"+
-        "\1\54\1\u00c7\1\u00c8\7\54\1\u00d0\4\54\2\uffff\2\54\1\uffff\1\54"+
-        "\1\uffff\1\54\1\u00d9\2\54\1\uffff\1\54\1\uffff\2\54\1\u00df\1\54"+
-        "\2\uffff\1\54\1\uffff\1\54\1\u00e3\2\uffff\1\u00e4\5\54\1\u00ea"+
-        "\1\uffff\10\54\1\uffff\1\54\1\u00f4\1\54\1\u00f6\1\54\1\uffff\3"+
-        "\54\2\uffff\1\u00fb\2\54\1\u00fe\1\u00ff\1\uffff\2\54\1\u0102\1"+
-        "\54\1\u0104\4\54\1\uffff\1\u0109\1\uffff\3\54\1\u010d\1\uffff\1"+
-        "\u0086\1\u010e\2\uffff\1\u010f\1\54\1\uffff\1\54\1\uffff\1\54\1"+
-        "\u0113\1\u0114\1\54\1\uffff\2\54\1\u0118\3\uffff\2\54\1\u011b\2"+
-        "\uffff\1\54\1\u011d\1\u011e\1\uffff\2\54\1\uffff\1\54\2\uffff\1"+
-        "\54\1\u0123\1\u0124\1\54\2\uffff\1\u0126\1\uffff";
+        "\54\1\u009f\4\54\1\uffff\2\54\3\uffff\7\54\1\u00b0\1\u00b1\1\uffff"+
+        "\1\u0086\2\54\1\u00b4\1\54\1\u00b6\4\54\1\u00bb\1\54\1\u00bd\1\54"+
+        "\1\uffff\2\54\1\uffff\1\54\1\u00c2\1\u00c3\1\54\1\u00c5\1\54\1\uffff"+
+        "\1\54\1\u00c8\1\u00c9\7\54\1\u00d1\5\54\2\uffff\2\54\1\uffff\1\54"+
+        "\1\uffff\1\54\1\u00db\2\54\1\uffff\1\54\1\uffff\2\54\1\u00e1\1\54"+
+        "\2\uffff\1\54\1\uffff\1\54\1\u00e5\2\uffff\1\u00e6\5\54\1\u00ec"+
+        "\1\uffff\11\54\1\uffff\1\54\1\u00f7\1\54\1\u00f9\1\54\1\uffff\3"+
+        "\54\2\uffff\1\u00fe\2\54\1\u0101\1\u0102\1\uffff\2\54\1\u0105\2"+
+        "\54\1\u0108\4\54\1\uffff\1\u010d\1\uffff\3\54\1\u0111\1\uffff\1"+
+        "\u0086\1\u0112\2\uffff\1\u0113\1\54\1\uffff\1\u0115\1\54\1\uffff"+
+        "\1\54\1\u0118\1\u0119\1\54\1\uffff\2\54\1\u011d\3\uffff\1\54\1\uffff"+
+        "\1\54\1\u0120\2\uffff\1\54\1\u0122\1\u0123\1\uffff\2\54\1\uffff"+
+        "\1\54\2\uffff\1\54\1\u0128\1\u0129\1\54\2\uffff\1\u012b\1\uffff";
     static final String DFA14_eofS =
-        "\u0127\uffff";
+        "\u012c\uffff";
     static final String DFA14_minS =
         "\1\11\2\145\1\uffff\1\150\1\uffff\1\142\1\165\1\154\2\uffff\1\141"+
         "\1\72\1\146\2\uffff\1\176\2\145\1\157\1\uffff\1\55\3\uffff\1\143"+
@@ -3000,17 +3035,17 @@ public class SimplegtLexer extends Lexer {
         "\1\165\1\60\1\154\1\60\1\145\3\154\1\60\1\142\1\60\1\154\1\uffff"+
         "\1\155\1\147\1\uffff\1\163\2\60\1\162\1\60\1\156\1\uffff\1\146\2"+
         "\60\1\145\1\162\1\151\1\141\1\162\1\151\1\162\1\60\1\145\2\156\1"+
-        "\162\2\uffff\1\156\1\145\1\uffff\1\145\1\uffff\1\147\1\60\2\145"+
-        "\1\uffff\1\144\1\uffff\1\145\1\157\1\60\1\146\2\uffff\1\141\1\uffff"+
-        "\1\144\1\60\2\uffff\1\60\1\164\1\145\1\164\1\145\1\143\1\60\1\uffff"+
-        "\1\170\1\144\1\171\1\145\1\147\1\156\1\141\1\145\1\uffff\1\143\1"+
-        "\60\1\141\1\60\1\144\1\uffff\1\157\1\143\1\163\2\uffff\1\60\1\163"+
-        "\1\145\2\60\1\uffff\1\164\1\145\1\60\1\144\1\60\1\143\1\156\1\162"+
-        "\1\164\1\uffff\1\60\1\uffff\1\145\1\162\1\164\1\60\1\uffff\2\60"+
-        "\2\uffff\1\60\1\146\1\uffff\1\123\1\uffff\1\145\2\60\1\151\1\uffff"+
-        "\1\154\1\155\1\60\3\uffff\1\151\1\145\1\60\2\uffff\1\157\2\60\1"+
-        "\uffff\1\156\1\164\1\uffff\1\156\2\uffff\1\145\2\60\1\144\2\uffff"+
-        "\1\60\1\uffff";
+        "\171\1\162\2\uffff\1\156\1\145\1\uffff\1\145\1\uffff\1\147\1\60"+
+        "\2\145\1\uffff\1\144\1\uffff\1\145\1\157\1\60\1\146\2\uffff\1\141"+
+        "\1\uffff\1\144\1\60\2\uffff\1\60\1\164\1\145\1\164\1\145\1\143\1"+
+        "\60\1\uffff\1\170\1\144\1\171\1\160\1\145\1\147\1\156\1\141\1\145"+
+        "\1\uffff\1\143\1\60\1\141\1\60\1\144\1\uffff\1\157\1\143\1\163\2"+
+        "\uffff\1\60\1\163\1\145\2\60\1\uffff\1\164\1\145\1\60\1\145\1\144"+
+        "\1\60\1\143\1\156\1\162\1\164\1\uffff\1\60\1\uffff\1\145\1\162\1"+
+        "\164\1\60\1\uffff\2\60\2\uffff\1\60\1\146\1\uffff\1\60\1\123\1\uffff"+
+        "\1\145\2\60\1\151\1\uffff\1\154\1\155\1\60\3\uffff\1\151\1\uffff"+
+        "\1\145\1\60\2\uffff\1\157\2\60\1\uffff\1\156\1\164\1\uffff\1\156"+
+        "\2\uffff\1\145\2\60\1\144\2\uffff\1\60\1\uffff";
     static final String DFA14_maxS =
         "\1\175\1\157\1\151\1\uffff\1\162\1\uffff\1\156\1\165\1\170\2\uffff"+
         "\1\162\1\72\1\164\2\uffff\1\176\1\145\1\165\1\157\1\uffff\1\76\3"+
@@ -3026,33 +3061,33 @@ public class SimplegtLexer extends Lexer {
         "\125\1\145\2\172\1\uffff\1\172\1\151\1\165\1\172\1\154\1\172\1\145"+
         "\3\154\1\172\1\142\1\172\1\154\1\uffff\1\155\1\147\1\uffff\1\163"+
         "\2\172\1\162\1\172\1\156\1\uffff\1\146\2\172\1\145\1\162\1\151\1"+
-        "\141\1\162\1\151\1\162\1\172\1\145\2\156\1\162\2\uffff\1\156\1\145"+
-        "\1\uffff\1\145\1\uffff\1\147\1\172\2\145\1\uffff\1\144\1\uffff\1"+
-        "\145\1\157\1\172\1\146\2\uffff\1\141\1\uffff\1\144\1\172\2\uffff"+
+        "\141\1\162\1\151\1\162\1\172\1\145\2\156\1\171\1\162\2\uffff\1\156"+
+        "\1\145\1\uffff\1\145\1\uffff\1\147\1\172\2\145\1\uffff\1\144\1\uffff"+
+        "\1\145\1\157\1\172\1\146\2\uffff\1\141\1\uffff\1\144\1\172\2\uffff"+
         "\1\172\1\164\1\145\1\164\1\145\1\143\1\172\1\uffff\1\170\1\144\1"+
-        "\171\1\145\1\147\1\156\1\141\1\145\1\uffff\1\143\1\172\1\141\1\172"+
-        "\1\144\1\uffff\1\157\1\143\1\163\2\uffff\1\172\1\163\1\145\2\172"+
-        "\1\uffff\1\164\1\145\1\172\1\144\1\172\1\143\1\156\1\162\1\164\1"+
-        "\uffff\1\172\1\uffff\1\145\1\162\1\164\1\172\1\uffff\2\172\2\uffff"+
-        "\1\172\1\146\1\uffff\1\123\1\uffff\1\145\2\172\1\151\1\uffff\1\154"+
-        "\1\155\1\172\3\uffff\1\151\1\145\1\172\2\uffff\1\157\2\172\1\uffff"+
-        "\1\156\1\164\1\uffff\1\156\2\uffff\1\145\2\172\1\144\2\uffff\1\172"+
-        "\1\uffff";
+        "\171\1\160\1\145\1\147\1\156\1\141\1\145\1\uffff\1\143\1\172\1\141"+
+        "\1\172\1\144\1\uffff\1\157\1\143\1\163\2\uffff\1\172\1\163\1\145"+
+        "\2\172\1\uffff\1\164\1\145\1\172\1\145\1\144\1\172\1\143\1\156\1"+
+        "\162\1\164\1\uffff\1\172\1\uffff\1\145\1\162\1\164\1\172\1\uffff"+
+        "\2\172\2\uffff\1\172\1\146\1\uffff\1\172\1\123\1\uffff\1\145\2\172"+
+        "\1\151\1\uffff\1\154\1\155\1\172\3\uffff\1\151\1\uffff\1\145\1\172"+
+        "\2\uffff\1\157\2\172\1\uffff\1\156\1\164\1\uffff\1\156\2\uffff\1"+
+        "\145\2\172\1\144\2\uffff\1\172\1\uffff";
     static final String DFA14_acceptS =
         "\3\uffff\1\3\1\uffff\1\5\3\uffff\1\11\1\12\3\uffff\1\16\1\17\4\uffff"+
         "\1\32\1\uffff\1\35\1\36\1\44\5\uffff\1\56\1\uffff\1\61\1\62\12\uffff"+
-        "\1\104\1\105\1\uffff\1\106\1\107\17\uffff\1\31\1\14\5\uffff\1\57"+
-        "\5\uffff\1\33\1\63\6\uffff\1\60\1\64\1\65\14\uffff\1\110\7\uffff"+
+        "\1\105\1\106\1\uffff\1\107\1\110\17\uffff\1\31\1\14\5\uffff\1\57"+
+        "\5\uffff\1\33\1\63\6\uffff\1\60\1\64\1\65\14\uffff\1\111\7\uffff"+
         "\1\22\12\uffff\1\15\2\uffff\1\47\1\20\1\21\11\uffff\1\54\16\uffff"+
-        "\1\55\2\uffff\1\26\6\uffff\1\41\17\uffff\1\46\1\53\2\uffff\1\76"+
-        "\1\uffff\1\73\4\uffff\1\101\1\uffff\1\103\4\uffff\1\42\1\50\1\uffff"+
-        "\1\7\2\uffff\1\51\1\13\7\uffff\1\40\10\uffff\1\71\5\uffff\1\2\3"+
-        "\uffff\1\52\1\43\5\uffff\1\37\11\uffff\1\100\1\uffff\1\1\4\uffff"+
-        "\1\24\2\uffff\1\23\1\25\2\uffff\1\77\1\uffff\1\66\4\uffff\1\102"+
-        "\3\uffff\1\10\1\34\1\27\3\uffff\1\67\1\70\3\uffff\1\6\2\uffff\1"+
-        "\75\1\uffff\1\30\1\4\4\uffff\1\74\1\72\1\uffff\1\45";
+        "\1\55\2\uffff\1\26\6\uffff\1\41\20\uffff\1\46\1\53\2\uffff\1\76"+
+        "\1\uffff\1\73\4\uffff\1\102\1\uffff\1\104\4\uffff\1\42\1\50\1\uffff"+
+        "\1\7\2\uffff\1\51\1\13\7\uffff\1\40\11\uffff\1\71\5\uffff\1\2\3"+
+        "\uffff\1\52\1\43\5\uffff\1\37\12\uffff\1\101\1\uffff\1\1\4\uffff"+
+        "\1\24\2\uffff\1\23\1\25\2\uffff\1\77\2\uffff\1\66\4\uffff\1\103"+
+        "\3\uffff\1\10\1\34\1\27\1\uffff\1\100\2\uffff\1\67\1\70\3\uffff"+
+        "\1\6\2\uffff\1\75\1\uffff\1\30\1\4\4\uffff\1\74\1\72\1\uffff\1\45";
     static final String DFA14_specialS =
-        "\56\uffff\1\0\64\uffff\1\1\u00c3\uffff}>";
+        "\56\uffff\1\0\64\uffff\1\1\u00c8\uffff}>";
     static final String[] DFA14_transitionS = {
             "\1\57\1\55\1\uffff\1\57\1\55\22\uffff\1\57\1\27\1\60\1\30\3"+
             "\uffff\1\56\1\16\1\17\1\41\1\40\1\5\1\25\1\24\1\41\12\42\1\14"+
@@ -3189,167 +3224,172 @@ public class SimplegtLexer extends Lexer {
             "\1\u00a9",
             "\1\u00aa",
             "\1\u00ab",
-            "\1\u00ad\23\uffff\1\u00ac",
-            "\1\u00ae",
+            "\1\u00ad\22\uffff\1\u00ae\1\u00ac",
+            "\1\u00af",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00b1",
             "\1\u00b2",
+            "\1\u00b3",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00b4",
+            "\1\u00b5",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00b6",
             "\1\u00b7",
             "\1\u00b8",
             "\1\u00b9",
+            "\1\u00ba",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00bb",
+            "\1\u00bc",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00bd",
-            "",
             "\1\u00be",
+            "",
             "\1\u00bf",
-            "",
             "\1\u00c0",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00c3",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00c5",
             "",
+            "\1\u00c1",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u00c4",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u00c6",
+            "",
+            "\1\u00c7",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00c9",
             "\1\u00ca",
             "\1\u00cb",
             "\1\u00cc",
             "\1\u00cd",
             "\1\u00ce",
             "\1\u00cf",
+            "\1\u00d0",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00d1",
             "\1\u00d2",
             "\1\u00d3",
             "\1\u00d4",
-            "",
-            "",
             "\1\u00d5",
             "\1\u00d6",
             "",
+            "",
             "\1\u00d7",
-            "",
             "\1\u00d8",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "",
+            "\1\u00d9",
+            "",
             "\1\u00da",
-            "\1\u00db",
-            "",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u00dc",
-            "",
             "\1\u00dd",
+            "",
             "\1\u00de",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "",
+            "\1\u00df",
             "\1\u00e0",
-            "",
-            "",
-            "\1\u00e1",
-            "",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u00e2",
+            "",
+            "",
+            "\1\u00e3",
+            "",
+            "\1\u00e4",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "",
             "",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00e5",
-            "\1\u00e6",
             "\1\u00e7",
             "\1\u00e8",
             "\1\u00e9",
+            "\1\u00ea",
+            "\1\u00eb",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "",
-            "\1\u00eb",
-            "\1\u00ec",
             "\1\u00ed",
             "\1\u00ee",
             "\1\u00ef",
             "\1\u00f0",
             "\1\u00f1",
             "\1\u00f2",
-            "",
             "\1\u00f3",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u00f4",
             "\1\u00f5",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u00f7",
             "",
+            "\1\u00f6",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u00f8",
-            "\1\u00f9",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u00fa",
             "",
-            "",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u00fb",
             "\1\u00fc",
             "\1\u00fd",
+            "",
+            "",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u00ff",
+            "\1\u0100",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "",
-            "\1\u0100",
-            "\1\u0101",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u0103",
+            "\1\u0104",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u0105",
             "\1\u0106",
             "\1\u0107",
-            "\1\u0108",
-            "",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "",
+            "\1\u0109",
             "\1\u010a",
             "\1\u010b",
             "\1\u010c",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "",
-            "",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u010e",
+            "\1\u010f",
             "\1\u0110",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "",
-            "\1\u0111",
-            "",
-            "\1\u0112",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u0115",
             "",
+            "",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u0114",
+            "",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u0116",
+            "",
             "\1\u0117",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "",
-            "",
-            "",
-            "\1\u0119",
-            "\1\u011a",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u011a",
             "",
-            "",
+            "\1\u011b",
             "\1\u011c",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "",
+            "",
+            "",
+            "\1\u011e",
             "",
             "\1\u011f",
-            "\1\u0120",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "",
             "",
             "\1\u0121",
-            "",
-            "",
-            "\1\u0122",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "",
+            "\1\u0124",
             "\1\u0125",
+            "",
+            "\1\u0126",
+            "",
+            "",
+            "\1\u0127",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u012a",
             "",
             "",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
@@ -3386,7 +3426,7 @@ public class SimplegtLexer extends Lexer {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | NOTOP | BOOLOP | INTOP | RELOP | EQ | NEQ | ADDOP | MULOP | COMMENT | FLOAT | INTEGER | STRINGTYPE | BOOLEANTYPE | INTEGERTYPE | REALTYPE | COLLECTIONTYPE | BAGTYPE | ORDEREDSETTYPE | SEQUENCETYPE | SETTYPE | OCLANYTYPE | TUPLETYPE | MAPTYPE | LAMBDATYPE | ENVTYPE | TEXT | LINEBREAK | WHITESPACE | QUOTED_34_34_92 | QUOTED_39_39_92 );";
+            return "1:1: Tokens : ( T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | NOTOP | BOOLOP | INTOP | RELOP | EQ | NEQ | ADDOP | MULOP | COMMENT | FLOAT | INTEGER | STRINGTYPE | BOOLEANTYPE | INTEGERTYPE | REALTYPE | COLLECTIONTYPE | BAGTYPE | ORDEREDSETTYPE | SEQUENCETYPE | SETTYPE | OCLANYTYPE | OCLTYPE | TUPLETYPE | MAPTYPE | LAMBDATYPE | ENVTYPE | TEXT | LINEBREAK | WHITESPACE | QUOTED_34_34_92 | QUOTED_39_39_92 );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

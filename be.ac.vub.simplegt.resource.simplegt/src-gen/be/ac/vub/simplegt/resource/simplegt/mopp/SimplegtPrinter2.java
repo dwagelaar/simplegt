@@ -366,27 +366,27 @@ public class SimplegtPrinter2 implements be.ac.vub.simplegt.resource.simplegt.IS
 			return;
 		}
 		if (element instanceof be.ac.vub.simpleocl.TupleType) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_60, foundFormattingElements);
-			return;
-		}
-		if (element instanceof be.ac.vub.simpleocl.TupleTypeAttribute) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_61, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simpleocl.OclModelElement) {
+		if (element instanceof be.ac.vub.simpleocl.TupleTypeAttribute) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_62, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simpleocl.MapType) {
+		if (element instanceof be.ac.vub.simpleocl.OclModelElement) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_63, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simpleocl.LambdaType) {
+		if (element instanceof be.ac.vub.simpleocl.MapType) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_64, foundFormattingElements);
 			return;
 		}
-		if (element instanceof be.ac.vub.simpleocl.EnvType) {
+		if (element instanceof be.ac.vub.simpleocl.LambdaType) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_65, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.EnvType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_66, foundFormattingElements);
 			return;
 		}
 		if (element instanceof be.ac.vub.simpleocl.LocalVariable) {
@@ -407,6 +407,10 @@ public class SimplegtPrinter2 implements be.ac.vub.simplegt.resource.simplegt.IS
 		}
 		if (element instanceof be.ac.vub.simpleocl.CollectionType) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_50, foundFormattingElements);
+			return;
+		}
+		if (element instanceof be.ac.vub.simpleocl.OclType) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_60, foundFormattingElements);
 			return;
 		}
 		
