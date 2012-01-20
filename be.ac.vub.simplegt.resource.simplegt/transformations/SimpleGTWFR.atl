@@ -32,3 +32,22 @@ nodefault rule RuleNameIsUnique {
 			description <- 'rule \'' + s.name + '\' already defined'
 		)
 }
+
+-- This rule generates an 'error' Problem for rule input/output elements that
+-- do not have a OclModelElement as their type (SimpleGT can only transform
+-- model elements).
+nodefault rule RuleElementTypesAreModelElements {
+	from
+		s : SimpleGT!RuleElement (
+			not s.type.oclIsKindOf(OCL!OclModelElement)
+		)
+	to
+		t : Problem!Problem (
+			severity <- #error,
+			line <- s.line,
+			column <- s.column,
+			charStart <- s.charStart,
+			charEnd <- s.charEnd,
+			description <- 'rule element \'' + s.varName + '\' must have a model element type'
+		)
+}
