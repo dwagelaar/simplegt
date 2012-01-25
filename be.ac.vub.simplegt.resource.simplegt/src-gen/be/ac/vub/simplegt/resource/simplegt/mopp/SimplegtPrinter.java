@@ -251,6 +251,10 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 			print_be_ac_vub_simpleocl_StaticNavigationOrAttributeCall((be.ac.vub.simpleocl.StaticNavigationOrAttributeCall) element, globaltab, out);
 			return;
 		}
+		if (element instanceof be.ac.vub.simpleocl.PropertyCallExp) {
+			print_be_ac_vub_simpleocl_PropertyCallExp((be.ac.vub.simpleocl.PropertyCallExp) element, globaltab, out);
+			return;
+		}
 		if (element instanceof be.ac.vub.simpleocl.NavigationOrAttributeCall) {
 			print_be_ac_vub_simpleocl_NavigationOrAttributeCall((be.ac.vub.simpleocl.NavigationOrAttributeCall) element, globaltab, out);
 			return;
@@ -337,10 +341,6 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		}
 		if (element instanceof be.ac.vub.simpleocl.OperatorCallExp) {
 			print_be_ac_vub_simpleocl_OperatorCallExp((be.ac.vub.simpleocl.OperatorCallExp) element, globaltab, out);
-			return;
-		}
-		if (element instanceof be.ac.vub.simpleocl.PropertyCallExp) {
-			print_be_ac_vub_simpleocl_PropertyCallExp((be.ac.vub.simpleocl.PropertyCallExp) element, globaltab, out);
 			return;
 		}
 		if (element instanceof be.ac.vub.simpleocl.OperationCall) {
@@ -2526,7 +2526,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(19);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OCL_MODEL_ELEMENT_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -2552,6 +2552,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OCL_MODEL_ELEMENT_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OCL_MODEL_ELEMENT_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OCL_MODEL_ELEMENT_EXP__MODEL));
 		printCountingMap.put("model", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OCL_MODEL_ELEMENT_EXP__NAME));
@@ -2627,7 +2629,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(19);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LAMBDA_CALL_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -2653,6 +2655,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LAMBDA_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LAMBDA_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LAMBDA_CALL_EXP__REFERRED_VARIABLE));
 		printCountingMap.put("referredVariable", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LAMBDA_CALL_EXP__ARGUMENTS));
@@ -2768,7 +2772,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.VARIABLE_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -2794,6 +2798,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.VARIABLE_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.VARIABLE_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.VARIABLE_EXP__REFERRED_VARIABLE));
 		printCountingMap.put("referredVariable", temp == null ? 0 : 1);
 		// print collected hidden tokens
@@ -2819,7 +2825,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(16);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SUPER_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -2845,6 +2851,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SUPER_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SUPER_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		// DEFINITION PART BEGINS (CsString)
 		out.print("super");
@@ -2858,7 +2866,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(16);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SELF_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -2884,6 +2892,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SELF_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SELF_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		// DEFINITION PART BEGINS (CsString)
 		out.print("self");
@@ -2897,7 +2907,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(16);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ENV_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -2923,6 +2933,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ENV_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ENV_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		// DEFINITION PART BEGINS (CsString)
 		out.print("env");
@@ -2936,7 +2948,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.STRING_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -2962,6 +2974,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.STRING_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.STRING_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.STRING_EXP__STRING_SYMBOL));
 		printCountingMap.put("stringSymbol", temp == null ? 0 : 1);
 		// print collected hidden tokens
@@ -2987,7 +3001,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BOOLEAN_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -3013,6 +3027,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BOOLEAN_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BOOLEAN_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BOOLEAN_EXP__BOOLEAN_SYMBOL));
 		printCountingMap.put("booleanSymbol", temp == null ? 0 : 1);
 		// print collected hidden tokens
@@ -3034,7 +3050,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REAL_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -3060,6 +3076,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REAL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REAL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REAL_EXP__REAL_SYMBOL));
 		printCountingMap.put("realSymbol", temp == null ? 0 : 1);
 		// print collected hidden tokens
@@ -3085,7 +3103,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INTEGER_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -3111,6 +3129,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INTEGER_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INTEGER_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INTEGER_EXP__INTEGER_SYMBOL));
 		printCountingMap.put("integerSymbol", temp == null ? 0 : 1);
 		// print collected hidden tokens
@@ -3137,7 +3157,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BAG_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -3163,6 +3183,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BAG_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BAG_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BAG_EXP__ELEMENTS));
 		printCountingMap.put("elements", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		// print collected hidden tokens
@@ -3267,7 +3289,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ORDERED_SET_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -3293,6 +3315,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ORDERED_SET_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ORDERED_SET_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ORDERED_SET_EXP__ELEMENTS));
 		printCountingMap.put("elements", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		// print collected hidden tokens
@@ -3397,7 +3421,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SEQUENCE_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -3423,6 +3447,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SEQUENCE_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SEQUENCE_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SEQUENCE_EXP__ELEMENTS));
 		printCountingMap.put("elements", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		// print collected hidden tokens
@@ -3527,7 +3553,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SET_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -3553,6 +3579,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SET_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SET_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.SET_EXP__ELEMENTS));
 		printCountingMap.put("elements", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		// print collected hidden tokens
@@ -3657,7 +3685,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.TUPLE_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -3683,6 +3711,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.TUPLE_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.TUPLE_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.TUPLE_EXP__TUPLE_PART));
 		printCountingMap.put("tuplePart", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		// print collected hidden tokens
@@ -3883,7 +3913,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MAP_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -3909,6 +3939,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MAP_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MAP_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MAP_EXP__ELEMENTS));
 		printCountingMap.put("elements", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		// print collected hidden tokens
@@ -4060,7 +4092,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ENUM_LITERAL_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -4086,6 +4118,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ENUM_LITERAL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ENUM_LITERAL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ENUM_LITERAL_EXP__NAME));
 		printCountingMap.put("name", temp == null ? 0 : 1);
 		// print collected hidden tokens
@@ -4145,7 +4179,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(16);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OCL_UNDEFINED_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -4171,6 +4205,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OCL_UNDEFINED_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OCL_UNDEFINED_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		// DEFINITION PART BEGINS (CsString)
 		out.print("OclUndefined");
@@ -4185,7 +4221,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(19);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LET_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -4211,6 +4247,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LET_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LET_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LET_EXP__VARIABLE));
 		printCountingMap.put("variable", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.LET_EXP__IN_));
@@ -4251,7 +4289,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(19);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(20);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.IF_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -4277,6 +4315,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.IF_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.IF_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.IF_EXP__THEN_EXPRESSION));
 		printCountingMap.put("thenExpression", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.IF_EXP__CONDITION));
@@ -4334,7 +4374,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(17);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BRACE_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -4360,6 +4400,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BRACE_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BRACE_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.BRACE_EXP__EXP));
 		printCountingMap.put("exp", temp == null ? 0 : 1);
 		// print collected hidden tokens
@@ -4415,14 +4457,14 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OPERATOR_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OPERATOR_CALL_EXP__CALLS));
-		printCountingMap.put("calls", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OPERATOR_CALL_EXP__SOURCE));
-		printCountingMap.put("source", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OPERATOR_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OPERATOR_CALL_EXP__ARGUMENT));
 		printCountingMap.put("argument", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OPERATOR_CALL_EXP__OPERATION_NAME));
 		printCountingMap.put("operationName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.OPERATOR_CALL_EXP__SOURCE));
+		printCountingMap.put("source", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (Containment)
@@ -4491,14 +4533,14 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.EQ_OP_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.EQ_OP_CALL_EXP__CALLS));
-		printCountingMap.put("calls", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.EQ_OP_CALL_EXP__SOURCE));
-		printCountingMap.put("source", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.EQ_OP_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.EQ_OP_CALL_EXP__ARGUMENT));
 		printCountingMap.put("argument", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.EQ_OP_CALL_EXP__OPERATION_NAME));
 		printCountingMap.put("operationName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.EQ_OP_CALL_EXP__SOURCE));
+		printCountingMap.put("source", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (Containment)
@@ -4599,14 +4641,14 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REL_OP_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REL_OP_CALL_EXP__CALLS));
-		printCountingMap.put("calls", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REL_OP_CALL_EXP__SOURCE));
-		printCountingMap.put("source", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REL_OP_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REL_OP_CALL_EXP__ARGUMENT));
 		printCountingMap.put("argument", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REL_OP_CALL_EXP__OPERATION_NAME));
 		printCountingMap.put("operationName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.REL_OP_CALL_EXP__SOURCE));
+		printCountingMap.put("source", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (Containment)
@@ -4675,14 +4717,14 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ADD_OP_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ADD_OP_CALL_EXP__CALLS));
-		printCountingMap.put("calls", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ADD_OP_CALL_EXP__SOURCE));
-		printCountingMap.put("source", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ADD_OP_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ADD_OP_CALL_EXP__ARGUMENT));
 		printCountingMap.put("argument", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ADD_OP_CALL_EXP__OPERATION_NAME));
 		printCountingMap.put("operationName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.ADD_OP_CALL_EXP__SOURCE));
+		printCountingMap.put("source", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (Containment)
@@ -4751,14 +4793,14 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INT_OP_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INT_OP_CALL_EXP__CALLS));
-		printCountingMap.put("calls", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INT_OP_CALL_EXP__SOURCE));
-		printCountingMap.put("source", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INT_OP_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INT_OP_CALL_EXP__ARGUMENT));
 		printCountingMap.put("argument", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INT_OP_CALL_EXP__OPERATION_NAME));
 		printCountingMap.put("operationName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.INT_OP_CALL_EXP__SOURCE));
+		printCountingMap.put("source", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (Containment)
@@ -4827,14 +4869,14 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MUL_OP_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MUL_OP_CALL_EXP__CALLS));
-		printCountingMap.put("calls", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MUL_OP_CALL_EXP__SOURCE));
-		printCountingMap.put("source", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MUL_OP_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MUL_OP_CALL_EXP__ARGUMENT));
 		printCountingMap.put("argument", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MUL_OP_CALL_EXP__OPERATION_NAME));
 		printCountingMap.put("operationName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.MUL_OP_CALL_EXP__SOURCE));
+		printCountingMap.put("source", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (Containment)
@@ -4903,14 +4945,14 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.NOT_OP_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.NOT_OP_CALL_EXP__CALLS));
-		printCountingMap.put("calls", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.NOT_OP_CALL_EXP__SOURCE));
-		printCountingMap.put("source", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.NOT_OP_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.NOT_OP_CALL_EXP__ARGUMENT));
 		printCountingMap.put("argument", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.NOT_OP_CALL_EXP__OPERATION_NAME));
 		printCountingMap.put("operationName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.NOT_OP_CALL_EXP__SOURCE));
+		printCountingMap.put("source", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
@@ -4944,7 +4986,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(19);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.STATIC_PROPERTY_CALL_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -4970,6 +5012,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.STATIC_PROPERTY_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.STATIC_PROPERTY_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.STATIC_PROPERTY_CALL_EXP__SOURCE));
 		printCountingMap.put("source", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.STATIC_PROPERTY_CALL_EXP__STATIC_CALL));
@@ -5222,7 +5266,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(18);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(19);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.PROPERTY_CALL_EXP__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
@@ -5248,6 +5292,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("ifExp1", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.PROPERTY_CALL_EXP__OWNING_ATTRIBUTE));
 		printCountingMap.put("owningAttribute", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.PROPERTY_CALL_EXP__APPLIED_OPERATOR));
+		printCountingMap.put("appliedOperator", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.PROPERTY_CALL_EXP__CALLS));
 		printCountingMap.put("calls", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simpleocl.SimpleoclPackage.PROPERTY_CALL_EXP__SOURCE));

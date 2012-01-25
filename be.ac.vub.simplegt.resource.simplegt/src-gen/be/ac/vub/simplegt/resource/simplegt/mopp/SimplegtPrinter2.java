@@ -309,6 +309,10 @@ public class SimplegtPrinter2 implements be.ac.vub.simplegt.resource.simplegt.IS
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_42, foundFormattingElements);
 			return;
 		}
+		if (element instanceof be.ac.vub.simpleocl.PropertyCallExp) {
+			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_43, foundFormattingElements);
+			return;
+		}
 		if (element instanceof be.ac.vub.simpleocl.NavigationOrAttributeCall) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_45, foundFormattingElements);
 			return;
@@ -395,10 +399,6 @@ public class SimplegtPrinter2 implements be.ac.vub.simplegt.resource.simplegt.IS
 		}
 		if (element instanceof be.ac.vub.simpleocl.OperatorCallExp) {
 			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_33, foundFormattingElements);
-			return;
-		}
-		if (element instanceof be.ac.vub.simpleocl.PropertyCallExp) {
-			printInternal(element, be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.SIMPLEOCL_43, foundFormattingElements);
 			return;
 		}
 		if (element instanceof be.ac.vub.simpleocl.OperationCall) {
