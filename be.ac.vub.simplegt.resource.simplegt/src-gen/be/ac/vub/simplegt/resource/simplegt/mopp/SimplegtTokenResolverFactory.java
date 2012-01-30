@@ -45,6 +45,7 @@ public class SimplegtTokenResolverFactory implements be.ac.vub.simplegt.resource
 		registerTokenResolver("OCLANYTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclOCLANYTYPETokenResolver());
 		registerTokenResolver("OCLTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclOCLTYPETokenResolver());
 		registerTokenResolver("TUPLETYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclTUPLETYPETokenResolver());
+		registerTokenResolver("TUPLE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclTUPLETokenResolver());
 		registerTokenResolver("MAPTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclMAPTYPETokenResolver());
 		registerTokenResolver("LAMBDATYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclLAMBDATYPETokenResolver());
 		registerTokenResolver("ENVTYPE", new be.ac.vub.simplegt.resource.simplegt.analysis.SimpleoclENVTYPETokenResolver());

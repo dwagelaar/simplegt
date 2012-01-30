@@ -69,6 +69,9 @@ public class SimplegtTokenStyleInformationProvider {
 		if ("OCLTYPE".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x00, 0xC0, 0x00}, null, false, false, false, false);
 		}
+		if ("TUPLE".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x00, 0xC0, 0x00}, null, false, false, false, false);
+		}
 		if ("TUPLETYPE".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x00, 0xC0, 0x00}, null, false, false, false, false);
 		}
