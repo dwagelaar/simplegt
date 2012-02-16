@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <emftvm:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emftvm="http://www.eclipse.org/m2m/atl/2011/EMFTVM" name="Test" sourceName="Test.simplegt">
-  <features xsi:type="emftvm:Operation" name="main" type="java.lang.Object" typeModel="#native" static="true" context="ExecEnv" contextModel="EMFTVM">
+  <features xsi:type="emftvm:Operation" name="main" type="Object" typeModel="#native" static="true" context="ExecEnv" contextModel="EMFTVM">
     <body maxLocals="0" maxStack="0"/>
   </features>
   <rules name="Test" mode="automaticRecursive" distinctElements="true">
@@ -8,7 +8,7 @@
       <binding maxLocals="2" maxStack="1">
         <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@inputElements.0/@binding/@lineNumbers.0" cbOffset="0" localVariableIndex="1"/>
         <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@inputElements.0/@binding/@lineNumbers.0" fieldname="nestedFor"/>
-        <lineNumbers startLine="10" startColumn="3" startChar="194" endChar="207" instructions="//@rules.0/@inputElements.0/@binding/@code.0 //@rules.0/@inputElements.0/@binding/@code.1"/>
+        <lineNumbers startLine="11" startColumn="3" startChar="212" endChar="225" instructions="//@rules.0/@inputElements.0/@binding/@code.0 //@rules.0/@inputElements.0/@binding/@code.1"/>
         <localVariables name="s" type="CodeBlock" typeModel="EMFTVM" slot="0" startInstructionIndex="0" endInstructionIndex="1"/>
         <localVariables name="n" type="CodeBlock" typeModel="EMFTVM" slot="1" startInstructionIndex="0" endInstructionIndex="1"/>
       </binding>
@@ -29,9 +29,9 @@
       <code xsi:type="emftvm:Goto" lineNumber="//@rules.0/@matcher/@lineNumbers.0" offset="14"/>
       <code xsi:type="emftvm:Enditerate" lineNumber="//@rules.0/@matcher/@lineNumbers.0" offset="3"/>
       <code xsi:type="emftvm:Pusht" lineNumber="//@rules.0/@matcher/@lineNumbers.0"/>
-      <lineNumbers startLine="11" startColumn="3" startChar="215" endChar="256" instructions="//@rules.0/@matcher/@code.0 //@rules.0/@matcher/@code.1 //@rules.0/@matcher/@code.2 //@rules.0/@matcher/@code.3 //@rules.0/@matcher/@code.8 //@rules.0/@matcher/@code.9 //@rules.0/@matcher/@code.10 //@rules.0/@matcher/@code.11 //@rules.0/@matcher/@code.12 //@rules.0/@matcher/@code.13"/>
-      <lineNumbers startLine="12" startColumn="3" startChar="242" endChar="255" instructions="//@rules.0/@matcher/@code.5 //@rules.0/@matcher/@code.6 //@rules.0/@matcher/@code.7"/>
-      <lineNumbers startLine="12" startColumn="16" startChar="255" endChar="255" instructions="//@rules.0/@matcher/@code.4"/>
+      <lineNumbers startLine="12" startColumn="3" startChar="233" endChar="274" instructions="//@rules.0/@matcher/@code.0 //@rules.0/@matcher/@code.1 //@rules.0/@matcher/@code.2 //@rules.0/@matcher/@code.3 //@rules.0/@matcher/@code.8 //@rules.0/@matcher/@code.9 //@rules.0/@matcher/@code.10 //@rules.0/@matcher/@code.11 //@rules.0/@matcher/@code.12 //@rules.0/@matcher/@code.13"/>
+      <lineNumbers startLine="13" startColumn="3" startChar="260" endChar="273" instructions="//@rules.0/@matcher/@code.5 //@rules.0/@matcher/@code.6 //@rules.0/@matcher/@code.7"/>
+      <lineNumbers startLine="13" startColumn="16" startChar="273" endChar="273" instructions="//@rules.0/@matcher/@code.4"/>
       <localVariables name="s" type="CodeBlock" typeModel="EMFTVM" slot="0" startInstructionIndex="0" endInstructionIndex="13"/>
       <localVariables name="n" type="CodeBlock" typeModel="EMFTVM" slot="1" startInstructionIndex="0" endInstructionIndex="13"/>
       <localVariables name="nn" type="CodeBlock" typeModel="EMFTVM" slot="2" startInstructionIndex="0" endInstructionIndex="13"/>
@@ -40,23 +40,25 @@
       <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.1" cbOffset="0" localVariableIndex="1"/>
       <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.0" cbOffset="0" localVariableIndex="2"/>
       <code xsi:type="emftvm:Remove" lineNumber="//@rules.0/@applier/@lineNumbers.0" fieldname="nestedFor"/>
-      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.3" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.4" cbOffset="0" localVariableIndex="1"/>
       <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@lineNumbers.3" fieldname="code"/>
       <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.2" cbOffset="0" localVariableIndex="1"/>
       <code xsi:type="emftvm:Add" lineNumber="//@rules.0/@applier/@lineNumbers.2" fieldname="code"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.7" cbOffset="0" localVariableIndex="1"/>
+      <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@lineNumbers.6" fieldname="nested"/>
       <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.5" cbOffset="0" localVariableIndex="1"/>
-      <code xsi:type="emftvm:Get" lineNumber="//@rules.0/@applier/@lineNumbers.5" fieldname="nested"/>
-      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.4" cbOffset="0" localVariableIndex="1"/>
-      <code xsi:type="emftvm:Add" lineNumber="//@rules.0/@applier/@lineNumbers.4" fieldname="nested"/>
-      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.6" cbOffset="0" localVariableIndex="2"/>
-      <code xsi:type="emftvm:Delete" lineNumber="//@rules.0/@applier/@lineNumbers.6"/>
-      <lineNumbers startLine="10" startColumn="3" startChar="194" endChar="207" instructions="//@rules.0/@applier/@code.1 //@rules.0/@applier/@code.2"/>
-      <lineNumbers startLine="10" startColumn="16" startChar="207" endChar="207" instructions="//@rules.0/@applier/@code.0"/>
-      <lineNumbers startLine="15" startColumn="2" startChar="311" endChar="324" instructions="//@rules.0/@applier/@code.5 //@rules.0/@applier/@code.6"/>
-      <lineNumbers startLine="15" startColumn="10" startChar="319" endChar="324" instructions="//@rules.0/@applier/@code.3 //@rules.0/@applier/@code.4"/>
-      <lineNumbers startLine="16" startColumn="2" startChar="329" endChar="346" instructions="//@rules.0/@applier/@code.9 //@rules.0/@applier/@code.10"/>
-      <lineNumbers startLine="16" startColumn="12" startChar="339" endChar="346" instructions="//@rules.0/@applier/@code.7 //@rules.0/@applier/@code.8"/>
-      <lineNumbers startLine="9" startColumn="2" startChar="168" endChar="208" instructions="//@rules.0/@applier/@code.11 //@rules.0/@applier/@code.12"/>
+      <code xsi:type="emftvm:Add" lineNumber="//@rules.0/@applier/@lineNumbers.5" fieldname="nested"/>
+      <code xsi:type="emftvm:Load" lineNumber="//@rules.0/@applier/@lineNumbers.8" cbOffset="0" localVariableIndex="2"/>
+      <code xsi:type="emftvm:Delete" lineNumber="//@rules.0/@applier/@lineNumbers.8"/>
+      <lineNumbers startLine="11" startColumn="3" startChar="212" endChar="225" instructions="//@rules.0/@applier/@code.1 //@rules.0/@applier/@code.2"/>
+      <lineNumbers startLine="11" startColumn="16" startChar="225" endChar="225" instructions="//@rules.0/@applier/@code.0"/>
+      <lineNumbers startLine="16" startColumn="2" startChar="329" endChar="342" instructions="//@rules.0/@applier/@code.5 //@rules.0/@applier/@code.6"/>
+      <lineNumbers startLine="16" startColumn="11" startChar="338" endChar="342" instructions="//@rules.0/@applier/@code.4"/>
+      <lineNumbers startLine="16" startColumn="10" startChar="337" endChar="337" instructions="//@rules.0/@applier/@code.3"/>
+      <lineNumbers startLine="17" startColumn="2" startChar="347" endChar="364" instructions="//@rules.0/@applier/@code.9 //@rules.0/@applier/@code.10"/>
+      <lineNumbers startLine="17" startColumn="13" startChar="358" endChar="364" instructions="//@rules.0/@applier/@code.8"/>
+      <lineNumbers startLine="17" startColumn="12" startChar="357" endChar="357" instructions="//@rules.0/@applier/@code.7"/>
+      <lineNumbers startLine="10" startColumn="2" startChar="186" endChar="226" instructions="//@rules.0/@applier/@code.11 //@rules.0/@applier/@code.12"/>
       <localVariables name="__trace__" type="TraceLink" typeModel="TRACE" slot="0" startInstructionIndex="0" endInstructionIndex="12"/>
       <localVariables name="s" type="CodeBlock" typeModel="EMFTVM" slot="1" startInstructionIndex="0" endInstructionIndex="12"/>
       <localVariables name="n" type="CodeBlock" typeModel="EMFTVM" slot="2" startInstructionIndex="0" endInstructionIndex="12"/>
