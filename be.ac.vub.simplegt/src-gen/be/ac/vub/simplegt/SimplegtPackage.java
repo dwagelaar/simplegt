@@ -279,13 +279,22 @@ public interface SimplegtPackage extends EPackage {
 	int RULE__EXTENDS = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__UNIQUE = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int RULE_FEATURE_COUNT = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link be.ac.vub.simplegt.impl.InputElementPatternImpl <em>Input Element Pattern</em>}' class.
@@ -1232,6 +1241,17 @@ public interface SimplegtPackage extends EPackage {
 	EAttribute getRule_Extends();
 
 	/**
+	 * Returns the meta object for the attribute '{@link be.ac.vub.simplegt.Rule#isUnique <em>Unique</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unique</em>'.
+	 * @see be.ac.vub.simplegt.Rule#isUnique()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EAttribute getRule_Unique();
+
+	/**
 	 * Returns the meta object for class '{@link be.ac.vub.simplegt.InputElementPattern <em>Input Element Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1604,6 +1624,14 @@ public interface SimplegtPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RULE__EXTENDS = eINSTANCE.getRule_Extends();
+
+		/**
+		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE__UNIQUE = eINSTANCE.getRule_Unique();
 
 		/**
 		 * The meta object literal for the '{@link be.ac.vub.simplegt.impl.InputElementPatternImpl <em>Input Element Pattern</em>}' class.

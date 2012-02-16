@@ -41,6 +41,7 @@ import be.ac.vub.simpleocl.impl.NamedElementImpl;
  *   <li>{@link be.ac.vub.simplegt.impl.RuleImpl#getNac <em>Nac</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.impl.RuleImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.impl.RuleImpl#getExtends <em>Extends</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.impl.RuleImpl#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,6 +107,26 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 	 * @ordered
 	 */
 	protected EList<String> extends_;
+
+	/**
+	 * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean UNIQUE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean unique = UNIQUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -303,6 +324,27 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isUnique() {
+		return unique;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnique(boolean newUnique) {
+		boolean oldUnique = unique;
+		unique = newUnique;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__UNIQUE, oldUnique, unique));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -379,6 +421,8 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 				return getOutput();
 			case SimplegtPackage.RULE__EXTENDS:
 				return getExtends();
+			case SimplegtPackage.RULE__UNIQUE:
+				return isUnique();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -412,6 +456,9 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 				getExtends().clear();
 				getExtends().addAll((Collection<? extends String>)newValue);
 				return;
+			case SimplegtPackage.RULE__UNIQUE:
+				setUnique((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -442,6 +489,9 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 			case SimplegtPackage.RULE__EXTENDS:
 				getExtends().clear();
 				return;
+			case SimplegtPackage.RULE__UNIQUE:
+				setUnique(UNIQUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -466,6 +516,8 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 				return output != null;
 			case SimplegtPackage.RULE__EXTENDS:
 				return extends_ != null && !extends_.isEmpty();
+			case SimplegtPackage.RULE__UNIQUE:
+				return unique != UNIQUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -516,6 +568,8 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 		result.append(abstract_);
 		result.append(", extends: ");
 		result.append(extends_);
+		result.append(", unique: ");
+		result.append(unique);
 		result.append(')');
 		return result.toString();
 	}

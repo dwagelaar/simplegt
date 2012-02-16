@@ -634,7 +634,7 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(11);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(12);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.RULE__NAME));
 		printCountingMap.put("name", temp == null ? 0 : 1);
@@ -650,6 +650,8 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 		printCountingMap.put("output", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.RULE__EXTENDS));
 		printCountingMap.put("extends", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.RULE__UNIQUE));
+		printCountingMap.put("unique", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		java.io.StringWriter sWriter = null;
@@ -668,6 +670,14 @@ public class SimplegtPrinter implements be.ac.vub.simplegt.resource.simplegt.ISi
 			if (o != null) {
 			}
 			printCountingMap.put("abstract", count - 1);
+		}
+		// DEFINITION PART BEGINS (BooleanTerminal)
+		count = printCountingMap.get("unique");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(be.ac.vub.simplegt.SimplegtPackage.RULE__UNIQUE));
+			if (o != null) {
+			}
+			printCountingMap.put("unique", count - 1);
 		}
 		// DEFINITION PART BEGINS (CsString)
 		out.print("rule");

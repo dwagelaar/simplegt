@@ -63,6 +63,7 @@ public class RuleItemProvider
 
 			addAbstractPropertyDescriptor(object);
 			addExtendsPropertyDescriptor(object);
+			addUniquePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,6 +108,28 @@ public class RuleItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Unique feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUniquePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Rule_unique_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_unique_feature", "_UI_Rule_type"),
+				 SimplegtPackage.Literals.RULE__UNIQUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -182,6 +205,7 @@ public class RuleItemProvider
 		switch (notification.getFeatureID(Rule.class)) {
 			case SimplegtPackage.RULE__ABSTRACT:
 			case SimplegtPackage.RULE__EXTENDS:
+			case SimplegtPackage.RULE__UNIQUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SimplegtPackage.RULE__INPUT:

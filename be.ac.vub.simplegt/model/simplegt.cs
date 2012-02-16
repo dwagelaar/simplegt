@@ -28,12 +28,13 @@ OPTIONS {
 
 TOKENSTYLES {
 	"abstract" COLOR #800040, BOLD;
+	"unique" COLOR #800040, BOLD;
 	"debug" COLOR #800040, BOLD;
 }
 
 RULES {
 	Module ::= "module" name[] debug["debug" : ""] ";" (!0 imports*)? (!0 metamodels*)? !0 "transform" models ("," models)* ";" (elements)*;
-	@Foldable Rule ::= !0!0 abstract["abstract" : ""] "rule" name[] ("extends" extends[] ("," extends[])*)? "{" !1 input? nac* output? "}";
+	@Foldable Rule ::= !0!0 abstract["abstract" : ""] unique["unique" : ""] "rule" name[] ("extends" extends[] ("," extends[])*)? "{" !1 input? nac* output? "}";
 	@Foldable InPattern ::= "from" elements ("," !1 elements)*;
 	InputElement ::= varName[] ":" type ("in" inModel[])? ("(" !1 bindings ("," bindings)* ")")?;
 	InputBinding ::= property[] last["=~|" : "=~"] expr;

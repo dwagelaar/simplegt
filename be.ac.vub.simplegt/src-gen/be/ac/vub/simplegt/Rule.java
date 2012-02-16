@@ -23,6 +23,7 @@ import be.ac.vub.simpleocl.NamedElement;
  *   <li>{@link be.ac.vub.simplegt.Rule#getNac <em>Nac</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.Rule#getOutput <em>Output</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.Rule#getExtends <em>Extends</em>}</li>
+ *   <li>{@link be.ac.vub.simplegt.Rule#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,7 +43,7 @@ public interface Rule extends NamedElement, ModuleElement {
 	 * @return the value of the '<em>Abstract</em>' attribute.
 	 * @see #setAbstract(boolean)
 	 * @see be.ac.vub.simplegt.SimplegtPackage#getRule_Abstract()
-	 * @model required="true"
+	 * @model dataType="be.ac.vub.simpleocl.Boolean" required="true"
 	 * @generated
 	 */
 	boolean isAbstract();
@@ -142,9 +143,35 @@ public interface Rule extends NamedElement, ModuleElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extends</em>' attribute list.
 	 * @see be.ac.vub.simplegt.SimplegtPackage#getRule_Extends()
-	 * @model
+	 * @model dataType="be.ac.vub.simpleocl.String"
 	 * @generated
 	 */
 	EList<String> getExtends();
+
+	/**
+	 * Returns the value of the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unique</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unique</em>' attribute.
+	 * @see #setUnique(boolean)
+	 * @see be.ac.vub.simplegt.SimplegtPackage#getRule_Unique()
+	 * @model dataType="be.ac.vub.simpleocl.Boolean" required="true"
+	 * @generated
+	 */
+	boolean isUnique();
+
+	/**
+	 * Sets the value of the '{@link be.ac.vub.simplegt.Rule#isUnique <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unique</em>' attribute.
+	 * @see #isUnique()
+	 * @generated
+	 */
+	void setUnique(boolean value);
 
 } // Rule

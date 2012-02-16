@@ -11,7 +11,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//NamedElement platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//ModuleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        eType="ecore:EDataType platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//InPattern"
         containment="true" eOpposite="#//InPattern/inputFor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nac" upperBound="-1" eType="#//NacPattern"
@@ -19,7 +19,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//OutPattern"
         containment="true" eOpposite="#//OutPattern/outputFor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extends" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//Boolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputElementPattern" abstract="true"
       eSuperTypes="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.ecore#//LocatedElement">

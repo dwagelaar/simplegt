@@ -12,6 +12,9 @@ public class SimplegtTokenStyleInformationProvider {
 		if ("abstract".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x40}, null, true, false, false, false);
 		}
+		if ("unique".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x40}, null, true, false, false, false);
+		}
 		if ("debug".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x40}, null, true, false, false, false);
 		}

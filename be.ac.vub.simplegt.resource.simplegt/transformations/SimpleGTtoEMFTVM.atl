@@ -314,6 +314,7 @@ rule Rule {
 		name <- s.name,
 		"abstract" <- s."abstract",
 		default <- false,
+		"unique" <- s."unique",
 		distinctElements <- true,
 		mode <- #automaticRecursive,
 		superRules <- s."extends",
