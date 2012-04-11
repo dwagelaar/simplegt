@@ -349,15 +349,15 @@ rule RuleWithDebug extends Rule {
 		s."module".debug)
 	to t : EMFTVM!Rule,
 	   a : EMFTVM!CodeBlock (
-	   	code <- Sequence{a_invokeAllCbs, a_push, a_load, a_invoke, a_pop}),
+	   	code <- Sequence{a_invokeAllCbs, a_load, a_push, a_invoke, a_pop}),
 	   a_ln : EMFTVM!LineNumber (
-		instructions <- Sequence{a_invokeAllCbs, a_push, a_load, a_invoke, a_pop}),
+		instructions <- Sequence{a_invokeAllCbs, a_load, a_push, a_invoke, a_pop}),
 	   a_trace : EMFTVM!LocalVariable,
-	   a_invokeAllCbs : EMFTVM!InvokeAllCbs,							-- [null] * nestedCb_size
-	   a_push : EMFTVM!Push (stringValue <- 'Applied ' + s.name + ' to'),	-- ['Applied...', null * nestedCb_size]
-	   a_load : EMFTVM!Load (localVariable <- a_trace),						-- [trace, 'Applied...', null * nestedCb_size]
-	   a_invoke : EMFTVM!Invoke (opname <- 'debug', argcount <- 1),			-- [trace, null * nestedCb_size]
-	   a_pop : EMFTVM!Pop													-- [null] * nestedCb_size
+	   a_invokeAllCbs : EMFTVM!InvokeAllCbs,								-- [...]
+	   a_load : EMFTVM!Load (localVariable <- a_trace),						-- [..., trace]
+	   a_push : EMFTVM!Push (stringValue <- 'Applied ' + s.name + ' to'),	-- [..., trace, 'Applied...']
+	   a_invoke : EMFTVM!Invoke (opname <- 'debug', argcount <- 1),			-- [..., trace]
+	   a_pop : EMFTVM!Pop													-- [...]
 }
 
 rule RuleWithMatcher extends Rule {
@@ -468,24 +468,23 @@ rule LastBoundInputElement extends BoundInputElement {
 	}
 	to re : EMFTVM!InputRuleElement,
 	   bindingCb : EMFTVM!CodeBlock (
-	   	code <- Sequence{b_load, b_get, b_dup, b_findtype, b_swap, b_invoke, b_ifn, b_dup2, b_invoke2, b_if, b_invoke3}),
+	   	code <- Sequence{b_load, b_get, b_dup, b_findtype, b_invoke, b_ifn, b_dup2, b_invoke2, b_if, b_invoke3}),
 	   b_ln : EMFTVM!LineNumber (
-		instructions <- Sequence{b_load, b_get, b_dup, b_findtype, b_swap, b_invoke, b_ifn, b_dup2, b_invoke2, b_if, b_invoke3}),
-	   b_load : EMFTVM!Load,								-- [element]
-	   b_get : EMFTVM!Get,									-- [values]
-	   b_dup : EMFTVM!Dup,									-- [values, values]
-	   b_findtype : EMFTVM!Findtype (						-- [type, values, values]
+		instructions <- Sequence{b_load, b_get, b_dup, b_findtype, b_invoke, b_ifn, b_dup2, b_invoke2, b_if, b_invoke3}),
+	   b_load : EMFTVM!Load,								-- [..., element]
+	   b_get : EMFTVM!Get,									-- [..., values]
+	   b_dup : EMFTVM!Dup,									-- [..., values, values]
+	   b_findtype : EMFTVM!Findtype (						-- [..., values, values, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   b_swap : EMFTVM!Swap,								-- [values, type, values]
-	   b_invoke : EMFTVM!Invoke (							-- [bool, values]
+	   b_invoke : EMFTVM!Invoke (							-- [..., values, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   b_ifn : EMFTVM!Ifn (target <- b_invoke3),			-- [values]
-	   b_dup2 : EMFTVM!Dup,									-- [values, values]
-	   b_invoke2 : EMFTVM!Invoke (							-- [bool, values]
+	   b_ifn : EMFTVM!Ifn (target <- b_invoke3),			-- [..., values]
+	   b_dup2 : EMFTVM!Dup,									-- [..., values, values]
+	   b_invoke2 : EMFTVM!Invoke (							-- [..., values, bool]
 	   	opname <- 'isEmpty', argcount <- 0),
-	   b_if : EMFTVM!If (target <- b_invoke3),				-- [values]
-	   b_invoke3 : EMFTVM!Invoke (							-- [value]
+	   b_if : EMFTVM!If (target <- b_invoke3),				-- [..., values]
+	   b_invoke3 : EMFTVM!Invoke (							-- [..., value]
 	   	opname <- 'last', argcount <- 0)
 }
 
@@ -660,17 +659,16 @@ abstract rule BoundNacInputElement extends NacInputElement {
 	from s : SimpleGT!InputElement in IN (
 		s.isBound)
 	to cb : EMFTVM!CodeBlock,
-	   load : EMFTVM!Load (											-- [element]
+	   load : EMFTVM!Load (											-- [..., element]
 	   	localVariable <- thisModule.resolveTemp(
 	   		s.bindingExp.binding.element.refersTo, 'lv')),
-	   get : EMFTVM!Get (											-- [values]
+	   get : EMFTVM!Get (											-- [..., values]
 	   	fieldname <- s.bindingExp.binding.property),
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype (									-- [type, values, values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype (									-- [..., values, values, type]
 	   	modelname <- '#native',
 		typename <- thisModule.CollectionType),
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke (										-- [bool, values]
+	   invoke : EMFTVM!Invoke (										-- [..., values, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1)
 }
 
@@ -678,22 +676,20 @@ abstract rule LastBoundNacInputElement extends BoundNacInputElement {
 	from s : SimpleGT!InputElement in IN (
 		s.bindingExp.binding.last)
 	to cb : EMFTVM!CodeBlock,
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   ifn : EMFTVM!Ifn,											-- [values]
-	   dup_s : EMFTVM!Dup,											-- [values, values]
-	   findtype_s : EMFTVM!Findtype (								-- [type, values, values]
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   ifn : EMFTVM!Ifn,											-- [..., values]
+	   dup_s : EMFTVM!Dup,											-- [..., values, values]
+	   findtype_s : EMFTVM!Findtype (								-- [..., values, values, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   swap_s : EMFTVM!Swap,										-- [values, type, values]
-	   invoke_s : EMFTVM!Invoke (									-- [bool, values]
+	   invoke_s : EMFTVM!Invoke (									-- [..., values, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn_s : EMFTVM!Ifn,											-- [values]
-	   invoke_last : EMFTVM!Invoke (								-- [value]
+	   ifn_s : EMFTVM!Ifn,											-- [..., values]
+	   invoke_last : EMFTVM!Invoke (								-- [..., value]
 	   	opname <- 'last', argcount <- 0)
 }
 
@@ -724,9 +720,9 @@ rule TerminatingNacInputElement extends UnboundLastNacInputElement {
 	   	code <- Sequence{findtype, allinst, invoke}),
 	   ln : EMFTVM!LineNumber (
 	   	instructions <- Sequence{findtype, allinst, invoke}),
-	   findtype : EMFTVM!Findtype,									-- [type]
-	   allinst : EMFTVM!Allinst,									-- [coll]
-	   invoke : EMFTVM!Invoke (opname <- 'isEmpty', argcount <- 0)	-- [bool]
+	   findtype : EMFTVM!Findtype,									-- [..., type]
+	   allinst : EMFTVM!Allinst,									-- [..., coll]
+	   invoke : EMFTVM!Invoke (opname <- 'isEmpty', argcount <- 0)	-- [..., bool]
 }
 
 rule TerminatingNacInputElementIn extends UnboundLastNacInputElement {
@@ -734,13 +730,13 @@ rule TerminatingNacInputElementIn extends UnboundLastNacInputElement {
 		not s.pattern.hasMatcherBindings and
 		not s.inModel.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
-	   	code <- Sequence{push, findtype, allinst, invoke}),
+	   	code <- Sequence{findtype, push, allinst, invoke}),
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push, findtype, allinst, invoke}),
-	   push : EMFTVM!Push (stringValue <- s.inModel.name),			-- [modelname]
-	   findtype : EMFTVM!Findtype,									-- [type, modelname]
-	   allinst : EMFTVM!AllinstIn,									-- [coll]
-	   invoke : EMFTVM!Invoke (opname <- 'isEmpty', argcount <- 0)	-- [bool]
+	   	instructions <- Sequence{findtype, push, allinst, invoke}),
+	   findtype : EMFTVM!Findtype,									-- [..., type]
+	   push : EMFTVM!Push (stringValue <- s.inModel.name),			-- [..., type, modelname]
+	   allinst : EMFTVM!AllinstIn,									-- [..., coll]
+	   invoke : EMFTVM!Invoke (opname <- 'isEmpty', argcount <- 0)	-- [..., bool]
 }
 
 rule BoundTerminatingNacInputElement extends BoundLastNacInputElement {
@@ -748,40 +744,37 @@ rule BoundTerminatingNacInputElement extends BoundLastNacInputElement {
 		not s.pattern.hasMatcherBindings and
 		s.inModel.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
-	   	code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, it, findtype2, swap2, invoke2, if_, endit, pushf, goto, pop, pusht, goto2, findtype3, swap3, invoke3, not_}),
+	   	code <- Sequence{load, get, dup, findtype, invoke, ifn, it, findtype2, invoke2, if_, endit, pushf, goto, pop, pusht, goto2, findtype3, invoke3, not_}),
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, it, findtype2, swap2, invoke2, if_, endit, pushf, goto, pop, pusht, goto2, findtype3, swap3, invoke3, not_}),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   ifn : EMFTVM!Ifn (target <- goto2),							-- [values]
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, ifn, it, findtype2, invoke2, if_, endit, pushf, goto, pop, pusht, goto2, findtype3, invoke3, not_}),
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   ifn : EMFTVM!Ifn (target <- goto2),							-- [..., values]
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   if_ : EMFTVM!If (target <- goto),							-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- invoke3),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
-	   goto2 : EMFTVM!Goto (target <- invoke3),						-- [true]
+	   if_ : EMFTVM!If (target <- goto),							-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   goto : EMFTVM!Goto (target <- invoke3),						-- [..., false]
+	   pop : EMFTVM!Pop,											-- [...]
+	   pusht : EMFTVM!Pusht,										-- [..., true]
+	   goto2 : EMFTVM!Goto (target <- invoke3),						-- [..., true]
 	-- value is single
-	   findtype3 : EMFTVM!Findtype (								-- [type, value]
+	   findtype3 : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap3 : EMFTVM!Swap,											-- [value, type]
-	   invoke3 : EMFTVM!Invoke (									-- [bool]
+	   invoke3 : EMFTVM!Invoke (									-- [..., bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
 	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   not_ : EMFTVM!Not											-- [..., bool]
 }
 
 rule BoundTerminatingNacInputElementIn extends BoundLastNacInputElement {
@@ -789,57 +782,52 @@ rule BoundTerminatingNacInputElementIn extends BoundLastNacInputElement {
 		not s.pattern.hasMatcherBindings and
 		not s.inModel.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
-	   	code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, it, dup2, findtype2, swap2, invoke2, ifn2, push_m, swap_m, invoke_m, if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, goto2, dup3, findtype3, swap3, invoke3, ifn3, push_mv, swap_mv, invoke_mv, goto3, pop_v, pushf_v, not_}),
+	   	code <- Sequence{load, get, dup, findtype, invoke, ifn, it, dup2, findtype2, invoke2, ifn2, push_m, invoke_m, if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, goto2, dup3, findtype3, invoke3, ifn3, push_mv, invoke_mv, goto3, pop_v, pushf_v, not_}),
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, it, dup2, findtype2, swap2, invoke2, ifn2, push_m, swap_m, invoke_m, if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, goto2, dup3, findtype3, swap3, invoke3, ifn3, push_mv, swap_mv, invoke_mv, goto3, pop_v, pushf_v, not_}),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   ifn : EMFTVM!Ifn (target <- goto2),							-- [values]
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, ifn, it, dup2, findtype2, invoke2, ifn2, push_m, invoke_m, if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, goto2, dup3, findtype3, invoke3, ifn3, push_mv, invoke_mv, goto3, pop_v, pushf_v, not_}),
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   ifn : EMFTVM!Ifn (target <- goto2),							-- [..., values]
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname, value, it(values)]
-	   swap_m : EMFTVM!Swap,										-- [value, modelname, it(values)]
-	   invoke_m : EMFTVM!Invoke (									-- [bool, it(values)]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., it(values), value, modelname]
+	   invoke_m : EMFTVM!Invoke (									-- [..., it(values), bool]
 	   	opname <- 'isInModel', argcount <- 1),
-	   if_ : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),					-- [it(values)]
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pushf_v),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
-	   goto2 : EMFTVM!Goto (target <- pushf_v),						-- [true]
+	   if_ : EMFTVM!If (target <- goto),							-- [..., it(values)]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   goto : EMFTVM!Goto (target <- pushf_v),						-- [..., false]
+	   pop : EMFTVM!Pop,											-- [...]
+	   pusht : EMFTVM!Pusht,										-- [..., true]
+	   goto2 : EMFTVM!Goto (target <- pushf_v),						-- [..., true]
 	-- value is single
-	   dup3 : EMFTVM!Dup,											-- [value, value]
-	   findtype3 : EMFTVM!Findtype (								-- [type, value, value]
+	   dup3 : EMFTVM!Dup,											-- [..., value, value]
+	   findtype3 : EMFTVM!Findtype (								-- [..., value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap3 : EMFTVM!Swap,											-- [value, type, value]
-	   invoke3 : EMFTVM!Invoke (									-- [bool, value]
+	   invoke3 : EMFTVM!Invoke (									-- [..., value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn3 : EMFTVM!Ifn (target <- goto3),							-- [value]
-	   push_mv : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname, value]
-	   swap_mv : EMFTVM!Swap,										-- [value, modelname]
-	   invoke_mv : EMFTVM!Invoke (									-- [bool]
+	   ifn3 : EMFTVM!Ifn (target <- goto3),							-- [..., value]
+	   push_mv : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., value, modelname]
+	   invoke_mv : EMFTVM!Invoke (									-- [..., bool]
 	   	opname <- 'isInModel', argcount <- 1),
-	   goto3 : EMFTVM!Goto (target <- pushf_v),						-- [bool]
-	   pop_v : EMFTVM!Pop,											-- []
-	   pushf_v : EMFTVM!Pushf,										-- [false]
+	   goto3 : EMFTVM!Goto (target <- pushf_v),						-- [..., bool]
+	   pop_v : EMFTVM!Pop,											-- [...]
+	   pushf_v : EMFTVM!Pushf,										-- [..., false]
 	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   not_ : EMFTVM!Not											-- [..., bool]
 }
 
 rule LastBoundTerminatingNacInputElement extends BoundLastNacInputElement {
@@ -848,47 +836,43 @@ rule LastBoundTerminatingNacInputElement extends BoundLastNacInputElement {
 		not s.pattern.hasMatcherBindings and
 		s.inModel.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
-	   	code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, goto_s, it, findtype2, swap2, invoke2, if_, endit, pushf, goto, pop, pusht, goto2, findtype3, swap3, invoke3, not_}),
+	   	code <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, goto_s, it, findtype2, invoke2, if_, endit, pushf, goto, pop, pusht, goto2, findtype3, invoke3, not_}),
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, goto_s, it, findtype2, swap2, invoke2, if_, endit, pushf, goto, pop, pusht, goto2, findtype3, swap3, invoke3, not_}),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   ifn : EMFTVM!Ifn (target <- goto2),							-- [values]
-	   dup_s : EMFTVM!Dup,											-- [values, values]
-	   findtype_s : EMFTVM!Findtype,								-- [type, values, values]
-	   swap_s : EMFTVM!Swap,										-- [values, type, values]
-	   invoke_s : EMFTVM!Invoke,									-- [bool, values]
-	   ifn_s : EMFTVM!Ifn (target <- goto_s),						-- [values]
-	   invoke_last : EMFTVM!Invoke,									-- [value]
-	   goto_s : EMFTVM!Goto	(target <- goto2),						-- [value]
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, goto_s, it, findtype2, invoke2, if_, endit, pushf, goto, pop, pusht, goto2, findtype3, invoke3, not_}),
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   ifn : EMFTVM!Ifn (target <- goto2),							-- [..., values]
+	   dup_s : EMFTVM!Dup,											-- [..., values, values]
+	   findtype_s : EMFTVM!Findtype,								-- [..., values, values, type]
+	   invoke_s : EMFTVM!Invoke,									-- [..., values, bool]
+	   ifn_s : EMFTVM!Ifn (target <- goto_s),						-- [..., values]
+	   invoke_last : EMFTVM!Invoke,									-- [..., value]
+	   goto_s : EMFTVM!Goto	(target <- goto2),						-- [..., value]
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   if_ : EMFTVM!If (target <- goto),							-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- invoke3),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
-	   goto2 : EMFTVM!Goto (target <- invoke3),						-- [true]
+	   if_ : EMFTVM!If (target <- goto),							-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   goto : EMFTVM!Goto (target <- invoke3),						-- [..., false]
+	   pop : EMFTVM!Pop,											-- [...]
+	   pusht : EMFTVM!Pusht,										-- [..., true]
+	   goto2 : EMFTVM!Goto (target <- invoke3),						-- [..., true]
 	-- value is single
-	   findtype3 : EMFTVM!Findtype (								-- [type, value]
+	   findtype3 : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap3 : EMFTVM!Swap,											-- [value, type]
-	   invoke3 : EMFTVM!Invoke (									-- [bool]
+	   invoke3 : EMFTVM!Invoke (									-- [..., bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
 	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   not_ : EMFTVM!Not											-- [..., bool]
 }
 
 rule LastBoundTerminatingNacInputElementIn extends BoundLastNacInputElement {
@@ -897,64 +881,58 @@ rule LastBoundTerminatingNacInputElementIn extends BoundLastNacInputElement {
 		not s.pattern.hasMatcherBindings and
 		not s.inModel.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
-	   	code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, goto_s, it, dup2, findtype2, swap2, invoke2, ifn2, push_m, swap_m, invoke_m, if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, goto2, dup3, findtype3, swap3, invoke3, ifn3, push_mv, swap_mv, invoke_mv, goto3, pop_v, pushf_v, not_}),
+	   	code <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, goto_s, it, dup2, findtype2, invoke2, ifn2, push_m, invoke_m, if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, goto2, dup3, findtype3, invoke3, ifn3, push_mv, invoke_mv, goto3, pop_v, pushf_v, not_}),
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, goto_s, it, dup2, findtype2, swap2, invoke2, ifn2, push_m, swap_m, invoke_m, if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, goto2, dup3, findtype3, swap3, invoke3, ifn3, push_mv, swap_mv, invoke_mv, goto3, pop_v, pushf_v, not_}),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   ifn : EMFTVM!Ifn (target <- goto2),							-- [values]
-	   dup_s : EMFTVM!Dup,											-- [values, values]
-	   findtype_s : EMFTVM!Findtype,								-- [type, values, values]
-	   swap_s : EMFTVM!Swap,										-- [values, type, values]
-	   invoke_s : EMFTVM!Invoke,									-- [bool, values]
-	   ifn_s : EMFTVM!Ifn (target <- goto_s),						-- [values]
-	   invoke_last : EMFTVM!Invoke,									-- [value]
-	   goto_s : EMFTVM!Goto	(target <- goto2),						-- [value]
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, goto_s, it, dup2, findtype2, invoke2, ifn2, push_m, invoke_m, if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, goto2, dup3, findtype3, invoke3, ifn3, push_mv, invoke_mv, goto3, pop_v, pushf_v, not_}),
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   ifn : EMFTVM!Ifn (target <- goto2),							-- [..., values]
+	   dup_s : EMFTVM!Dup,											-- [..., values, values]
+	   findtype_s : EMFTVM!Findtype,								-- [..., values, values, type]
+	   invoke_s : EMFTVM!Invoke,									-- [..., values, bool]
+	   ifn_s : EMFTVM!Ifn (target <- goto_s),						-- [..., values]
+	   invoke_last : EMFTVM!Invoke,									-- [..., value]
+	   goto_s : EMFTVM!Goto	(target <- goto2),						-- [..., value]
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname, value, it(values)]
-	   swap_m : EMFTVM!Swap,										-- [value, modelname, it(values)]
-	   invoke_m : EMFTVM!Invoke (									-- [bool, it(values)]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., it(values), value, modelname]
+	   invoke_m : EMFTVM!Invoke (									-- [..., it(values), bool]
 	   	opname <- 'isInModel', argcount <- 1),
-	   if_ : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pushf_v),							-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
-	   goto2 : EMFTVM!Goto (target <- pushf_v),						-- [true]
+	   if_ : EMFTVM!If (target <- goto),							-- [..., it(values)]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   goto : EMFTVM!Goto (target <- pushf_v),						-- [..., false]
+	   pop : EMFTVM!Pop,											-- [...]
+	   pusht : EMFTVM!Pusht,										-- [..., true]
+	   goto2 : EMFTVM!Goto (target <- pushf_v),						-- [..., true]
 	-- value is single
-	   dup3 : EMFTVM!Dup,											-- [value, value]
-	   findtype3 : EMFTVM!Findtype (								-- [type, value, value]
+	   dup3 : EMFTVM!Dup,											-- [..., value, value]
+	   findtype3 : EMFTVM!Findtype (								-- [..., value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap3 : EMFTVM!Swap,											-- [value, type, value]
-	   invoke3 : EMFTVM!Invoke (									-- [bool, value]
+	   invoke3 : EMFTVM!Invoke (									-- [..., value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn3 : EMFTVM!Ifn (target <- goto3),							-- [value]
-	   push_mv : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname, value]
-	   swap_mv : EMFTVM!Swap,										-- [value, modelname]
-	   invoke_mv : EMFTVM!Invoke (									-- [bool]
+	   ifn3 : EMFTVM!Ifn (target <- goto3),							-- [..., value]
+	   push_mv : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., value, modelname]
+	   invoke_mv : EMFTVM!Invoke (									-- [..., bool]
 	   	opname <- 'isInModel', argcount <- 1),
-	   goto3 : EMFTVM!Goto (target <- pushf_v),						-- [bool]
-	   pop_v : EMFTVM!Pop,											-- []
-	   pushf_v : EMFTVM!Pushf,										-- [false]
+	   goto3 : EMFTVM!Goto (target <- pushf_v),						-- [..., bool]
+	   pop_v : EMFTVM!Pop,											-- [...]
+	   pushf_v : EMFTVM!Pushf,										-- [..., false]
 	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   not_ : EMFTVM!Not											-- [..., bool]
 }
 
 rule LastNacInputElementWithBindings extends UnboundLastNacInputElement {
@@ -975,17 +953,17 @@ rule LastNacInputElementWithBindings extends UnboundLastNacInputElement {
 	   	instructions <- Sequence{findtype, allinst, it, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{ifn, pop, pushf, ret, endit, pusht})),
-	   findtype : EMFTVM!Findtype,								-- [type]
-	   allinst : EMFTVM!Allinst,								-- [coll]
-	   it : EMFTVM!Iterate (target <- endit),					-- [inst, it(coll)]
-	   store : EMFTVM!Store (localVariable <- lv),				-- [it(coll)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),			-- [bool, it(coll)]
-	   ifn : EMFTVM!Ifn (target <- ret),						-- [it(coll)]
-	   pop : EMFTVM!Pop,										-- []			-- invokeCb returned 'true';
-	   pushf : EMFTVM!Pushf,									-- [false]		-- invert result
-	   ret : EMFTVM!Return,										-- false, []
-	   endit : EMFTVM!Enditerate (target <- it),				-- []			-- invokeCb returned 'false'
-	   pusht : EMFTVM!Pusht										-- [true]		-- invert result
+	   findtype : EMFTVM!Findtype,								-- [..., type]
+	   allinst : EMFTVM!Allinst,								-- [..., coll]
+	   it : EMFTVM!Iterate (target <- endit),					-- [..., it(coll), inst]
+	   store : EMFTVM!Store (localVariable <- lv),				-- [..., it(coll)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),			-- [..., it(coll), bool]
+	   ifn : EMFTVM!Ifn (target <- ret),						-- [..., it(coll)]
+	   pop : EMFTVM!Pop,										-- [...]			-- invokeCb returned 'true';
+	   pushf : EMFTVM!Pushf,									-- [..., false]		-- invert result
+	   ret : EMFTVM!Return,										-- false, [...]
+	   endit : EMFTVM!Enditerate (target <- it),				-- [...]			-- invokeCb returned 'false'
+	   pusht : EMFTVM!Pusht										-- [..., true]		-- invert result
 }
 
 rule LastNacInputElementWithBindingsIn extends UnboundLastNacInputElement {
@@ -998,26 +976,26 @@ rule LastNacInputElementWithBindingsIn extends UnboundLastNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- s.pattern.matcherBindings,
-	   	code <- Sequence{push, findtype, allinst, it, store, invokeCb}
+	   	code <- Sequence{findtype, push, allinst, it, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{ifn, pop, pushf, ret, endit, pusht})),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push, findtype, allinst, it, store, invokeCb}
+	   	instructions <- Sequence{findtype, push, allinst, it, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{ifn, pop, pushf, ret, endit, pusht})),
-	   push : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname]
-	   findtype : EMFTVM!Findtype,								-- [type, modelname]
-	   allinst : EMFTVM!AllinstIn,								-- [coll]
-	   it : EMFTVM!Iterate (target <- endit),					-- [inst, it(coll)]
-	   store : EMFTVM!Store (localVariable <- lv),				-- [it(coll)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),			-- [bool, it(coll)]
-	   ifn : EMFTVM!Ifn (target <- ret),						-- [it(coll)]
-	   pop : EMFTVM!Pop,										-- []			-- invokeCb returned 'true';
-	   pushf : EMFTVM!Pushf,									-- [false]		-- invert result
-	   ret : EMFTVM!Return,										-- false, []
-	   endit : EMFTVM!Enditerate (target <- it),				-- []			-- invokeCb returned 'false'
-	   pusht : EMFTVM!Pusht										-- [true]		-- invert result
+	   findtype : EMFTVM!Findtype,								-- [..., type]
+	   push : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., type, modelname]
+	   allinst : EMFTVM!AllinstIn,								-- [..., coll]
+	   it : EMFTVM!Iterate (target <- endit),					-- [..., it(coll), inst]
+	   store : EMFTVM!Store (localVariable <- lv),				-- [..., it(coll)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),			-- [..., it(coll), bool]
+	   ifn : EMFTVM!Ifn (target <- ret),						-- [..., it(coll)]
+	   pop : EMFTVM!Pop,										-- [...]			-- invokeCb returned 'true';
+	   pushf : EMFTVM!Pushf,									-- [..., false]		-- invert result
+	   ret : EMFTVM!Return,										-- false, [...]
+	   endit : EMFTVM!Enditerate (target <- it),				-- [...]			-- invokeCb returned 'false'
+	   pusht : EMFTVM!Pusht										-- [..., true]		-- invert result
 }
 
 rule BoundLastNacInputElementWithBindings extends BoundLastNacInputElement {
@@ -1030,50 +1008,49 @@ rule BoundLastNacInputElementWithBindings extends BoundLastNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- s.pattern.matcherBindings,
-	   	code <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb}
+	   	code <- Sequence{load, get, dup, findtype, invoke, if_c, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_})),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb}
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, if_c, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_})),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   if_c : EMFTVM!If (target <- invoke_c),						-- [values]
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   if_c : EMFTVM!If (target <- invoke_c),						-- [..., values]
 	-- value is single; wrap in collection
-	   findtype_c : EMFTVM!Findtype (								-- [type, value]
+	   findtype_c : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   new_c : EMFTVM!New,											-- [coll, value]
-	   invoke_c : EMFTVM!Invoke (									-- [values]
+	   new_c : EMFTVM!New,											-- [..., value, coll]
+	   swap_c : EMFTVM!Swap,										-- [..., coll, value]
+	   invoke_c : EMFTVM!Invoke (									-- [..., values]
 	   	opname <- 'append', argcount <- 1),
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),				-- [bool, it(values)]
-	   if_ : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pusht),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   store : EMFTVM!Store (localVariable <- lv),					-- [..., it(values)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),				-- [..., it(values), bool]
+	   if_ : EMFTVM!If (target <- goto),							-- [..., it(values)]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   goto : EMFTVM!Goto (target <- pusht),						-- [..., false]
+	   pop : EMFTVM!Pop,											-- [...]
+	   pusht : EMFTVM!Pusht,										-- [..., true]
 	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   not_ : EMFTVM!Not											-- [..., bool]
 }
 
 rule BoundLastNacInputElementWithBindingsIn extends BoundLastNacInputElement {
@@ -1086,56 +1063,54 @@ rule BoundLastNacInputElementWithBindingsIn extends BoundLastNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- s.pattern.matcherBindings,
-	   	code <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb}
+	   	code <- Sequence{load, get, dup, findtype, invoke, if_c, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, dup3, push_m, invoke_m, ifn3, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_})),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb}
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, if_c, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, dup3, push_m, invoke_m, ifn3, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_})),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   if_c : EMFTVM!If (target <- invoke_c),						-- [values]
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   if_c : EMFTVM!If (target <- invoke_c),						-- [..., values]
 	-- value is single; wrap in collection
-	   findtype_c : EMFTVM!Findtype (								-- [type, value]
+	   findtype_c : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   new_c : EMFTVM!New,											-- [coll, value]
-	   invoke_c : EMFTVM!Invoke (									-- [values]
+	   new_c : EMFTVM!New,											-- [..., value, coll]
+	   swap_c : EMFTVM!Swap,										-- [..., coll, value]
+	   invoke_c : EMFTVM!Invoke (									-- [..., values]
 	   	opname <- 'append', argcount <- 1),
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   dup3 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname, value, value, it(values)]
-	   swap_m : EMFTVM!Swap,										-- [value, modelname, value, it(values)]
-	   invoke_m : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   dup3 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., it(values), value, value, modelname]
+	   invoke_m : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'isInModel', argcount <- 1),
-	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),				-- [bool, it(values)]
-	   if_ : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pusht),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
+	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   store : EMFTVM!Store (localVariable <- lv),					-- [..., it(values)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),				-- [..., it(values), bool]
+	   if_ : EMFTVM!If (target <- goto),							-- [..., it(values)]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   goto : EMFTVM!Goto (target <- pusht),						-- [..., false]
+	   pop : EMFTVM!Pop,											-- [...]
+	   pusht : EMFTVM!Pusht,										-- [..., true]
 	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   not_ : EMFTVM!Not											-- [..., bool]
 }
 
 rule LastBoundLastNacInputElementWithBindings extends LastBoundLastNacInputElement {
@@ -1148,56 +1123,54 @@ rule LastBoundLastNacInputElementWithBindings extends LastBoundLastNacInputEleme
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- s.pattern.matcherBindings,
-	   	code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb}
+	   	code <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_})),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb}
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_})),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   ifn : EMFTVM!Ifn (target <- invoke_last),					-- [values]
-	   dup_s : EMFTVM!Dup,											-- [values, values]
-	   findtype_s : EMFTVM!Findtype,								-- [type, values, values]
-	   swap_s : EMFTVM!Swap,										-- [values, type, values]
-	   invoke_s : EMFTVM!Invoke,									-- [bool, values]
-	   ifn_s : EMFTVM!Ifn (target <- invoke_c),						-- [values]
-	   invoke_last : EMFTVM!Invoke,									-- [value]
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   ifn : EMFTVM!Ifn (target <- invoke_last),					-- [..., values]
+	   dup_s : EMFTVM!Dup,											-- [..., values, values]
+	   findtype_s : EMFTVM!Findtype,								-- [..., values, values, type]
+	   invoke_s : EMFTVM!Invoke,									-- [..., values, bool]
+	   ifn_s : EMFTVM!Ifn (target <- invoke_c),						-- [..., values]
+	   invoke_last : EMFTVM!Invoke,									-- [..., value]
 	-- value is single; wrap in collection
-	   findtype_c : EMFTVM!Findtype (								-- [type, value]
+	   findtype_c : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   new_c : EMFTVM!New,											-- [coll, value]
-	   invoke_c : EMFTVM!Invoke (									-- [values]
+	   new_c : EMFTVM!New,											-- [..., value, coll]
+	   swap_c : EMFTVM!Swap,										-- [..., coll, value]
+	   invoke_c : EMFTVM!Invoke (									-- [..., values]
 	   	opname <- 'append', argcount <- 1),
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),				-- [bool, it(values)]
-	   if_ : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pusht),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   store : EMFTVM!Store (localVariable <- lv),					-- [..., it(values)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),				-- [..., it(values), bool]
+	   if_ : EMFTVM!If (target <- goto),							-- [..., it(values)]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   goto : EMFTVM!Goto (target <- pusht),						-- [..., false]
+	   pop : EMFTVM!Pop,											-- [...]
+	   pusht : EMFTVM!Pusht,										-- [..., true]
 	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   not_ : EMFTVM!Not											-- [..., bool]
 }
 
 rule LastBoundLastNacInputElementWithBindingsIn extends LastBoundLastNacInputElement {
@@ -1210,62 +1183,59 @@ rule LastBoundLastNacInputElementWithBindingsIn extends LastBoundLastNacInputEle
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- s.pattern.matcherBindings,
-	   	code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb}
+	   	code <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, dup3, push_m, invoke_m, ifn3, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_})),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb}
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, dup3, push_m, invoke_m, ifn3, store, invokeCb}
 	   		->union(rbs->collect(b|thisModule.resolveTemp(b, 'and_')))
 			->union(Sequence{if_, goto_endit, pop_endit, endit, pushf, goto, pop, pusht, not_})),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   ifn : EMFTVM!Ifn (target <- invoke_last),					-- [values]
-	   dup_s : EMFTVM!Dup,											-- [values, values]
-	   findtype_s : EMFTVM!Findtype,								-- [type, values, values]
-	   swap_s : EMFTVM!Swap,										-- [values, type, values]
-	   invoke_s : EMFTVM!Invoke,									-- [bool, values]
-	   ifn_s : EMFTVM!Ifn (target <- invoke_c),						-- [values]
-	   invoke_last : EMFTVM!Invoke,									-- [value]
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   ifn : EMFTVM!Ifn (target <- invoke_last),					-- [..., values]
+	   dup_s : EMFTVM!Dup,											-- [..., values, values]
+	   findtype_s : EMFTVM!Findtype,								-- [..., values, values, type]
+	   invoke_s : EMFTVM!Invoke,									-- [..., values, bool]
+	   ifn_s : EMFTVM!Ifn (target <- invoke_c),						-- [..., values]
+	   invoke_last : EMFTVM!Invoke,									-- [..., value]
 	-- value is single; wrap in collection
-	   findtype_c : EMFTVM!Findtype (								-- [type, value]
+	   findtype_c : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   new_c : EMFTVM!New,											-- [coll, value]
-	   invoke_c : EMFTVM!Invoke (									-- [values]
+	   new_c : EMFTVM!New,											-- [..., value, coll]
+	   swap_c : EMFTVM!Swap,										-- [..., coll, value]
+	   invoke_c : EMFTVM!Invoke (									-- [..., values]
 	   	opname <- 'append', argcount <- 1),
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   dup3 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname, value, value, it(values)]
-	   swap_m : EMFTVM!Swap,										-- [value, modelname, value, it(values)]
-	   invoke_m : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   dup3 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., it(values), value, value, modelname]
+	   invoke_m : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'isInModel', argcount <- 1),
-	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),				-- [bool, it(values)]
-	   if_ : EMFTVM!If (target <- goto),							-- [it(values)]
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   goto : EMFTVM!Goto (target <- pusht),						-- [true]
-	   pop : EMFTVM!Pop,											-- []
-	   pusht : EMFTVM!Pusht,										-- [true]
+	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   store : EMFTVM!Store (localVariable <- lv),					-- [..., it(values)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- fb),				-- [..., it(values), bool]
+	   if_ : EMFTVM!If (target <- goto),							-- [..., it(values)]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   goto : EMFTVM!Goto (target <- pusht),						-- [..., false]
+	   pop : EMFTVM!Pop,											-- [...]
+	   pusht : EMFTVM!Pusht,										-- [..., true]
 	-- invert
-	   not_ : EMFTVM!Not											-- [bool]
+	   not_ : EMFTVM!Not											-- [..., bool]
 }
 
 rule NacInputElementWithNextElement extends UnboundNacInputElement {
@@ -1282,17 +1252,17 @@ rule NacInputElementWithNextElement extends UnboundNacInputElement {
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
 	   	instructions <- Sequence{findtype, allinst, it, store, invokeCb, if_, pop, pushf, ret, endit, pusht}),
-	   findtype : EMFTVM!Findtype,								-- [type]
-	   allinst : EMFTVM!Allinst,								-- [coll]
-	   it : EMFTVM!Iterate (target <- endit),					-- [inst, it(coll)]
-	   store : EMFTVM!Store (localVariable <- lv),				-- [it(coll)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),			-- [bool, it(coll)]
-	   if_ : EMFTVM!If (target <- ret),							-- [it(coll)]
-	   pop : EMFTVM!Pop,										-- []			-- invokeCb returned 'false';
-	   pushf : EMFTVM!Pushf,									-- [false]
-	   ret : EMFTVM!Return,										-- false, []
-	   endit : EMFTVM!Enditerate (target <- it),				-- []			-- invokeCb returned 'true'
-	   pusht : EMFTVM!Pusht										-- [true]
+	   findtype : EMFTVM!Findtype,								-- [..., type]
+	   allinst : EMFTVM!Allinst,								-- [..., coll]
+	   it : EMFTVM!Iterate (target <- endit),					-- [..., it(coll), inst]
+	   store : EMFTVM!Store (localVariable <- lv),				-- [..., it(coll)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),			-- [..., it(coll), bool]
+	   if_ : EMFTVM!If (target <- ret),							-- [..., it(coll)]
+	   pop : EMFTVM!Pop,										-- [...]			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,									-- [..., false]
+	   ret : EMFTVM!Return,										-- false, [...]
+	   endit : EMFTVM!Enditerate (target <- it),				-- [...]			-- invokeCb returned 'true'
+	   pusht : EMFTVM!Pusht										-- [..., true]
 }
 
 rule NacInputElementWithNextElementIn extends UnboundNacInputElement {
@@ -1305,22 +1275,22 @@ rule NacInputElementWithNextElementIn extends UnboundNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- Sequence{next},
-		code <- Sequence{push, findtype, allinst, it, store, invokeCb, if_, pop, pushf, ret, endit, pusht}),
+		code <- Sequence{findtype, push, allinst, it, store, invokeCb, if_, pop, pushf, ret, endit, pusht}),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{push, findtype, allinst, it, store, invokeCb, if_, pop, pushf, ret, endit, pusht}),
-	   push : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname]
-	   findtype : EMFTVM!Findtype,								-- [type, modelname]
-	   allinst : EMFTVM!AllinstIn,								-- [coll]
-	   it : EMFTVM!Iterate (target <- endit),					-- [inst, it(coll)]
-	   store : EMFTVM!Store (localVariable <- lv),				-- [it(coll)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),			-- [bool, it(coll)]
-	   if_ : EMFTVM!If (target <- ret),							-- [it(coll)]
-	   pop : EMFTVM!Pop,										-- []			-- invokeCb returned 'false';
-	   pushf : EMFTVM!Pushf,									-- [false]
-	   ret : EMFTVM!Return,										-- false, []
-	   endit : EMFTVM!Enditerate (target <- it),				-- []			-- invokeCb returned 'true'
-	   pusht : EMFTVM!Pusht										-- [true]
+	   	instructions <- Sequence{findtype, push, allinst, it, store, invokeCb, if_, pop, pushf, ret, endit, pusht}),
+	   findtype : EMFTVM!Findtype,								-- [..., type]
+	   push : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., type, modelname]
+	   allinst : EMFTVM!AllinstIn,								-- [..., coll]
+	   it : EMFTVM!Iterate (target <- endit),					-- [..., it(coll), inst]
+	   store : EMFTVM!Store (localVariable <- lv),				-- [..., it(coll)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),			-- [..., it(coll), bool]
+	   if_ : EMFTVM!If (target <- ret),							-- [..., it(coll)]
+	   pop : EMFTVM!Pop,										-- [...]			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,									-- [..., false]
+	   ret : EMFTVM!Return,										-- false, [...]
+	   endit : EMFTVM!Enditerate (target <- it),				-- [...]			-- invokeCb returned 'true'
+	   pusht : EMFTVM!Pusht										-- [..., true]
 }
 
 rule BoundNacInputElementWithNextElement extends BoundNacInputElement {
@@ -1333,44 +1303,43 @@ rule BoundNacInputElementWithNextElement extends BoundNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- Sequence{next},
-		code <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
+		code <- Sequence{load, get, dup, findtype, invoke, if_c, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   if_c : EMFTVM!If (target <- invoke_c),						-- [values]
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, if_c, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   if_c : EMFTVM!If (target <- invoke_c),						-- [..., values]
 	-- value is single; wrap in collection
-	   findtype_c : EMFTVM!Findtype (								-- [type, value]
+	   findtype_c : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   new_c : EMFTVM!New,											-- [coll, value]
-	   invoke_c : EMFTVM!Invoke (									-- [values]
+	   new_c : EMFTVM!New,											-- [..., value, coll]
+	   swap_c : EMFTVM!Swap,										-- [..., coll, value]
+	   invoke_c : EMFTVM!Invoke (									-- [..., values]
 	   	opname <- 'append', argcount <- 1),
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [bool, it(values)]
-	   if_next : EMFTVM!If (target <- ret),							-- [it(values)]
-	   pop : EMFTVM!Pop,											-- []			-- invokeCb returned 'false';
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   ret : EMFTVM!Return,											-- false, []
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]	-- invokeCb returned 'true';
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pusht : EMFTVM!Pusht											-- [true]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   store : EMFTVM!Store (localVariable <- lv),					-- [..., it(values)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [..., it(values), bool]
+	   if_next : EMFTVM!If (target <- ret),							-- [..., it(values)]
+	   pop : EMFTVM!Pop,											-- [...]			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   ret : EMFTVM!Return,											-- false, [...]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]	-- invokeCb returned 'true';
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pusht : EMFTVM!Pusht											-- [..., true]
 }
 
 rule BoundNacInputElementWithNextElementIn extends BoundNacInputElement {
@@ -1383,50 +1352,48 @@ rule BoundNacInputElementWithNextElementIn extends BoundNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- Sequence{next},
-		code <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
+		code <- Sequence{load, get, dup, findtype, invoke, if_c, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, dup3, push_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, if_c, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   if_c : EMFTVM!If (target <- invoke_c),						-- [values]
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, if_c, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, dup3, push_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   if_c : EMFTVM!If (target <- invoke_c),						-- [..., values]
 	-- value is single; wrap in collection
-	   findtype_c : EMFTVM!Findtype (								-- [type, value]
+	   findtype_c : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   new_c : EMFTVM!New,											-- [coll, value]
-	   invoke_c : EMFTVM!Invoke (									-- [values]
+	   new_c : EMFTVM!New,											-- [..., value, coll]
+	   swap_c : EMFTVM!Swap,										-- [..., coll, value]
+	   invoke_c : EMFTVM!Invoke (									-- [..., values]
 	   	opname <- 'append', argcount <- 1),
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   dup3 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname, value, value, it(values)]
-	   swap_m : EMFTVM!Swap,										-- [value, modelname, value, it(values)]
-	   invoke_m : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   dup3 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., it(values), value, value, modelname]
+	   invoke_m : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'isInModel', argcount <- 1),
-	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [bool, it(values)]
-	   if_next : EMFTVM!If (target <- ret),							-- [it(values)]
-	   pop : EMFTVM!Pop,											-- []			-- invokeCb returned 'false';
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   ret : EMFTVM!Return,											-- false, []
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]	-- invokeCb returned 'true';
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pusht : EMFTVM!Pusht											-- [true]
+	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   store : EMFTVM!Store (localVariable <- lv),					-- [..., it(values)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [..., it(values), bool]
+	   if_next : EMFTVM!If (target <- ret),							-- [..., it(values)]
+	   pop : EMFTVM!Pop,											-- [...]			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   ret : EMFTVM!Return,											-- false, [...]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]	-- invokeCb returned 'true';
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pusht : EMFTVM!Pusht											-- [..., true]
 }
 
 rule LastBoundNacInputElementWithNextElement extends LastBoundNacInputElement {
@@ -1439,50 +1406,48 @@ rule LastBoundNacInputElementWithNextElement extends LastBoundNacInputElement {
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- Sequence{next},
-		code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
+		code <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   ifn : EMFTVM!Ifn (target <- invoke_last),					-- [values]
-	   dup_s : EMFTVM!Dup,											-- [values, values]
-	   findtype_s : EMFTVM!Findtype,								-- [type, values, values]
-	   swap_s : EMFTVM!Swap,										-- [values, type, values]
-	   invoke_s : EMFTVM!Invoke,									-- [bool, values]
-	   ifn_s : EMFTVM!Ifn (target <- invoke_c),						-- [values]
-	   invoke_last : EMFTVM!Invoke,									-- [value]
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   ifn : EMFTVM!Ifn (target <- invoke_last),					-- [..., values]
+	   dup_s : EMFTVM!Dup,											-- [..., values, values]
+	   findtype_s : EMFTVM!Findtype,								-- [..., values, values, type]
+	   invoke_s : EMFTVM!Invoke,									-- [..., values, bool]
+	   ifn_s : EMFTVM!Ifn (target <- invoke_c),						-- [..., values]
+	   invoke_last : EMFTVM!Invoke,									-- [..., value]
 	-- value is single; wrap in collection
-	   findtype_c : EMFTVM!Findtype (								-- [type, value]
+	   findtype_c : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   new_c : EMFTVM!New,											-- [coll, value]
-	   invoke_c : EMFTVM!Invoke (									-- [values]
+	   new_c : EMFTVM!New,											-- [..., value, coll]
+	   swap_c : EMFTVM!Swap,										-- [..., coll, value]
+	   invoke_c : EMFTVM!Invoke (									-- [..., values]
 	   	opname <- 'append', argcount <- 1),
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [bool, it(values)]
-	   if_next : EMFTVM!If (target <- ret),							-- [it(values)]
-	   pop : EMFTVM!Pop,											-- []			-- invokeCb returned 'false';
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   ret : EMFTVM!Return,											-- false, []
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]	-- invokeCb returned 'true';
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pusht : EMFTVM!Pusht											-- [true]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   store : EMFTVM!Store (localVariable <- lv),					-- [..., it(values)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [..., it(values), bool]
+	   if_next : EMFTVM!If (target <- ret),							-- [..., it(values)]
+	   pop : EMFTVM!Pop,											-- [...]			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   ret : EMFTVM!Return,											-- false, [...]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]	-- invokeCb returned 'true';
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pusht : EMFTVM!Pusht											-- [..., true]
 }
 
 rule LastBoundNacInputElementWithNextElementIn extends LastBoundNacInputElement {
@@ -1495,56 +1460,53 @@ rule LastBoundNacInputElementWithNextElementIn extends LastBoundNacInputElement 
 	}
 	to cb : EMFTVM!CodeBlock (
 	   	nested <- Sequence{next},
-		code <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
+		code <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, dup3, push_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
 	   lv : EMFTVM!LocalVariable,
 	   ln : EMFTVM!LineNumber (
-	   	instructions <- Sequence{load, get, dup, findtype, swap, invoke, ifn, dup_s, findtype_s, swap_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, invoke_c, it, dup2, findtype2, swap2, invoke2, ifn2, dup3, push_m, swap_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
-	   load : EMFTVM!Load,											-- [element]
-	   get : EMFTVM!Get,											-- [values]
-	   dup : EMFTVM!Dup,											-- [values, values]
-	   findtype : EMFTVM!Findtype,									-- [type, values, values]
-	   swap : EMFTVM!Swap,											-- [values, type, values]
-	   invoke : EMFTVM!Invoke,										-- [bool, values]
-	   ifn : EMFTVM!Ifn (target <- invoke_last),					-- [values]
-	   dup_s : EMFTVM!Dup,											-- [values, values]
-	   findtype_s : EMFTVM!Findtype,								-- [type, values, values]
-	   swap_s : EMFTVM!Swap,										-- [values, type, values]
-	   invoke_s : EMFTVM!Invoke,									-- [bool, values]
-	   ifn_s : EMFTVM!Ifn (target <- invoke_c),						-- [values]
-	   invoke_last : EMFTVM!Invoke,									-- [value]
+	   	instructions <- Sequence{load, get, dup, findtype, invoke, ifn, dup_s, findtype_s, invoke_s, ifn_s, invoke_last, findtype_c, new_c, swap_c, invoke_c, it, dup2, findtype2, invoke2, ifn2, dup3, push_m, invoke_m, ifn3, store, invokeCb, if_next, pop, pushf, ret, goto_endit, pop_endit, endit, pusht}),
+	   load : EMFTVM!Load,											-- [..., element]
+	   get : EMFTVM!Get,											-- [..., values]
+	   dup : EMFTVM!Dup,											-- [..., values, values]
+	   findtype : EMFTVM!Findtype,									-- [..., values, values, type]
+	   invoke : EMFTVM!Invoke,										-- [..., values, bool]
+	   ifn : EMFTVM!Ifn (target <- invoke_last),					-- [..., values]
+	   dup_s : EMFTVM!Dup,											-- [..., values, values]
+	   findtype_s : EMFTVM!Findtype,								-- [..., values, values, type]
+	   invoke_s : EMFTVM!Invoke,									-- [..., values, bool]
+	   ifn_s : EMFTVM!Ifn (target <- invoke_c),						-- [..., values]
+	   invoke_last : EMFTVM!Invoke,									-- [..., value]
 	-- value is single; wrap in collection
-	   findtype_c : EMFTVM!Findtype (								-- [type, value]
+	   findtype_c : EMFTVM!Findtype (								-- [..., value, type]
 	   	modelname <- '#native',
 		typename <- thisModule.SequenceType),
-	   new_c : EMFTVM!New,											-- [coll, value]
-	   invoke_c : EMFTVM!Invoke (									-- [values]
+	   new_c : EMFTVM!New,											-- [..., value, coll]
+	   swap_c : EMFTVM!Swap,										-- [..., coll, value]
+	   invoke_c : EMFTVM!Invoke (									-- [..., values]
 	   	opname <- 'append', argcount <- 1),
 	-- value is a collection
-	   it : EMFTVM!Iterate (target <- endit),						-- [value, it(values)]
-	   dup2 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   findtype2 : EMFTVM!Findtype (								-- [type, value, value, it(values)]
+	   it : EMFTVM!Iterate (target <- endit),						-- [..., it(values), value]
+	   dup2 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   findtype2 : EMFTVM!Findtype (								-- [..., it(values), value, value, type]
 	   	modelname <- s.type.typeModelName,
 		typename <- s.type.typeName),
-	   swap2 : EMFTVM!Swap,											-- [value, type, value, it(values)]
-	   invoke2 : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   invoke2 : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'oclIsKindOf', argcount <- 1),
-	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   dup3 : EMFTVM!Dup,											-- [value, value, it(values)]
-	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [modelname, value, value, it(values)]
-	   swap_m : EMFTVM!Swap,										-- [value, modelname, value, it(values)]
-	   invoke_m : EMFTVM!Invoke (									-- [bool, value, it(values)]
+	   ifn2 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   dup3 : EMFTVM!Dup,											-- [..., it(values), value, value]
+	   push_m : EMFTVM!Push (stringValue <- s.inModel.name),		-- [..., it(values), value, value, modelname]
+	   invoke_m : EMFTVM!Invoke (									-- [..., it(values), value, bool]
 	   	opname <- 'isInModel', argcount <- 1),
-	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [value, it(values)]
-	   store : EMFTVM!Store (localVariable <- lv),					-- [it(values)]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [bool, it(values)]
-	   if_next : EMFTVM!If (target <- ret),							-- [it(values)]
-	   pop : EMFTVM!Pop,											-- []			-- invokeCb returned 'false';
-	   pushf : EMFTVM!Pushf,										-- [false]
-	   ret : EMFTVM!Return,											-- false, []
-	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [it(values)]	-- invokeCb returned 'true';
-	   pop_endit : EMFTVM!Pop,										-- [it(values)]
-	   endit : EMFTVM!Enditerate (target <- it),					-- []
-	   pusht : EMFTVM!Pusht											-- [true]
+	   ifn3 : EMFTVM!Ifn (target <- goto_endit),					-- [..., it(values), value]
+	   store : EMFTVM!Store (localVariable <- lv),					-- [..., it(values)]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- next),				-- [..., it(values), bool]
+	   if_next : EMFTVM!If (target <- ret),							-- [..., it(values)]
+	   pop : EMFTVM!Pop,											-- [...]			-- invokeCb returned 'false';
+	   pushf : EMFTVM!Pushf,										-- [..., false]
+	   ret : EMFTVM!Return,											-- false, [...]
+	   goto_endit : EMFTVM!Goto (target <- pop_endit),				-- [..., it(values)]	-- invokeCb returned 'true';
+	   pop_endit : EMFTVM!Pop,										-- [..., it(values)]
+	   endit : EMFTVM!Enditerate (target <- it),					-- [...]
+	   pusht : EMFTVM!Pusht											-- [..., true]
 }
 
 rule OutputElement {
@@ -1567,18 +1529,18 @@ rule InputBinding {
 	to cb : EMFTVM!CodeBlock (
 		lineNumbers <- Sequence{ln},
 		nested <- Sequence{s.expr},
-		code <- Sequence{invokeCb, load, get, invoke}),
+		code <- Sequence{load, get, invokeCb, invoke}),
 	   ln : EMFTVM!LineNumber (
 	   	startLine <- s.line,
 		startColumn <- s.column,
 		startChar <- s.charStart,
 		endChar <- s.charEnd,
-		instructions <- Sequence{invokeCb, load, get, invoke}),
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- s.expr),			-- [expr_val]
-	   load : EMFTVM!Load (											-- [element, expr_val]
+		instructions <- Sequence{load, get, invokeCb, invoke}),
+	   load : EMFTVM!Load (											-- [..., element]
 	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 'lv')),
-	   get : EMFTVM!Get (fieldname <- s.property),					-- [prop_val, expr_val]
-	   invoke : EMFTVM!Invoke (										-- [bool]
+	   get : EMFTVM!Get (fieldname <- s.property),					-- [..., prop_val]
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- s.expr),			-- [..., prop_val, expr_val]
+	   invoke : EMFTVM!Invoke (										-- [..., bool]
 	   	opname <- if s.last then '=~|' else '=~' endif,
 		argcount <- 1)
 }
@@ -1597,18 +1559,18 @@ rule RemovedInputBinding extends InputBinding {
 	   cb2 : EMFTVM!CodeBlock (
 	   	lineNumbers <- Sequence{ln2},
 		nested <- Sequence{thisModule.resolveTemp(s.expr, 'cb2')},
-	   	code <- Sequence{invokeCb2, load2, remove2}),
+	   	code <- Sequence{load2, invokeCb2, remove2}),
 	   ln2 : EMFTVM!LineNumber (
 	   	startLine <- s.line,
 		startColumn <- s.column,
 		startChar <- s.charStart,
 		endChar <- s.charEnd,
-		instructions <- Sequence{invokeCb2, load2, remove2}),
-	   invokeCb2 : EMFTVM!InvokeCb (								-- [expr_val]
-	   	codeBlock <- thisModule.resolveTemp(s.expr, 'cb2')),
-	   load2 : EMFTVM!Load (										-- [element, expr_val]
+		instructions <- Sequence{load2, invokeCb2, remove2}),
+	   load2 : EMFTVM!Load (										-- [..., element]
 	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 'ov')),
-	   remove2 : EMFTVM!Remove (fieldname <- s.property)			-- []
+	   invokeCb2 : EMFTVM!InvokeCb (								-- [..., element, expr_val]
+	   	codeBlock <- thisModule.resolveTemp(s.expr, 'cb2')),
+	   remove2 : EMFTVM!Remove (fieldname <- s.property)			-- [...]
 }
 
 -- @extends NonFirstInputBinding, RemovedInputBinding
@@ -1624,18 +1586,18 @@ rule RemovedInputElementBinding { -- only used in applier
 	to cb2 : EMFTVM!CodeBlock (
 	   	lineNumbers <- Sequence{ln2},
 		nested <- Sequence{thisModule.resolveTemp(s.expr, 'cb2')},
-	   	code <- Sequence{invokeCb2, load2, remove2}),
+	   	code <- Sequence{load2, invokeCb2, remove2}),
 	   ln2 : EMFTVM!LineNumber (
 	   	startLine <- s.line,
 		startColumn <- s.column,
 		startChar <- s.charStart,
 		endChar <- s.charEnd,
-		instructions <- Sequence{invokeCb2, load2, remove2}),
-	   invokeCb2 : EMFTVM!InvokeCb (								-- [expr_val]
-	   	codeBlock <- thisModule.resolveTemp(s.expr, 'cb2')),
-	   load2 : EMFTVM!Load (										-- [element, expr_val]
+		instructions <- Sequence{load2, invokeCb2, remove2}),
+	   load2 : EMFTVM!Load (										-- [..., element]
 	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 'ov')),
-	   remove2 : EMFTVM!Remove (fieldname <- s.property)			-- []
+	   invokeCb2 : EMFTVM!InvokeCb (								-- [..., element, expr_val]
+	   	codeBlock <- thisModule.resolveTemp(s.expr, 'cb2')),
+	   remove2 : EMFTVM!Remove (fieldname <- s.property)			-- [...]
 }
 
 abstract rule OutputBinding {
@@ -1655,32 +1617,31 @@ rule SimpleOutputBinding extends OutputBinding {
 	from s : SimpleGT!OutputBinding in IN (
 		s.beforeElement.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{invokeCb, load, add}),
+		code <- Sequence{load, invokeCb, add}),
 	   ln : EMFTVM!LineNumber (
-		instructions <- Sequence{invokeCb, load, add}),
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- s.expr),			-- [value]
-	   load : EMFTVM!Load (											-- [element, value]
+		instructions <- Sequence{load, invokeCb, add}),
+	   load : EMFTVM!Load (											-- [..., element]
 	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 'ov')),
-	   add : EMFTVM!Add (fieldname <- s.property)					-- []
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- s.expr),			-- [..., element, value]
+	   add : EMFTVM!Add (fieldname <- s.property)					-- [...]
 }
 
 rule OutputBindingBeforeElement extends OutputBinding {
 	from s : SimpleGT!OutputBinding in IN (
 		not s.beforeElement.oclIsUndefined())
 	to cb : EMFTVM!CodeBlock (
-		code <- Sequence{load2, load, dupX1, get, invoke, invokeCb, swapX1, insert}),
+		code <- Sequence{invokeCb, load, dupX1, get, load2, invoke, insert}),
 	   ln : EMFTVM!LineNumber (
-		instructions <- Sequence{load2, load, dupX1, get, invoke, invokeCb, swapX1, insert}),
-	   load2 : EMFTVM!Load (										-- [before]
-	   	localVariable <- thisModule.resolveTemp(s.beforeElement.refersTo, 'ov')),
-	   load : EMFTVM!Load (											-- [element, before]
+		instructions <- Sequence{invokeCb, load, dupX1, get, load2, invoke, insert}),
+	   invokeCb : EMFTVM!InvokeCb (codeBlock <- s.expr),			-- [..., value]
+	   load : EMFTVM!Load (											-- [..., value, element]
 	   	localVariable <- thisModule.resolveTemp(s.element.refersTo, 'ov')),
-	   dupX1 : EMFTVM!DupX1,										-- [element, before, element]
-	   get : EMFTVM!Get (fieldname <- s.property),					-- [oldValue, before, element]
-	   invoke : EMFTVM!Invoke (opname <- 'indexOf', argcount <- 1),	-- [index, element]
-	   invokeCb : EMFTVM!InvokeCb (codeBlock <- s.expr),			-- [value, index, element]
-	   swapX1 : EMFTVM!SwapX1,										-- [element, value, index]
-	   insert : EMFTVM!Insert (fieldname <- s.property)				-- []
+	   dupX1 : EMFTVM!DupX1,										-- [..., element, value, element]
+	   get : EMFTVM!Get (fieldname <- s.property),					-- [..., element, value, oldValue]
+	   load2 : EMFTVM!Load (										-- [..., element, value, oldValue, before]
+	   	localVariable <- thisModule.resolveTemp(s.beforeElement.refersTo, 'ov')),
+	   invoke : EMFTVM!Invoke (opname <- 'indexOf', argcount <- 1),	-- [..., element, value, index]
+	   insert : EMFTVM!Insert (fieldname <- s.property)				-- [...]
 }
 
 -- ======================================================================
