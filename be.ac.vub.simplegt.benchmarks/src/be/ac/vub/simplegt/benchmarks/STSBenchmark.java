@@ -10,8 +10,6 @@
  *******************************************************************************/
 package be.ac.vub.simplegt.benchmarks;
 
-import java.util.Map;
-
 import junit.framework.TestCase;
 
 import org.eclipse.emf.common.util.URI;
@@ -78,21 +76,20 @@ public class STSBenchmark extends TestCase {
 			ResourceSet rs = new ResourceSetImpl();
 			ExecEnv env = factory.createExecEnv();
 			env.getMetaModels().put("Mutex", mm);
-			Map<String, Model> models = env.getInoutModels();
 			{
 				Model m = factory.createModel();
 				m.setResource(rs.getResource(mUri, true));
-				models.put("M", m);
+				env.registerInOutModel("M", m);
 			}
 			{
 				Model t = factory.createModel();
 				t.setResource(rs.createResource(tUri));
-				models.put("T", t);
+				env.registerInOutModel("T", t);
 			}
 			TimingData td = new TimingData();
 			env.loadModule(mr, module);
 			td.finishLoading();
-			env.run(td, null);
+			env.run(td);
 			td.finish();
 			times[i] = td.getFinished();
 		}
