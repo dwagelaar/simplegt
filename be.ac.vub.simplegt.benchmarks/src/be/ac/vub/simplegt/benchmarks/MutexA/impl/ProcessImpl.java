@@ -4,11 +4,14 @@
 package be.ac.vub.simplegt.benchmarks.MutexA.impl;
 
 import java.util.Collection;
+import java.util.Map;
+import java.util.WeakHashMap;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource.Internal;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
@@ -59,6 +62,8 @@ public class ProcessImpl extends EObjectImpl implements be.ac.vub.simplegt.bench
 	 * @ordered
 	 */
 	protected static final int COUNT_EDEFAULT = 0;
+	
+	private static Map<Internal, Integer> counts = new WeakHashMap<Internal, Integer>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,13 +114,8 @@ public class ProcessImpl extends EObjectImpl implements be.ac.vub.simplegt.bench
 	 * @generated NOT
 	 */
 	public int getCount() {
-		int count = 0;
-		for (EObject o : eResource().getContents()) {
-			if (o instanceof be.ac.vub.simplegt.benchmarks.MutexA.Process) {
-				count++;
-			}
-		}
-		return count;
+		final Internal resource = eInternalResource();
+		return counts.containsKey(resource) ? counts.get(resource) : 0;
 	}
 
 	/**
@@ -191,6 +191,23 @@ public class ProcessImpl extends EObjectImpl implements be.ac.vub.simplegt.bench
 				return getCount() != COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public NotificationChain eSetResource(Internal resource,
+			NotificationChain notifications) {
+		final Internal old = eInternalResource();
+		if (old != null ) {
+			int count = counts.containsKey(old) ? counts.get(old).intValue() : 0;
+			if (count > 0) {
+				counts.put(old, Integer.valueOf(count - 1));
+			}
+		}
+		if (resource != null) {
+			int count = counts.containsKey(resource) ? counts.get(resource).intValue() : 0;
+			counts.put(resource, Integer.valueOf(count + 1));
+		}
+		return super.eSetResource(resource, notifications);
 	}
 
 } //ProcessImpl
