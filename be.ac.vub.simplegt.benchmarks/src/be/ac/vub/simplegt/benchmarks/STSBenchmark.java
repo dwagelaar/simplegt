@@ -256,7 +256,7 @@ public class STSBenchmark extends TestCase {
 					mutexB, 
 					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
 					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
-					1000);
+					5000);
 		}
 	}
 
@@ -271,7 +271,7 @@ public class STSBenchmark extends TestCase {
 					mutexB, 
 					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
 					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
-					500);
+					1000);
 		}
 	}
 
@@ -286,7 +286,7 @@ public class STSBenchmark extends TestCase {
 					mutexB, 
 					URI.createURI(uriPrefix + "/models/STSMutexBstart.xmi"), 
 					URI.createURI(uriPrefix + "/models/STSMutexB-trace.xmi"), 
-					100);
+					500);
 		}
 	}
 
