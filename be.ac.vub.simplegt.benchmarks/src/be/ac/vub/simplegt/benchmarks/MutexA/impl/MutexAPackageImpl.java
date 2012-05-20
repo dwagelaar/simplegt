@@ -3,16 +3,14 @@
  */
 package be.ac.vub.simplegt.benchmarks.MutexA.impl;
 
-import be.ac.vub.simplegt.benchmarks.MutexA.MutexAFactory;
-import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
-import be.ac.vub.simplegt.benchmarks.MutexA.Resource;
-
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import be.ac.vub.simplegt.benchmarks.MutexA.MutexAFactory;
+import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
+import be.ac.vub.simplegt.benchmarks.MutexA.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -128,15 +126,6 @@ public class MutexAPackageImpl extends EPackageImpl implements MutexAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcess_Count() {
-		return (EAttribute)processEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getResource() {
 		return resourceEClass;
 	}
@@ -208,7 +197,6 @@ public class MutexAPackageImpl extends EPackageImpl implements MutexAPackage {
 		processEClass = createEClass(PROCESS);
 		createEReference(processEClass, PROCESS__NEXT);
 		createEReference(processEClass, PROCESS__REQUEST);
-		createEAttribute(processEClass, PROCESS__COUNT);
 
 		resourceEClass = createEClass(RESOURCE);
 		createEReference(resourceEClass, RESOURCE__BLOCKED);
@@ -250,7 +238,6 @@ public class MutexAPackageImpl extends EPackageImpl implements MutexAPackage {
 		initEClass(processEClass, be.ac.vub.simplegt.benchmarks.MutexA.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProcess_Next(), this.getProcess(), null, "next", null, 0, -1, be.ac.vub.simplegt.benchmarks.MutexA.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcess_Request(), this.getResource(), null, "request", null, 0, -1, be.ac.vub.simplegt.benchmarks.MutexA.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProcess_Count(), ecorePackage.getEInt(), "count", null, 1, 1, be.ac.vub.simplegt.benchmarks.MutexA.Process.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResource_Blocked(), this.getProcess(), null, "blocked", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

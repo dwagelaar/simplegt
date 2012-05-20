@@ -9,11 +9,4 @@ metamodel TRACE : 'http://www.eclipse.org/m2m/atl/emftvm/2011/Trace';
 metamodel Mutex : 'http://soft.vub.ac.be/simplegt/2011/MutexA';
 transform M : Mutex, T : TRACE;
 
-rule newRule extends phase1 {
-	from p : Mutex!Process in M (next =~ p2),
-		p2 : Mutex!Process in M
-	not p : Mutex!Process in M (count =~ 100)
-	to p : Mutex!Process (next =~ p1),
-		p1 : Mutex!Process (next =~ p2),
-		p2 : Mutex!Process
-}
+context Mutex!Process def : reqCount : Integer = 100;

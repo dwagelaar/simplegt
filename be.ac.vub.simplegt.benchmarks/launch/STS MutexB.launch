@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.m2m.atl.emftvm.launcher.EMFTVMTransformation">
-<stringAttribute key="ATL File Name" value="//be.ac.vub.simplegt.benchmarks/transformations/STS500.atl"/>
+<stringAttribute key="ATL File Name" value="//be.ac.vub.simplegt.benchmarks/transformations/STS2500.atl"/>
+<booleanAttribute key="Disable JIT compiler" value="false"/>
 <booleanAttribute key="Display Timing Data" value="true"/>
 <mapAttribute key="Inout Model Options">
 <mapEntry key="M" value="allowIntermodelReferences derivedFile"/>
@@ -21,7 +22,7 @@
 <mapEntry key="Mutex" value="http://soft.vub.ac.be/simplegt/2011/MutexB"/>
 <mapEntry key="TRACE" value="http://www.eclipse.org/m2m/atl/emftvm/2011/Trace"/>
 </mapAttribute>
-<stringAttribute key="Module Name" value="STS500"/>
+<stringAttribute key="Module Name" value="STS2500"/>
 <stringAttribute key="Module Path" value="/be.ac.vub.simplegt.benchmarks/transformations/"/>
 <mapAttribute key="Output Model Options"/>
 <mapAttribute key="Output Models"/>

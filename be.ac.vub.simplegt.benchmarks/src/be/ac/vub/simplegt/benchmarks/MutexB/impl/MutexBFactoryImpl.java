@@ -6,17 +6,15 @@
  */
 package be.ac.vub.simplegt.benchmarks.MutexB.impl;
 
-import be.ac.vub.simplegt.benchmarks.MutexB.MutexBFactory;
-import be.ac.vub.simplegt.benchmarks.MutexB.MutexBPackage;
-import be.ac.vub.simplegt.benchmarks.MutexB.Resource;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import be.ac.vub.simplegt.benchmarks.MutexB.MutexBFactory;
+import be.ac.vub.simplegt.benchmarks.MutexB.MutexBPackage;
+import be.ac.vub.simplegt.benchmarks.MutexB.Resource;
 
 /**
  * <!-- begin-user-doc -->

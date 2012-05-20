@@ -12,7 +12,6 @@
     <genClasses ecoreClass="MutexA.ecore#//Process">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MutexA.ecore#//Process/next"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MutexA.ecore#//Process/request"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute MutexA.ecore#//Process/count"/>
     </genClasses>
     <genClasses ecoreClass="MutexA.ecore#//Resource">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MutexA.ecore#//Resource/blocked"/>

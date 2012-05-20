@@ -4,14 +4,10 @@
 package be.ac.vub.simplegt.benchmarks.MutexA.impl;
 
 import java.util.Collection;
-import java.util.Map;
-import java.util.WeakHashMap;
 
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.resource.Resource.Internal;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
@@ -26,7 +22,6 @@ import be.ac.vub.simplegt.benchmarks.MutexA.Resource;
  * <ul>
  *   <li>{@link be.ac.vub.simplegt.benchmarks.MutexA.impl.ProcessImpl#getNext <em>Next</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.benchmarks.MutexA.impl.ProcessImpl#getRequest <em>Request</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.benchmarks.MutexA.impl.ProcessImpl#getCount <em>Count</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,18 +47,6 @@ public class ProcessImpl extends EObjectImpl implements be.ac.vub.simplegt.bench
 	 * @ordered
 	 */
 	protected EList<Resource> request;
-
-	/**
-	 * The default value of the '{@link #getCount() <em>Count</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int COUNT_EDEFAULT = 0;
-	
-	private static Map<Internal, Integer> counts = new WeakHashMap<Internal, Integer>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,16 +94,6 @@ public class ProcessImpl extends EObjectImpl implements be.ac.vub.simplegt.bench
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public int getCount() {
-		final Internal resource = eInternalResource();
-		return counts.containsKey(resource) ? counts.get(resource) : 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -130,8 +103,6 @@ public class ProcessImpl extends EObjectImpl implements be.ac.vub.simplegt.bench
 				return getNext();
 			case MutexAPackage.PROCESS__REQUEST:
 				return getRequest();
-			case MutexAPackage.PROCESS__COUNT:
-				return getCount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -187,27 +158,8 @@ public class ProcessImpl extends EObjectImpl implements be.ac.vub.simplegt.bench
 				return next != null && !next.isEmpty();
 			case MutexAPackage.PROCESS__REQUEST:
 				return request != null && !request.isEmpty();
-			case MutexAPackage.PROCESS__COUNT:
-				return getCount() != COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@Override
-	public NotificationChain eSetResource(Internal resource,
-			NotificationChain notifications) {
-		final Internal old = eInternalResource();
-		if (old != null ) {
-			int count = counts.containsKey(old) ? counts.get(old).intValue() : 0;
-			if (count > 0) {
-				counts.put(old, Integer.valueOf(count - 1));
-			}
-		}
-		if (resource != null) {
-			int count = counts.containsKey(resource) ? counts.get(resource).intValue() : 0;
-			counts.put(resource, Integer.valueOf(count + 1));
-		}
-		return super.eSetResource(resource, notifications);
 	}
 
 } //ProcessImpl

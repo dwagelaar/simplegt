@@ -3,7 +3,6 @@
  */
 package be.ac.vub.simplegt.benchmarks.MutexA;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -85,22 +84,13 @@ public interface MutexAPackage extends EPackage {
 	int PROCESS__REQUEST = 1;
 
 	/**
-	 * The feature id for the '<em><b>Count</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESS__COUNT = 2;
-
-	/**
 	 * The number of structural features of the '<em>Process</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_FEATURE_COUNT = 3;
+	int PROCESS_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link be.ac.vub.simplegt.benchmarks.MutexA.impl.ResourceImpl <em>Resource</em>}' class.
@@ -189,17 +179,6 @@ public interface MutexAPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProcess_Request();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.ac.vub.simplegt.benchmarks.MutexA.Process#getCount <em>Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Count</em>'.
-	 * @see be.ac.vub.simplegt.benchmarks.MutexA.Process#getCount()
-	 * @see #getProcess()
-	 * @generated
-	 */
-	EAttribute getProcess_Count();
 
 	/**
 	 * Returns the meta object for class '{@link be.ac.vub.simplegt.benchmarks.MutexA.Resource <em>Resource</em>}'.
@@ -302,14 +281,6 @@ public interface MutexAPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROCESS__REQUEST = eINSTANCE.getProcess_Request();
-
-		/**
-		 * The meta object literal for the '<em><b>Count</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROCESS__COUNT = eINSTANCE.getProcess_Count();
 
 		/**
 		 * The meta object literal for the '{@link be.ac.vub.simplegt.benchmarks.MutexA.impl.ResourceImpl <em>Resource</em>}' class.

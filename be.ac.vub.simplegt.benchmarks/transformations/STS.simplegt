@@ -7,6 +7,11 @@ metamodel TRACE : 'http://www.eclipse.org/m2m/atl/emftvm/2011/Trace';
 metamodel Mutex : 'http://soft.vub.ac.be/simplegt/2011/MutexA';
 transform M : Mutex, T : TRACE;
 
+context Mutex!Process def : reqCount : Integer = 10;
+
+static def : processes : Sequence(Mutex!Process) =
+	Mutex!Process.allInstancesFrom('M');
+
 ---------- PHASE 1 ----------
 
 abstract rule phase1 {
@@ -16,7 +21,7 @@ abstract rule phase1 {
 rule newRule extends phase1 {
 	from p : Mutex!Process in M (next =~ p2),
 		p2 : Mutex!Process in M
-	not p : Mutex!Process in M (count =~ 10)
+	not p : Mutex!Process in M (reqCount =~ Env::processes->size())
 	to p : Mutex!Process (next =~ p1),
 		p1 : Mutex!Process (next =~ p2),
 		p2 : Mutex!Process
@@ -29,7 +34,19 @@ rule mountRule extends phase1 {
 		r : Mutex!Resource (token =~ p)
 }
 
-rule requestRule extends phase1 {
+rule endPhase1 extends mountRule {
+	to t : TRACE!TraceLink
+}
+
+---------- PHASE 2 ----------
+
+abstract rule phase2 {
+	from t : TRACE!TraceLink in T
+	not s : TRACE!SourceElement in T
+	to t : TRACE!TraceLink in T
+}
+
+rule requestRule extends phase2 {
 	from p : Mutex!Process in M,
 		r : Mutex!Resource in M
 	not p : Mutex!Process in M (request =~ m),
@@ -39,29 +56,27 @@ rule requestRule extends phase1 {
 		r : Mutex!Resource
 }
 
-rule endPhase1 extends phase1 {
-	from p : Mutex!Process in M
-	to p : Mutex!Process,
-		t : TRACE!TraceLink
+rule endPhase2 extends phase2 {
+	to s : TRACE!SourceElement
 }
 
----------- PHASE 2 ----------
+---------- PHASE 3 ----------
 
-abstract rule phase2 {
-	from t : TRACE!TraceLink in T,
+abstract rule phase3 {
+	from s : TRACE!SourceElement in T,
 		r : Mutex!Resource in M
-	to t : TRACE!TraceLink,
+	to s : TRACE!SourceElement,
 		r : Mutex!Resource
 }
 
-rule takeRule extends phase2 {
+rule takeRule extends phase3 {
 	from r : Mutex!Resource in M (token =~ p), 
 		p : Mutex!Process in M (request =~ r)
 	to r : Mutex!Resource (held_by =~ p),
 		p : Mutex!Process
 }
 
-rule releaseRule extends phase2 {
+rule releaseRule extends phase3 {
 	from r : Mutex!Resource in M (held_by =~ p),
 		p : Mutex!Process in M
 	not p : Mutex!Process in M (request =~ m),
@@ -70,7 +85,7 @@ rule releaseRule extends phase2 {
 		p : Mutex!Process
 }
 
-rule giveRule extends phase2 {
+rule giveRule extends phase3 {
 	from r : Mutex!Resource in M (release =~ p1),
 		p1 : Mutex!Process in M (next =~ p2),
 		p2 : Mutex!Process in M

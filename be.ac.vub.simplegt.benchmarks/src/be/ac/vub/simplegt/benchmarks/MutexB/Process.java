@@ -7,7 +7,6 @@
 package be.ac.vub.simplegt.benchmarks.MutexB;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link be.ac.vub.simplegt.benchmarks.MutexB.Process#getNext <em>Next</em>}</li>
  *   <li>{@link be.ac.vub.simplegt.benchmarks.MutexB.Process#getRequest <em>Request</em>}</li>
- *   <li>{@link be.ac.vub.simplegt.benchmarks.MutexB.Process#getCount <em>Count</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,20 +68,5 @@ public interface Process extends EObject {
 	 * @generated
 	 */
 	EList<Resource> getRequest();
-
-	/**
-	 * Returns the value of the '<em><b>Count</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Count</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count</em>' attribute.
-	 * @see be.ac.vub.simplegt.benchmarks.MutexB.MutexBPackage#getProcess_Count()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	int getCount();
 
 } // Process

@@ -3,18 +3,15 @@
  */
 package be.ac.vub.simplegt.benchmarks.MutexA.impl;
 
-import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
-import be.ac.vub.simplegt.benchmarks.MutexA.Resource;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
+import be.ac.vub.simplegt.benchmarks.MutexA.Resource;
 
 /**
  * <!-- begin-user-doc -->

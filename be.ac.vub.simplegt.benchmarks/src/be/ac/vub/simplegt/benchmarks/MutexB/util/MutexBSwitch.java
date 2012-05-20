@@ -6,13 +6,12 @@
  */
 package be.ac.vub.simplegt.benchmarks.MutexB.util;
 
-import be.ac.vub.simplegt.benchmarks.MutexB.MutexBPackage;
-import be.ac.vub.simplegt.benchmarks.MutexB.Resource;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+
+import be.ac.vub.simplegt.benchmarks.MutexB.MutexBPackage;
+import be.ac.vub.simplegt.benchmarks.MutexB.Resource;
 
 /**
  * <!-- begin-user-doc -->

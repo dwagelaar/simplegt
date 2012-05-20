@@ -3,15 +3,13 @@
  */
 package be.ac.vub.simplegt.benchmarks.MutexA.util;
 
-import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
-import be.ac.vub.simplegt.benchmarks.MutexA.Resource;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
+import be.ac.vub.simplegt.benchmarks.MutexA.Resource;
 
 /**
  * <!-- begin-user-doc -->
