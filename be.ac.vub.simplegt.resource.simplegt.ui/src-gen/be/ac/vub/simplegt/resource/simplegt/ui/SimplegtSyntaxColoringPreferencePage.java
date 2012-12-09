@@ -12,30 +12,21 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
  */
 public class SimplegtSyntaxColoringPreferencePage extends org.eclipse.jface.preference.PreferencePage implements org.eclipse.ui.IWorkbenchPreferencePage {
 	
-	private final static be.ac.vub.simplegt.resource.simplegt.ui.SimplegtAntlrTokenHelper tokenHelper = new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtAntlrTokenHelper();
 	private final static java.util.Map<String, java.util.List<HighlightingColorListItem>> content = new java.util.LinkedHashMap<String, java.util.List<HighlightingColorListItem>>();
 	private final static java.util.Collection<IChangedPreference> changedPreferences = new java.util.ArrayList<IChangedPreference>();
 	
 	public SimplegtSyntaxColoringPreferencePage() {
 		super();
 		
-		be.ac.vub.simplegt.resource.simplegt.ISimplegtMetaInformation syntaxPlugin = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation();
+		be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation metaInformation = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation();
 		
-		String languageId = syntaxPlugin.getSyntaxName();
+		String languageId = metaInformation.getSyntaxName();
 		
 		java.util.List<HighlightingColorListItem> terminals = new java.util.ArrayList<HighlightingColorListItem>();
-		String[] tokenNames = syntaxPlugin.getTokenNames();
+		String[] tokenNames = metaInformation.getSyntaxHighlightableTokenNames();
 		
 		for (int i = 0; i < tokenNames.length; i++) {
-			if (!tokenHelper.canBeUsedForSyntaxHighlighting(i)) {
-				continue;
-			}
-			
-			String tokenName = tokenHelper.getTokenName(tokenNames, i);
-			if (tokenName == null) {
-				continue;
-			}
-			HighlightingColorListItem item = new HighlightingColorListItem(languageId, tokenName);
+			HighlightingColorListItem item = new HighlightingColorListItem(languageId, tokenNames[i]);
 			terminals.add(item);
 		}
 		java.util.Collections.sort(terminals);

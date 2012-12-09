@@ -23,6 +23,13 @@ public class SimplegtExpectedCsString extends be.ac.vub.simplegt.resource.simple
 		return keyword.getValue();
 	}
 	
+	/**
+	 * Returns the expected keyword.
+	 */
+	public be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSyntaxElement getSymtaxElement() {
+		return keyword;
+	}
+	
 	public java.util.Set<String> getTokenNames() {
 		return java.util.Collections.singleton("'" + getValue() + "'");
 	}
@@ -36,6 +43,11 @@ public class SimplegtExpectedCsString extends be.ac.vub.simplegt.resource.simple
 			return getValue().equals(((SimplegtExpectedCsString) o).getValue());
 		}
 		return false;
+	}
+	
+	@Override	
+	public int hashCode() {
+		return getValue().hashCode();
 	}
 	
 }

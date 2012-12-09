@@ -135,7 +135,7 @@ public class SimplegtDefaultTokenResolver implements be.ac.vub.simplegt.resource
 	
 	public String deResolve(Object value, org.eclipse.emf.ecore.EStructuralFeature feature, org.eclipse.emf.ecore.EObject container, String prefix, String suffix, String escapeCharacter) {
 		// Step 1: convert Java object to text
-		String result = null;
+		String result = "";
 		if (value != null) {
 			result = value.toString();
 		}
@@ -157,7 +157,7 @@ public class SimplegtDefaultTokenResolver implements be.ac.vub.simplegt.resource
 		}
 		
 		// Step 3: escape keywords if required
-		if (escapeKeywords) {
+		if (escapeKeywords && result != null) {
 			// Escape keywords if required
 			for (String keyword : be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtGrammarInformationProvider.INSTANCE.getKeywords()) {
 				if (result.endsWith(keyword)) {

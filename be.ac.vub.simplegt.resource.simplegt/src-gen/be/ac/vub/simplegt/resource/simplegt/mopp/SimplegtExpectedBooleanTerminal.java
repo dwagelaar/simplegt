@@ -23,6 +23,13 @@ public class SimplegtExpectedBooleanTerminal extends be.ac.vub.simplegt.resource
 		return booleanTerminal;
 	}
 	
+	/**
+	 * Returns the expected boolean terminal.
+	 */
+	public be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSyntaxElement getSymtaxElement() {
+		return booleanTerminal;
+	}
+	
 	private org.eclipse.emf.ecore.EStructuralFeature getFeature() {
 		return booleanTerminal.getFeature();
 	}
@@ -36,6 +43,11 @@ public class SimplegtExpectedBooleanTerminal extends be.ac.vub.simplegt.resource
 			return getFeature().equals(((SimplegtExpectedBooleanTerminal) o).getFeature());
 		}
 		return false;
+	}
+	
+	@Override	
+	public int hashCode() {
+		return getFeature().hashCode();
 	}
 	
 	public java.util.Set<String> getTokenNames() {

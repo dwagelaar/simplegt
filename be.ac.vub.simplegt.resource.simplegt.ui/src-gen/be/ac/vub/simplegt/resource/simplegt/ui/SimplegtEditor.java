@@ -8,6 +8,14 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
 
 /**
  * A text editor for 'simplegt' models.
+ * <p>
+ * This editor has id
+ * <code>be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor</code>
+ * The editor's context menu has id
+ * <code>be.ac.vub.simplegt.resource.simplegt.EditorContext</code>.
+ * The editor's ruler context menu has id
+ * <code>be.ac.vub.simplegt.resource.simplegt.EditorRuler</code>.
+ * </p>
  */
 public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor implements org.eclipse.emf.edit.domain.IEditingDomainProvider, org.eclipse.jface.viewers.ISelectionProvider, org.eclipse.jface.viewers.ISelectionChangedListener, org.eclipse.emf.common.ui.viewer.IViewerProvider, be.ac.vub.simplegt.resource.simplegt.ISimplegtResourceProvider, be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtBracketHandlerProvider, be.ac.vub.simplegt.resource.simplegt.ui.ISimplegtAnnotationModelProvider {
 	
@@ -29,7 +37,7 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 	
 	public SimplegtEditor() {
 		super();
-		setSourceViewerConfiguration(new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditorConfiguration(this, this, this, colorManager));
+		setSourceViewerConfiguration(new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtSourceViewerConfiguration(this, this, this, colorManager));
 		initializeEditingDomain();
 		org.eclipse.core.resources.ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, org.eclipse.core.resources.IResourceChangeEvent.POST_CHANGE);
 		addSelectionChangedListener(this);
@@ -174,6 +182,7 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 	
 	public void dispose() {
 		colorManager.dispose();
+		org.eclipse.core.resources.ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
 		super.dispose();
 	}
 	
@@ -436,8 +445,8 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 						continue;
 					}
 					
-					int annotationLayer = annotationAccess.getLayer(annotation);
 					if (annotationAccess != null) {
+						int annotationLayer = annotationAccess.getLayer(annotation);
 						if (annotationLayer < layer) {
 							continue;
 						}
@@ -490,7 +499,14 @@ public class SimplegtEditor extends org.eclipse.ui.editors.text.TextEditor imple
 			Object object = structuredSelection.getFirstElement();
 			if (object instanceof org.eclipse.emf.ecore.EObject) {
 				org.eclipse.emf.ecore.EObject element = (org.eclipse.emf.ecore.EObject) object;
-				be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource textResource = (be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource) element.eResource();
+				org.eclipse.emf.ecore.resource.Resource resource = element.eResource();
+				if (resource == null) {
+					return false;
+				}
+				if (!(resource instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource)) {
+					return false;
+				}
+				be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource textResource = (be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource) resource;
 				be.ac.vub.simplegt.resource.simplegt.ISimplegtLocationMap locationMap = textResource.getLocationMap();
 				int destination = locationMap.getCharStart(element);
 				if (destination < 0) {

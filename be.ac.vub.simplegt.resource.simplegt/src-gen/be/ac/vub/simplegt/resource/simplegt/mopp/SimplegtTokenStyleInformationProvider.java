@@ -8,6 +8,8 @@ package be.ac.vub.simplegt.resource.simplegt.mopp;
 
 public class SimplegtTokenStyleInformationProvider {
 	
+	public static String TASK_ITEM_TOKEN_NAME = "TASK_ITEM";
+	
 	public be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenStyle getDefaultTokenStyle(String tokenName) {
 		if ("abstract".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x40}, null, true, false, false, false);
@@ -164,6 +166,9 @@ public class SimplegtTokenStyleInformationProvider {
 		}
 		if ("QUOTED_39_39_92".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x2A, 0x00, 0xFF}, null, false, false, false, false);
+		}
+		if ("TASK_ITEM".equals(tokenName)) {
+			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x7F, 0x9F, 0xBF}, null, true, false, false, false);
 		}
 		if ("transform".equals(tokenName)) {
 			return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);

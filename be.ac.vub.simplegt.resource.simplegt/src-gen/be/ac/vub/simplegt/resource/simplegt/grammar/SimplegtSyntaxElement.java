@@ -26,9 +26,21 @@ public abstract class SimplegtSyntaxElement {
 		}
 	}
 	
+	/**
+	 * Sets the parent of this syntax element. This method must be invoked at most
+	 * once.
+	 */
 	public void setParent(SimplegtSyntaxElement parent) {
 		assert this.parent == null;
 		this.parent = parent;
+	}
+	
+	/**
+	 * Returns the parent of this syntax element. This parent is determined by the
+	 * containment hierarchy in the CS model.
+	 */
+	public SimplegtSyntaxElement getParent() {
+		return parent;
 	}
 	
 	public SimplegtSyntaxElement[] getChildren() {

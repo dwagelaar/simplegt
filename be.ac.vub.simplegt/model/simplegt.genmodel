@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="(C) 2011, Dennis Wagelaar, Vrije Universiteit Brussel"
     modelDirectory="be.ac.vub.simplegt/src-gen" editDirectory="/be.ac.vub.simplegt.edit/src"
     editorDirectory="/be.ac.vub.simplegt.editor/src" modelPluginID="be.ac.vub.simplegt"
     modelName="Simplegt" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" usedGenPackages="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.genmodel#//simpleocl">
+    copyrightFields="false" runtimeVersion="2.6" usedGenPackages="platform:/plugin/be.ac.vub.simpleocl/metamodel/simpleocl.genmodel#//simpleocl">
   <foreignModel>simplegt.ecore</foreignModel>
   <genPackages prefix="Simplegt" basePackage="be.ac.vub" disposableProviderFactory="true"
       ecorePackage="simplegt.ecore#/">

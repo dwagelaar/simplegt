@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: EMFText UI Plugin: simplegt
+Bundle-Name: EMFText UI Plugin: SimpleGT
 Bundle-SymbolicName: be.ac.vub.simplegt.resource.simplegt.ui;singleton:=true
 Bundle-Version: 1.2.0.qualifier
-Bundle-Vendor: Software Technology Group - TU Dresden Germany
+Bundle-Vendor: Vrije Universiteit Brussel
 Require-Bundle: org.eclipse.core.resources,
  org.emftext.access;resolution:=optional,
  org.eclipse.core.expressions,
@@ -22,10 +22,11 @@ Require-Bundle: org.eclipse.core.resources,
  org.eclipse.ui.ide,
  org.eclipse.ui.views,
  be.ac.vub.simplegt.resource.simplegt,
- org.emftext.commons.antlr3_3_0,
+ org.emftext.commons.antlr3_4_0,
  be.ac.vub.simplegt,
  org.eclipse.m2m.atl.debug.core;bundle-version="3.2.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: be.ac.vub.simplegt.resource.simplegt.ui
 Bundle-Activator: be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIPlugin
+Import-Package: org.eclipse.ui.texteditor.spelling

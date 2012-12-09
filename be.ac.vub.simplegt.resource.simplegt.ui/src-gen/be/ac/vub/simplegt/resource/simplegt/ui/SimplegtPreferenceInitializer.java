@@ -11,8 +11,6 @@ package be.ac.vub.simplegt.resource.simplegt.ui;
  */
 public class SimplegtPreferenceInitializer extends org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer {
 	
-	private final static be.ac.vub.simplegt.resource.simplegt.ui.SimplegtAntlrTokenHelper tokenHelper = new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtAntlrTokenHelper();
-	
 	public void initializeDefaultPreferences() {
 		
 		initializeDefaultSyntaxHighlighting();
@@ -48,21 +46,14 @@ public class SimplegtPreferenceInitializer extends org.eclipse.core.runtime.pref
 		store.setDefault(languageId + be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPreferenceConstants.EDITOR_BRACKETS_SUFFIX, bracketSet.getBracketString());
 	}
 	
-	private void initializeDefaultSyntaxHighlighting(org.eclipse.jface.preference.IPreferenceStore store, be.ac.vub.simplegt.resource.simplegt.ISimplegtMetaInformation metaInformation) {
+	private void initializeDefaultSyntaxHighlighting(org.eclipse.jface.preference.IPreferenceStore store, be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation metaInformation) {
 		String languageId = metaInformation.getSyntaxName();
-		String[] tokenNames = metaInformation.getTokenNames();
+		String[] tokenNames = metaInformation.getSyntaxHighlightableTokenNames();
 		if (tokenNames == null) {
 			return;
 		}
 		for (int i = 0; i < tokenNames.length; i++) {
-			if (!tokenHelper.canBeUsedForSyntaxHighlighting(i)) {
-				continue;
-			}
-			
-			String tokenName = tokenHelper.getTokenName(tokenNames, i);
-			if (tokenName == null) {
-				continue;
-			}
+			String tokenName = tokenNames[i];
 			be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenStyle style = metaInformation.getDefaultTokenStyle(tokenName);
 			if (style != null) {
 				String color = getColorString(style.getColorAsRGB());

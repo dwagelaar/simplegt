@@ -43,7 +43,7 @@ public class SimplegtNewFileContentProvider {
 		try {
 			printer.print(root);
 		} catch (java.io.IOException e) {
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.logError("Exception while generating example content.", e);
+			new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logError("Exception while generating example content.", e);
 		}
 		return buffer.toString();
 	}

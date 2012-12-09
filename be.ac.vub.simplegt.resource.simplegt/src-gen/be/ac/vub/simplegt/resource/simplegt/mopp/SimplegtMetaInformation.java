@@ -49,7 +49,7 @@ public class SimplegtMetaInformation implements be.ac.vub.simplegt.resource.simp
 	}
 	
 	public String[] getTokenNames() {
-		return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtParser(null).getTokenNames();
+		return be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtParser.tokenNames;
 	}
 	
 	public be.ac.vub.simplegt.resource.simplegt.ISimplegtTokenStyle getDefaultTokenStyle(String tokenName) {
@@ -98,6 +98,29 @@ public class SimplegtMetaInformation implements be.ac.vub.simplegt.resource.simp
 	
 	public String getLaunchConfigurationType() {
 		return "be.ac.vub.simplegt.resource.simplegt.ui.launchConfigurationType";
+	}
+	
+	public be.ac.vub.simplegt.resource.simplegt.ISimplegtNameProvider createNameProvider() {
+		return new be.ac.vub.simplegt.resource.simplegt.analysis.SimplegtDefaultNameProvider();
+	}
+	
+	public String[] getSyntaxHighlightableTokenNames() {
+		be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtAntlrTokenHelper tokenHelper = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtAntlrTokenHelper();
+		java.util.List<String> highlightableTokens = new java.util.ArrayList<String>();
+		String[] parserTokenNames = getTokenNames();
+		for (int i = 0; i < parserTokenNames.length; i++) {
+			// If ANTLR is used we need to normalize the token names
+			if (!tokenHelper.canBeUsedForSyntaxHighlighting(i)) {
+				continue;
+			}
+			String tokenName = tokenHelper.getTokenName(parserTokenNames, i);
+			if (tokenName == null) {
+				continue;
+			}
+			highlightableTokens.add(tokenName);
+		}
+		highlightableTokens.add(be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTokenStyleInformationProvider.TASK_ITEM_TOKEN_NAME);
+		return highlightableTokens.toArray(new String[highlightableTokens.size()]);
 	}
 	
 }

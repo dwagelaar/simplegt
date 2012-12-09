@@ -207,7 +207,11 @@ public class SimplegtTextHover implements org.eclipse.jface.text.ITextHover, org
 	// The warning about overriding or implementing a deprecated API cannot be avoided
 	// because the SourceViewerConfiguration class depends on ITextHover.
 	public String getHoverInfo(org.eclipse.jface.text.ITextViewer textViewer, org.eclipse.jface.text.IRegion hoverRegion) {
-		return ((be.ac.vub.simplegt.resource.simplegt.ui.SimplegtDocBrowserInformationControlInput) getHoverInfo2(textViewer, hoverRegion)).getHtml();
+		Object hoverInfo = getHoverInfo2(textViewer, hoverRegion);
+		if (hoverInfo == null) {
+			return null;
+		}
+		return ((be.ac.vub.simplegt.resource.simplegt.ui.SimplegtDocBrowserInformationControlInput) hoverInfo).getHtml();
 	}
 	
 	public org.eclipse.jface.text.IRegion getHoverRegion(org.eclipse.jface.text.ITextViewer textViewer, int offset) {
@@ -238,6 +242,9 @@ public class SimplegtTextHover implements org.eclipse.jface.text.ITextHover, org
 	
 	private be.ac.vub.simplegt.resource.simplegt.ui.SimplegtDocBrowserInformationControlInput internalGetHoverInfo(org.eclipse.jface.text.ITextViewer textViewer, org.eclipse.jface.text.IRegion hoverRegion) {
 		be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource textResource = resourceProvider.getResource();
+		if (textResource == null) {
+			return null;
+		}
 		be.ac.vub.simplegt.resource.simplegt.ISimplegtLocationMap locationMap = textResource.getLocationMap();
 		java.util.List<org.eclipse.emf.ecore.EObject> elementsAtOffset = locationMap.getElementsAt(hoverRegion.getOffset());
 		if (elementsAtOffset == null || elementsAtOffset.size() == 0) {
@@ -300,10 +307,8 @@ public class SimplegtTextHover implements org.eclipse.jface.text.ITextHover, org
 		String css = styleSheet;
 		// Sets background color for the hover text window
 		css += "body {background-color:#FFFFE1;}\n";
-		if (css != null) {
-			org.eclipse.swt.graphics.FontData fontData = org.eclipse.jface.resource.JFaceResources.getFontRegistry().getFontData(FONT)[0];
-			css = be.ac.vub.simplegt.resource.simplegt.ui.SimplegtHTMLPrinter.convertTopLevelFont(css, fontData);
-		}
+		org.eclipse.swt.graphics.FontData fontData = org.eclipse.jface.resource.JFaceResources.getFontRegistry().getFontData(FONT)[0];
+		css = be.ac.vub.simplegt.resource.simplegt.ui.SimplegtHTMLPrinter.convertTopLevelFont(css, fontData);
 		
 		return css;
 	}

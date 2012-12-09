@@ -37,7 +37,7 @@ public abstract class SimplegtContextDependentURIFragment<ContainerType extends 
 		return result != null;
 	}
 	
-	public synchronized be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolveResult<ReferenceType> resolve() {
+	public be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolveResult<ReferenceType> resolve() {
 		if (resolving) {
 			return null;
 		}
@@ -77,7 +77,7 @@ public abstract class SimplegtContextDependentURIFragment<ContainerType extends 
 			} else if (list != null) {
 				addResultToList(mapping, proxy, list);
 			} else {
-				be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.logError(container.eClass().getName() + "." + reference.getName() + " has multiplicity 1 but was resolved to multiple elements", null);
+				new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logError(container.eClass().getName() + "." + reference.getName() + " has multiplicity 1 but was resolved to multiple elements", null);
 			}
 		}
 	}

@@ -28,7 +28,7 @@ public abstract class AbstractSimplegtDebuggable {
 			// starting event server socket done (connection established).
 			outputStream = new java.io.PrintStream(accept.getOutputStream());
 		} catch (Exception e) {
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.logError("Can't create socket connection while launching.", e);
+			new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logError("Can't create socket connection while launching.", e);
 		}
 	}
 	
@@ -36,7 +36,7 @@ public abstract class AbstractSimplegtDebuggable {
 		try {
 			server.close();
 		} catch (java.io.IOException e) {
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.logError("Exception while closing socket.", e);
+			new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logError("Exception while closing socket.", e);
 		}
 	}
 	

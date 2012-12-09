@@ -8,6 +8,11 @@ package be.ac.vub.simplegt.resource.simplegt.mopp;
 
 public class SimplegtReferenceResolverSwitch implements be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolverSwitch {
 	
+	/**
+	 * This map stores a copy of the options the were set for loading the resource.
+	 */
+	private java.util.Map<Object, Object> options;
+	
 	protected be.ac.vub.simplegt.resource.simplegt.analysis.RuleElementInModelReferenceResolver ruleElementInModelReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.RuleElementInModelReferenceResolver();
 	protected be.ac.vub.simplegt.resource.simplegt.analysis.OutputBindingBeforeElementReferenceResolver outputBindingBeforeElementReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.OutputBindingBeforeElementReferenceResolver();
 	protected be.ac.vub.simplegt.resource.simplegt.analysis.OclInstanceModelMetamodelReferenceResolver oclInstanceModelMetamodelReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.OclInstanceModelMetamodelReferenceResolver();
@@ -15,31 +20,35 @@ public class SimplegtReferenceResolverSwitch implements be.ac.vub.simplegt.resou
 	protected be.ac.vub.simplegt.resource.simplegt.analysis.VariableExpReferredVariableReferenceResolver variableExpReferredVariableReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.VariableExpReferredVariableReferenceResolver();
 	protected be.ac.vub.simplegt.resource.simplegt.analysis.OclModelElementModelReferenceResolver oclModelElementModelReferenceResolver = new be.ac.vub.simplegt.resource.simplegt.analysis.OclModelElementModelReferenceResolver();
 	
-	public be.ac.vub.simplegt.resource.simplegt.analysis.RuleElementInModelReferenceResolver getRuleElementInModelReferenceResolver() {
-		return ruleElementInModelReferenceResolver;
+	public be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver<be.ac.vub.simplegt.RuleElement, be.ac.vub.simpleocl.OclInstanceModel> getRuleElementInModelReferenceResolver() {
+		return getResolverChain(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getRuleElement_InModel(), ruleElementInModelReferenceResolver);
 	}
 	
-	public be.ac.vub.simplegt.resource.simplegt.analysis.OutputBindingBeforeElementReferenceResolver getOutputBindingBeforeElementReferenceResolver() {
-		return outputBindingBeforeElementReferenceResolver;
+	public be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver<be.ac.vub.simplegt.OutputBinding, be.ac.vub.simplegt.RuleElement> getOutputBindingBeforeElementReferenceResolver() {
+		return getResolverChain(be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding_BeforeElement(), outputBindingBeforeElementReferenceResolver);
 	}
 	
-	public be.ac.vub.simplegt.resource.simplegt.analysis.OclInstanceModelMetamodelReferenceResolver getOclInstanceModelMetamodelReferenceResolver() {
-		return oclInstanceModelMetamodelReferenceResolver;
+	public be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver<be.ac.vub.simpleocl.OclInstanceModel, be.ac.vub.simpleocl.OclMetamodel> getOclInstanceModelMetamodelReferenceResolver() {
+		return getResolverChain(be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclInstanceModel_Metamodel(), oclInstanceModelMetamodelReferenceResolver);
 	}
 	
-	public be.ac.vub.simplegt.resource.simplegt.analysis.OclModelElementExpModelReferenceResolver getOclModelElementExpModelReferenceResolver() {
-		return oclModelElementExpModelReferenceResolver;
+	public be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver<be.ac.vub.simpleocl.OclModelElementExp, be.ac.vub.simpleocl.OclModel> getOclModelElementExpModelReferenceResolver() {
+		return getResolverChain(be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclModelElementExp_Model(), oclModelElementExpModelReferenceResolver);
 	}
 	
-	public be.ac.vub.simplegt.resource.simplegt.analysis.VariableExpReferredVariableReferenceResolver getVariableExpReferredVariableReferenceResolver() {
-		return variableExpReferredVariableReferenceResolver;
+	public be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver<be.ac.vub.simpleocl.VariableExp, be.ac.vub.simpleocl.VariableDeclaration> getVariableExpReferredVariableReferenceResolver() {
+		return getResolverChain(be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getVariableExp_ReferredVariable(), variableExpReferredVariableReferenceResolver);
 	}
 	
-	public be.ac.vub.simplegt.resource.simplegt.analysis.OclModelElementModelReferenceResolver getOclModelElementModelReferenceResolver() {
-		return oclModelElementModelReferenceResolver;
+	public be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver<be.ac.vub.simpleocl.OclModelElement, be.ac.vub.simpleocl.OclModel> getOclModelElementModelReferenceResolver() {
+		return getResolverChain(be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclModelElement_Model(), oclModelElementModelReferenceResolver);
 	}
 	
 	public void setOptions(java.util.Map<?, ?> options) {
+		if (options != null) {
+			this.options = new java.util.LinkedHashMap<Object, Object>();
+			this.options.putAll(options);
+		}
 		ruleElementInModelReferenceResolver.setOptions(options);
 		outputBindingBeforeElementReferenceResolver.setOptions(options);
 		oclInstanceModelMetamodelReferenceResolver.setOptions(options);
@@ -104,24 +113,74 @@ public class SimplegtReferenceResolverSwitch implements be.ac.vub.simplegt.resou
 	
 	public be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver<? extends org.eclipse.emf.ecore.EObject, ? extends org.eclipse.emf.ecore.EObject> getResolver(org.eclipse.emf.ecore.EStructuralFeature reference) {
 		if (reference == be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getRuleElement_InModel()) {
-			return ruleElementInModelReferenceResolver;
+			return getResolverChain(reference, ruleElementInModelReferenceResolver);
 		}
 		if (reference == be.ac.vub.simplegt.SimplegtPackage.eINSTANCE.getOutputBinding_BeforeElement()) {
-			return outputBindingBeforeElementReferenceResolver;
+			return getResolverChain(reference, outputBindingBeforeElementReferenceResolver);
 		}
 		if (reference == be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclInstanceModel_Metamodel()) {
-			return oclInstanceModelMetamodelReferenceResolver;
+			return getResolverChain(reference, oclInstanceModelMetamodelReferenceResolver);
 		}
 		if (reference == be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclModelElementExp_Model()) {
-			return oclModelElementExpModelReferenceResolver;
+			return getResolverChain(reference, oclModelElementExpModelReferenceResolver);
 		}
 		if (reference == be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getVariableExp_ReferredVariable()) {
-			return variableExpReferredVariableReferenceResolver;
+			return getResolverChain(reference, variableExpReferredVariableReferenceResolver);
 		}
 		if (reference == be.ac.vub.simpleocl.SimpleoclPackage.eINSTANCE.getOclModelElement_Model()) {
-			return oclModelElementModelReferenceResolver;
+			return getResolverChain(reference, oclModelElementModelReferenceResolver);
 		}
 		return null;
+	}
+	
+	@SuppressWarnings({"rawtypes", "unchecked"})	
+	public <ContainerType extends org.eclipse.emf.ecore.EObject, ReferenceType extends org.eclipse.emf.ecore.EObject> be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver<ContainerType, ReferenceType> getResolverChain(org.eclipse.emf.ecore.EStructuralFeature reference, be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver<ContainerType, ReferenceType> originalResolver) {
+		if (options == null) {
+			return originalResolver;
+		}
+		Object value = options.get(be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.ADDITIONAL_REFERENCE_RESOLVERS);
+		if (value == null) {
+			return originalResolver;
+		}
+		if (!(value instanceof java.util.Map)) {
+			// send this to the error log
+			new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logWarning("Found value with invalid type for option " + be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.ADDITIONAL_REFERENCE_RESOLVERS + " (expected " + java.util.Map.class.getName() + ", but was " + value.getClass().getName() + ")", null);
+			return originalResolver;
+		}
+		java.util.Map<?,?> resolverMap = (java.util.Map<?,?>) value;
+		Object resolverValue = resolverMap.get(reference);
+		if (resolverValue == null) {
+			return originalResolver;
+		}
+		if (resolverValue instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver) {
+			be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver replacingResolver = (be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver) resolverValue;
+			if (replacingResolver instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtDelegatingReferenceResolver) {
+				// pass original resolver to the replacing one
+				((be.ac.vub.simplegt.resource.simplegt.ISimplegtDelegatingReferenceResolver) replacingResolver).setDelegate(originalResolver);
+			}
+			return replacingResolver;
+		} else if (resolverValue instanceof java.util.Collection) {
+			java.util.Collection replacingResolvers = (java.util.Collection) resolverValue;
+			be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver replacingResolver = originalResolver;
+			for (Object next : replacingResolvers) {
+				if (next instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceCache) {
+					be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver nextResolver = (be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolver) next;
+					if (nextResolver instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtDelegatingReferenceResolver) {
+						// pass original resolver to the replacing one
+						((be.ac.vub.simplegt.resource.simplegt.ISimplegtDelegatingReferenceResolver) nextResolver).setDelegate(replacingResolver);
+					}
+					replacingResolver = nextResolver;
+				} else {
+					// The collection contains a non-resolver. Send a warning to the error log.
+					new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logWarning("Found value with invalid type in value map for option " + be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.ADDITIONAL_REFERENCE_RESOLVERS + " (expected " + be.ac.vub.simplegt.resource.simplegt.ISimplegtDelegatingReferenceResolver.class.getName() + ", but was " + next.getClass().getName() + ")", null);
+				}
+			}
+			return replacingResolver;
+		} else {
+			// The value for the option ADDITIONAL_REFERENCE_RESOLVERS has an unknown type.
+			new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logWarning("Found value with invalid type in value map for option " + be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.ADDITIONAL_REFERENCE_RESOLVERS + " (expected " + be.ac.vub.simplegt.resource.simplegt.ISimplegtDelegatingReferenceResolver.class.getName() + ", but was " + resolverValue.getClass().getName() + ")", null);
+			return originalResolver;
+		}
 	}
 	
 }

@@ -319,6 +319,7 @@ public class SimplegtCodeFoldingManager {
 			encryptMsg = md.digest(text.getBytes());
 		} catch (java.security.NoSuchAlgorithmException e) {
 			be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIPlugin.logError("NoSuchAlgorithmException while creating MD5 checksum.", e);
+			return "";
 		}
 		String swap = "";
 		String byteStr = "";

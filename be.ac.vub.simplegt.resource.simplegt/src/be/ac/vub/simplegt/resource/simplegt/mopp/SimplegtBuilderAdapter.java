@@ -105,7 +105,7 @@ public class SimplegtBuilderAdapter extends IncrementalProjectBuilder {
 			final URI uri = URI.createPlatformResourceURI(resource.getFullPath().toString(), true);
 			if (builder.isBuildingNeeded(uri)) {
 				final SimplegtResource customResource = (SimplegtResource) new ResourceSetImpl().getResource(uri, true);
-				SimplegtMarkerHelper.unmark(customResource, SimplegtEProblemType.BUILDER_ERROR);
+				customResource.unmark(SimplegtEProblemType.BUILDER_ERROR);
 				final IStatus status = builder.build(customResource, monitor);
 				if (!status.isOK()) {
 					SimplegtPlugin.getDefault().getLog().log(status);

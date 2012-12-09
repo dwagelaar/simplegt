@@ -36,4 +36,16 @@ public class SimplegtExpectedEnumerationTerminal extends be.ac.vub.simplegt.reso
 	public be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtEnumerationTerminal getEnumerationTerminal() {
 		return this.enumerationTerminal;
 	}
+	
+	/**
+	 * Returns the expected enumeration terminal.
+	 */
+	public be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSyntaxElement getSymtaxElement() {
+		return enumerationTerminal;
+	}
+	
+	public String toString() {
+		return "EnumTerminal \"" + getEnumerationTerminal() + "\"";
+	}
+	
 }

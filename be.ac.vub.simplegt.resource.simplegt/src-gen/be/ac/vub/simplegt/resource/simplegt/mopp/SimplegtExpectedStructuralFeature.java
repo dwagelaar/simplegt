@@ -23,6 +23,13 @@ public class SimplegtExpectedStructuralFeature extends be.ac.vub.simplegt.resour
 		return placeholder.getFeature();
 	}
 	
+	/**
+	 * Returns the expected placeholder.
+	 */
+	public be.ac.vub.simplegt.resource.simplegt.grammar.SimplegtSyntaxElement getSymtaxElement() {
+		return placeholder;
+	}
+	
 	public String getTokenName() {
 		return placeholder.getTokenName();
 	}
@@ -41,4 +48,9 @@ public class SimplegtExpectedStructuralFeature extends be.ac.vub.simplegt.resour
 		}
 		return false;
 	}
+	@Override	
+	public int hashCode() {
+		return getFeature().hashCode();
+	}
+	
 }

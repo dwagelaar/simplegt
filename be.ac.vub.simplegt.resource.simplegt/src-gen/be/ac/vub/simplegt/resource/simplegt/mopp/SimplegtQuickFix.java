@@ -45,7 +45,7 @@ public abstract class SimplegtQuickFix implements be.ac.vub.simplegt.resource.si
 			getResource().save(output, null);
 			return output.toString();
 		} catch (java.io.IOException e) {
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.logError("Exception while applying quick fix", e);
+			new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logError("Exception while applying quick fix", e);
 		}
 		return null;
 	}

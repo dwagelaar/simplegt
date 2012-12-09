@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -170,7 +171,7 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 			final String location = resource.getURI().toString();
 			for (EObject pb : pbs) {
 				ISimplegtTextDiagnostic diag = createDiagnostic(location, pb);
-				SimplegtMarkerHelper.mark(resource, diag);
+				resource.mark(diag);
 			}
 
 		} catch (CoreException e) {
@@ -240,6 +241,24 @@ public class SimplegtBuilder implements be.ac.vub.simplegt.resource.simplegt.ISi
 				SimplegtEProblemType.BUILDER_ERROR, severity);
 		return new SimplegtTextDiagnostic(
 				problem, location, line, column, charStart, charEnd);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IStatus handleDeletion(URI uri, IProgressMonitor monitor) {
+		final URI emftvmURI = uri.trimFileExtension().appendFileExtension("emftvm");
+		if (emftvmURI.isPlatformResource()) {
+			final IResource wsRes = ResourcesPlugin.getWorkspace().getRoot().findMember(emftvmURI.toPlatformString(true));
+			assert wsRes instanceof IFile;
+			try {
+				wsRes.delete(true, monitor);
+			} catch (CoreException e) {
+				SimplegtPlugin.getDefault().getLog().log(e.getStatus());
+			}
+		}
+		return org.eclipse.core.runtime.Status.OK_STATUS;
 	}
 
 }

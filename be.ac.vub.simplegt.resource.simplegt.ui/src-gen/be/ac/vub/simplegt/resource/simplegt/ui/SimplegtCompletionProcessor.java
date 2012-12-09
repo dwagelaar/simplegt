@@ -18,6 +18,9 @@ public class SimplegtCompletionProcessor implements org.eclipse.jface.text.conte
 	
 	public org.eclipse.jface.text.contentassist.ICompletionProposal[] computeCompletionProposals(org.eclipse.jface.text.ITextViewer viewer, int offset) {
 		be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource textResource = resourceProvider.getResource();
+		if (textResource == null) {
+			return new org.eclipse.jface.text.contentassist.ICompletionProposal[0];
+		}
 		String content = viewer.getDocument().get();
 		be.ac.vub.simplegt.resource.simplegt.ui.SimplegtCodeCompletionHelper helper = new be.ac.vub.simplegt.resource.simplegt.ui.SimplegtCodeCompletionHelper();
 		be.ac.vub.simplegt.resource.simplegt.ui.SimplegtCompletionProposal[] computedProposals = helper.computeCompletionProposals(textResource, content, offset);

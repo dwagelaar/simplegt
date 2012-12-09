@@ -129,6 +129,8 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 	private be.ac.vub.simplegt.resource.simplegt.ISimplegtLocationMap locationMap;
 	private int proxyCounter = 0;
 	private be.ac.vub.simplegt.resource.simplegt.ISimplegtTextParser parser;
+	private be.ac.vub.simplegt.resource.simplegt.util.SimplegtLayoutUtil layoutUtil = new be.ac.vub.simplegt.resource.simplegt.util.SimplegtLayoutUtil();
+	private be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper markerHelper;
 	private java.util.Map<String, be.ac.vub.simplegt.resource.simplegt.ISimplegtContextDependentURIFragment<? extends org.eclipse.emf.ecore.EObject>> internalURIFragmentMap = new java.util.LinkedHashMap<String, be.ac.vub.simplegt.resource.simplegt.ISimplegtContextDependentURIFragment<? extends org.eclipse.emf.ecore.EObject>>();
 	private java.util.Map<String, be.ac.vub.simplegt.resource.simplegt.ISimplegtQuickFix> quickFixMap = new java.util.LinkedHashMap<String, be.ac.vub.simplegt.resource.simplegt.ISimplegtQuickFix>();
 	private java.util.Map<?, ?> loadOptions;
@@ -140,9 +142,19 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 	private be.ac.vub.simplegt.resource.simplegt.ISimplegtResourcePostProcessor runningPostProcessor;
 	
 	/**
-	 * A flag to indicate whether reloading of the resource shall be cancelled.
+	 * A flag (and lock) to indicate whether reloading of the resource shall be
+	 * cancelled.
 	 */
-	private boolean terminateReload = false;
+	private Boolean terminateReload = false;
+	private Object terminateReloadLock = new Object();
+	private Object loadingLock = new Object();
+	private boolean delayNotifications = false;
+	private java.util.List<org.eclipse.emf.common.notify.Notification> delayedNotifications = new java.util.ArrayList<org.eclipse.emf.common.notify.Notification>();
+	private java.io.InputStream latestReloadInputStream = null;
+	private java.util.Map<?, ?> latestReloadOptions = null;
+	private be.ac.vub.simplegt.resource.simplegt.util.SimplegtInterruptibleEcoreResolver interruptibleResolver;
+	
+	protected be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation metaInformation = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation();
 	
 	public SimplegtResource() {
 		super();
@@ -155,85 +167,180 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 	}
 	
 	protected void doLoad(java.io.InputStream inputStream, java.util.Map<?,?> options) throws java.io.IOException {
-		this.loadOptions = options;
-		this.terminateReload = false;
-		String encoding = null;
-		java.io.InputStream actualInputStream = inputStream;
-		Object inputStreamPreProcessorProvider = null;
-		if (options != null) {
-			inputStreamPreProcessorProvider = options.get(be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.INPUT_STREAM_PREPROCESSOR_PROVIDER);
-		}
-		if (inputStreamPreProcessorProvider != null) {
-			if (inputStreamPreProcessorProvider instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtInputStreamProcessorProvider) {
-				be.ac.vub.simplegt.resource.simplegt.ISimplegtInputStreamProcessorProvider provider = (be.ac.vub.simplegt.resource.simplegt.ISimplegtInputStreamProcessorProvider) inputStreamPreProcessorProvider;
-				be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtInputStreamProcessor processor = provider.getInputStreamProcessor(inputStream);
-				actualInputStream = processor;
-				encoding = processor.getOutputEncoding();
+		synchronized (loadingLock) {
+			if (processTerminationRequested()) {
+				return;
 			}
-		}
-		
-		parser = getMetaInformation().createParser(actualInputStream, encoding);
-		parser.setOptions(options);
-		be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolverSwitch referenceResolverSwitch = getReferenceResolverSwitch();
-		referenceResolverSwitch.setOptions(options);
-		be.ac.vub.simplegt.resource.simplegt.ISimplegtParseResult result = parser.parse();
-		clearState();
-		getContentsInternal().clear();
-		org.eclipse.emf.ecore.EObject root = null;
-		if (result != null) {
-			root = result.getRoot();
-			if (root != null) {
-				getContentsInternal().add(root);
+			this.loadOptions = options;
+			delayNotifications = true;
+			resetLocationMap();
+			String encoding = getEncoding(options);
+			java.io.InputStream actualInputStream = inputStream;
+			Object inputStreamPreProcessorProvider = null;
+			if (options != null) {
+				inputStreamPreProcessorProvider = options.get(be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.INPUT_STREAM_PREPROCESSOR_PROVIDER);
 			}
-			java.util.Collection<be.ac.vub.simplegt.resource.simplegt.ISimplegtCommand<be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource>> commands = result.getPostParseCommands();
-			if (commands != null) {
-				for (be.ac.vub.simplegt.resource.simplegt.ISimplegtCommand<be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource>  command : commands) {
-					command.execute(this);
+			if (inputStreamPreProcessorProvider != null) {
+				if (inputStreamPreProcessorProvider instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtInputStreamProcessorProvider) {
+					be.ac.vub.simplegt.resource.simplegt.ISimplegtInputStreamProcessorProvider provider = (be.ac.vub.simplegt.resource.simplegt.ISimplegtInputStreamProcessorProvider) inputStreamPreProcessorProvider;
+					be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtInputStreamProcessor processor = provider.getInputStreamProcessor(inputStream);
+					actualInputStream = processor;
 				}
 			}
-		}
-		getReferenceResolverSwitch().setOptions(options);
-		if (getErrors().isEmpty()) {
-			runPostProcessors(options);
-			if (root != null) {
-				runValidators(root);
+			
+			parser = getMetaInformation().createParser(actualInputStream, encoding);
+			parser.setOptions(options);
+			be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolverSwitch referenceResolverSwitch = getReferenceResolverSwitch();
+			referenceResolverSwitch.setOptions(options);
+			be.ac.vub.simplegt.resource.simplegt.ISimplegtParseResult result = parser.parse();
+			// dispose parser, we don't need it anymore
+			parser = null;
+			
+			if (processTerminationRequested()) {
+				// do nothing if reload was already restarted
+				return;
 			}
+			
+			clearState();
+			getContentsInternal().clear();
+			org.eclipse.emf.ecore.EObject root = null;
+			if (result != null) {
+				root = result.getRoot();
+				if (root != null) {
+					if (isLayoutInformationRecordingEnabled()) {
+						layoutUtil.transferAllLayoutInformationToModel(root);
+					}
+					if (processTerminationRequested()) {
+						// the next reload will add new content
+						return;
+					}
+					getContentsInternal().add(root);
+				}
+				java.util.Collection<be.ac.vub.simplegt.resource.simplegt.ISimplegtCommand<be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource>> commands = result.getPostParseCommands();
+				if (commands != null) {
+					for (be.ac.vub.simplegt.resource.simplegt.ISimplegtCommand<be.ac.vub.simplegt.resource.simplegt.ISimplegtTextResource>  command : commands) {
+						command.execute(this);
+					}
+				}
+			}
+			getReferenceResolverSwitch().setOptions(options);
+			if (getErrors().isEmpty()) {
+				if (!runPostProcessors(options)) {
+					return;
+				}
+				if (root != null) {
+					runValidators(root);
+				}
+			}
+			notifyDelayed();
 		}
 	}
 	
+	protected boolean processTerminationRequested() {
+		if (terminateReload) {
+			delayNotifications = false;
+			delayedNotifications.clear();
+			return true;
+		}
+		return false;
+	}
+	protected void notifyDelayed() {
+		delayNotifications = false;
+		for (org.eclipse.emf.common.notify.Notification delayedNotification : delayedNotifications) {
+			super.eNotify(delayedNotification);
+		}
+		delayedNotifications.clear();
+	}
+	public void eNotify(org.eclipse.emf.common.notify.Notification notification) {
+		if (delayNotifications) {
+			delayedNotifications.add(notification);
+		} else {
+			super.eNotify(notification);
+		}
+	}
+	/**
+	 * Reloads the contents of this resource from the given stream.
+	 */
 	public void reload(java.io.InputStream inputStream, java.util.Map<?,?> options) throws java.io.IOException {
-		try {
-			isLoaded = false;
-			java.util.Map<Object, Object> loadOptions = addDefaultLoadOptions(options);
-			doLoad(inputStream, loadOptions);
-			org.eclipse.emf.ecore.util.EcoreUtil.resolveAll(this.getResourceSet());
-		} catch (be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException tpe) {
-			// do nothing - the resource is left unchanged if this exception is thrown
+		synchronized (terminateReloadLock) {
+			latestReloadInputStream = inputStream;
+			latestReloadOptions = options;
+			if (terminateReload == true) {
+				// //reload already requested
+			}
+			terminateReload = true;
 		}
-		isLoaded = true;
+		cancelReload();
+		synchronized (loadingLock) {
+			synchronized (terminateReloadLock) {
+				terminateReload = false;
+			}
+			isLoaded = false;
+			java.util.Map<Object, Object> loadOptions = addDefaultLoadOptions(latestReloadOptions);
+			try {
+				doLoad(latestReloadInputStream, loadOptions);
+			} catch (be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtTerminateParsingException tpe) {
+				// do nothing - the resource is left unchanged if this exception is thrown
+			}
+			resolveAfterParsing();
+			isLoaded = true;
+		}
 	}
 	
-	public void cancelReload() {
+	/**
+	 * Cancels reloading this resource. The running parser and post processors are
+	 * terminated.
+	 */
+	protected void cancelReload() {
+		// Cancel parser
 		be.ac.vub.simplegt.resource.simplegt.ISimplegtTextParser parserCopy = parser;
-		parserCopy.terminate();
-		this.terminateReload = true;
+		if (parserCopy != null) {
+			parserCopy.terminate();
+		}
+		// Cancel post processor(s)
 		be.ac.vub.simplegt.resource.simplegt.ISimplegtResourcePostProcessor runningPostProcessorCopy = runningPostProcessor;
 		if (runningPostProcessorCopy != null) {
 			runningPostProcessorCopy.terminate();
+		}
+		// Cancel reference resolving
+		be.ac.vub.simplegt.resource.simplegt.util.SimplegtInterruptibleEcoreResolver interruptibleResolverCopy = interruptibleResolver;
+		if (interruptibleResolverCopy != null) {
+			interruptibleResolverCopy.terminate();
 		}
 	}
 	
 	protected void doSave(java.io.OutputStream outputStream, java.util.Map<?,?> options) throws java.io.IOException {
 		be.ac.vub.simplegt.resource.simplegt.ISimplegtTextPrinter printer = getMetaInformation().createPrinter(outputStream, this);
 		be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolverSwitch referenceResolverSwitch = getReferenceResolverSwitch();
+		printer.setEncoding(getEncoding(options));
 		referenceResolverSwitch.setOptions(options);
 		for (org.eclipse.emf.ecore.EObject root : getContentsInternal()) {
+			if (isLayoutInformationRecordingEnabled()) {
+				layoutUtil.transferAllLayoutInformationFromModel(root);
+			}
 			printer.print(root);
+			if (isLayoutInformationRecordingEnabled()) {
+				layoutUtil.transferAllLayoutInformationToModel(root);
+			}
 		}
 	}
 	
 	protected String getSyntaxName() {
 		return "simplegt";
+	}
+	
+	public String getEncoding(java.util.Map<?, ?> options) {
+		String encoding = null;
+		if (new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().isEclipsePlatformAvailable()) {
+			encoding = new be.ac.vub.simplegt.resource.simplegt.util.SimplegtEclipseProxy().getPlatformResourceEncoding(uri);
+		}
+		if (options != null) {
+			Object encodingOption = options.get(be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.OPTION_ENCODING);
+			if (encodingOption != null) {
+				encoding = encodingOption.toString();
+			}
+		}
+		return encoding;
 	}
 	
 	public be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolverSwitch getReferenceResolverSwitch() {
@@ -247,8 +354,15 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 		return new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMetaInformation();
 	}
 	
+	/**
+	 * Clears the location map by replacing it with a new instance.
+	 */
 	protected void resetLocationMap() {
-		locationMap = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtLocationMap();
+		if (isLocationMapEnabled()) {
+			locationMap = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtLocationMap();
+		} else {
+			locationMap = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtDevNullLocationMap();
+		}
 	}
 	
 	public void addURIFragment(String internalURIFragment, be.ac.vub.simplegt.resource.simplegt.ISimplegtContextDependentURIFragment<? extends org.eclipse.emf.ecore.EObject> uriFragment) {
@@ -273,8 +387,8 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 				result = uriFragment.resolve();
 			} catch (Exception e) {
 				String message = "An expection occured while resolving the proxy for: "+ id + ". (" + e.toString() + ")";
-				addProblem(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtProblem(message, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.UNRESOLVED_REFERENCE, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemSeverity.ERROR),uriFragment.getProxy());
-				be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.logError(message, e);
+				addProblem(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtProblem(message, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.UNRESOLVED_REFERENCE, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemSeverity.ERROR), uriFragment.getProxy());
+				new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logError(message, e);
 			}
 			if (result == null) {
 				// the resolving did call itself
@@ -312,7 +426,7 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 		}
 	}
 	
-	private org.eclipse.emf.ecore.EObject getResultElement(be.ac.vub.simplegt.resource.simplegt.ISimplegtContextDependentURIFragment<? extends org.eclipse.emf.ecore.EObject> uriFragment, be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceMapping<? extends org.eclipse.emf.ecore.EObject> mapping, org.eclipse.emf.ecore.EObject proxy, final String errorMessage) {
+	protected org.eclipse.emf.ecore.EObject getResultElement(be.ac.vub.simplegt.resource.simplegt.ISimplegtContextDependentURIFragment<? extends org.eclipse.emf.ecore.EObject> uriFragment, be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceMapping<? extends org.eclipse.emf.ecore.EObject> mapping, org.eclipse.emf.ecore.EObject proxy, final String errorMessage) {
 		if (mapping instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtURIMapping<?>) {
 			org.eclipse.emf.common.util.URI uri = ((be.ac.vub.simplegt.resource.simplegt.ISimplegtURIMapping<? extends org.eclipse.emf.ecore.EObject>)mapping).getTargetIdentifier();
 			if (uri != null) {
@@ -354,19 +468,19 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 		}
 	}
 	
-	private void removeDiagnostics(org.eclipse.emf.ecore.EObject cause, java.util.List<org.eclipse.emf.ecore.resource.Resource.Diagnostic> diagnostics) {
+	protected void removeDiagnostics(org.eclipse.emf.ecore.EObject cause, java.util.List<org.eclipse.emf.ecore.resource.Resource.Diagnostic> diagnostics) {
 		// remove all errors/warnings from this resource
 		for (org.eclipse.emf.ecore.resource.Resource.Diagnostic errorCand : new org.eclipse.emf.common.util.BasicEList<org.eclipse.emf.ecore.resource.Resource.Diagnostic>(diagnostics)) {
 			if (errorCand instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic) {
 				if (((be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic) errorCand).wasCausedBy(cause)) {
 					diagnostics.remove(errorCand);
-					be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper.unmark(this, cause);
+					unmark(cause);
 				}
 			}
 		}
 	}
 	
-	private void attachResolveError(be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolveResult<?> result, org.eclipse.emf.ecore.EObject proxy) {
+	protected void attachResolveError(be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolveResult<?> result, org.eclipse.emf.ecore.EObject proxy) {
 		// attach errors to this resource
 		assert result != null;
 		final String errorMessage = result.getErrorMessage();
@@ -377,7 +491,7 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 		}
 	}
 	
-	private void attachResolveWarnings(be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolveResult<? extends org.eclipse.emf.ecore.EObject> result, org.eclipse.emf.ecore.EObject proxy) {
+	protected void attachResolveWarnings(be.ac.vub.simplegt.resource.simplegt.ISimplegtReferenceResolveResult<? extends org.eclipse.emf.ecore.EObject> result, org.eclipse.emf.ecore.EObject proxy) {
 		assert result != null;
 		assert result.wasResolved();
 		if (result.wasResolved()) {
@@ -401,15 +515,18 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 		loadOptions = null;
 	}
 	
-	protected void runPostProcessors(java.util.Map<?, ?> loadOptions) {
-		be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper.unmark(this, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.ANALYSIS_PROBLEM);
-		if (terminateReload) {
-			return;
+	/**
+	 * Runs all post processors to process this resource.
+	 */
+	protected boolean runPostProcessors(java.util.Map<?, ?> loadOptions) {
+		unmark(be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.ANALYSIS_PROBLEM);
+		if (processTerminationRequested()) {
+			return false;
 		}
 		// first, run the generated post processor
 		runPostProcessor(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtResourcePostProcessor());
 		if (loadOptions == null) {
-			return;
+			return true;
 		}
 		// then, run post processors that are registered via the load options extension
 		// point
@@ -420,8 +537,8 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 			} else if (resourcePostProcessorProvider instanceof java.util.Collection<?>) {
 				java.util.Collection<?> resourcePostProcessorProviderCollection = (java.util.Collection<?>) resourcePostProcessorProvider;
 				for (Object processorProvider : resourcePostProcessorProviderCollection) {
-					if (terminateReload) {
-						return;
+					if (processTerminationRequested()) {
+						return false;
 					}
 					if (processorProvider instanceof be.ac.vub.simplegt.resource.simplegt.ISimplegtResourcePostProcessorProvider) {
 						be.ac.vub.simplegt.resource.simplegt.ISimplegtResourcePostProcessorProvider csProcessorProvider = (be.ac.vub.simplegt.resource.simplegt.ISimplegtResourcePostProcessorProvider) processorProvider;
@@ -431,14 +548,18 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 				}
 			}
 		}
+		return true;
 	}
 	
+	/**
+	 * Runs the given post processor to process this resource.
+	 */
 	protected void runPostProcessor(be.ac.vub.simplegt.resource.simplegt.ISimplegtResourcePostProcessor postProcessor) {
 		try {
 			this.runningPostProcessor = postProcessor;
 			postProcessor.process(this);
 		} catch (Exception e) {
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.logError("Exception while running a post-processor.", e);
+			new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().logError("Exception while running a post-processor.", e);
 		}
 		this.runningPostProcessor = null;
 	}
@@ -446,7 +567,13 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 	public void load(java.util.Map<?, ?> options) throws java.io.IOException {
 		java.util.Map<Object, Object> loadOptions = addDefaultLoadOptions(options);
 		super.load(loadOptions);
-		org.eclipse.emf.ecore.util.EcoreUtil.resolveAll(this.getResourceSet());
+		resolveAfterParsing();
+	}
+	
+	protected void resolveAfterParsing() {
+		interruptibleResolver = new be.ac.vub.simplegt.resource.simplegt.util.SimplegtInterruptibleEcoreResolver();
+		interruptibleResolver.resolveAll(this);
+		interruptibleResolver = null;
 	}
 	
 	public void setURI(org.eclipse.emf.common.util.URI uri) {
@@ -456,6 +583,10 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 		super.setURI(uri);
 	}
 	
+	/**
+	 * Returns the location map that contains information about the position of the
+	 * contents of this resource in the original textual representation.
+	 */
 	public be.ac.vub.simplegt.resource.simplegt.ISimplegtLocationMap getLocationMap() {
 		return locationMap;
 	}
@@ -463,9 +594,18 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 	public void addProblem(be.ac.vub.simplegt.resource.simplegt.ISimplegtProblem problem, org.eclipse.emf.ecore.EObject element) {
 		ElementBasedTextDiagnostic diagnostic = new ElementBasedTextDiagnostic(locationMap, getURI(), problem, element);
 		getDiagnostics(problem.getSeverity()).add(diagnostic);
-		if (isMarkerCreationEnabled()) {
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper.mark(this, diagnostic);
-		}
+		mark(diagnostic);
+		addQuickFixesToQuickFixMap(problem);
+	}
+	
+	public void addProblem(be.ac.vub.simplegt.resource.simplegt.ISimplegtProblem problem, int column, int line, int charStart, int charEnd) {
+		PositionBasedTextDiagnostic diagnostic = new PositionBasedTextDiagnostic(getURI(), problem, column, line, charStart, charEnd);
+		getDiagnostics(problem.getSeverity()).add(diagnostic);
+		mark(diagnostic);
+		addQuickFixesToQuickFixMap(problem);
+	}
+	
+	protected void addQuickFixesToQuickFixMap(be.ac.vub.simplegt.resource.simplegt.ISimplegtProblem problem) {
 		java.util.Collection<be.ac.vub.simplegt.resource.simplegt.ISimplegtQuickFix> quickFixes = problem.getQuickFixes();
 		if (quickFixes != null) {
 			for (be.ac.vub.simplegt.resource.simplegt.ISimplegtQuickFix quickFix : quickFixes) {
@@ -473,14 +613,6 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 					quickFixMap.put(quickFix.getContextAsString(), quickFix);
 				}
 			}
-		}
-	}
-	
-	public void addProblem(be.ac.vub.simplegt.resource.simplegt.ISimplegtProblem problem, int column, int line, int charStart, int charEnd) {
-		PositionBasedTextDiagnostic diagnostic = new PositionBasedTextDiagnostic(getURI(), problem, column, line, charStart, charEnd);
-		getDiagnostics(problem.getSeverity()).add(diagnostic);
-		if (isMarkerCreationEnabled()) {
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper.mark(this, diagnostic);
 		}
 	}
 	
@@ -502,7 +634,7 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 		addProblem(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtProblem(message, type, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemSeverity.WARNING), cause);
 	}
 	
-	private java.util.List<org.eclipse.emf.ecore.resource.Resource.Diagnostic> getDiagnostics(be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemSeverity severity) {
+	protected java.util.List<org.eclipse.emf.ecore.resource.Resource.Diagnostic> getDiagnostics(be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemSeverity severity) {
 		if (severity == be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemSeverity.ERROR) {
 			return getErrors();
 		} else {
@@ -512,59 +644,14 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 	
 	protected java.util.Map<Object, Object> addDefaultLoadOptions(java.util.Map<?, ?> loadOptions) {
 		java.util.Map<Object, Object> loadOptionsCopy = be.ac.vub.simplegt.resource.simplegt.util.SimplegtMapUtil.copySafelyToObjectToObjectMap(loadOptions);
-		if (org.eclipse.core.runtime.Platform.isRunning()) {
-			// find default load option providers
-			org.eclipse.core.runtime.IExtensionRegistry extensionRegistry = org.eclipse.core.runtime.Platform.getExtensionRegistry();
-			org.eclipse.core.runtime.IConfigurationElement configurationElements[] = extensionRegistry.getConfigurationElementsFor(be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.EP_DEFAULT_LOAD_OPTIONS_ID);
-			for (org.eclipse.core.runtime.IConfigurationElement element : configurationElements) {
-				try {
-					be.ac.vub.simplegt.resource.simplegt.ISimplegtOptionProvider provider = (be.ac.vub.simplegt.resource.simplegt.ISimplegtOptionProvider) element.createExecutableExtension("class");
-					final java.util.Map<?, ?> options = provider.getOptions();
-					final java.util.Collection<?> keys = options.keySet();
-					for (Object key : keys) {
-						addLoadOption(loadOptionsCopy, key, options.get(key));
-					}
-				} catch (org.eclipse.core.runtime.CoreException ce) {
-					be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.logError("Exception while getting default options.", ce);
-				}
-			}
+		// first add static option provider
+		loadOptionsCopy.putAll(new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtOptionProvider().getOptions());
+		
+		// second, add dynamic option providers that are registered via extension
+		if (new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().isEclipsePlatformAvailable()) {
+			new be.ac.vub.simplegt.resource.simplegt.util.SimplegtEclipseProxy().getDefaultLoadOptionProviderExtensions(loadOptionsCopy);
 		}
 		return loadOptionsCopy;
-	}
-	
-	/**
-	 * Adds a new key,value pair to the list of options. If there is already an option
-	 * with the same key, the two values are collected in a list.
-	 */
-	private void addLoadOption(java.util.Map<Object, Object> options,Object key, Object value) {
-		// check if there is already an option set
-		if (options.containsKey(key)) {
-			Object currentValue = options.get(key);
-			if (currentValue instanceof java.util.List<?>) {
-				// if the current value is a list, we add the new value to this list
-				java.util.List<?> currentValueAsList = (java.util.List<?>) currentValue;
-				java.util.List<Object> currentValueAsObjectList = be.ac.vub.simplegt.resource.simplegt.util.SimplegtListUtil.copySafelyToObjectList(currentValueAsList);
-				if (value instanceof java.util.Collection<?>) {
-					currentValueAsObjectList.addAll((java.util.Collection<?>) value);
-				} else {
-					currentValueAsObjectList.add(value);
-				}
-				options.put(key, currentValueAsObjectList);
-			} else {
-				// if the current value is not a list, we create a fresh list and add both the old
-				// (current) and the new value to this list
-				java.util.List<Object> newValueList = new java.util.ArrayList<Object>();
-				newValueList.add(currentValue);
-				if (value instanceof java.util.Collection<?>) {
-					newValueList.addAll((java.util.Collection<?>) value);
-				} else {
-					newValueList.add(value);
-				}
-				options.put(key, newValueList);
-			}
-		} else {
-			options.put(key, value);
-		}
 	}
 	
 	/**
@@ -577,11 +664,9 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 		internalURIFragmentMap.clear();
 		getErrors().clear();
 		getWarnings().clear();
-		if (isMarkerCreationEnabled()) {
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper.unmark(this, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.UNKNOWN);
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper.unmark(this, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.SYNTAX_ERROR);
-			be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper.unmark(this, be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.UNRESOLVED_REFERENCE);
-		}
+		unmark(be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.UNKNOWN);
+		unmark(be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.SYNTAX_ERROR);
+		unmark(be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.UNRESOLVED_REFERENCE);
 		proxyCounter = 0;
 		resolverSwitch = null;
 	}
@@ -593,81 +678,89 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 	 * interfere when changing the list.
 	 */
 	public org.eclipse.emf.common.util.EList<org.eclipse.emf.ecore.EObject> getContents() {
+		if (terminateReload) {
+			// the contents' state is currently unclear
+			return new org.eclipse.emf.common.util.BasicEList<org.eclipse.emf.ecore.EObject>();
+		}
 		return new be.ac.vub.simplegt.resource.simplegt.util.SimplegtCopiedEObjectInternalEList((org.eclipse.emf.ecore.util.InternalEList<org.eclipse.emf.ecore.EObject>) super.getContents());
 	}
 	
 	/**
-	 * Returns the raw contents of this resource.
+	 * Returns the raw contents of this resource. In contrast to getContents(), this
+	 * methods does not return a copy of the content list, but the original list.
 	 */
 	public org.eclipse.emf.common.util.EList<org.eclipse.emf.ecore.EObject> getContentsInternal() {
+		if (terminateReload) {
+			// the contents' state is currently unclear
+			return new org.eclipse.emf.common.util.BasicEList<org.eclipse.emf.ecore.EObject>();
+		}
 		return super.getContents();
 	}
 	
+	/**
+	 * Returns all warnings that are associated with this resource.
+	 */
 	public org.eclipse.emf.common.util.EList<org.eclipse.emf.ecore.resource.Resource.Diagnostic> getWarnings() {
+		if (terminateReload) {
+			// the contents' state is currently unclear
+			return new org.eclipse.emf.common.util.BasicEList<org.eclipse.emf.ecore.resource.Resource.Diagnostic>();
+		}
 		return new be.ac.vub.simplegt.resource.simplegt.util.SimplegtCopiedEList<org.eclipse.emf.ecore.resource.Resource.Diagnostic>(super.getWarnings());
 	}
 	
+	/**
+	 * Returns all errors that are associated with this resource.
+	 */
 	public org.eclipse.emf.common.util.EList<org.eclipse.emf.ecore.resource.Resource.Diagnostic> getErrors() {
+		if (terminateReload) {
+			// the contents' state is currently unclear
+			return new org.eclipse.emf.common.util.BasicEList<org.eclipse.emf.ecore.resource.Resource.Diagnostic>();
+		}
 		return new be.ac.vub.simplegt.resource.simplegt.util.SimplegtCopiedEList<org.eclipse.emf.ecore.resource.Resource.Diagnostic>(super.getErrors());
 	}
 	
-	@SuppressWarnings("restriction")	
-	private void runValidators(org.eclipse.emf.ecore.EObject root) {
-		// checking constraints provided by EMF validator classes was disabled
+	protected void runValidators(org.eclipse.emf.ecore.EObject root) {
+		// checking constraints provided by EMF validator classes was disabled by option
+		// 'disableEValidators'.
 		
-		// check EMF validation constraints
-		// EMF validation does not work if OSGi is not running
-		// The EMF validation framework code throws a NPE if the validation plug-in is not
-		// loaded. This is a bug, which is fixed in the Helios release. Nonetheless, we
-		// need to catch the exception here.
-		if (org.eclipse.core.runtime.Platform.isRunning()) {
-			// The EMF validation framework code throws a NPE if the validation plug-in is not
-			// loaded. This is a workaround for bug 322079.
-			if (org.eclipse.emf.validation.internal.EMFModelValidationPlugin.getPlugin() != null) {
-				try {
-					org.eclipse.emf.validation.service.ModelValidationService service = org.eclipse.emf.validation.service.ModelValidationService.getInstance();
-					org.eclipse.emf.validation.service.IBatchValidator validator = service.<org.eclipse.emf.ecore.EObject, org.eclipse.emf.validation.service.IBatchValidator>newValidator(org.eclipse.emf.validation.model.EvaluationMode.BATCH);
-					validator.setIncludeLiveConstraints(true);
-					org.eclipse.core.runtime.IStatus status = validator.validate(root);
-					addStatus(status, root);
-				} catch (Throwable t) {
-					be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtPlugin.logError("Exception while checking contraints provided by EMF validator classes.", t);
-				}
-			}
-		}
-	}
-	
-	private void addStatus(org.eclipse.core.runtime.IStatus status, org.eclipse.emf.ecore.EObject root) {
-		java.util.List<org.eclipse.emf.ecore.EObject> causes = new java.util.ArrayList<org.eclipse.emf.ecore.EObject>();
-		causes.add(root);
-		if (status instanceof org.eclipse.emf.validation.model.ConstraintStatus) {
-			org.eclipse.emf.validation.model.ConstraintStatus constraintStatus = (org.eclipse.emf.validation.model.ConstraintStatus) status;
-			java.util.Set<org.eclipse.emf.ecore.EObject> resultLocus = constraintStatus.getResultLocus();
-			causes.clear();
-			causes.addAll(resultLocus);
-		}
-		boolean hasChildren = status.getChildren() != null && status.getChildren().length > 0;
-		// Ignore composite status objects that have children. The actual status
-		// information is then contained in the child objects.
-		if (!status.isMultiStatus() || !hasChildren) {
-			if (status.getSeverity() == org.eclipse.core.runtime.IStatus.ERROR) {
-				for (org.eclipse.emf.ecore.EObject cause : causes) {
-					addError(status.getMessage(), be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.ANALYSIS_PROBLEM, cause);
-				}
-			}
-			if (status.getSeverity() == org.eclipse.core.runtime.IStatus.WARNING) {
-				for (org.eclipse.emf.ecore.EObject cause : causes) {
-					addWarning(status.getMessage(), be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType.ANALYSIS_PROBLEM, cause);
-				}
-			}
-		}
-		for (org.eclipse.core.runtime.IStatus child : status.getChildren()) {
-			addStatus(child, root);
+		if (new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().isEclipsePlatformAvailable()) {
+			new be.ac.vub.simplegt.resource.simplegt.util.SimplegtEclipseProxy().checkEMFValidationConstraints(this, root);
 		}
 	}
 	
 	public be.ac.vub.simplegt.resource.simplegt.ISimplegtQuickFix getQuickFix(String quickFixContext) {
 		return quickFixMap.get(quickFixContext);
+	}
+	
+	protected void mark(be.ac.vub.simplegt.resource.simplegt.ISimplegtTextDiagnostic diagnostic) {
+		be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper markerHelper = getMarkerHelper();
+		if (markerHelper != null) {
+			markerHelper.mark(this, diagnostic);
+		}
+	}
+	
+	protected void unmark(org.eclipse.emf.ecore.EObject cause) {
+		be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper markerHelper = getMarkerHelper();
+		if (markerHelper != null) {
+			markerHelper.unmark(this, cause);
+		}
+	}
+	
+	protected void unmark(be.ac.vub.simplegt.resource.simplegt.SimplegtEProblemType analysisProblem) {
+		be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper markerHelper = getMarkerHelper();
+		if (markerHelper != null) {
+			markerHelper.unmark(this, analysisProblem);
+		}
+	}
+	
+	protected be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper getMarkerHelper() {
+		if (isMarkerCreationEnabled() && new be.ac.vub.simplegt.resource.simplegt.util.SimplegtRuntimeUtil().isEclipsePlatformAvailable()) {
+			if (markerHelper == null) {
+				markerHelper = new be.ac.vub.simplegt.resource.simplegt.mopp.SimplegtMarkerHelper();
+			}
+			return markerHelper;
+		}
+		return null;
 	}
 	
 	public boolean isMarkerCreationEnabled() {
@@ -676,4 +769,19 @@ public class SimplegtResource extends org.eclipse.emf.ecore.resource.impl.Resour
 		}
 		return !loadOptions.containsKey(be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.DISABLE_CREATING_MARKERS_FOR_PROBLEMS);
 	}
+	
+	protected boolean isLocationMapEnabled() {
+		if (loadOptions == null) {
+			return true;
+		}
+		return !loadOptions.containsKey(be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.DISABLE_LOCATION_MAP);
+	}
+	
+	protected boolean isLayoutInformationRecordingEnabled() {
+		if (loadOptions == null) {
+			return true;
+		}
+		return !loadOptions.containsKey(be.ac.vub.simplegt.resource.simplegt.ISimplegtOptions.DISABLE_LAYOUT_INFORMATION_RECORDING);
+	}
+	
 }
