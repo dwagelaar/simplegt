@@ -1,10 +1,11 @@
 -- Short Transformation Sequences
 -- see http://www.cs.bme.hu/~gervarro/publication/TUB-TR-05-EE17.pdf
 -- $Id$
-module STS;
+module STSWithTiming;
 
 metamodel TRACE : 'http://www.eclipse.org/m2m/atl/emftvm/2011/Trace';
 metamodel Mutex : 'http://soft.vub.ac.be/simplegt/2011/MutexA';
+metamodel "#native";
 transform M : Mutex, T : TRACE;
 
 context Mutex!Process def : reqCount : Integer = 10;
@@ -12,10 +13,20 @@ context Mutex!Process def : reqCount : Integer = 10;
 static def : processes : Sequence(Mutex!Process) =
 	Mutex!Process.allInstancesFrom('M');
 
+static def : currentTime() : String =
+	"#native"!"java::lang::System"::currentTimeMillis().toString();
+
+context OclAny def : timing : Sequence(String) =
+	Sequence{};
+
+unique rule endPhase0 {
+	to s : TRACE!TraceLinkSet (timing =~ Env::currentTime()."debug"('endPhase0'))
+}
+
 ---------- PHASE 1 ----------
 
 abstract rule phase1 {
-	not t : TRACE!TraceLink in T
+	not t : TRACE!TraceLink in T (timing =~ t.timing)
 }
 
 rule newRule extends phase1 {
@@ -35,7 +46,7 @@ rule mountRule extends phase1 {
 }
 
 rule endPhase1 extends mountRule {
-	to t : TRACE!TraceLink
+	to t : TRACE!TraceLink (timing =~ Env::currentTime()."debug"('endPhase1'))
 }
 
 ---------- PHASE 2 ----------
@@ -57,7 +68,7 @@ unique rule requestRule extends phase2 {
 }
 
 rule endPhase2 extends phase2 {
-	to s : TRACE!SourceElement
+	to s : TRACE!SourceElement (timing =~ Env::currentTime()."debug"('endPhase2'))
 }
 
 ---------- PHASE 3 ----------
@@ -92,4 +103,8 @@ rule giveRule extends phase3 {
 	to r : Mutex!Resource (token =~ p2),
 		p1 : Mutex!Process (next =~ p2),
 		p2 : Mutex!Process
+}
+
+unique rule endPhase3 extends phase3 {
+	to s : TRACE!SourceElement (timing =~ Env::currentTime()."debug"('endPhase3'))
 }

@@ -21,6 +21,9 @@ import org.eclipse.m2m.atl.emftvm.Metamodel;
 import org.eclipse.m2m.atl.emftvm.Model;
 import org.eclipse.m2m.atl.emftvm.util.DefaultModuleResolver;
 import org.eclipse.m2m.atl.emftvm.util.ModuleResolver;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.osgi.framework.Bundle;
 
 import be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage;
@@ -31,6 +34,7 @@ import be.ac.vub.simplegt.benchmarks.MutexB.MutexBPackage;
  * @see http://www.cs.bme.hu/~gervarro/benchmark/2.0/
  * @author <a href="mailto:dennis.wagelaar@vub.ac.be">Dennis Wagelaar</a>
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class STSBenchmark extends TestCase {
 
 	protected final Bundle bundle = Activator.getInstance().getBundleContext().getBundle();
@@ -143,7 +147,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * JIT warmup.
 	 */
-	public void testWarmup() {
+	@Test
+	public void test00Warmup() {
 		System.out.println("JIT warmup");
 		for (int i = 0; i < 2; i++) {
 			runBenchmark(
@@ -160,7 +165,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany10 benchmark.
 	 */
-	public void testSTSmany10() {
+	@Test
+	public void test01STSmany10() {
 		runBenchmark(
 				"STSmany10 average (ms), std. dev. (ms), iterations", 
 				"STS", 
@@ -173,7 +179,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany50 benchmark.
 	 */
-	public void testSTSmany50() {
+	@Test
+	public void test02STSmany50() {
 		runBenchmark(
 				"STSmany50 average (ms), std. dev. (ms), iterations", 
 				"STS50", 
@@ -186,7 +193,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany100 benchmark.
 	 */
-	public void testSTSmany100() {
+	@Test
+	public void test03STSmany100() {
 		runBenchmark(
 				"STSmany100 average (ms), std. dev. (ms), iterations", 
 				"STS100", 
@@ -199,7 +207,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany250 benchmark.
 	 */
-	public void testSTSmany250() {
+	@Test
+	public void test04STSmany250() {
 		runBenchmark(
 				"STSmany250 average (ms), std. dev. (ms), iterations", 
 				"STS250", 
@@ -212,7 +221,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany500 benchmark.
 	 */
-	public void testSTSmany500() {
+	@Test
+	public void test05STSmany500() {
 		runBenchmark(
 				"STSmany500 average (ms), std. dev. (ms), iterations", 
 				"STS500", 
@@ -225,7 +235,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany750 benchmark.
 	 */
-	public void testSTSmany750() {
+	@Test
+	public void test06STSmany750() {
 		runBenchmark(
 				"STSmany750 average (ms), std. dev. (ms), iterations", 
 				"STS750", 
@@ -238,7 +249,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany1000 benchmark.
 	 */
-	public void testSTSmany1000() {
+	@Test
+	public void test07STSmany1000() {
 		runBenchmark(
 				"STSmany1000 average (ms), std. dev. (ms), iterations", 
 				"STS1000", 
@@ -251,7 +263,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany2500 benchmark.
 	 */
-	public void testSTSmany2500() {
+	@Test
+	public void test08STSmany2500() {
 		runBenchmark(
 				"STSmany2500 average (ms), std. dev. (ms), iterations", 
 				"STS2500", 
@@ -264,7 +277,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany5000 benchmark.
 	 */
-	public void testSTSmany5000() {
+	@Test
+	public void test09STSmany5000() {
 		runBenchmark(
 				"STSmany5000 average (ms), std. dev. (ms), iterations", 
 				"STS5000", 
@@ -277,7 +291,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany7500 benchmark.
 	 */
-	public void testSTSmany7500() {
+	@Test
+	public void test10STSmany7500() {
 		runBenchmark(
 				"STSmany7500 average (ms), std. dev. (ms), iterations", 
 				"STS7500", 
@@ -290,7 +305,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSmany10000 benchmark.
 	 */
-	public void testSTSmany10000() {
+	@Test
+	public void test11STSmany10000() {
 		runBenchmark(
 				"STSmany10000 average (ms), std. dev. (ms), iterations", 
 				"STS10000", 
@@ -303,7 +319,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone10 benchmark.
 	 */
-	public void testSTSone10() {
+	@Test
+	public void test12STSone10() {
 		runBenchmark(
 				"STSone10 average (ms), std. dev. (ms), iterations", 
 				"STS", 
@@ -316,7 +333,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone50 benchmark.
 	 */
-	public void testSTSone50() {
+	@Test
+	public void test13STSone50() {
 		runBenchmark(
 				"STSone50 average (ms), std. dev. (ms), iterations", 
 				"STS50", 
@@ -329,7 +347,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone100 benchmark.
 	 */
-	public void testSTSone100() {
+	@Test
+	public void test14STSone100() {
 		runBenchmark(
 				"STSone100 average (ms), std. dev. (ms), iterations", 
 				"STS100", 
@@ -342,7 +361,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone250 benchmark.
 	 */
-	public void testSTSone250() {
+	@Test
+	public void test15STSone250() {
 		runBenchmark(
 				"STSone250 average (ms), std. dev. (ms), iterations", 
 				"STS250", 
@@ -355,7 +375,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone500 benchmark.
 	 */
-	public void testSTSone500() {
+	@Test
+	public void test16STSone500() {
 		runBenchmark(
 				"STSone500 average (ms), std. dev. (ms), iterations", 
 				"STS500", 
@@ -368,7 +389,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone750 benchmark.
 	 */
-	public void testSTSone750() {
+	@Test
+	public void test17STSone750() {
 		runBenchmark(
 				"STSone750 average (ms), std. dev. (ms), iterations", 
 				"STS750", 
@@ -381,7 +403,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone1000 benchmark.
 	 */
-	public void testSTSone1000() {
+	@Test
+	public void test18STSone1000() {
 		runBenchmark(
 				"STSone1000 average (ms), std. dev. (ms), iterations", 
 				"STS1000", 
@@ -394,7 +417,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone2500 benchmark.
 	 */
-	public void testSTSone2500() {
+	@Test
+	public void test19STSone2500() {
 		runBenchmark(
 				"STSone2500 average (ms), std. dev. (ms), iterations", 
 				"STS2500", 
@@ -407,7 +431,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone5000 benchmark.
 	 */
-	public void testSTSone5000() {
+	@Test
+	public void test20STSone5000() {
 		runBenchmark(
 				"STSone5000 average (ms), std. dev. (ms), iterations", 
 				"STS5000", 
@@ -420,7 +445,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone7500 benchmark.
 	 */
-	public void testSTSone7500() {
+	@Test
+	public void test21STSone7500() {
 		runBenchmark(
 				"STSone7500 average (ms), std. dev. (ms), iterations", 
 				"STS7500", 
@@ -433,7 +459,8 @@ public class STSBenchmark extends TestCase {
 	/**
 	 * Runs the STSone10000 benchmark.
 	 */
-	public void testSTSone10000() {
+	@Test
+	public void test22STSone10000() {
 		runBenchmark(
 				"STSone10000 average (ms), std. dev. (ms), iterations", 
 				"STS10000", 
