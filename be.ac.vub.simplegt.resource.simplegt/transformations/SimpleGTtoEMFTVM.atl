@@ -301,7 +301,13 @@ rule Module {
 	from s : SimpleGT!"simplegt::Module" in IN
 	to t : EMFTVM!Module (
 		name <- s.name,
-		sourceName <- s.name + '.simplegt',
+		sourceName <- 
+			let index : Integer = s.name.lastIndexOf('::') in
+			if index > 0 then
+				s.name.substring(index + 2, s.name.size()) + '.simplegt'
+			else
+				s.name + '.simplegt'
+			endif,
 		imports <- s.imports->collect(i | i.name),
 		inoutModels <- s.models,
 		rules <- s.elements->select(e | e.oclIsKindOf(SimpleGT!Rule)),
