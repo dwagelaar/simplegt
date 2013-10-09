@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="org.eclipselabs.simplegt.feature" version="0.0.0">
+      <category name="simplegt"/>
+   </feature>
+   <category-def name="simplegt" label="SimpleGT">
+      <description>
+         SimpleGT features.
+      </description>
+   </category-def>
+</site>
