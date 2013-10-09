@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtUIMetaInformation" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="simplegt" icon="icons/simplegt_editor_icon.gif" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor" name="SimpleGT Editor">
+			<contentTypeBinding contentTypeId="be.ac.vub.simplegt.resource.simplegt">
+			</contentTypeBinding>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtPreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Simplegt Text Editor" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPreferencePage" class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtSyntaxColoringPreferencePage" class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtSyntaxColoringPreferencePage" category="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPreferencePage">
+		</page>
+		<page name="Brackets" id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtBracketPreferencePage" class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtBracketPreferencePage" category="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtPreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="be.ac.vub.simplegt.resource.simplegt.ui.NewWizCategory" name="SimpleGT">
+		</category>
+		<wizard
+        category="be.ac.vub.simplegt.resource.simplegt.ui.NewWizCategory"
+        class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtNewFileWizard"
+        icon="/icons/simplegt_new_icon.gif"
+        id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewFileWizard"
+        name="New SimpleGT file">
+     <description>
+        Create a new SimpleGT file.
+     </description>
+		</wizard>
+		<wizard
+        category="be.ac.vub.simplegt.resource.simplegt.ui.NewWizCategory"
+        class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtNewProjectWizard"
+        icon="icons/simplegt_newprj_wiz.gif"
+        id="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtNewProjectWizard"
+        name="New SimpleGT project"
+        project="true">
+     <description>
+        Create a new SimpleGT project.
+     </description>
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtMarkerResolutionGenerator" markerType="be.ac.vub.simplegt.resource.simplegt.problem">
+		</markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtAnnotationModelFactory" extensions="simplegt">
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="be.ac.vub.simplegt.resource.simplegt" name=".simplegt File" base-type="org.eclipse.core.runtime.text" file-extensions="simplegt">
+		</content-type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="simplegt" id="be.ac.vub.simplegt.resource.simplegt.ui.provider">
+		</provider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="be.ac.vub.simplegt.resource.simplegt.ui.occurences">
+		</type>
+		<type name="be.ac.vub.simplegt.resource.simplegt.ui.occurences.declaration" super="be.ac.vub.simplegt.resource.simplegt.ui.occurences">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="be.ac.vub.simplegt.resource.simplegt.ui.occurences" label="Occurrences (in .simplegt files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="simplegt.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="simplegt.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="simplegt.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="simplegt.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="simplegt.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="simplegt.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="simplegt.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="simplegt.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="simplegt.occurrenceTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+		<specification annotationType="be.ac.vub.simplegt.resource.simplegt.ui.occurences.declaration" label="Declarations (in .simplegt files)" textPreferenceKey="simplegt.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="simplegt.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="simplegt.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="simplegt.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="simplegt.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="simplegt.declarationTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="be.ac.vub.simplegt.resource.simplegt.ui.debug.lineBreakpoint" markerType="be.ac.vub.simplegt.resource.simplegt.debug.lineBreakpoint.marker" super="org.eclipse.debug.core.breakpoint">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="be.ac.vub.simplegt.resource.simplegt.ui.debug.lineBreakpoint" label="Breakpoints (in .simplegt files)" icon="/icons/breakpoint_icon.gif" textPreferenceKey="be.ac.vub.simplegt.resource.simplegt.ui.lineBreakpoint" textPreferenceValue="false" highlightPreferenceKey="be.ac.vub.simplegt.resource.simplegt.ui.lineBreakpointHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="be.ac.vub.simplegt.resource.simplegt.ui.lineBreakpointIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="be.ac.vub.simplegt.resource.simplegt.ui.lineBreakpointIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="be.ac.vub.simplegt.resource.simplegt.ui.lineBreakpointColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="be.ac.vub.simplegt.resource.simplegt.ui.showLineBreakpointInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="be.ac.vub.simplegt.resource.simplegt.ui.isLineBreakpointGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="be.ac.vub.simplegt.resource.simplegt.ui.isLineBreakpointGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="be.ac.vub.simplegt.resource.simplegt.ui.lineBreakpointTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.adapters">
+		<factory adaptableType="org.eclipselabs.simplegt.resource.simplegt.ui.SimplegtEditor" class="org.eclipselabs.simplegt.resource.simplegt.ui.debug.SimplegtAdapterFactory">
+			<adapter type="org.eclipse.debug.ui.actions.IToggleBreakpointsTarget">
+			</adapter>
+		</factory>
+		<factory adaptableType="be.ac.vub.simplegt.resource.simplegt.debug.SimplegtDebugVariable" class="org.eclipselabs.simplegt.resource.simplegt.ui.debug.SimplegtAdapterFactory">
+			<adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IElementLabelProvider">
+			</adapter>
+		</factory>
+		<factory adaptableType="be.ac.vub.simplegt.resource.simplegt.debug.SimplegtDebugVariable" class="org.eclipselabs.simplegt.resource.simplegt.ui.debug.SimplegtAdapterFactory">
+			<adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IElementContentProvider">
+			</adapter>
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution id="be.ac.vub.simplegt.resource.simplegt.ui.RulerPopupActions" targetID="be.ac.vub.simplegt.resource.simplegt.EditorRuler">
+			<action id="be.ac.vub.simplegt.resource.simplegt.ui.toggleBreakpointAction" icon="icons/breakpoint_icon.gif" label="Toggle Breakpoint" class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate" menubarPath="debug">
+			</action>
+		</viewerContribution>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editorActions">
+		<editorContribution targetID="be.ac.vub.simplegt.resource.simplegt.ui.SimplegtEditor" id="be.ac.vub.simplegt.resource.simplegt.ui.BreakpointRulerActions">
+			<action id="be.ac.vub.simplegt.resource.simplegt.ui.debug.RulerToggleBreakpointAction" label="Add breakpoint" class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate" actionID="RulerDoubleClick">
+			</action>
+		</editorContribution>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.debugModelPresentations">
+		<debugModelPresentation id="be.ac.vub.simplegt.resource.simplegt.debugModel" class="org.eclipselabs.simplegt.resource.simplegt.ui.debug.SimplegtDebugModelPresentation">
+		</debugModelPresentation>
+	</extension>
+	
+</plugin>

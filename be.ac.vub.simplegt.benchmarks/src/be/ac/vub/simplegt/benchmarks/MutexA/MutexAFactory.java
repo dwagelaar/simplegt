@@ -13,40 +13,41 @@ import org.eclipse.emf.ecore.EFactory;
  * @see be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage
  * @generated
  */
-public interface MutexAFactory extends EFactory {
-	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	MutexAFactory eINSTANCE = be.ac.vub.simplegt.benchmarks.MutexA.impl.MutexAFactoryImpl.init();
+public interface MutexAFactory extends EFactory
+{
+  /**
+   * The singleton instance of the factory.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  MutexAFactory eINSTANCE = be.ac.vub.simplegt.benchmarks.MutexA.impl.MutexAFactoryImpl.init();
 
-	/**
-	 * Returns a new object of class '<em>Process</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Process</em>'.
-	 * @generated
-	 */
-	Process createProcess();
+  /**
+   * Returns a new object of class '<em>Process</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Process</em>'.
+   * @generated
+   */
+  Process createProcess();
 
-	/**
-	 * Returns a new object of class '<em>Resource</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource</em>'.
-	 * @generated
-	 */
-	Resource createResource();
+  /**
+   * Returns a new object of class '<em>Resource</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Resource</em>'.
+   * @generated
+   */
+  Resource createResource();
 
-	/**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
-	MutexAPackage getMutexAPackage();
+  /**
+   * Returns the package supported by this factory.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the package supported by this factory.
+   * @generated
+   */
+  MutexAPackage getMutexAPackage();
 
 } //MutexAFactory

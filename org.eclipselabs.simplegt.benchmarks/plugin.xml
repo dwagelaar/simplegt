@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ (C) 2011, Dennis Wagelaar, Vrije Universiteit Brussel
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://soft.vub.ac.be/simplegt/2011/MutexA"
+            class="org.eclipselabs.simplegt.benchmarks.MutexA.MutexAPackage"
+            genModel="metamodels/MutexA.genmodel"/>
+      <package
+            uri="http://soft.vub.ac.be/simplegt/2011/MutexB"
+            class="org.eclipselabs.simplegt.benchmarks.MutexB.MutexBPackage"
+            genModel="metamodels/MutexB.genmodel"/>
+   </extension>
+
+</plugin>

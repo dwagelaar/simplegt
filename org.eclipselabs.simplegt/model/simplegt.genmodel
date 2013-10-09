@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="(C) 2011-2013, Dennis Wagelaar, Vrije Universiteit Brussel"
+    modelDirectory="org.eclipselabs.simplegt/src-gen" editDirectory="/org.eclipselabs.simplegt.edit/src"
+    editorDirectory="/org.eclipselabs.simplegt.editor/src" modelPluginID="org.eclipselabs.simplegt"
+    modelName="Simplegt" editPluginClass="org.eclipselabs.simplegt.provider.SimplegtEditPlugin"
+    editorPluginClass="org.eclipselabs.simplegt.presentation.SimplegtEditorPlugin"
+    testSuiteClass="org.eclipselabs.simplegt.tests.SimplegtAllTests" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipselabs.simplegt.edit"
+    editorPluginID="org.eclipselabs.simplegt.editor" runtimeVersion="2.4" usedGenPackages="platform:/plugin/org.eclipselabs.simpleocl/metamodel/simpleocl.genmodel#//simpleocl">
+  <foreignModel>simplegt.ecore</foreignModel>
+  <genPackages prefix="Simplegt" basePackage="org.eclipselabs" disposableProviderFactory="true"
+      ecorePackage="simplegt.ecore#/">
+    <genClasses ecoreClass="simplegt.ecore#//Module">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Module/models"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Module/debug"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Rule/abstract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Rule/input"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Rule/nac"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Rule/output"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Rule/extends"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Rule/unique"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="simplegt.ecore#//InputElementPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//InputElementPattern/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//InPattern">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//InPattern/inputFor"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//NacPattern">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//NacPattern/nacFor"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//OutPattern">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//OutPattern/outputFor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//OutPattern/elements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="simplegt.ecore#//RuleElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplegt.ecore#//RuleElement/inModel"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//InputElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//InputElement/bindings"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//InputElement/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//OutputElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//OutputElement/bindings"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//OutputElement/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//Binding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Binding/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Binding/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//InputBinding">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//InputBinding/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//InputBinding/last"/>
+    </genClasses>
+    <genClasses ecoreClass="simplegt.ecore#//OutputBinding">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simplegt.ecore#//OutputBinding/element"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplegt.ecore#//OutputBinding/beforeElement"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

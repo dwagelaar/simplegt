@@ -4,6 +4,7 @@
 package be.ac.vub.simplegt.benchmarks.MutexA;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -23,37 +24,38 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Process extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Next</b></em>' reference list.
-	 * The list contents are of type {@link be.ac.vub.simplegt.benchmarks.MutexA.Process}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next</em>' reference list.
-	 * @see be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage#getProcess_Next()
-	 * @model
-	 * @generated
-	 */
-	EList<Process> getNext();
+public interface Process extends EObject
+{
+  /**
+   * Returns the value of the '<em><b>Next</b></em>' reference list.
+   * The list contents are of type {@link be.ac.vub.simplegt.benchmarks.MutexA.Process}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Next</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Next</em>' reference list.
+   * @see be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage#getProcess_Next()
+   * @model
+   * @generated
+   */
+  EList<Process> getNext();
 
-	/**
-	 * Returns the value of the '<em><b>Request</b></em>' reference list.
-	 * The list contents are of type {@link be.ac.vub.simplegt.benchmarks.MutexA.Resource}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Request</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Request</em>' reference list.
-	 * @see be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage#getProcess_Request()
-	 * @model
-	 * @generated
-	 */
-	EList<Resource> getRequest();
+  /**
+   * Returns the value of the '<em><b>Request</b></em>' reference list.
+   * The list contents are of type {@link be.ac.vub.simplegt.benchmarks.MutexA.Resource}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Request</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Request</em>' reference list.
+   * @see be.ac.vub.simplegt.benchmarks.MutexA.MutexAPackage#getProcess_Request()
+   * @model
+   * @generated
+   */
+  EList<Resource> getRequest();
 
 } // Process
