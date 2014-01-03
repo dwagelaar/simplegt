@@ -25,10 +25,16 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>org.eclipselabs.simplegt.resource.simplegt.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>be.ac.vub.simplegt.resource.simplegt.nature</nature>
+		<nature>org.eclipselabs.simplegt.resource.simplegt.nature</nature>
 	</natures>
 </projectDescription>

@@ -1,0 +1,801 @@
+!SESSION 2014-01-01 21:55:21.589 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_45
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=nl_BE
+Framework arguments:  -version 3 -port 60792 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames org.eclipselabs.simplegt.benchmarks.STSBenchmark -application org.eclipse.pde.junit.runtime.coretestapplication -testpluginname org.eclipselabs.simplegt.benchmarks
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog -version 3 -port 60792 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames org.eclipselabs.simplegt.benchmarks.STSBenchmark -application org.eclipse.pde.junit.runtime.coretestapplication -data /home/dennis/workspace4.2/../junit-workspace -dev file:/home/dennis/workspace4.2/.metadata/.plugins/org.eclipse.pde.core/pde-junit/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog -testpluginname org.eclipselabs.simplegt.benchmarks
+
+!ENTRY org.eclipse.osgi 2 0 2014-01-01 21:55:22.776
+!MESSAGE The plugin "org.apache.xerces" with the version "4.0.13" and location "reference:file:/home/dennis/Documents/Werk/Projects/PlatformKit/org.apache.xerces/" is an old style Eclipse 2.0 plugin with no OSGi bundle manifest.  Support for Eclipse 2.0 style plugins will be removed in a future release. Refer to the migration guide for details.
+
+!ENTRY org.eclipse.osgi 2 0 2014-01-01 21:55:23.768
+!MESSAGE The plugin "org.eclipse.m2m.atl.drivers.mdr4atl" with the version "3.2.0.qualifier" and location "reference:file:/home/dennis/Documents/Werk/Projects/org.eclipse.atl/plugins/org.eclipse.m2m.atl.drivers.mdr4atl/" is an old style Eclipse 2.0 plugin with no OSGi bundle manifest.  Support for Eclipse 2.0 style plugins will be removed in a future release. Refer to the migration guide for details.
+
+!ENTRY org.eclipse.osgi 2 0 2014-01-01 21:55:29.511
+!MESSAGE One or more bundles are not resolved because the following root constraints are not resolved:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.511
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.core.ui_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.core.ui 2 0 2014-01-01 21:55:29.512
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.512
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.editor.xml_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.editor.xml 2 0 2014-01-01 21:55:29.512
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.513
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.sonatype.m2e.mavenarchiver_0.15.0.201207090125-signed-20130612210623.jar was not resolved.
+!SUBENTRY 2 org.sonatype.m2e.mavenarchiver 2 0 2014-01-01 21:55:29.513
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.5))(&(osgi.ee=JavaSE)(version=1.6)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.513
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.launching_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.launching 2 0 2014-01-01 21:55:29.514
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.514
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.jdt_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.jdt 2 0 2014-01-01 21:55:29.514
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.515
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.scm_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.scm 2 0 2014-01-01 21:55:29.515
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.515
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.discovery_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.discovery 2 0 2014-01-01 21:55:29.516
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.516
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.wst.wsdl.validation_1.1.600.v201203081939.jar was not resolved.
+!SUBENTRY 2 org.eclipse.wst.wsdl.validation 2 0 2014-01-01 21:55:29.516
+!MESSAGE Missing required bundle org.apache.xerces_[2.8.0,3.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.517
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.wtp.overlay.ui_1.0.1.20130911-1545.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.wtp.overlay.ui 2 0 2014-01-01 21:55:29.517
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.5))(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.517
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.wst.xml.core_1.1.801.v201308100603.jar was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xml.core 2 0 2014-01-01 21:55:29.518
+!MESSAGE Missing required bundle org.apache.xerces_[2.9.0,3.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.518
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.wst.css.core_1.1.701.v201307311518.jar was not resolved.
+!SUBENTRY 2 org.eclipse.wst.css.core 2 0 2014-01-01 21:55:29.518
+!MESSAGE Missing required bundle org.apache.xerces_[2.9.0,3.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.519
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.wtp.overlay_1.0.1.20130911-1545.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.wtp.overlay 2 0 2014-01-01 21:55:29.519
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.519
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.wst.wsdl_1.2.300.v201109010430.jar was not resolved.
+!SUBENTRY 2 org.eclipse.wst.wsdl 2 0 2014-01-01 21:55:29.520
+!MESSAGE Missing required bundle org.apache.xerces_[2.8.0,3.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.520
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.jst.ws.consumption.ui_1.1.701.v201308281607.jar was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.520
+!MESSAGE Missing required bundle org.apache.xerces_[2.8.0,3.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.521
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.refactoring_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.refactoring 2 0 2014-01-01 21:55:29.521
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.521
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.editor_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.editor 2 0 2014-01-01 21:55:29.522
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.522
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.logback.appender_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.logback.appender 2 0 2014-01-01 21:55:29.523
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.523
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.sonatype.m2e.buildhelper_0.15.0.201206251206.jar was not resolved.
+!SUBENTRY 2 org.sonatype.m2e.buildhelper 2 0 2014-01-01 21:55:29.523
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.5))(&(osgi.ee=JavaSE)(version=1.6)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.524
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.wtp_1.0.1.20130911-1545.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.524
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.524
+!MESSAGE Bundle reference:file:/opt/media/apps/eclipse-4.2/plugins/org.eclipse.m2e.model.edit_1.4.0.20130601-0317.jar was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.model.edit 2 0 2014-01-01 21:55:29.525
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+
+!ENTRY org.eclipse.osgi 2 0 2014-01-01 21:55:29.705
+!MESSAGE The following is a complete list of bundles which are not resolved, see the prior log entry for the root cause if it exists:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.705
+!MESSAGE Bundle org.eclipse.jst.ejb.ui_1.1.800.v201303152000 [557] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ejb.ui 2 0 2014-01-01 21:55:29.705
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ejb.ui 2 0 2014-01-01 21:55:29.705
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ejb.ui 2 0 2014-01-01 21:55:29.706
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.ejb.ui 2 0 2014-01-01 21:55:29.706
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ejb.ui 2 0 2014-01-01 21:55:29.706
+!MESSAGE Missing required bundle org.eclipse.wst.web.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ejb.ui 2 0 2014-01-01 21:55:29.706
+!MESSAGE Missing required bundle org.eclipse.jst.jee.ui_[1.0.100,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.707
+!MESSAGE Bundle org.eclipse.jst.j2ee_1.1.701.v201308301800 [559] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee 2 0 2014-01-01 21:55:29.707
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee 2 0 2014-01-01 21:55:29.707
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.707
+!MESSAGE Bundle org.eclipse.jst.j2ee.core_1.3.0.v201306042200 [560] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.core 2 0 2014-01-01 21:55:29.708
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.708
+!MESSAGE Bundle org.eclipse.jst.j2ee.ejb_1.1.700.v201305012100 [562] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb 2 0 2014-01-01 21:55:29.708
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.501,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb 2 0 2014-01-01 21:55:29.708
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb 2 0 2014-01-01 21:55:29.709
+!MESSAGE Missing required bundle org.eclipse.jst.jee_[1.0.0,1.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.709
+!MESSAGE Bundle org.eclipse.jst.j2ee.ejb.annotation.model_1.1.300.v201003112036 [563] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotation.model 2 0 2014-01-01 21:55:29.709
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotation.model 2 0 2014-01-01 21:55:29.709
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotation.model 2 0 2014-01-01 21:55:29.710
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.710
+!MESSAGE Bundle org.eclipse.jst.j2ee.ejb.annotations.emitter_1.1.200.v200909290826 [564] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.emitter 2 0 2014-01-01 21:55:29.710
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.emitter 2 0 2014-01-01 21:55:29.710
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.emitter 2 0 2014-01-01 21:55:29.710
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb.annotation.model_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.711
+!MESSAGE Bundle org.eclipse.jst.j2ee.ejb.annotations.ui_1.1.200.v201004290730 [565] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.ui 2 0 2014-01-01 21:55:29.711
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.ui 2 0 2014-01-01 21:55:29.711
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.ui 2 0 2014-01-01 21:55:29.711
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.ui 2 0 2014-01-01 21:55:29.712
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.ui 2 0 2014-01-01 21:55:29.712
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb.annotation.model_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.ui 2 0 2014-01-01 21:55:29.712
+!MESSAGE Missing required bundle org.eclipse.jst.ejb.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.ui 2 0 2014-01-01 21:55:29.712
+!MESSAGE Missing required bundle org.eclipse.wst.web.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.ui 2 0 2014-01-01 21:55:29.713
+!MESSAGE Missing optionally required bundle org.eclipse.datatools.connectivity_0.0.0.
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.ui 2 0 2014-01-01 21:55:29.713
+!MESSAGE Missing optionally required bundle org.eclipse.datatools.connectivity.ui.dse_0.0.0.
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.713
+!MESSAGE Bundle org.eclipse.jst.j2ee.ejb.annotations.xdoclet_1.2.200.v201103302125 [566] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.xdoclet 2 0 2014-01-01 21:55:29.713
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb.annotations.emitter_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.xdoclet 2 0 2014-01-01 21:55:29.714
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.xdoclet 2 0 2014-01-01 21:55:29.714
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.xdoclet 2 0 2014-01-01 21:55:29.714
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.xdoclet 2 0 2014-01-01 21:55:29.714
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ejb.annotations.xdoclet 2 0 2014-01-01 21:55:29.715
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb.annotation.model_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.715
+!MESSAGE Bundle org.eclipse.jst.j2ee.jca_1.1.700.v201305311500 [568] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.jca 2 0 2014-01-01 21:55:29.715
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.501,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.jca 2 0 2014-01-01 21:55:29.715
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.3.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.715
+!MESSAGE Bundle org.eclipse.jst.j2ee.jca.ui_1.1.500.v201304242200 [569] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.jca.ui 2 0 2014-01-01 21:55:29.716
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.jca.ui 2 0 2014-01-01 21:55:29.716
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.jca.ui 2 0 2014-01-01 21:55:29.716
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.jca_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.jca.ui 2 0 2014-01-01 21:55:29.716
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.jca.ui 2 0 2014-01-01 21:55:29.717
+!MESSAGE Missing required bundle org.eclipse.wst.web.ui_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.717
+!MESSAGE Bundle org.eclipse.jst.j2ee.navigator.ui_1.1.600.v201203142300 [570] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.navigator.ui 2 0 2014-01-01 21:55:29.717
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.navigator.ui 2 0 2014-01-01 21:55:29.717
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.navigator.ui 2 0 2014-01-01 21:55:29.718
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.navigator.ui 2 0 2014-01-01 21:55:29.718
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.jca.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.navigator.ui 2 0 2014-01-01 21:55:29.718
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.navigator.ui 2 0 2014-01-01 21:55:29.718
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.jca_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.navigator.ui 2 0 2014-01-01 21:55:29.719
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.719
+!MESSAGE Bundle org.eclipse.jst.j2ee.ui_1.1.700.v201304172200 [571] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.ui 2 0 2014-01-01 21:55:29.719
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.501,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ui 2 0 2014-01-01 21:55:29.719
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ui 2 0 2014-01-01 21:55:29.720
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.jca_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ui 2 0 2014-01-01 21:55:29.720
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ui 2 0 2014-01-01 21:55:29.720
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ui 2 0 2014-01-01 21:55:29.720
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb.annotation.model_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ui 2 0 2014-01-01 21:55:29.721
+!MESSAGE Missing required bundle org.eclipse.wst.web.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.ui 2 0 2014-01-01 21:55:29.721
+!MESSAGE Missing required bundle org.eclipse.jst.jee_[1.0.0,1.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.721
+!MESSAGE Bundle org.eclipse.jst.j2ee.web_1.1.700.v201305311500 [572] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.web 2 0 2014-01-01 21:55:29.721
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.501,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.web 2 0 2014-01-01 21:55:29.721
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.3.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.web 2 0 2014-01-01 21:55:29.722
+!MESSAGE Missing required bundle org.eclipse.jst.jee_[1.0.100,1.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.722
+!MESSAGE Bundle org.eclipse.jst.j2ee.webservice_1.1.400.v201004110600 [573] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice 2 0 2014-01-01 21:55:29.722
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice 2 0 2014-01-01 21:55:29.722
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice 2 0 2014-01-01 21:55:29.723
+!MESSAGE Missing required bundle org.eclipse.wst.ws.parser_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice 2 0 2014-01-01 21:55:29.723
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.723
+!MESSAGE Bundle org.eclipse.jst.j2ee.webservice.ui_1.1.500.v201105122000 [574] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice.ui 2 0 2014-01-01 21:55:29.723
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice.ui 2 0 2014-01-01 21:55:29.724
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice.ui 2 0 2014-01-01 21:55:29.724
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice.ui 2 0 2014-01-01 21:55:29.724
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.webservice_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice.ui 2 0 2014-01-01 21:55:29.724
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.webservice.ui 2 0 2014-01-01 21:55:29.725
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.navigator.ui_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.725
+!MESSAGE Bundle org.eclipse.jst.j2ee.xdoclet.runtime_1.1.300.v201004280700 [575] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.j2ee.xdoclet.runtime 2 0 2014-01-01 21:55:29.725
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb.annotations.xdoclet_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.j2ee.xdoclet.runtime 2 0 2014-01-01 21:55:29.725
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb.annotation.model_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.726
+!MESSAGE Bundle org.eclipse.jst.jee_1.0.600.v201305131500 [576] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jee 2 0 2014-01-01 21:55:29.726
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee 2 0 2014-01-01 21:55:29.726
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.3.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.jee 2 0 2014-01-01 21:55:29.726
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.jca_[1.1.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.726
+!MESSAGE Bundle org.eclipse.jst.jee.ejb_1.0.400.v201305070000 [577] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jee.ejb 2 0 2014-01-01 21:55:29.727
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ejb 2 0 2014-01-01 21:55:29.727
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ejb 2 0 2014-01-01 21:55:29.727
+!MESSAGE Missing required bundle org.eclipse.jst.jee_[1.0.0,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ejb 2 0 2014-01-01 21:55:29.727
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.728
+!MESSAGE Bundle org.eclipse.jst.jee.ui_1.0.600.v201304080956 [578] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jee.ui 2 0 2014-01-01 21:55:29.728
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ui 2 0 2014-01-01 21:55:29.728
+!MESSAGE Missing required bundle org.eclipse.jst.jee_[1.0.0,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ui 2 0 2014-01-01 21:55:29.728
+!MESSAGE Missing required bundle org.eclipse.wst.web.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ui 2 0 2014-01-01 21:55:29.729
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ui 2 0 2014-01-01 21:55:29.729
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ui 2 0 2014-01-01 21:55:29.729
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.103,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ui 2 0 2014-01-01 21:55:29.730
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.102,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ui 2 0 2014-01-01 21:55:29.730
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.navigator.ui_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.jee.ui 2 0 2014-01-01 21:55:29.730
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.jca_[1.1.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.730
+!MESSAGE Bundle org.eclipse.jst.jee.web_1.0.400.v201305070100 [579] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.jee.web 2 0 2014-01-01 21:55:29.731
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee.web 2 0 2014-01-01 21:55:29.731
+!MESSAGE Missing required bundle org.eclipse.jst.jee_[1.0.0,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.jee.web 2 0 2014-01-01 21:55:29.731
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.jee.web 2 0 2014-01-01 21:55:29.732
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.3.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.732
+!MESSAGE Bundle org.eclipse.jst.servlet.ui_1.1.700.v201303151600 [592] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.servlet.ui 2 0 2014-01-01 21:55:29.732
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.servlet.ui 2 0 2014-01-01 21:55:29.733
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.servlet.ui 2 0 2014-01-01 21:55:29.733
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.3.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.servlet.ui 2 0 2014-01-01 21:55:29.733
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.servlet.ui 2 0 2014-01-01 21:55:29.734
+!MESSAGE Missing required bundle org.eclipse.wst.web.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.servlet.ui 2 0 2014-01-01 21:55:29.734
+!MESSAGE Missing required bundle org.eclipse.jst.jee.ui_[1.0.100,1.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.734
+!MESSAGE Bundle org.eclipse.jst.ws_1.0.600.v201108242234 [594] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws 2 0 2014-01-01 21:55:29.735
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.ws 2 0 2014-01-01 21:55:29.735
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.ws 2 0 2014-01-01 21:55:29.735
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws 2 0 2014-01-01 21:55:29.735
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws 2 0 2014-01-01 21:55:29.736
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.736
+!MESSAGE Bundle org.eclipse.jst.ws.axis.consumption.core_1.0.407.v201104071820 [595] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.core 2 0 2014-01-01 21:55:29.736
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.core 2 0 2014-01-01 21:55:29.737
+!MESSAGE Missing required bundle org.eclipse.jst.ws_[1.0.101,1.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.737
+!MESSAGE Bundle org.eclipse.jst.ws.axis.consumption.ui_1.0.700.v201204181727 [596] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.ui 2 0 2014-01-01 21:55:29.737
+!MESSAGE Missing required bundle org.eclipse.wst.ws.parser_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.ui 2 0 2014-01-01 21:55:29.738
+!MESSAGE Missing required bundle org.eclipse.jst.ws.consumption.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.ui 2 0 2014-01-01 21:55:29.738
+!MESSAGE Missing required bundle org.eclipse.jst.ws_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.ui 2 0 2014-01-01 21:55:29.738
+!MESSAGE Missing required bundle org.eclipse.jst.ws.axis.consumption.core_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.ui 2 0 2014-01-01 21:55:29.738
+!MESSAGE Missing required bundle org.eclipse.jst.ws.ui_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.ui 2 0 2014-01-01 21:55:29.739
+!MESSAGE Missing required bundle org.eclipse.jst.ws.consumption_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.ui 2 0 2014-01-01 21:55:29.739
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.ui 2 0 2014-01-01 21:55:29.739
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.consumption.ui 2 0 2014-01-01 21:55:29.740
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.740
+!MESSAGE Bundle org.eclipse.jst.ws.axis.creation.ui_1.0.750.v201204120428 [597] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.740
+!MESSAGE Missing required bundle org.eclipse.wst.ws.parser_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.740
+!MESSAGE Missing required bundle org.eclipse.jst.ws_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.741
+!MESSAGE Missing required bundle org.eclipse.jst.ws.consumption.ui_[1.1.300,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.741
+!MESSAGE Missing required bundle org.eclipse.jst.ws.consumption_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.741
+!MESSAGE Missing required bundle org.eclipse.jst.ws.ui_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.742
+!MESSAGE Missing required bundle org.eclipse.jst.ws.axis.consumption.core_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.742
+!MESSAGE Missing required bundle org.eclipse.jst.ws.axis.consumption.ui_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.742
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.742
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.743
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.743
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.743
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.ws.axis.creation.ui 2 0 2014-01-01 21:55:29.744
+!MESSAGE Missing required bundle org.eclipse.jst.jee_[1.0.300,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.744
+!MESSAGE Bundle org.eclipse.jst.ws.consumption_1.0.701.v201212112014 [600] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.consumption 2 0 2014-01-01 21:55:29.744
+!MESSAGE Missing required bundle org.eclipse.jst.ws_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption 2 0 2014-01-01 21:55:29.744
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption 2 0 2014-01-01 21:55:29.745
+!MESSAGE Missing required bundle org.eclipse.wst.ws.parser_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption 2 0 2014-01-01 21:55:29.745
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption 2 0 2014-01-01 21:55:29.745
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption 2 0 2014-01-01 21:55:29.745
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption 2 0 2014-01-01 21:55:29.746
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption 2 0 2014-01-01 21:55:29.746
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.746
+!MESSAGE Bundle org.eclipse.jst.ws.consumption.ui_1.1.701.v201308281607 [602] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.746
+!MESSAGE Missing required bundle org.apache.xerces_[2.8.0,3.0.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.747
+!MESSAGE Missing required bundle org.eclipse.wst.ws.parser_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.747
+!MESSAGE Missing required bundle org.eclipse.wst.ws.explorer_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.747
+!MESSAGE Missing required bundle org.eclipse.jst.ws_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.747
+!MESSAGE Missing required bundle org.eclipse.jst.ws.ui_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.747
+!MESSAGE Missing required bundle org.eclipse.jst.ws.consumption_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.748
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.748
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.748
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.748
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.749
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.749
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.749
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.webservice_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.749
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.webservice.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.749
+!MESSAGE Missing required bundle org.eclipse.wst.ws.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.consumption.ui 2 0 2014-01-01 21:55:29.750
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl.validation_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.750
+!MESSAGE Bundle org.eclipse.jst.ws.creation.ejb.ui_1.0.201.v201004211805 [604] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ejb.ui 2 0 2014-01-01 21:55:29.750
+!MESSAGE Missing required bundle org.eclipse.jst.ws.consumption.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ejb.ui 2 0 2014-01-01 21:55:29.750
+!MESSAGE Missing required bundle org.eclipse.jst.ws.consumption_[1.0.304,1.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.750
+!MESSAGE Bundle org.eclipse.jst.ws.creation.ui_1.0.800.v201304171447 [605] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.751
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.751
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.751
+!MESSAGE Missing required bundle org.eclipse.wst.ws.explorer_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.751
+!MESSAGE Missing required bundle org.eclipse.jst.ws_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.751
+!MESSAGE Missing required bundle org.eclipse.jst.ws.consumption_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.752
+!MESSAGE Missing required bundle org.eclipse.wst.ws.parser_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.752
+!MESSAGE Missing required bundle org.eclipse.jst.ws.ui_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.752
+!MESSAGE Missing required bundle org.eclipse.jst.ws.consumption.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.752
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.752
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.753
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.creation.ui 2 0 2014-01-01 21:55:29.753
+!MESSAGE Missing required bundle org.eclipse.wst.ws.ui_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.753
+!MESSAGE Bundle org.eclipse.jst.ws.jaxrs.core_1.0.501.v201309050320 [608] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.jaxrs.core 2 0 2014-01-01 21:55:29.753
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_[1.1.400,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.jaxrs.core 2 0 2014-01-01 21:55:29.754
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.400,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.jaxrs.core 2 0 2014-01-01 21:55:29.754
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.2.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.754
+!MESSAGE Bundle org.eclipse.jst.ws.jaxrs.ui_1.0.601.v201309040304 [609] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.jaxrs.ui 2 0 2014-01-01 21:55:29.754
+!MESSAGE Missing required bundle org.eclipse.jst.ws.jaxrs.core_[1.0.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.ws.jaxrs.ui 2 0 2014-01-01 21:55:29.754
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.400,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.ws.jaxrs.ui 2 0 2014-01-01 21:55:29.755
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.2.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.755
+!MESSAGE Bundle org.eclipse.jst.ws.uddiregistry_1.0.500.v201004211805 [610] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.uddiregistry 2 0 2014-01-01 21:55:29.755
+!MESSAGE Missing required bundle org.eclipse.jst.ws.ui_[1.0.100,1.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.755
+!MESSAGE Bundle org.eclipse.jst.ws.ui_1.0.403.v201004211805 [611] was not resolved.
+!SUBENTRY 2 org.eclipse.jst.ws.ui 2 0 2014-01-01 21:55:29.755
+!MESSAGE Missing required bundle org.eclipse.jst.ws_[1.0.101,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.ui 2 0 2014-01-01 21:55:29.756
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.ui 2 0 2014-01-01 21:55:29.756
+!MESSAGE Missing required bundle org.eclipse.wst.ws.explorer_[1.0.204,1.1.0).
+!SUBENTRY 2 org.eclipse.jst.ws.ui 2 0 2014-01-01 21:55:29.756
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_[1.1.0,2.0.0).
+!SUBENTRY 2 org.eclipse.jst.ws.ui 2 0 2014-01-01 21:55:29.756
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.ui 2 0 2014-01-01 21:55:29.757
+!MESSAGE Missing required bundle org.eclipse.wst.ws.ui_[1.1.0,1.2.0).
+!SUBENTRY 2 org.eclipse.jst.ws.ui 2 0 2014-01-01 21:55:29.757
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.757
+!MESSAGE Bundle org.eclipse.m2e.core.ui_1.4.0.20130601-0317 [616] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.core.ui 2 0 2014-01-01 21:55:29.757
+!MESSAGE Missing required bundle org.eclipse.m2e.model.edit_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.core.ui 2 0 2014-01-01 21:55:29.757
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.758
+!MESSAGE Bundle org.eclipse.m2e.discovery_1.4.0.20130601-0317 [617] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.discovery 2 0 2014-01-01 21:55:29.758
+!MESSAGE Missing required bundle org.eclipse.m2e.core.ui_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.discovery 2 0 2014-01-01 21:55:29.758
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.758
+!MESSAGE Bundle org.eclipse.m2e.editor_1.4.0.20130601-0317 [618] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.editor 2 0 2014-01-01 21:55:29.759
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.editor 2 0 2014-01-01 21:55:29.759
+!MESSAGE Missing required bundle org.eclipse.m2e.editor.xml_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.editor 2 0 2014-01-01 21:55:29.759
+!MESSAGE Missing required bundle org.eclipse.m2e.core.ui_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.editor 2 0 2014-01-01 21:55:29.759
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.759
+!MESSAGE Bundle org.eclipse.m2e.editor.xml_1.4.0.20130601-0317 [619] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.editor.xml 2 0 2014-01-01 21:55:29.760
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.editor.xml 2 0 2014-01-01 21:55:29.760
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.editor.xml 2 0 2014-01-01 21:55:29.760
+!MESSAGE Missing required bundle org.eclipse.m2e.core.ui_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.editor.xml 2 0 2014-01-01 21:55:29.760
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.760
+!MESSAGE Bundle org.eclipse.m2e.jdt_1.4.0.20130601-0317 [620] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.jdt 2 0 2014-01-01 21:55:29.761
+!MESSAGE Missing required bundle org.eclipse.m2e.core.ui_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.jdt 2 0 2014-01-01 21:55:29.761
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.761
+!MESSAGE Bundle org.eclipse.m2e.launching_1.4.0.20130601-0317 [621] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.launching 2 0 2014-01-01 21:55:29.761
+!MESSAGE Missing required bundle org.eclipse.m2e.core.ui_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.launching 2 0 2014-01-01 21:55:29.761
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.762
+!MESSAGE Bundle org.eclipse.m2e.lifecyclemapping.defaults_1.4.0.20130601-0317 [622] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.lifecyclemapping.defaults 2 0 2014-01-01 21:55:29.762
+!MESSAGE Missing required bundle org.eclipse.m2e.jdt_[1.4.0,1.5.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.762
+!MESSAGE Bundle org.eclipse.m2e.logback.appender_1.4.0.20130601-0317 [623] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.logback.appender 2 0 2014-01-01 21:55:29.762
+!MESSAGE Missing required bundle org.eclipse.m2e.core.ui_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.logback.appender 2 0 2014-01-01 21:55:29.763
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.763
+!MESSAGE Bundle org.eclipse.m2e.model.edit_1.4.0.20130601-0317 [627] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.model.edit 2 0 2014-01-01 21:55:29.763
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.model.edit 2 0 2014-01-01 21:55:29.763
+!MESSAGE Missing required bundle org.eclipse.wst.xsd.core_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.model.edit 2 0 2014-01-01 21:55:29.763
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.764
+!MESSAGE Bundle org.eclipse.m2e.refactoring_1.4.0.20130601-0317 [628] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.refactoring 2 0 2014-01-01 21:55:29.764
+!MESSAGE Missing required bundle org.eclipse.m2e.model.edit_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.refactoring 2 0 2014-01-01 21:55:29.764
+!MESSAGE Missing required bundle org.eclipse.m2e.core.ui_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.refactoring 2 0 2014-01-01 21:55:29.764
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.764
+!MESSAGE Bundle org.eclipse.m2e.scm_1.4.0.20130601-0317 [629] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.scm 2 0 2014-01-01 21:55:29.765
+!MESSAGE Missing required bundle org.eclipse.m2e.core.ui_[1.4.0,1.5.0).
+!SUBENTRY 2 org.eclipse.m2e.scm 2 0 2014-01-01 21:55:29.765
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.765
+!MESSAGE Bundle org.eclipse.m2e.wtp_1.0.1.20130911-1545 [630] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.765
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.web_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.766
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.766
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.core_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.766
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.ejb_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.766
+!MESSAGE Missing required bundle org.eclipse.m2e.jdt_[1.4.0,2.0.0).
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.767
+!MESSAGE Missing required bundle org.eclipse.jst.jee_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.767
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee.jca_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.767
+!MESSAGE Missing required bundle org.eclipse.m2e.wtp.overlay_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.767
+!MESSAGE Missing required bundle org.sonatype.m2e.mavenarchiver_0.14.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.767
+!MESSAGE Missing required bundle org.eclipse.jst.jee.web_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.768
+!MESSAGE Missing required bundle org.eclipse.jst.jee.ejb_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp 2 0 2014-01-01 21:55:29.768
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.768
+!MESSAGE Bundle org.eclipse.m2e.wtp.overlay_1.0.1.20130911-1545 [631] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.wtp.overlay 2 0 2014-01-01 21:55:29.768
+!MESSAGE Missing required bundle org.eclipse.jst.j2ee_1.1.400.
+!SUBENTRY 2 org.eclipse.m2e.wtp.overlay 2 0 2014-01-01 21:55:29.768
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.769
+!MESSAGE Bundle org.eclipse.m2e.wtp.overlay.ui_1.0.1.20130911-1545 [632] was not resolved.
+!SUBENTRY 2 org.eclipse.m2e.wtp.overlay.ui 2 0 2014-01-01 21:55:29.769
+!MESSAGE Missing required bundle org.eclipse.m2e.wtp.overlay_0.0.0.
+!SUBENTRY 2 org.eclipse.m2e.wtp.overlay.ui 2 0 2014-01-01 21:55:29.769
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.5))(&(osgi.ee=JavaSE)(version=1.6))(&(osgi.ee=JavaSE)(version=1.7)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.769
+!MESSAGE Bundle org.eclipse.wst.css.core_1.1.701.v201307311518 [911] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.css.core 2 0 2014-01-01 21:55:29.769
+!MESSAGE Missing required bundle org.apache.xerces_[2.9.0,3.0.0).
+!SUBENTRY 2 org.eclipse.wst.css.core 2 0 2014-01-01 21:55:29.770
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.770
+!MESSAGE Bundle org.eclipse.wst.css.ui_1.0.801.v201307171524 [912] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.css.ui 2 0 2014-01-01 21:55:29.770
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.1.100,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.css.ui 2 0 2014-01-01 21:55:29.770
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.300,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.css.ui 2 0 2014-01-01 21:55:29.770
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.400,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.css.ui 2 0 2014-01-01 21:55:29.770
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.771
+!MESSAGE Bundle org.eclipse.wst.dtd.core_1.1.700.v201210082138 [914] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.dtd.core 2 0 2014-01-01 21:55:29.771
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.300,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.771
+!MESSAGE Bundle org.eclipse.wst.dtd.ui_1.0.801.v201308100603 [915] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.dtd.ui 2 0 2014-01-01 21:55:29.771
+!MESSAGE Missing required bundle org.eclipse.wst.dtd.core_[1.1.200,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.dtd.ui 2 0 2014-01-01 21:55:29.771
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.300,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.dtd.ui 2 0 2014-01-01 21:55:29.772
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.0.400,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.772
+!MESSAGE Bundle org.eclipse.wst.html.core_1.1.701.v201307311532 [918] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.html.core 2 0 2014-01-01 21:55:29.772
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.html.core 2 0 2014-01-01 21:55:29.772
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.400,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.772
+!MESSAGE Bundle org.eclipse.wst.html.ui_1.0.801.v201307171524 [919] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2014-01-01 21:55:29.773
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.1.100,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2014-01-01 21:55:29.773
+!MESSAGE Missing required bundle org.eclipse.wst.css.ui_[1.0.500,1.1.0).
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2014-01-01 21:55:29.773
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.400,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2014-01-01 21:55:29.773
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.400,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.html.ui 2 0 2014-01-01 21:55:29.773
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.774
+!MESSAGE Bundle org.eclipse.wst.jsdt.web.core_1.0.700.v201307162035 [937] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.jsdt.web.core 2 0 2014-01-01 21:55:29.774
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,2.0.0).
+!SUBENTRY 2 org.eclipse.wst.jsdt.web.core 2 0 2014-01-01 21:55:29.775
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.400,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.775
+!MESSAGE Bundle org.eclipse.wst.jsdt.web.ui_1.0.700.v201308282108 [938] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.jsdt.web.ui 2 0 2014-01-01 21:55:29.775
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.1.100,2.0.0).
+!SUBENTRY 2 org.eclipse.wst.jsdt.web.ui 2 0 2014-01-01 21:55:29.775
+!MESSAGE Missing required bundle org.eclipse.wst.jsdt.web.core_[1.0.300,2.0.0).
+!SUBENTRY 2 org.eclipse.wst.jsdt.web.ui 2 0 2014-01-01 21:55:29.775
+!MESSAGE Missing required bundle org.eclipse.wst.css.core_[1.1.400,2.0.0).
+!SUBENTRY 2 org.eclipse.wst.jsdt.web.ui 2 0 2014-01-01 21:55:29.776
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,2.0.0).
+!SUBENTRY 2 org.eclipse.wst.jsdt.web.ui 2 0 2014-01-01 21:55:29.776
+!MESSAGE Missing required bundle org.eclipse.wst.html.ui_[1.0.500,2.0.0).
+!SUBENTRY 2 org.eclipse.wst.jsdt.web.ui 2 0 2014-01-01 21:55:29.776
+!MESSAGE Missing required bundle org.eclipse.wst.html.core_[1.1.400,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.776
+!MESSAGE Bundle org.eclipse.wst.standard.schemas_1.0.700.v201304171716 [952] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.standard.schemas 2 0 2014-01-01 21:55:29.776
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,2.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.777
+!MESSAGE Bundle org.eclipse.wst.web.ui_1.1.600.v201109220400 [957] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.web.ui 2 0 2014-01-01 21:55:29.777
+!MESSAGE Missing required bundle org.eclipse.wst.css.ui_[1.0.0,1.1.0).
+!SUBENTRY 2 org.eclipse.wst.web.ui 2 0 2014-01-01 21:55:29.777
+!MESSAGE Missing required bundle org.eclipse.wst.html.ui_[1.0.0,1.1.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.777
+!MESSAGE Bundle org.eclipse.wst.ws_1.1.300.v201204181727 [960] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.ws 2 0 2014-01-01 21:55:29.777
+!MESSAGE Missing required bundle org.eclipse.wst.ws.parser_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.wst.ws 2 0 2014-01-01 21:55:29.778
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.778
+!MESSAGE Bundle org.eclipse.wst.ws.explorer_1.0.701.v201303130503 [961] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.ws.explorer 2 0 2014-01-01 21:55:29.778
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.ws.explorer 2 0 2014-01-01 21:55:29.778
+!MESSAGE Missing required bundle org.eclipse.wst.ws.parser_[1.0.100,1.1.0).
+!SUBENTRY 2 org.eclipse.wst.ws.explorer 2 0 2014-01-01 21:55:29.778
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 2 org.eclipse.wst.ws.explorer 2 0 2014-01-01 21:55:29.778
+!MESSAGE Missing required bundle org.eclipse.wst.ws.ui_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.779
+!MESSAGE Bundle org.eclipse.wst.ws.parser_1.0.500.v201210042315 [962] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.ws.parser 2 0 2014-01-01 21:55:29.779
+!MESSAGE Missing required bundle org.eclipse.wst.wsdl_[1.2.0,1.3.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.779
+!MESSAGE Bundle org.eclipse.wst.ws.ui_1.1.200.v201004211805 [964] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.ws.ui 2 0 2014-01-01 21:55:29.779
+!MESSAGE Missing required bundle org.eclipse.wst.ws_[1.0.100,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.779
+!MESSAGE Bundle org.eclipse.wst.wsdl_1.2.300.v201109010430 [965] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.wsdl 2 0 2014-01-01 21:55:29.780
+!MESSAGE Missing required bundle org.apache.xerces_[2.8.0,3.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.780
+!MESSAGE Bundle org.eclipse.wst.wsdl.validation_1.1.600.v201203081939 [966] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.wsdl.validation 2 0 2014-01-01 21:55:29.780
+!MESSAGE Missing required bundle org.apache.xerces_[2.8.0,3.0.0).
+!SUBENTRY 2 org.eclipse.wst.wsdl.validation 2 0 2014-01-01 21:55:29.780
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.780
+!MESSAGE Bundle org.eclipse.wst.xml.core_1.1.801.v201308100603 [967] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xml.core 2 0 2014-01-01 21:55:29.781
+!MESSAGE Missing required bundle org.apache.xerces_[2.9.0,3.0.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.781
+!MESSAGE Bundle org.eclipse.wst.xml.ui_1.1.401.v201308132110 [968] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xml.ui 2 0 2014-01-01 21:55:29.781
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.500,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.781
+!MESSAGE Bundle org.eclipse.wst.xsd.core_1.1.800.v201302131613 [971] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xsd.core 2 0 2014-01-01 21:55:29.781
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.0,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.782
+!MESSAGE Bundle org.eclipse.wst.xsd.ui_1.2.500.v201203081826 [972] was not resolved.
+!SUBENTRY 2 org.eclipse.wst.xsd.ui 2 0 2014-01-01 21:55:29.782
+!MESSAGE Missing required bundle org.eclipse.wst.xml.core_[1.1.300,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.xsd.ui 2 0 2014-01-01 21:55:29.782
+!MESSAGE Missing required bundle org.eclipse.wst.xml.ui_[1.0.400,1.2.0).
+!SUBENTRY 2 org.eclipse.wst.xsd.ui 2 0 2014-01-01 21:55:29.782
+!MESSAGE Missing required bundle org.eclipse.wst.xsd.core_[1.1.300,1.2.0).
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.782
+!MESSAGE Bundle org.sonatype.m2e.buildhelper_0.15.0.201206251206 [1074] was not resolved.
+!SUBENTRY 2 org.sonatype.m2e.buildhelper 2 0 2014-01-01 21:55:29.783
+!MESSAGE Missing required bundle org.eclipse.m2e.jdt_[1.1.0,2.0.0).
+!SUBENTRY 2 org.sonatype.m2e.buildhelper 2 0 2014-01-01 21:55:29.783
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.5))(&(osgi.ee=JavaSE)(version=1.6)))".
+!SUBENTRY 1 org.eclipse.osgi 2 0 2014-01-01 21:55:29.783
+!MESSAGE Bundle org.sonatype.m2e.mavenarchiver_0.15.0.201207090125-signed-20130612210623 [1075] was not resolved.
+!SUBENTRY 2 org.sonatype.m2e.mavenarchiver 2 0 2014-01-01 21:55:29.783
+!MESSAGE Missing required bundle org.eclipse.m2e.jdt_[1.0.0,2.0.0).
+!SUBENTRY 2 org.sonatype.m2e.mavenarchiver 2 0 2014-01-01 21:55:29.784
+!MESSAGE Missing required capability Require-Capability: osgi.ee; filter="(|(&(osgi.ee=JavaSE)(version=1.5))(&(osgi.ee=JavaSE)(version=1.6)))".
+JIT warmup
+STSmany10 warmup average (ms), std. dev. (ms), iterations:2,784456:3,973613:1000
+STSmany10 warmup average (ms), std. dev. (ms), iterations:1,115578:0,478747:1000
+JIT warmup finished
+STSmany10 average (ms), std. dev. (ms), iterations:1,017200:0,367908:5000
+STSmany50 average (ms), std. dev. (ms), iterations:4,574466:0,931006:5000
+STSmany100 average (ms), std. dev. (ms), iterations:10,347638:1,722449:1000
+STSmany250 average (ms), std. dev. (ms), iterations:34,674340:3,595098:1000
+STSmany500 average (ms), std. dev. (ms), iterations:102,225678:5,734964:500
+STSmany750 average (ms), std. dev. (ms), iterations:201,394181:14,824153:500
+STSmany1000 average (ms), std. dev. (ms), iterations:328,244656:16,722796:500
+STSmany2500 average (ms), std. dev. (ms), iterations:1824,057839:56,809005:50
+STSmany5000 average (ms), std. dev. (ms), iterations:6979,075687:49,196202:10
+STSmany7500 average (ms), std. dev. (ms), iterations:15631,328875:141,782801:5
+STSmany10000 average (ms), std. dev. (ms), iterations:27773,964122:478,671324:5
+STSone10 average (ms), std. dev. (ms), iterations:1,042107:0,456134:5000
+STSone50 average (ms), std. dev. (ms), iterations:4,673254:0,962994:5000
+STSone100 average (ms), std. dev. (ms), iterations:10,696274:1,758747:1000
+STSone250 average (ms), std. dev. (ms), iterations:35,519297:3,298797:1000
+STSone500 average (ms), std. dev. (ms), iterations:106,079481:5,063097:500
+STSone750 average (ms), std. dev. (ms), iterations:213,800344:7,118173:500
+STSone1000 average (ms), std. dev. (ms), iterations:353,813372:14,339304:1000
+STSone2500 average (ms), std. dev. (ms), iterations:1938,187457:49,235270:50
+STSone5000 average (ms), std. dev. (ms), iterations:7473,886311:90,697790:10
+STSone7500 average (ms), std. dev. (ms), iterations:16978,597862:318,105462:5
+STSone10000 average (ms), std. dev. (ms), iterations:30165,082413:251,574634:5
