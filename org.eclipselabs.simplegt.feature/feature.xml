@@ -28,6 +28,7 @@
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipselabs.simpleocl" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.emf"/>
       <import plugin="org.eclipse.emf.codegen.ecore"/>
@@ -38,6 +39,7 @@
       <import plugin="org.eclipse.m2m.atl.common" version="3.1.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.core" version="3.7.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.m2m.atl.debug.core" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipselabs.simpleocl.resource.simpleocl" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.expressions"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
@@ -49,10 +51,9 @@
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.junit"/>
-      <import plugin="org.eclipselabs.simpleocl" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipselabs.simpleocl.resource.simpleocl" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipselabs.simpleocl.edit" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.junit"/>
+      <import plugin="org.eclipselabs.simpleocl.resource.simpleocl.ui" version="2.0.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin

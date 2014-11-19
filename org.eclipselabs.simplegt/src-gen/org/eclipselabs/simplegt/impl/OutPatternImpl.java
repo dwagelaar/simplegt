@@ -38,213 +38,204 @@ import org.eclipselabs.simpleocl.impl.LocatedElementImpl;
  */
 public class OutPatternImpl extends LocatedElementImpl implements OutPattern {
 	/**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getElements()
-   * @generated
-   * @ordered
-   */
+	 * @see #getElements()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<OutputElement> elements;
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	protected OutPatternImpl() {
-    super();
-  }
+		super();
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-    return SimplegtPackage.Literals.OUT_PATTERN;
-  }
+		return SimplegtPackage.Literals.OUT_PATTERN;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public Rule getOutputFor() {
-    if (eContainerFeatureID() != SimplegtPackage.OUT_PATTERN__OUTPUT_FOR) return null;
-    return (Rule)eInternalContainer();
-  }
+		if (eContainerFeatureID() != SimplegtPackage.OUT_PATTERN__OUTPUT_FOR) return null;
+		return (Rule)eInternalContainer();
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public NotificationChain basicSetOutputFor(Rule newOutputFor, NotificationChain msgs) {
-    msgs = eBasicSetContainer((InternalEObject)newOutputFor, SimplegtPackage.OUT_PATTERN__OUTPUT_FOR, msgs);
-    return msgs;
-  }
+		msgs = eBasicSetContainer((InternalEObject)newOutputFor, SimplegtPackage.OUT_PATTERN__OUTPUT_FOR, msgs);
+		return msgs;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public void setOutputFor(Rule newOutputFor) {
-    if (newOutputFor != eInternalContainer() || (eContainerFeatureID() != SimplegtPackage.OUT_PATTERN__OUTPUT_FOR && newOutputFor != null))
-    {
-      if (EcoreUtil.isAncestor(this, newOutputFor))
-        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-      NotificationChain msgs = null;
-      if (eInternalContainer() != null)
-        msgs = eBasicRemoveFromContainer(msgs);
-      if (newOutputFor != null)
-        msgs = ((InternalEObject)newOutputFor).eInverseAdd(this, SimplegtPackage.RULE__OUTPUT, Rule.class, msgs);
-      msgs = basicSetOutputFor(newOutputFor, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.OUT_PATTERN__OUTPUT_FOR, newOutputFor, newOutputFor));
-  }
+		if (newOutputFor != eInternalContainer() || (eContainerFeatureID() != SimplegtPackage.OUT_PATTERN__OUTPUT_FOR && newOutputFor != null)) {
+			if (EcoreUtil.isAncestor(this, newOutputFor))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newOutputFor != null)
+				msgs = ((InternalEObject)newOutputFor).eInverseAdd(this, SimplegtPackage.RULE__OUTPUT, Rule.class, msgs);
+			msgs = basicSetOutputFor(newOutputFor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.OUT_PATTERN__OUTPUT_FOR, newOutputFor, newOutputFor));
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public EList<OutputElement> getElements() {
-    if (elements == null)
-    {
-      elements = new EObjectContainmentWithInverseEList<OutputElement>(OutputElement.class, this, SimplegtPackage.OUT_PATTERN__ELEMENTS, SimplegtPackage.OUTPUT_ELEMENT__PATTERN);
-    }
-    return elements;
-  }
+		if (elements == null) {
+			elements = new EObjectContainmentWithInverseEList<OutputElement>(OutputElement.class, this, SimplegtPackage.OUT_PATTERN__ELEMENTS, SimplegtPackage.OUTPUT_ELEMENT__PATTERN);
+		}
+		return elements;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-    switch (featureID)
-    {
-      case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
-        if (eInternalContainer() != null)
-          msgs = eBasicRemoveFromContainer(msgs);
-        return basicSetOutputFor((Rule)otherEnd, msgs);
-      case SimplegtPackage.OUT_PATTERN__ELEMENTS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetOutputFor((Rule)otherEnd, msgs);
+			case SimplegtPackage.OUT_PATTERN__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-    switch (featureID)
-    {
-      case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
-        return basicSetOutputFor(null, msgs);
-      case SimplegtPackage.OUT_PATTERN__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
+				return basicSetOutputFor(null, msgs);
+			case SimplegtPackage.OUT_PATTERN__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-    switch (eContainerFeatureID())
-    {
-      case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
-        return eInternalContainer().eInverseRemove(this, SimplegtPackage.RULE__OUTPUT, Rule.class, msgs);
-    }
-    return super.eBasicRemoveFromContainerFeature(msgs);
-  }
+		switch (eContainerFeatureID()) {
+			case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
+				return eInternalContainer().eInverseRemove(this, SimplegtPackage.RULE__OUTPUT, Rule.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-    switch (featureID)
-    {
-      case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
-        return getOutputFor();
-      case SimplegtPackage.OUT_PATTERN__ELEMENTS:
-        return getElements();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
+				return getOutputFor();
+			case SimplegtPackage.OUT_PATTERN__ELEMENTS:
+				return getElements();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-    switch (featureID)
-    {
-      case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
-        setOutputFor((Rule)newValue);
-        return;
-      case SimplegtPackage.OUT_PATTERN__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends OutputElement>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
+				setOutputFor((Rule)newValue);
+				return;
+			case SimplegtPackage.OUT_PATTERN__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends OutputElement>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-    switch (featureID)
-    {
-      case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
-        setOutputFor((Rule)null);
-        return;
-      case SimplegtPackage.OUT_PATTERN__ELEMENTS:
-        getElements().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
+				setOutputFor((Rule)null);
+				return;
+			case SimplegtPackage.OUT_PATTERN__ELEMENTS:
+				getElements().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-    switch (featureID)
-    {
-      case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
-        return getOutputFor() != null;
-      case SimplegtPackage.OUT_PATTERN__ELEMENTS:
-        return elements != null && !elements.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case SimplegtPackage.OUT_PATTERN__OUTPUT_FOR:
+				return getOutputFor() != null;
+			case SimplegtPackage.OUT_PATTERN__ELEMENTS:
+				return elements != null && !elements.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //OutPatternImpl

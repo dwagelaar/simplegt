@@ -48,547 +48,529 @@ import org.eclipselabs.simpleocl.impl.NamedElementImpl;
  */
 public class RuleImpl extends NamedElementImpl implements Rule {
 	/**
-   * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #isAbstract()
-   * @generated
-   * @ordered
-   */
+	 * @see #isAbstract()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean ABSTRACT_EDEFAULT = false;
 
 	/**
-   * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #isAbstract()
-   * @generated
-   * @ordered
-   */
+	 * @see #isAbstract()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean abstract_ = ABSTRACT_EDEFAULT;
 
 	/**
-   * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getInput()
-   * @generated
-   * @ordered
-   */
+	 * @see #getInput()
+	 * @generated
+	 * @ordered
+	 */
 	protected InPattern input;
 
 	/**
-   * The cached value of the '{@link #getNac() <em>Nac</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getNac() <em>Nac</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getNac()
-   * @generated
-   * @ordered
-   */
+	 * @see #getNac()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<NacPattern> nac;
 
 	/**
-   * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getOutput()
-   * @generated
-   * @ordered
-   */
+	 * @see #getOutput()
+	 * @generated
+	 * @ordered
+	 */
 	protected OutPattern output;
 
 	/**
-   * The cached value of the '{@link #getExtends() <em>Extends</em>}' attribute list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' attribute list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getExtends()
-   * @generated
-   * @ordered
-   */
+	 * @see #getExtends()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<String> extends_;
 
 	/**
-   * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #isUnique()
-   * @generated
-   * @ordered
-   */
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean UNIQUE_EDEFAULT = false;
 
 	/**
-   * The cached value of the '{@link #isUnique() <em>Unique</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #isUnique()
-   * @generated
-   * @ordered
-   */
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean unique = UNIQUE_EDEFAULT;
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	protected RuleImpl() {
-    super();
-  }
+		super();
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-    return SimplegtPackage.Literals.RULE;
-  }
+		return SimplegtPackage.Literals.RULE;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public Module getModule() {
-    if (eContainerFeatureID() != SimplegtPackage.RULE__MODULE) return null;
-    return (Module)eInternalContainer();
-  }
+		if (eContainerFeatureID() != SimplegtPackage.RULE__MODULE) return null;
+		return (Module)eInternalContainer();
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public NotificationChain basicSetModule(Module newModule, NotificationChain msgs) {
-    msgs = eBasicSetContainer((InternalEObject)newModule, SimplegtPackage.RULE__MODULE, msgs);
-    return msgs;
-  }
+		msgs = eBasicSetContainer((InternalEObject)newModule, SimplegtPackage.RULE__MODULE, msgs);
+		return msgs;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public void setModule(Module newModule) {
-    if (newModule != eInternalContainer() || (eContainerFeatureID() != SimplegtPackage.RULE__MODULE && newModule != null))
-    {
-      if (EcoreUtil.isAncestor(this, newModule))
-        throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-      NotificationChain msgs = null;
-      if (eInternalContainer() != null)
-        msgs = eBasicRemoveFromContainer(msgs);
-      if (newModule != null)
-        msgs = ((InternalEObject)newModule).eInverseAdd(this, SimpleoclPackage.MODULE__ELEMENTS, Module.class, msgs);
-      msgs = basicSetModule(newModule, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__MODULE, newModule, newModule));
-  }
+		if (newModule != eInternalContainer() || (eContainerFeatureID() != SimplegtPackage.RULE__MODULE && newModule != null)) {
+			if (EcoreUtil.isAncestor(this, newModule))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newModule != null)
+				msgs = ((InternalEObject)newModule).eInverseAdd(this, SimpleoclPackage.MODULE__ELEMENTS, Module.class, msgs);
+			msgs = basicSetModule(newModule, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__MODULE, newModule, newModule));
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public boolean isAbstract() {
-    return abstract_;
-  }
+		return abstract_;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public void setAbstract(boolean newAbstract) {
-    boolean oldAbstract = abstract_;
-    abstract_ = newAbstract;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__ABSTRACT, oldAbstract, abstract_));
-  }
+		boolean oldAbstract = abstract_;
+		abstract_ = newAbstract;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__ABSTRACT, oldAbstract, abstract_));
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public InPattern getInput() {
-    return input;
-  }
+		return input;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public NotificationChain basicSetInput(InPattern newInput, NotificationChain msgs) {
-    InPattern oldInput = input;
-    input = newInput;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__INPUT, oldInput, newInput);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		InPattern oldInput = input;
+		input = newInput;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__INPUT, oldInput, newInput);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public void setInput(InPattern newInput) {
-    if (newInput != input)
-    {
-      NotificationChain msgs = null;
-      if (input != null)
-        msgs = ((InternalEObject)input).eInverseRemove(this, SimplegtPackage.IN_PATTERN__INPUT_FOR, InPattern.class, msgs);
-      if (newInput != null)
-        msgs = ((InternalEObject)newInput).eInverseAdd(this, SimplegtPackage.IN_PATTERN__INPUT_FOR, InPattern.class, msgs);
-      msgs = basicSetInput(newInput, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__INPUT, newInput, newInput));
-  }
+		if (newInput != input) {
+			NotificationChain msgs = null;
+			if (input != null)
+				msgs = ((InternalEObject)input).eInverseRemove(this, SimplegtPackage.IN_PATTERN__INPUT_FOR, InPattern.class, msgs);
+			if (newInput != null)
+				msgs = ((InternalEObject)newInput).eInverseAdd(this, SimplegtPackage.IN_PATTERN__INPUT_FOR, InPattern.class, msgs);
+			msgs = basicSetInput(newInput, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__INPUT, newInput, newInput));
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public EList<NacPattern> getNac() {
-    if (nac == null)
-    {
-      nac = new EObjectContainmentWithInverseEList<NacPattern>(NacPattern.class, this, SimplegtPackage.RULE__NAC, SimplegtPackage.NAC_PATTERN__NAC_FOR);
-    }
-    return nac;
-  }
+		if (nac == null) {
+			nac = new EObjectContainmentWithInverseEList<NacPattern>(NacPattern.class, this, SimplegtPackage.RULE__NAC, SimplegtPackage.NAC_PATTERN__NAC_FOR);
+		}
+		return nac;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public OutPattern getOutput() {
-    return output;
-  }
+		return output;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public NotificationChain basicSetOutput(OutPattern newOutput, NotificationChain msgs) {
-    OutPattern oldOutput = output;
-    output = newOutput;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__OUTPUT, oldOutput, newOutput);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		OutPattern oldOutput = output;
+		output = newOutput;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__OUTPUT, oldOutput, newOutput);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public void setOutput(OutPattern newOutput) {
-    if (newOutput != output)
-    {
-      NotificationChain msgs = null;
-      if (output != null)
-        msgs = ((InternalEObject)output).eInverseRemove(this, SimplegtPackage.OUT_PATTERN__OUTPUT_FOR, OutPattern.class, msgs);
-      if (newOutput != null)
-        msgs = ((InternalEObject)newOutput).eInverseAdd(this, SimplegtPackage.OUT_PATTERN__OUTPUT_FOR, OutPattern.class, msgs);
-      msgs = basicSetOutput(newOutput, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__OUTPUT, newOutput, newOutput));
-  }
+		if (newOutput != output) {
+			NotificationChain msgs = null;
+			if (output != null)
+				msgs = ((InternalEObject)output).eInverseRemove(this, SimplegtPackage.OUT_PATTERN__OUTPUT_FOR, OutPattern.class, msgs);
+			if (newOutput != null)
+				msgs = ((InternalEObject)newOutput).eInverseAdd(this, SimplegtPackage.OUT_PATTERN__OUTPUT_FOR, OutPattern.class, msgs);
+			msgs = basicSetOutput(newOutput, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__OUTPUT, newOutput, newOutput));
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public EList<String> getExtends() {
-    if (extends_ == null)
-    {
-      extends_ = new EDataTypeUniqueEList<String>(String.class, this, SimplegtPackage.RULE__EXTENDS);
-    }
-    return extends_;
-  }
+		if (extends_ == null) {
+			extends_ = new EDataTypeUniqueEList<String>(String.class, this, SimplegtPackage.RULE__EXTENDS);
+		}
+		return extends_;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public boolean isUnique() {
-    return unique;
-  }
+		return unique;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public void setUnique(boolean newUnique) {
-    boolean oldUnique = unique;
-    unique = newUnique;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__UNIQUE, oldUnique, unique));
-  }
+		boolean oldUnique = unique;
+		unique = newUnique;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__UNIQUE, oldUnique, unique));
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-    switch (featureID)
-    {
-      case SimplegtPackage.RULE__MODULE:
-        if (eInternalContainer() != null)
-          msgs = eBasicRemoveFromContainer(msgs);
-        return basicSetModule((Module)otherEnd, msgs);
-      case SimplegtPackage.RULE__INPUT:
-        if (input != null)
-          msgs = ((InternalEObject)input).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimplegtPackage.RULE__INPUT, null, msgs);
-        return basicSetInput((InPattern)otherEnd, msgs);
-      case SimplegtPackage.RULE__NAC:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getNac()).basicAdd(otherEnd, msgs);
-      case SimplegtPackage.RULE__OUTPUT:
-        if (output != null)
-          msgs = ((InternalEObject)output).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimplegtPackage.RULE__OUTPUT, null, msgs);
-        return basicSetOutput((OutPattern)otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case SimplegtPackage.RULE__MODULE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetModule((Module)otherEnd, msgs);
+			case SimplegtPackage.RULE__INPUT:
+				if (input != null)
+					msgs = ((InternalEObject)input).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimplegtPackage.RULE__INPUT, null, msgs);
+				return basicSetInput((InPattern)otherEnd, msgs);
+			case SimplegtPackage.RULE__NAC:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNac()).basicAdd(otherEnd, msgs);
+			case SimplegtPackage.RULE__OUTPUT:
+				if (output != null)
+					msgs = ((InternalEObject)output).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimplegtPackage.RULE__OUTPUT, null, msgs);
+				return basicSetOutput((OutPattern)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-    switch (featureID)
-    {
-      case SimplegtPackage.RULE__MODULE:
-        return basicSetModule(null, msgs);
-      case SimplegtPackage.RULE__INPUT:
-        return basicSetInput(null, msgs);
-      case SimplegtPackage.RULE__NAC:
-        return ((InternalEList<?>)getNac()).basicRemove(otherEnd, msgs);
-      case SimplegtPackage.RULE__OUTPUT:
-        return basicSetOutput(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case SimplegtPackage.RULE__MODULE:
+				return basicSetModule(null, msgs);
+			case SimplegtPackage.RULE__INPUT:
+				return basicSetInput(null, msgs);
+			case SimplegtPackage.RULE__NAC:
+				return ((InternalEList<?>)getNac()).basicRemove(otherEnd, msgs);
+			case SimplegtPackage.RULE__OUTPUT:
+				return basicSetOutput(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-    switch (eContainerFeatureID())
-    {
-      case SimplegtPackage.RULE__MODULE:
-        return eInternalContainer().eInverseRemove(this, SimpleoclPackage.MODULE__ELEMENTS, Module.class, msgs);
-    }
-    return super.eBasicRemoveFromContainerFeature(msgs);
-  }
+		switch (eContainerFeatureID()) {
+			case SimplegtPackage.RULE__MODULE:
+				return eInternalContainer().eInverseRemove(this, SimpleoclPackage.MODULE__ELEMENTS, Module.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-    switch (featureID)
-    {
-      case SimplegtPackage.RULE__MODULE:
-        return getModule();
-      case SimplegtPackage.RULE__ABSTRACT:
-        return isAbstract();
-      case SimplegtPackage.RULE__INPUT:
-        return getInput();
-      case SimplegtPackage.RULE__NAC:
-        return getNac();
-      case SimplegtPackage.RULE__OUTPUT:
-        return getOutput();
-      case SimplegtPackage.RULE__EXTENDS:
-        return getExtends();
-      case SimplegtPackage.RULE__UNIQUE:
-        return isUnique();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case SimplegtPackage.RULE__MODULE:
+				return getModule();
+			case SimplegtPackage.RULE__ABSTRACT:
+				return isAbstract();
+			case SimplegtPackage.RULE__INPUT:
+				return getInput();
+			case SimplegtPackage.RULE__NAC:
+				return getNac();
+			case SimplegtPackage.RULE__OUTPUT:
+				return getOutput();
+			case SimplegtPackage.RULE__EXTENDS:
+				return getExtends();
+			case SimplegtPackage.RULE__UNIQUE:
+				return isUnique();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-    switch (featureID)
-    {
-      case SimplegtPackage.RULE__MODULE:
-        setModule((Module)newValue);
-        return;
-      case SimplegtPackage.RULE__ABSTRACT:
-        setAbstract((Boolean)newValue);
-        return;
-      case SimplegtPackage.RULE__INPUT:
-        setInput((InPattern)newValue);
-        return;
-      case SimplegtPackage.RULE__NAC:
-        getNac().clear();
-        getNac().addAll((Collection<? extends NacPattern>)newValue);
-        return;
-      case SimplegtPackage.RULE__OUTPUT:
-        setOutput((OutPattern)newValue);
-        return;
-      case SimplegtPackage.RULE__EXTENDS:
-        getExtends().clear();
-        getExtends().addAll((Collection<? extends String>)newValue);
-        return;
-      case SimplegtPackage.RULE__UNIQUE:
-        setUnique((Boolean)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case SimplegtPackage.RULE__MODULE:
+				setModule((Module)newValue);
+				return;
+			case SimplegtPackage.RULE__ABSTRACT:
+				setAbstract((Boolean)newValue);
+				return;
+			case SimplegtPackage.RULE__INPUT:
+				setInput((InPattern)newValue);
+				return;
+			case SimplegtPackage.RULE__NAC:
+				getNac().clear();
+				getNac().addAll((Collection<? extends NacPattern>)newValue);
+				return;
+			case SimplegtPackage.RULE__OUTPUT:
+				setOutput((OutPattern)newValue);
+				return;
+			case SimplegtPackage.RULE__EXTENDS:
+				getExtends().clear();
+				getExtends().addAll((Collection<? extends String>)newValue);
+				return;
+			case SimplegtPackage.RULE__UNIQUE:
+				setUnique((Boolean)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-    switch (featureID)
-    {
-      case SimplegtPackage.RULE__MODULE:
-        setModule((Module)null);
-        return;
-      case SimplegtPackage.RULE__ABSTRACT:
-        setAbstract(ABSTRACT_EDEFAULT);
-        return;
-      case SimplegtPackage.RULE__INPUT:
-        setInput((InPattern)null);
-        return;
-      case SimplegtPackage.RULE__NAC:
-        getNac().clear();
-        return;
-      case SimplegtPackage.RULE__OUTPUT:
-        setOutput((OutPattern)null);
-        return;
-      case SimplegtPackage.RULE__EXTENDS:
-        getExtends().clear();
-        return;
-      case SimplegtPackage.RULE__UNIQUE:
-        setUnique(UNIQUE_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case SimplegtPackage.RULE__MODULE:
+				setModule((Module)null);
+				return;
+			case SimplegtPackage.RULE__ABSTRACT:
+				setAbstract(ABSTRACT_EDEFAULT);
+				return;
+			case SimplegtPackage.RULE__INPUT:
+				setInput((InPattern)null);
+				return;
+			case SimplegtPackage.RULE__NAC:
+				getNac().clear();
+				return;
+			case SimplegtPackage.RULE__OUTPUT:
+				setOutput((OutPattern)null);
+				return;
+			case SimplegtPackage.RULE__EXTENDS:
+				getExtends().clear();
+				return;
+			case SimplegtPackage.RULE__UNIQUE:
+				setUnique(UNIQUE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-    switch (featureID)
-    {
-      case SimplegtPackage.RULE__MODULE:
-        return getModule() != null;
-      case SimplegtPackage.RULE__ABSTRACT:
-        return abstract_ != ABSTRACT_EDEFAULT;
-      case SimplegtPackage.RULE__INPUT:
-        return input != null;
-      case SimplegtPackage.RULE__NAC:
-        return nac != null && !nac.isEmpty();
-      case SimplegtPackage.RULE__OUTPUT:
-        return output != null;
-      case SimplegtPackage.RULE__EXTENDS:
-        return extends_ != null && !extends_.isEmpty();
-      case SimplegtPackage.RULE__UNIQUE:
-        return unique != UNIQUE_EDEFAULT;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case SimplegtPackage.RULE__MODULE:
+				return getModule() != null;
+			case SimplegtPackage.RULE__ABSTRACT:
+				return abstract_ != ABSTRACT_EDEFAULT;
+			case SimplegtPackage.RULE__INPUT:
+				return input != null;
+			case SimplegtPackage.RULE__NAC:
+				return nac != null && !nac.isEmpty();
+			case SimplegtPackage.RULE__OUTPUT:
+				return output != null;
+			case SimplegtPackage.RULE__EXTENDS:
+				return extends_ != null && !extends_.isEmpty();
+			case SimplegtPackage.RULE__UNIQUE:
+				return unique != UNIQUE_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-    if (baseClass == ModuleElement.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case SimplegtPackage.RULE__MODULE: return SimpleoclPackage.MODULE_ELEMENT__MODULE;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
+		if (baseClass == ModuleElement.class) {
+			switch (derivedFeatureID) {
+				case SimplegtPackage.RULE__MODULE: return SimpleoclPackage.MODULE_ELEMENT__MODULE;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-    if (baseClass == ModuleElement.class)
-    {
-      switch (baseFeatureID)
-      {
-        case SimpleoclPackage.MODULE_ELEMENT__MODULE: return SimplegtPackage.RULE__MODULE;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
+		if (baseClass == ModuleElement.class) {
+			switch (baseFeatureID) {
+				case SimpleoclPackage.MODULE_ELEMENT__MODULE: return SimplegtPackage.RULE__MODULE;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (abstract: ");
-    result.append(abstract_);
-    result.append(", extends: ");
-    result.append(extends_);
-    result.append(", unique: ");
-    result.append(unique);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (abstract: ");
+		result.append(abstract_);
+		result.append(", extends: ");
+		result.append(extends_);
+		result.append(", unique: ");
+		result.append(unique);
+		result.append(')');
+		return result.toString();
+	}
 
 } //RuleImpl

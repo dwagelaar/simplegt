@@ -6,7 +6,6 @@
 package org.eclipselabs.simplegt;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipselabs.simpleocl.LocatedElement;
 
 /**
@@ -27,21 +26,21 @@ import org.eclipselabs.simpleocl.LocatedElement;
  */
 public interface InputElementPattern extends LocatedElement {
 	/**
-   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipselabs.simplegt.InputElement}.
-   * It is bidirectional and its opposite is '{@link org.eclipselabs.simplegt.InputElement#getPattern <em>Pattern</em>}'.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipselabs.simplegt.InputElement}.
+	 * It is bidirectional and its opposite is '{@link org.eclipselabs.simplegt.InputElement#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-   * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see org.eclipselabs.simplegt.SimplegtPackage#getInputElementPattern_Elements()
-   * @see org.eclipselabs.simplegt.InputElement#getPattern
-   * @model opposite="pattern" containment="true" required="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see org.eclipselabs.simplegt.SimplegtPackage#getInputElementPattern_Elements()
+	 * @see org.eclipselabs.simplegt.InputElement#getPattern
+	 * @model opposite="pattern" containment="true" required="true"
+	 * @generated
+	 */
 	EList<InputElement> getElements();
 
 } // InputElementPattern

@@ -6,7 +6,6 @@
 package org.eclipselabs.simplegt;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipselabs.simpleocl.OclInstanceModel;
 
 /**
@@ -28,45 +27,45 @@ import org.eclipselabs.simpleocl.OclInstanceModel;
  */
 public interface Module extends org.eclipselabs.simpleocl.Module {
 	/**
-   * Returns the value of the '<em><b>Models</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipselabs.simpleocl.OclInstanceModel}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Models</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipselabs.simpleocl.OclInstanceModel}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Models</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-   * @return the value of the '<em>Models</em>' containment reference list.
-   * @see org.eclipselabs.simplegt.SimplegtPackage#getModule_Models()
-   * @model containment="true" required="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Models</em>' containment reference list.
+	 * @see org.eclipselabs.simplegt.SimplegtPackage#getModule_Models()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
 	EList<OclInstanceModel> getModels();
 
 	/**
-   * Returns the value of the '<em><b>Debug</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Debug</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Debug</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-   * @return the value of the '<em>Debug</em>' attribute.
-   * @see #setDebug(boolean)
-   * @see org.eclipselabs.simplegt.SimplegtPackage#getModule_Debug()
-   * @model required="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Debug</em>' attribute.
+	 * @see #setDebug(boolean)
+	 * @see org.eclipselabs.simplegt.SimplegtPackage#getModule_Debug()
+	 * @model required="true"
+	 * @generated
+	 */
 	boolean isDebug();
 
 	/**
-   * Sets the value of the '{@link org.eclipselabs.simplegt.Module#isDebug <em>Debug</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.eclipselabs.simplegt.Module#isDebug <em>Debug</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Debug</em>' attribute.
-   * @see #isDebug()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Debug</em>' attribute.
+	 * @see #isDebug()
+	 * @generated
+	 */
 	void setDebug(boolean value);
 
 } // Module

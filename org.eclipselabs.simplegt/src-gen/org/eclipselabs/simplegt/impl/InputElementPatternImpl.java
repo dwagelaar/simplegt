@@ -33,140 +33,133 @@ import org.eclipselabs.simpleocl.impl.LocatedElementImpl;
  */
 public abstract class InputElementPatternImpl extends LocatedElementImpl implements InputElementPattern {
 	/**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getElements()
-   * @generated
-   * @ordered
-   */
+	 * @see #getElements()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<InputElement> elements;
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	protected InputElementPatternImpl() {
-    super();
-  }
+		super();
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-    return SimplegtPackage.Literals.INPUT_ELEMENT_PATTERN;
-  }
+		return SimplegtPackage.Literals.INPUT_ELEMENT_PATTERN;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public EList<InputElement> getElements() {
-    if (elements == null)
-    {
-      elements = new EObjectContainmentWithInverseEList<InputElement>(InputElement.class, this, SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS, SimplegtPackage.INPUT_ELEMENT__PATTERN);
-    }
-    return elements;
-  }
+		if (elements == null) {
+			elements = new EObjectContainmentWithInverseEList<InputElement>(InputElement.class, this, SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS, SimplegtPackage.INPUT_ELEMENT__PATTERN);
+		}
+		return elements;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-    switch (featureID)
-    {
-      case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-    switch (featureID)
-    {
-      case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-    switch (featureID)
-    {
-      case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
-        return getElements();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
+				return getElements();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-    switch (featureID)
-    {
-      case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends InputElement>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends InputElement>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-    switch (featureID)
-    {
-      case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
-        getElements().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
+				getElements().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-    switch (featureID)
-    {
-      case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
-        return elements != null && !elements.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case SimplegtPackage.INPUT_ELEMENT_PATTERN__ELEMENTS:
+				return elements != null && !elements.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //InputElementPatternImpl

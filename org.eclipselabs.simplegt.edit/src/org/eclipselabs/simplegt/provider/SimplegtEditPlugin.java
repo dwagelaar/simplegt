@@ -5,7 +5,6 @@ package org.eclipselabs.simplegt.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipselabs.simpleocl.provider.simpleoclEditPlugin;
 
 /**
