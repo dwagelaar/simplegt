@@ -14,8 +14,6 @@ import java.net.URL;
 
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 
-import be.ac.vub.simplegt.resource.simplegt.ui.SimplegtUIPlugin;
-
 /**
  * Wizard for creating new SimpleGT projects.
  * This class is based on:
