@@ -2,7 +2,7 @@
 -- $Id$
 module Test;
 
-metamodel EMFTVM;
+metamodel EMFTVM : 'http://www.eclipse.org/m2m/atl/2011/EMFTVM';
 transform M : EMFTVM;
 
 rule Test {

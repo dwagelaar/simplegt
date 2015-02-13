@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EMFText UI Plugin: SimpleGT
 Bundle-SymbolicName: org.eclipselabs.simplegt.resource.simplegt.ui;singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.0.1.qualifier
 Bundle-Vendor: EclipseLabs
 Require-Bundle: org.eclipse.core.resources,
  org.emftext.access;resolution:=optional,
@@ -25,7 +25,7 @@ Require-Bundle: org.eclipse.core.resources,
  org.emftext.commons.antlr3_4_0,
  org.eclipselabs.simplegt,
  org.eclipse.m2m.atl.debug.core;bundle-version="3.2.0",
- org.eclipselabs.simpleocl.resource.simpleocl.ui;bundle-version="2.0.1"
+ org.eclipselabs.simpleocl.resource.simpleocl.ui;bundle-version="2.0.2"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.simplegt.resource.simplegt.ui,
