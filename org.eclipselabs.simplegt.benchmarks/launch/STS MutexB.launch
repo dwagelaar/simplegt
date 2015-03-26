@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.m2m.atl.emftvm.launcher.EMFTVMTransformation">
-<stringAttribute key="ATL File Name" value="//be.ac.vub.simplegt.benchmarks/transformations/STS2500.atl"/>
+<stringAttribute key="ATL File Name" value="//org.eclipselabs.simplegt.benchmarks/transformations/STS2500.atl"/>
 <booleanAttribute key="Disable JIT compiler" value="false"/>
+<booleanAttribute key="Display Profiling Data" value="false"/>
 <booleanAttribute key="Display Timing Data" value="true"/>
 <mapAttribute key="Inout Model Options">
 <mapEntry key="M" value="allowIntermodelReferences derivedFile"/>
 <mapEntry key="T" value="derivedFile createNewModel allowIntermodelReferences"/>
 </mapAttribute>
 <mapAttribute key="Inout Models">
-<mapEntry key="M" value="platform:/resource/be.ac.vub.simplegt.benchmarks/models/STSMutexBstart.xmi"/>
+<mapEntry key="M" value="platform:/resource/org.eclipselabs.simplegt.benchmarks/models/STSMutexBstart.xmi"/>
 <mapEntry key="T" value="platform:/resource/be.ac.vub.simplegt.benchmarks/models/STS-trace.xmi"/>
 </mapAttribute>
 <mapAttribute key="Inout Models Output Locations">
-<mapEntry key="M" value="platform:/resource/be.ac.vub.simplegt.benchmarks/models/STSMutexB.xmi"/>
-<mapEntry key="T" value="platform:/resource/be.ac.vub.simplegt.benchmarks/models/STSMutexB-trace.xmi"/>
+<mapEntry key="M" value="platform:/resource/org.eclipselabs.simplegt.benchmarks/models/STSMutexB.xmi"/>
+<mapEntry key="T" value="platform:/resource/org.eclipselabs.simplegt.benchmarks/models/STSMutexB-trace.xmi"/>
 </mapAttribute>
 <mapAttribute key="Input Model Options"/>
 <mapAttribute key="Input Models"/>
@@ -23,10 +24,10 @@
 <mapEntry key="TRACE" value="http://www.eclipse.org/m2m/atl/emftvm/2011/Trace"/>
 </mapAttribute>
 <stringAttribute key="Module Name" value="STS2500"/>
-<stringAttribute key="Module Path" value="/be.ac.vub.simplegt.benchmarks/transformations/"/>
+<stringAttribute key="Module Path" value="/org.eclipselabs.simplegt.benchmarks/transformations/"/>
 <mapAttribute key="Output Model Options"/>
 <mapAttribute key="Output Models"/>
 <listAttribute key="Superimpose">
-<listEntry value="//be.ac.vub.simplegt.benchmarks/transformations/STS.asm"/>
+<listEntry value="//org.eclipselabs.simplegt.benchmarks/transformations/STS.asm"/>
 </listAttribute>
 </launchConfiguration>
