@@ -267,8 +267,35 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRule_Unique() {
+	public EAttribute getRule_Default() {
 		return (EAttribute)ruleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRule_Unique() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRule_Lazy() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRule_Single() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -543,7 +570,10 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		createEReference(ruleEClass, RULE__NAC);
 		createEReference(ruleEClass, RULE__OUTPUT);
 		createEAttribute(ruleEClass, RULE__EXTENDS);
+		createEAttribute(ruleEClass, RULE__DEFAULT);
 		createEAttribute(ruleEClass, RULE__UNIQUE);
+		createEAttribute(ruleEClass, RULE__LAZY);
+		createEAttribute(ruleEClass, RULE__SINGLE);
 
 		inputElementPatternEClass = createEClass(INPUT_ELEMENT_PATTERN);
 		createEReference(inputElementPatternEClass, INPUT_ELEMENT_PATTERN__ELEMENTS);
@@ -638,7 +668,10 @@ public class SimplegtPackageImpl extends EPackageImpl implements SimplegtPackage
 		initEReference(getRule_Nac(), this.getNacPattern(), this.getNacPattern_NacFor(), "nac", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRule_Output(), this.getOutPattern(), this.getOutPattern_OutputFor(), "output", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRule_Extends(), theSimpleoclPackage.getString(), "extends", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_Default(), theSimpleoclPackage.getBoolean(), "default", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRule_Unique(), theSimpleoclPackage.getBoolean(), "unique", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_Lazy(), theSimpleoclPackage.getBoolean(), "lazy", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_Single(), theSimpleoclPackage.getBoolean(), "single", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputElementPatternEClass, InputElementPattern.class, "InputElementPattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInputElementPattern_Elements(), this.getInputElement(), this.getInputElement_Pattern(), "elements", null, 1, -1, InputElementPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

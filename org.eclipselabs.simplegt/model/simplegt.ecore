@@ -19,7 +19,12 @@
         containment="true" eOpposite="#//OutPattern/outputFor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extends" upperBound="-1"
         eType="ecore:EDataType platform:/plugin/org.eclipselabs.simpleocl/metamodel/simpleocl.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipselabs.simpleocl/metamodel/simpleocl.ecore#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipselabs.simpleocl/metamodel/simpleocl.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lazy" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipselabs.simpleocl/metamodel/simpleocl.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="single" lowerBound="1"
         eType="ecore:EDataType platform:/plugin/org.eclipselabs.simpleocl/metamodel/simpleocl.ecore#//Boolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputElementPattern" abstract="true"

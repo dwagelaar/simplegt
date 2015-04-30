@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EMFText Parser Plugin: SimpleGT
 Bundle-SymbolicName: org.eclipselabs.simplegt.resource.simplegt;singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.0.2.qualifier
 Bundle-Vendor: EclipseLabs
 Require-Bundle: org.eclipse.core.resources,
  org.eclipse.emf,

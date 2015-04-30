@@ -51,7 +51,10 @@ public class RuleItemProvider
 
 			addAbstractPropertyDescriptor(object);
 			addExtendsPropertyDescriptor(object);
+			addDefaultPropertyDescriptor(object);
 			addUniquePropertyDescriptor(object);
+			addLazyPropertyDescriptor(object);
+			addSinglePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -101,6 +104,28 @@ public class RuleItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Default feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDefaultPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Rule_default_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_default_feature", "_UI_Rule_type"),
+				 SimplegtPackage.Literals.RULE__DEFAULT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Unique feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,6 +139,50 @@ public class RuleItemProvider
 				 getString("_UI_Rule_unique_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_unique_feature", "_UI_Rule_type"),
 				 SimplegtPackage.Literals.RULE__UNIQUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Lazy feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLazyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Rule_lazy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_lazy_feature", "_UI_Rule_type"),
+				 SimplegtPackage.Literals.RULE__LAZY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Single feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSinglePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Rule_single_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_single_feature", "_UI_Rule_type"),
+				 SimplegtPackage.Literals.RULE__SINGLE,
 				 true,
 				 false,
 				 false,
@@ -193,7 +262,10 @@ public class RuleItemProvider
 		switch (notification.getFeatureID(Rule.class)) {
 			case SimplegtPackage.RULE__ABSTRACT:
 			case SimplegtPackage.RULE__EXTENDS:
+			case SimplegtPackage.RULE__DEFAULT:
 			case SimplegtPackage.RULE__UNIQUE:
+			case SimplegtPackage.RULE__LAZY:
+			case SimplegtPackage.RULE__SINGLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SimplegtPackage.RULE__INPUT:

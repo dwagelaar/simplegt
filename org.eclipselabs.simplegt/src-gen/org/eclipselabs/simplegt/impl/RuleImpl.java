@@ -40,7 +40,10 @@ import org.eclipselabs.simpleocl.impl.NamedElementImpl;
  *   <li>{@link org.eclipselabs.simplegt.impl.RuleImpl#getNac <em>Nac</em>}</li>
  *   <li>{@link org.eclipselabs.simplegt.impl.RuleImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipselabs.simplegt.impl.RuleImpl#getExtends <em>Extends</em>}</li>
+ *   <li>{@link org.eclipselabs.simplegt.impl.RuleImpl#isDefault <em>Default</em>}</li>
  *   <li>{@link org.eclipselabs.simplegt.impl.RuleImpl#isUnique <em>Unique</em>}</li>
+ *   <li>{@link org.eclipselabs.simplegt.impl.RuleImpl#isLazy <em>Lazy</em>}</li>
+ *   <li>{@link org.eclipselabs.simplegt.impl.RuleImpl#isSingle <em>Single</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,6 +111,26 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 	protected EList<String> extends_;
 
 	/**
+	 * The default value of the '{@link #isDefault() <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEFAULT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDefault() <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean default_ = DEFAULT_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,6 +149,46 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 	 * @ordered
 	 */
 	protected boolean unique = UNIQUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isLazy() <em>Lazy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLazy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LAZY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isLazy() <em>Lazy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLazy()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean lazy = LAZY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSingle() <em>Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSingle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SINGLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSingle() <em>Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSingle()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean single = SINGLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +386,27 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDefault() {
+		return default_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefault(boolean newDefault) {
+		boolean oldDefault = default_;
+		default_ = newDefault;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__DEFAULT, oldDefault, default_));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isUnique() {
 		return unique;
 	}
@@ -337,6 +421,48 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 		unique = newUnique;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__UNIQUE, oldUnique, unique));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isLazy() {
+		return lazy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLazy(boolean newLazy) {
+		boolean oldLazy = lazy;
+		lazy = newLazy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__LAZY, oldLazy, lazy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSingle() {
+		return single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSingle(boolean newSingle) {
+		boolean oldSingle = single;
+		single = newSingle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplegtPackage.RULE__SINGLE, oldSingle, single));
 	}
 
 	/**
@@ -420,8 +546,14 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 				return getOutput();
 			case SimplegtPackage.RULE__EXTENDS:
 				return getExtends();
+			case SimplegtPackage.RULE__DEFAULT:
+				return isDefault();
 			case SimplegtPackage.RULE__UNIQUE:
 				return isUnique();
+			case SimplegtPackage.RULE__LAZY:
+				return isLazy();
+			case SimplegtPackage.RULE__SINGLE:
+				return isSingle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -455,8 +587,17 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 				getExtends().clear();
 				getExtends().addAll((Collection<? extends String>)newValue);
 				return;
+			case SimplegtPackage.RULE__DEFAULT:
+				setDefault((Boolean)newValue);
+				return;
 			case SimplegtPackage.RULE__UNIQUE:
 				setUnique((Boolean)newValue);
+				return;
+			case SimplegtPackage.RULE__LAZY:
+				setLazy((Boolean)newValue);
+				return;
+			case SimplegtPackage.RULE__SINGLE:
+				setSingle((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -488,8 +629,17 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 			case SimplegtPackage.RULE__EXTENDS:
 				getExtends().clear();
 				return;
+			case SimplegtPackage.RULE__DEFAULT:
+				setDefault(DEFAULT_EDEFAULT);
+				return;
 			case SimplegtPackage.RULE__UNIQUE:
 				setUnique(UNIQUE_EDEFAULT);
+				return;
+			case SimplegtPackage.RULE__LAZY:
+				setLazy(LAZY_EDEFAULT);
+				return;
+			case SimplegtPackage.RULE__SINGLE:
+				setSingle(SINGLE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -515,8 +665,14 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 				return output != null;
 			case SimplegtPackage.RULE__EXTENDS:
 				return extends_ != null && !extends_.isEmpty();
+			case SimplegtPackage.RULE__DEFAULT:
+				return default_ != DEFAULT_EDEFAULT;
 			case SimplegtPackage.RULE__UNIQUE:
 				return unique != UNIQUE_EDEFAULT;
+			case SimplegtPackage.RULE__LAZY:
+				return lazy != LAZY_EDEFAULT;
+			case SimplegtPackage.RULE__SINGLE:
+				return single != SINGLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -567,8 +723,14 @@ public class RuleImpl extends NamedElementImpl implements Rule {
 		result.append(abstract_);
 		result.append(", extends: ");
 		result.append(extends_);
+		result.append(", default: ");
+		result.append(default_);
 		result.append(", unique: ");
 		result.append(unique);
+		result.append(", lazy: ");
+		result.append(lazy);
+		result.append(", single: ");
+		result.append(single);
 		result.append(')');
 		return result.toString();
 	}

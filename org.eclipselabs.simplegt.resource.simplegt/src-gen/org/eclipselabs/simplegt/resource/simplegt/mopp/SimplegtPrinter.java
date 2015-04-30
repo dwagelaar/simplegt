@@ -653,7 +653,7 @@ public class SimplegtPrinter implements org.eclipselabs.simplegt.resource.simple
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(12);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(15);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__NAME));
 		printCountingMap.put("name", temp == null ? 0 : 1);
@@ -669,8 +669,14 @@ public class SimplegtPrinter implements org.eclipselabs.simplegt.resource.simple
 		printCountingMap.put("output", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__EXTENDS));
 		printCountingMap.put("extends", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__DEFAULT));
+		printCountingMap.put("default", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__UNIQUE));
 		printCountingMap.put("unique", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__LAZY));
+		printCountingMap.put("lazy", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__SINGLE));
+		printCountingMap.put("single", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		java.io.StringWriter sWriter = null;
@@ -691,12 +697,33 @@ public class SimplegtPrinter implements org.eclipselabs.simplegt.resource.simple
 			printCountingMap.put("abstract", count - 1);
 		}
 		// DEFINITION PART BEGINS (BooleanTerminal)
+		count = printCountingMap.get("default");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__DEFAULT));
+			if (o != null) {
+			}
+			printCountingMap.put("default", count - 1);
+		}
+		// DEFINITION PART BEGINS (BooleanTerminal)
 		count = printCountingMap.get("unique");
 		if (count > 0) {
 			Object o = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__UNIQUE));
 			if (o != null) {
 			}
 			printCountingMap.put("unique", count - 1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new java.io.StringWriter();
+		out1 = new java.io.PrintWriter(sWriter);
+		printCountingMap1 = new java.util.LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_eclipselabs_simplegt_Rule_0(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
 		}
 		// DEFINITION PART BEGINS (CsString)
 		out.print("rule");
@@ -717,7 +744,7 @@ public class SimplegtPrinter implements org.eclipselabs.simplegt.resource.simple
 		sWriter = new java.io.StringWriter();
 		out1 = new java.io.PrintWriter(sWriter);
 		printCountingMap1 = new java.util.LinkedHashMap<String, Integer>(printCountingMap);
-		print_org_eclipselabs_simplegt_Rule_0(element, localtab, out1, printCountingMap1);
+		print_org_eclipselabs_simplegt_Rule_1(element, localtab, out1, printCountingMap1);
 		if (printCountingMap.equals(printCountingMap1)) {
 			out1.close();
 		} else {
@@ -772,6 +799,40 @@ public class SimplegtPrinter implements org.eclipselabs.simplegt.resource.simple
 	}
 	
 	public void print_org_eclipselabs_simplegt_Rule_0(org.eclipselabs.simplegt.Rule element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
+		int count;
+		int alt = -1;
+		alt = 0;
+		int matches = 		matchCount(printCountingMap, java.util.Arrays.asList(		"single"		));
+		int tempMatchCount;
+		tempMatchCount = 		matchCount(printCountingMap, java.util.Arrays.asList(		"lazy"		));
+		if (tempMatchCount > matches) {
+			alt = 1;
+			matches = tempMatchCount;
+		}
+		switch(alt) {
+			case 1:			{
+				// DEFINITION PART BEGINS (BooleanTerminal)
+				count = printCountingMap.get("lazy");
+				if (count > 0) {
+					Object o = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__LAZY));
+					if (o != null) {
+					}
+					printCountingMap.put("lazy", count - 1);
+				}
+			}
+			break;
+			default:			// DEFINITION PART BEGINS (BooleanTerminal)
+			count = printCountingMap.get("single");
+			if (count > 0) {
+				Object o = element.eGet(element.eClass().getEStructuralFeature(org.eclipselabs.simplegt.SimplegtPackage.RULE__SINGLE));
+				if (o != null) {
+				}
+				printCountingMap.put("single", count - 1);
+			}
+		}
+	}
+	
+	public void print_org_eclipselabs_simplegt_Rule_1(org.eclipselabs.simplegt.Rule element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
 		String localtab = outertab;
 		int count;
 		boolean iterate = true;
@@ -806,7 +867,7 @@ public class SimplegtPrinter implements org.eclipselabs.simplegt.resource.simple
 			sWriter = new java.io.StringWriter();
 			out1 = new java.io.PrintWriter(sWriter);
 			printCountingMap1 = new java.util.LinkedHashMap<String, Integer>(printCountingMap);
-			print_org_eclipselabs_simplegt_Rule_0_0(element, localtab, out1, printCountingMap1);
+			print_org_eclipselabs_simplegt_Rule_1_0(element, localtab, out1, printCountingMap1);
 			if (printCountingMap.equals(printCountingMap1)) {
 				iterate = false;
 				out1.close();
@@ -819,7 +880,7 @@ public class SimplegtPrinter implements org.eclipselabs.simplegt.resource.simple
 		}
 	}
 	
-	public void print_org_eclipselabs_simplegt_Rule_0_0(org.eclipselabs.simplegt.Rule element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
+	public void print_org_eclipselabs_simplegt_Rule_1_0(org.eclipselabs.simplegt.Rule element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
 		int count;
 		// DEFINITION PART BEGINS (CsString)
 		out.print(",");

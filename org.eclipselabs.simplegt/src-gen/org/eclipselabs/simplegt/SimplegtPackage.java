@@ -278,13 +278,40 @@ public interface SimplegtPackage extends EPackage {
 	int RULE__EXTENDS = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__DEFAULT = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Unique</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__UNIQUE = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int RULE__UNIQUE = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Lazy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__LAZY = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Single</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__SINGLE = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
@@ -293,7 +320,7 @@ public interface SimplegtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int RULE_FEATURE_COUNT = SimpleoclPackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.simplegt.impl.InputElementPatternImpl <em>Input Element Pattern</em>}' class.
@@ -1240,6 +1267,17 @@ public interface SimplegtPackage extends EPackage {
 	EAttribute getRule_Extends();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.simplegt.Rule#isDefault <em>Default</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default</em>'.
+	 * @see org.eclipselabs.simplegt.Rule#isDefault()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EAttribute getRule_Default();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipselabs.simplegt.Rule#isUnique <em>Unique</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1249,6 +1287,28 @@ public interface SimplegtPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRule_Unique();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.simplegt.Rule#isLazy <em>Lazy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lazy</em>'.
+	 * @see org.eclipselabs.simplegt.Rule#isLazy()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EAttribute getRule_Lazy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.simplegt.Rule#isSingle <em>Single</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Single</em>'.
+	 * @see org.eclipselabs.simplegt.Rule#isSingle()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EAttribute getRule_Single();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.simplegt.InputElementPattern <em>Input Element Pattern</em>}'.
@@ -1625,12 +1685,36 @@ public interface SimplegtPackage extends EPackage {
 		EAttribute RULE__EXTENDS = eINSTANCE.getRule_Extends();
 
 		/**
+		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE__DEFAULT = eINSTANCE.getRule_Default();
+
+		/**
 		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute RULE__UNIQUE = eINSTANCE.getRule_Unique();
+
+		/**
+		 * The meta object literal for the '<em><b>Lazy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE__LAZY = eINSTANCE.getRule_Lazy();
+
+		/**
+		 * The meta object literal for the '<em><b>Single</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE__SINGLE = eINSTANCE.getRule_Single();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.simplegt.impl.InputElementPatternImpl <em>Input Element Pattern</em>}' class.

@@ -22,7 +22,10 @@ import org.eclipselabs.simpleocl.NamedElement;
  *   <li>{@link org.eclipselabs.simplegt.Rule#getNac <em>Nac</em>}</li>
  *   <li>{@link org.eclipselabs.simplegt.Rule#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipselabs.simplegt.Rule#getExtends <em>Extends</em>}</li>
+ *   <li>{@link org.eclipselabs.simplegt.Rule#isDefault <em>Default</em>}</li>
  *   <li>{@link org.eclipselabs.simplegt.Rule#isUnique <em>Unique</em>}</li>
+ *   <li>{@link org.eclipselabs.simplegt.Rule#isLazy <em>Lazy</em>}</li>
+ *   <li>{@link org.eclipselabs.simplegt.Rule#isSingle <em>Single</em>}</li>
  * </ul>
  * </p>
  *
@@ -148,6 +151,32 @@ public interface Rule extends NamedElement, ModuleElement {
 	EList<String> getExtends();
 
 	/**
+	 * Returns the value of the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default</em>' attribute.
+	 * @see #setDefault(boolean)
+	 * @see org.eclipselabs.simplegt.SimplegtPackage#getRule_Default()
+	 * @model dataType="org.eclipselabs.simpleocl.Boolean" required="true"
+	 * @generated
+	 */
+	boolean isDefault();
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.simplegt.Rule#isDefault <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default</em>' attribute.
+	 * @see #isDefault()
+	 * @generated
+	 */
+	void setDefault(boolean value);
+
+	/**
 	 * Returns the value of the '<em><b>Unique</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -172,5 +201,57 @@ public interface Rule extends NamedElement, ModuleElement {
 	 * @generated
 	 */
 	void setUnique(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Lazy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Lazy</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Lazy</em>' attribute.
+	 * @see #setLazy(boolean)
+	 * @see org.eclipselabs.simplegt.SimplegtPackage#getRule_Lazy()
+	 * @model dataType="org.eclipselabs.simpleocl.Boolean" required="true"
+	 * @generated
+	 */
+	boolean isLazy();
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.simplegt.Rule#isLazy <em>Lazy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Lazy</em>' attribute.
+	 * @see #isLazy()
+	 * @generated
+	 */
+	void setLazy(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Single</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Single</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Single</em>' attribute.
+	 * @see #setSingle(boolean)
+	 * @see org.eclipselabs.simplegt.SimplegtPackage#getRule_Single()
+	 * @model dataType="org.eclipselabs.simpleocl.Boolean" required="true"
+	 * @generated
+	 */
+	boolean isSingle();
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.simplegt.Rule#isSingle <em>Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Single</em>' attribute.
+	 * @see #isSingle()
+	 * @generated
+	 */
+	void setSingle(boolean value);
 
 } // Rule

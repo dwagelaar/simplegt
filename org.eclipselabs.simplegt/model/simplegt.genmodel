@@ -21,7 +21,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Rule/nac"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//Rule/output"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Rule/extends"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Rule/default"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Rule/unique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Rule/lazy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplegt.ecore#//Rule/single"/>
     </genClasses>
     <genClasses image="false" ecoreClass="simplegt.ecore#//InputElementPattern">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplegt.ecore#//InputElementPattern/elements"/>

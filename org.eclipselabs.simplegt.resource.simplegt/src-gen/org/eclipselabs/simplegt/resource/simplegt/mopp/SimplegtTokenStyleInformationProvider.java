@@ -173,6 +173,15 @@ public class SimplegtTokenStyleInformationProvider {
 		if ("transform".equals(tokenName)) {
 			return new org.eclipselabs.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
+		if ("default".equals(tokenName)) {
+			return new org.eclipselabs.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
+		if ("single".equals(tokenName)) {
+			return new org.eclipselabs.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
+		if ("lazy".equals(tokenName)) {
+			return new org.eclipselabs.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
 		if ("rule".equals(tokenName)) {
 			return new org.eclipselabs.simplegt.resource.simplegt.mopp.SimplegtTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}

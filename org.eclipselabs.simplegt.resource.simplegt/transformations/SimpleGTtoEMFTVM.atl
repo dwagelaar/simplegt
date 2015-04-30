@@ -319,10 +319,17 @@ rule Rule {
 	to t : EMFTVM!Rule (
 		name <- s.name,
 		"abstract" <- s."abstract",
-		default <- false,
+		default <- s.default,
 		"unique" <- s."unique",
 		distinctElements <- true,
-		mode <- #automaticRecursive,
+		mode <-
+			if s."lazy" then
+				#manual
+			else if s.single then
+				#automaticSingle
+			else
+				#automaticRecursive
+			endif endif,
 		superRules <- s."extends",
 		inputElements <- s.inputElements,
 		outputElements <- s.newOutputElements,
