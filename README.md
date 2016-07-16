@@ -38,7 +38,7 @@ SimpleGT/EMFTVM performance is quite good compared to other graph transformation
 ## Installation
 To download and install the SimpleGT Eclipse plugin, install it from the Eclipse update site:
 
-<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=609069" class="drag" title="Drag to your running Eclipse workspace to install SimpleGT"><img class="img-responsive" src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse workspace to install SimpleGT" /></a>
+<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=609069" class="drag" title="Drag to your running Eclipse workspace to install SimpleGT"><img class="img-responsive" src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse workspace to install SimpleGT" /></a> or https://raw.githubusercontent.com/dwagelaar/simplegt/master/org.eclipselabs.simplegt.updatesite/
 
 ## Running SimpleGT/EMFTVM modules
 EMFTVM includes a separate launch configuration dialog that looks very much like ATL's launch configuration dialog. It can be found via "Run -> Run Configurations...".
