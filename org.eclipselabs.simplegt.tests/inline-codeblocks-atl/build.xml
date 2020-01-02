@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="be.ac.vub.simplegt.tests/inline-codeblocks-atl" default="all">
+<project name="org.eclipselabs.simplegt.tests/inline-codeblocks-atl" default="all">
 
 	<target name="all" depends="saveModels-xmi"/>
 	
 	<target name="loadModels">
-		<emftvm.loadModel name="InlineCodeblocks" wspath="be.ac.vub.simplegt.tests/test-data/InlineCodeblocks.simplegt"/>
+		<emftvm.loadModel name="InlineCodeblocks" wspath="org.eclipselabs.simplegt.tests/test-data/InlineCodeblocks.simplegt"/>
 		<emftvm.loadMetamodel name="SimpleGT" uri="http://soft.vub.ac.be/simplegt/2011/SimpleGT"/>
 		<emftvm.loadMetamodel name="OCL" uri="http://soft.vub.ac.be/simpleocl/2011/SimpleOCL"/>
 		<emftvm.loadMetamodel name="Problem" uri="http://soft.vub.ac.be/simpleocl/2011/Problem"/>
@@ -12,7 +12,7 @@
 
 	<target name="compile" depends="loadModels">
 		<emftvm.run 
-				modulepath="platform:/plugin/be.ac.vub.simplegt.resource.simplegt/transformations/,platform:/plugin/be.ac.vub.simpleocl.resource.simpleocl/transformations/" 
+				modulepath="platform:/plugin/org.eclipselabs.simplegt.resource.simplegt/transformations/,platform:/plugin/org.eclipselabs.simpleocl.resource.simpleocl/transformations/" 
 				module="SimpleGTtoEMFTVM">
 			<metamodel name="SimpleGT"/>
 			<metamodel name="OCL"/>
@@ -28,7 +28,7 @@
 	</target>
 
 	<target name="inline" depends="saveCompiledModel">
-		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.resource.simplegt/transformations/" module="InlineCodeblocks">
+		<emftvm.run modulepath="platform:/resource/org.eclipselabs.simplegt.resource.simplegt/transformations/" module="InlineCodeblocks">
 			<inputmodel name="InlineCodeblocks-OUT" as="IN"/>
 			<outputmodel name="InlineCodeblocks-Inlined" as="OUT" wspath="${ant.project.name}/InlineCodeblocks.emftvm"/>
 			<outputmodel name="InlineCodeblocks-match" as="match" wspath="${ant.project.name}/InlineCodeblocks-match.trace"/>
@@ -43,7 +43,7 @@
 	</target>
 
 	<target name="copy-xmi" depends="saveInlinedModels">
-		<emftvm.run modulepath="platform:/resource/be.ac.vub.simplegt.resource.simplegt/transformations/" module="EMFTVMCopy">
+		<emftvm.run modulepath="platform:/resource/org.eclipselabs.simplegt.resource.simplegt/transformations/" module="EMFTVMCopy">
 			<inputmodel name="InlineCodeblocks-Inlined" as="IN"/>
 			<outputmodel name="InlineCodeblocks-XMI" as="OUT" wspath="${ant.project.name}/InlineCodeblocks.emftvm.xmi"/>
 		</emftvm.run>

@@ -64,7 +64,7 @@ public class SimplegtOutlinePageTreeViewerComparator extends org.eclipse.jface.v
 		return packageID;
 	}
 	
-	public java.util.Comparator<?> getComparator() {
+	public java.util.Comparator<? super String> getComparator() {
 		return this.comparator;
 	}
 	

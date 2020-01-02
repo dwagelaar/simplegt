@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipselabs.simplegt.edit;singleton:=true
-Bundle-Version: 2.0.2.qualifier
+Bundle-Version: 2.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipselabs.simplegt.provider.SimplegtEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipselabs.simplegt.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipselabs.simplegt;visibility:=reexport,
@@ -15,3 +15,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipselabs.simpleocl;visibility:=reexport,
  org.eclipselabs.simpleocl.edit;bundle-version="2.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: org.eclipselabs.simplegt.edit

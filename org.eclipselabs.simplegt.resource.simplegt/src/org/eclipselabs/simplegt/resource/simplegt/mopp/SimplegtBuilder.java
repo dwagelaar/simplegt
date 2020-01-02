@@ -25,7 +25,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnumLiteral;
@@ -42,16 +42,11 @@ import org.eclipse.m2m.atl.emftvm.ExecEnv;
 import org.eclipse.m2m.atl.emftvm.Metamodel;
 import org.eclipse.m2m.atl.emftvm.Model;
 import org.eclipse.m2m.atl.emftvm.util.DefaultModuleResolver;
-
 import org.eclipselabs.simplegt.SimplegtPackage;
-
 import org.eclipselabs.simplegt.resource.simplegt.ISimplegtProblem;
 import org.eclipselabs.simplegt.resource.simplegt.ISimplegtTextDiagnostic;
 import org.eclipselabs.simplegt.resource.simplegt.SimplegtEProblemSeverity;
 import org.eclipselabs.simplegt.resource.simplegt.SimplegtEProblemType;
-import org.eclipselabs.simplegt.resource.simplegt.mopp.SimplegtPlugin;
-import org.eclipselabs.simplegt.resource.simplegt.mopp.SimplegtProblem;
-import org.eclipselabs.simplegt.resource.simplegt.mopp.SimplegtResource;
 import org.eclipselabs.simpleocl.SimpleoclPackage;
 import org.eclipselabs.simpleocl.resource.simpleocl.mopp.SimpleoclPlugin;
 
@@ -167,7 +162,7 @@ public class SimplegtBuilder implements org.eclipselabs.simplegt.resource.simple
 					if (ri.getURI().isPlatformResource()) {
 						final IPath riPath = new Path(ri.getURI().toPlatformString(true));
 						final IFile riFile = ResourcesPlugin.getWorkspace().getRoot().getFile(riPath);
-						riFile.setDerived(true, new SubProgressMonitor(monitor, 0));
+						riFile.setDerived(true, SubMonitor.convert(monitor, "Main Task", 0));
 					}
 				}
 			}
