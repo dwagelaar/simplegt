@@ -3,11 +3,11 @@
 <repository name='&quot;SimpleOCL Update Site&quot;'
     type='org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository' version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1381353097210'/>
+    <property name='p2.timestamp' value='1577975438047'/>
   </properties>
   <children size='3'>
-    <child location='https://hudson.eclipse.org/hudson/job/m2m-atl-master/lastSuccessfulBuild/artifact/releng/org.eclipse.m2m.atl.update/target/repository/'/>
-    <child location='http://simpleocl.eclipselabs.org.codespot.com/git.updatesite'/>
+    <child location='https://download.eclipse.org/mmt/atl/updates/releases'/>
+    <child location='https://raw.githubusercontent.com/dwagelaar/simpleocl/master/org.eclipselabs.simpleocl.updatesite'/>
     <child location='simplegt'/>
   </children>
 </repository>
