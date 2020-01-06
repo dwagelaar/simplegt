@@ -1,5 +1,5 @@
 # SimpleGT
-SimpleGT is a minimal [graph transformation](http://www.gratra.org/) language. SimpleGT is built on top of the [Eclipse Modeling Framework (EMF)](https://www.eclipse.org/modeling/emf/), [EMFText](https://github.com/DevBoost/EMFText), and [SimpleOCL](https://github.com/dwagelaar/simpleocl), and is intended as a proof-of-concept transformation language for the [EMF Transformation Virtual Machine (EMFTVM)](https://wiki.eclipse.org/ATL/EMFTVM).
+SimpleGT is a minimal [graph transformation](https://en.wikipedia.org/wiki/Graph_rewriting) language. SimpleGT is built on top of the [Eclipse Modeling Framework (EMF)](https://www.eclipse.org/modeling/emf/), [EMFText](https://github.com/DevBoost/EMFText), and [SimpleOCL](https://github.com/dwagelaar/simpleocl), and is intended as a proof-of-concept transformation language for the [EMF Transformation Virtual Machine (EMFTVM)](https://wiki.eclipse.org/ATL/EMFTVM).
 
 Below you can find an example of SimpleGT code:
 
