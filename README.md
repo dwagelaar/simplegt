@@ -25,11 +25,11 @@ rule DeleteN1 extends N1 {
 }
 ```
 
-This code transforms a model "g" that conform to the "Graph" metamodel. It first deletes all incoming edges to all nodes named "n1", and then deletes all nodes named "n1". For detailed examples, check out the [TTC 2011 Hello World](http://soft.vub.ac.be/viewvc/TTC2011/) Eclipse project from Subversion:
+This code transforms a model "g" that conform to the "Graph" metamodel. It first deletes all incoming edges to all nodes named "n1", and then deletes all nodes named "n1". For detailed examples, clone the [TTC 2011 Hello World](https://github.com/dwagelaar/TTC2011) Eclipse project from Github:
 
-```svn co http://soft.vub.ac.be/svn-pub/TTC2011/```
+```git clone https://github.com/dwagelaar/TTC2011```
 
-Some more background on the included transformations can be found in the [TTC 2011 hello world assignment](http://is.ieis.tue.nl/staff/pvgorp/events/TTC2011/cases/ttc2011_submission_3.pdf) and the [README.txt](http://soft.vub.ac.be/svn-pub/TTC2011/README.txt) file included in the above Eclipse project folder.
+Some more background on the included transformations can be found in the [TTC 2011 hello world assignment](http://is.ieis.tue.nl/staff/pvgorp/events/TTC2011/cases/ttc2011_submission_3.pdf) and the [README.txt](https://github.com/dwagelaar/TTC2011) file included in the above Eclipse project folder.
 
 **Update:** SimpleGT now also supports **unique** rules. Unique rules only match once against each distinct input pattern, preventing infinite applications of the same rule to the same pattern. **(16/02/2012)**
 
